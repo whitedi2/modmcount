@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="25">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="Дата" id="1">
+					<DataPath>Запись.Period</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Автор" id="13">
+					<DataPath>Запись.Автор</DataPath>
+					<ContextMenu name="АвторКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="15"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="Группа3" id="32">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<Page name="Группа4" id="34">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="35"/>
+					<ChildItems>
+						<InputField name="Релиз" id="43">
+							<DataPath>Запись.Релиз</DataPath>
+							<ContextMenu name="РелизКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="РелизРасширеннаяПодсказка" id="45"/>
+						</InputField>
+						<InputField name="Подсистема" id="16">
+							<DataPath>Запись.Подсистема</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="ПодсистемаКонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="ПодсистемаРасширеннаяПодсказка" id="18"/>
+							<Events>
+								<Event name="StartChoice">ПодсистемаНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбъектМетаданных" id="7">
+							<DataPath>Запись.ОбъектМетаданных</DataPath>
+							<ChoiceButton>true</ChoiceButton>
+							<ContextMenu name="ОбъектМетаданныхКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ОбъектМетаданныхРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="StartChoice">ОбъектМетаданныхНачалоВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ОбращениеВТП" id="10">
+							<DataPath>Запись.ОбращениеВТП</DataPath>
+							<ContextMenu name="ОбращениеВТПКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ОбращениеВТПРасширеннаяПодсказка" id="12"/>
+						</InputField>
+						<UsualGroup name="Группа2" id="27">
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="28"/>
+							<ChildItems>
+								<CheckBoxField name="ВстроеноВРабочуюБазу" id="22">
+									<DataPath>Запись.ВстроеноВРабочуюБазу</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ВстроеноВРабочуюБазуКонтекстноеМеню" id="23"/>
+									<ExtendedTooltip name="ВстроеноВРабочуюБазуРасширеннаяПодсказка" id="24"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="Изменение" id="4">
+							<DataPath>Запись.Изменение</DataPath>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ИзменениеКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="ИзменениеРасширеннаяПодсказка" id="6"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="Группа5" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подробнее...</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<CommandBar name="Группа6" id="38">
+							<CommandSource>Item.Содержание</CommandSource>
+							<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="39"/>
+						</CommandBar>
+						<FormattedDocumentField name="Содержание" id="29">
+							<DataPath>Содержание</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="СодержаниеКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="31"/>
+						</FormattedDocumentField>
+						<CheckBoxField name="ЕстьФорматируемыйДокумент" id="40">
+							<DataPath>Запись.ЕстьФорматируемыйДокумент</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+								<xr:Value name="15d2388e-eaea-4e9a-9ec8-1fe70acbc96f">true</xr:Value>
+								<xr:Value name="7d38c762-52d4-43a5-bb96-b91e8ab07b08">true</xr:Value>
+							</UserVisible>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ЕстьФорматируемыйДокументКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ЕстьФорматируемыйДокументРасширеннаяПодсказка" id="42"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ИзмененияВ1С</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СписокПодсистем" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список подсистем</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Содержание" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Содержание</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:fd="http://v8.1c.ru/8.2/data/formatted-document">fd:FormattedDocument</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

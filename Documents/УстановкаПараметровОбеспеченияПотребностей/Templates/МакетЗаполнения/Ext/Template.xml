@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НормаПотребления</dataPath>
+			<field>НормаПотребления</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособОбеспечения</dataPath>
+			<field>СпособОбеспечения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Упаковка</dataPath>
+			<field>Упаковка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокИсполнения</dataPath>
+			<field>СрокИсполнения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МетодОбеспечения</dataPath>
+			<field>МетодОбеспечения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МинимальныйЗапас</dataPath>
+			<field>МинимальныйЗапас</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МаксимальныйЗапас</dataPath>
+			<field>МаксимальныйЗапас</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Предприятие</dataPath>
+			<field>Предприятие</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НовыйАссортимент</dataPath>
+			<field>НовыйАссортимент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый ассортимент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение1</dataPath>
+			<field>Подразделение1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Предприятие,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Подразделение,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Склад,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.МетодОбеспечения,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.СпособОбеспечения,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.НормаПотребления,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.МинимальныйЗапас,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.МаксимальныйЗапас,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Упаковка,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.СрокИсполнения,
+	ВЫБОР
+		КОГДА ПараметрыОбеспеченияПотребностиСрезПоследних.Номенклатура ЕСТЬ NULL 
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК НовыйАссортимент,
+	АссортиментнаяМатрицаСрезПоследних.Номенклатура,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Подразделение КАК Подразделение1
+ИЗ
+	РегистрСведений.АссортиментнаяМатрица.СрезПоследних(
+			,
+			Предприятие = &amp;Предприятие
+				И (&amp;Подразделение = ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка)
+					ИЛИ Подразделение В ИЕРАРХИИ (&amp;Подразделение))) КАК АссортиментнаяМатрицаСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ПараметрыОбеспеченияПотребности.СрезПоследних(
+				,
+				Предприятие = &amp;Предприятие
+					И (&amp;Подразделение = ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка)
+						ИЛИ Подразделение В ИЕРАРХИИ (&amp;Подразделение))
+					И (&amp;Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка)
+						ИЛИ Склад = &amp;Склад)) КАК ПараметрыОбеспеченияПотребностиСрезПоследних
+		ПО АссортиментнаяМатрицаСрезПоследних.Номенклатура = ПараметрыОбеспеченияПотребностиСрезПоследних.Номенклатура
+			И АссортиментнаяМатрицаСрезПоследних.Предприятие = ПараметрыОбеспеченияПотребностиСрезПоследних.Предприятие
+			И АссортиментнаяМатрицаСрезПоследних.Подразделение = ПараметрыОбеспеченияПотребностиСрезПоследних.Подразделение
+
+СГРУППИРОВАТЬ ПО
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Предприятие,
+	АссортиментнаяМатрицаСрезПоследних.Номенклатура,
+	ВЫБОР
+		КОГДА ПараметрыОбеспеченияПотребностиСрезПоследних.Номенклатура ЕСТЬ NULL 
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Подразделение,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Упаковка,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.СпособОбеспечения,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Склад,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.МетодОбеспечения,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.НормаПотребления,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.МинимальныйЗапас,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.МаксимальныйЗапас,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.СрокИсполнения,
+	ПараметрыОбеспеченияПотребностиСрезПоследних.Подразделение</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Подразделение</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Подразделение</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтруктураПредприятия</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Предприятие</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Предприятие</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Предприятия</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Склад</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Склад</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МаксимальныйЗапас</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МетодОбеспечения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>МинимальныйЗапас</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НормаПотребления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СпособОбеспечения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокИсполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Упаковка</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">НовыйАссортимент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

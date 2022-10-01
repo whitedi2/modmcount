@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Пользователь" id="1">
+			<DataPath>Запись.Пользователь</DataPath>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ТипДокумента" id="4">
+			<DataPath>Запись.ТипДокумента</DataPath>
+			<ListChoiceMode>true</ListChoiceMode>
+			<TextEdit>false</TextEdit>
+			<ContextMenu name="ТипДокументаКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ТипДокументаРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">ТипДокументаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="ПодтипДокумента" id="31">
+			<DataPath>Запись.ПодтипДокумента</DataPath>
+			<ListChoiceMode>true</ListChoiceMode>
+			<InputHint>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>&lt;Все подтипы&gt;</v8:content>
+				</v8:item>
+			</InputHint>
+			<ContextMenu name="ПодтипДокументаКонтекстноеМеню" id="32"/>
+			<ExtendedTooltip name="ПодтипДокументаРасширеннаяПодсказка" id="33"/>
+			<Events>
+				<Event name="StartChoice">ПодтипДокументаНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<CheckBoxField name="ВсеДокументы" id="16">
+			<DataPath>Запись.ВсеДокументы</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ВсеДокументыКонтекстноеМеню" id="17"/>
+			<ExtendedTooltip name="ВсеДокументыРасширеннаяПодсказка" id="18"/>
+			<Events>
+				<Event name="OnChange">ВсеДокументыПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<CheckBoxField name="Авторство" id="7">
+			<DataPath>Запись.Авторство</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="АвторствоКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="АвторствоРасширеннаяПодсказка" id="9"/>
+		</CheckBoxField>
+		<CheckBoxField name="Согласование" id="10">
+			<DataPath>Запись.Согласование</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="СогласованиеКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="СогласованиеРасширеннаяПодсказка" id="12"/>
+		</CheckBoxField>
+		<CheckBoxField name="Исполнение" id="13">
+			<DataPath>Запись.Исполнение</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИсполнениеКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="ИсполнениеРасширеннаяПодсказка" id="15"/>
+		</CheckBoxField>
+		<CheckBoxField name="Ознакомление" id="19">
+			<DataPath>Запись.Ознакомление</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОзнакомлениеКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ОзнакомлениеРасширеннаяПодсказка" id="21"/>
+		</CheckBoxField>
+		<CheckBoxField name="Предприятия" id="22">
+			<DataPath>Запись.Предприятия</DataPath>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПредприятияКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ПредприятияРасширеннаяПодсказка" id="24"/>
+		</CheckBoxField>
+		<InputField name="Комментарий" id="25">
+			<DataPath>Запись.Комментарий</DataPath>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="27"/>
+		</InputField>
+		<InputField name="ОбращениеВТП" id="28">
+			<DataPath>Запись.ОбращениеВТП</DataPath>
+			<ContextMenu name="ОбращениеВТПКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="ОбращениеВТПРасширеннаяПодсказка" id="30"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.Д_ДоступностьДокументовДокументооборота</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

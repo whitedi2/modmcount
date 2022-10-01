@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Запись.Period</DataPath>
+			<Visible>false</Visible>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ИнициаторРабот" id="31">
+			<DataPath>Запись.ИнициаторРабот</DataPath>
+			<ContextMenu name="ИнициаторРаботКонтекстноеМеню" id="32"/>
+			<ExtendedTooltip name="ИнициаторРаботРасширеннаяПодсказка" id="33"/>
+		</InputField>
+		<InputField name="Предмет" id="4">
+			<DataPath>Запись.Предмет</DataPath>
+			<ContextMenu name="ПредметКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ПредметРасширеннаяПодсказка" id="6"/>
+			<Events>
+				<Event name="OnChange">ПредметПриИзменении</Event>
+			</Events>
+		</InputField>
+		<RadioButtonField name="ИсточникОбращения" id="34">
+			<DataPath>Запись.ИсточникОбращения</DataPath>
+			<UserVisible>
+				<xr:Common>false</xr:Common>
+			</UserVisible>
+			<TitleLocation>None</TitleLocation>
+			<RadioButtonType>Tumbler</RadioButtonType>
+			<EqualColumnsWidth>true</EqualColumnsWidth>
+			<ChoiceList>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">Обращение в 1С</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">По телефону</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">По скайп</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">Чат 1С</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">e-mail</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">Разговор</Value>
+					</xr:Value>
+				</xr:Item>
+				<xr:Item>
+					<xr:Presentation/>
+					<xr:CheckState>0</xr:CheckState>
+					<xr:Value xsi:type="FormChoiceListDesTimeValue">
+						<Presentation/>
+						<Value xsi:type="xs:string">Прочее</Value>
+					</xr:Value>
+				</xr:Item>
+			</ChoiceList>
+			<ContextMenu name="ИсточникОбращенияКонтекстноеМеню" id="35"/>
+			<ExtendedTooltip name="ИсточникОбращенияРасширеннаяПодсказка" id="36"/>
+		</RadioButtonField>
+		<InputField name="РазделПрограммы" id="13">
+			<DataPath>Запись.РазделПрограммы</DataPath>
+			<ListChoiceMode>true</ListChoiceMode>
+			<ContextMenu name="РазделПрограммыКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="РазделПрограммыРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="Проект" id="37">
+			<DataPath>Запись.Проект</DataPath>
+			<ContextMenu name="ПроектКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="ПроектРасширеннаяПодсказка" id="39"/>
+		</InputField>
+		<InputField name="ОбъектМетаданных" id="7">
+			<DataPath>Запись.ОбъектМетаданных</DataPath>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="ОбъектМетаданныхКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ОбъектМетаданныхРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="StartChoice">ОбъектМетаданныхНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="СрокОкончанияРабот" id="28">
+			<DataPath>Запись.СрокОкончанияРабот</DataPath>
+			<ContextMenu name="СрокОкончанияРаботКонтекстноеМеню" id="29"/>
+			<ExtendedTooltip name="СрокОкончанияРаботРасширеннаяПодсказка" id="30"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="40">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<InputField name="ДатаНачалаРабот" id="16">
+					<DataPath>Запись.ДатаНачалаРабот</DataPath>
+					<ContextMenu name="ДатаНачалаРаботКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаНачалаРаботРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<InputField name="ДатаОкончанияРабот" id="19">
+					<DataPath>Запись.ДатаОкончанияРабот</DataPath>
+					<ContextMenu name="ДатаОкончанияРаботКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="ДатаОкончанияРаботРасширеннаяПодсказка" id="21"/>
+				</InputField>
+				<CheckBoxField name="Завершено" id="42">
+					<DataPath>Запись.Завершено</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗавершеноКонтекстноеМеню" id="43"/>
+					<ExtendedTooltip name="ЗавершеноРасширеннаяПодсказка" id="44"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Заголовок" id="22">
+			<DataPath>Запись.Заголовок</DataPath>
+			<Height>1</Height>
+			<ContextMenu name="ЗаголовокКонтекстноеМеню" id="23"/>
+			<ExtendedTooltip name="ЗаголовокРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<InputField name="Содержание" id="25">
+			<DataPath>Запись.Содержание</DataPath>
+			<ContextMenu name="СодержаниеКонтекстноеМеню" id="26"/>
+			<ExtendedTooltip name="СодержаниеРасширеннаяПодсказка" id="27"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.сабХронометраж</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

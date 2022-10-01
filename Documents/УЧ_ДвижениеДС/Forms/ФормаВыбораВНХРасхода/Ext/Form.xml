@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Укажите ВНХ расход для связи с поступлением</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>Choose</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыбрать" id="49">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.Выбрать</CommandName>
+				<ExtendedTooltip name="ФормаВыбратьExtendedTooltip" id="55"/>
+			</Button>
+			<Button name="ФормаНайти" id="50">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Find</CommandName>
+				<ExtendedTooltip name="ФормаНайтиExtendedTooltip" id="56"/>
+			</Button>
+			<Button name="ФормаОтменитьПоиск" id="51">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CancelSearch</CommandName>
+				<ExtendedTooltip name="ФормаОтменитьПоискExtendedTooltip" id="57"/>
+			</Button>
+			<Button name="ФормаСправка" id="54">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="58"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<CommandBarLocation>None</CommandBarLocation>
+			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="59"/>
+			<SearchStringAddition name="СписокSearchString" id="60">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокSearchStringContextMenu" id="61"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="62"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="63">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокViewStatusContextMenu" id="64"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="65"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="66">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокSearchControlContextMenu" id="67"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="68"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
+			<ChildItems>
+				<ColumnGroup name="Группа2" id="52">
+					<ExtendedTooltip name="Группа2ExtendedTooltip" id="69"/>
+					<ChildItems>
+						<LabelField name="НомерСтроки" id="4">
+							<DataPath>Список.LineNumber</DataPath>
+							<ContextMenu name="НомерСтрокиКонтекстноеМеню" id="5"/>
+							<ExtendedTooltip name="НомерСтрокиExtendedTooltip" id="70"/>
+						</LabelField>
+						<LabelField name="Ссылка" id="6">
+							<DataPath>Список.Ref</DataPath>
+							<ContextMenu name="СсылкаКонтекстноеМеню" id="7"/>
+							<ExtendedTooltip name="СсылкаExtendedTooltip" id="71"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="Группа3" id="53">
+					<ExtendedTooltip name="Группа3ExtendedTooltip" id="72"/>
+					<ChildItems>
+						<LabelField name="ФинЦФО" id="42">
+							<DataPath>Список.ФинЦФО</DataPath>
+							<ContextMenu name="ФинЦФОКонтекстноеМеню" id="43"/>
+							<ExtendedTooltip name="ФинЦФОExtendedTooltip" id="73"/>
+						</LabelField>
+						<LabelField name="ФинПодразделение" id="38">
+							<DataPath>Список.ФинПодразделение</DataPath>
+							<ContextMenu name="ФинПодразделениеКонтекстноеМеню" id="39"/>
+							<ExtendedTooltip name="ФинПодразделениеExtendedTooltip" id="74"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+				<LabelField name="ФинСтатья" id="40">
+					<DataPath>Список.ФинСтатья</DataPath>
+					<ContextMenu name="ФинСтатьяКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ФинСтатьяExtendedTooltip" id="75"/>
+				</LabelField>
+				<LabelField name="Сумма" id="34">
+					<DataPath>Список.Сумма</DataPath>
+					<ContextMenu name="СуммаКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="СуммаExtendedTooltip" id="76"/>
+				</LabelField>
+				<LabelField name="ВНХПриход" id="47">
+					<DataPath>Список.ВНХПриход</DataPath>
+					<Visible>false</Visible>
+					<ContextMenu name="ВНХПриходКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ВНХПриходExtendedTooltip" id="77"/>
+				</LabelField>
+				<LabelField name="Содержание" id="32">
+					<DataPath>Список.Содержание</DataPath>
+					<ContextMenu name="СодержаниеКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="СодержаниеExtendedTooltip" id="78"/>
+				</LabelField>
+				<LabelField name="КорСчет" id="20">
+					<DataPath>Список.КорСчет</DataPath>
+					<ContextMenu name="КорСчетКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="КорСчетExtendedTooltip" id="79"/>
+				</LabelField>
+				<ColumnGroup name="Группа1" id="46">
+					<ExtendedTooltip name="Группа1ExtendedTooltip" id="80"/>
+					<ChildItems>
+						<LabelField name="КорСубконто1" id="14">
+							<DataPath>Список.КорСубконто1</DataPath>
+							<ContextMenu name="КорСубконто1КонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="КорСубконто1ExtendedTooltip" id="81"/>
+						</LabelField>
+						<LabelField name="КорСубконто2" id="16">
+							<DataPath>Список.КорСубконто2</DataPath>
+							<ContextMenu name="КорСубконто2КонтекстноеМеню" id="17"/>
+							<ExtendedTooltip name="КорСубконто2ExtendedTooltip" id="82"/>
+						</LabelField>
+						<LabelField name="КорСубконто3" id="18">
+							<DataPath>Список.КорСубконто3</DataPath>
+							<ContextMenu name="КорСубконто3КонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="КорСубконто3ExtendedTooltip" id="83"/>
+						</LabelField>
+					</ChildItems>
+				</ColumnGroup>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	УЧ_ДвижениеДСПроводки.Ссылка,
+	УЧ_ДвижениеДСПроводки.НомерСтроки,
+	УЧ_ДвижениеДСПроводки.КорСчет,
+	УЧ_ДвижениеДСПроводки.КорСубконто1,
+	УЧ_ДвижениеДСПроводки.КорСубконто2,
+	УЧ_ДвижениеДСПроводки.КорСубконто3,
+	УЧ_ДвижениеДСПроводки.Сумма,
+	УЧ_ДвижениеДСПроводки.Содержание,
+	УЧ_ДвижениеДСПроводки.Валюта,
+	УЧ_ДвижениеДСПроводки.Курс,
+	УЧ_ДвижениеДСПроводки.ВалСумма,
+	УЧ_ДвижениеДСПроводки.Подразделение,
+	УЧ_ДвижениеДСПроводки.Количество,
+	УЧ_ДвижениеДСПроводки.ФинСтатья,
+	УЧ_ДвижениеДСПроводки.ФинПодразделение,
+	УЧ_ДвижениеДСПроводки.ТипОплаты,
+	УЧ_ДвижениеДСПроводки.НуженПеревод,
+	УЧ_ДвижениеДСПроводки.ФинЦФО,
+	УЧ_ДвижениеДСПроводки.ОснованиеВНХ,
+	УЧ_ДвижениеДСПроводки.НомерСтрокиОснованиеВНХ,
+	УЧ_ДвижениеДСПроводки1.Ссылка КАК ВНХПриход,
+	ВЫБОР
+		КОГДА УЧ_ДвижениеДСПроводки1.ОснованиеВНХ = &amp;ТекДокумент
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ТекДокумент
+ИЗ
+	Документ.УЧ_ДвижениеДС.Проводки КАК УЧ_ДвижениеДСПроводки
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.УЧ_ДвижениеДС.Проводки КАК УЧ_ДвижениеДСПроводки1
+		ПО УЧ_ДвижениеДСПроводки.Ссылка = УЧ_ДвижениеДСПроводки1.ОснованиеВНХ
+			И УЧ_ДвижениеДСПроводки.НомерСтроки = УЧ_ДвижениеДСПроводки1.НомерСтрокиОснованиеВНХ
+			И (УЧ_ДвижениеДСПроводки1.Ссылка.ПометкаУдаления = ЛОЖЬ)
+ГДЕ
+	УЧ_ДвижениеДСПроводки.Сумма = &amp;Сумма
+	И УЧ_ДвижениеДСПроводки.ФинСтатья В(&amp;ФинСтатья)
+	И УЧ_ДвижениеДСПроводки.Ссылка.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И (УЧ_ДвижениеДСПроводки1.Ссылка ЕСТЬ NULL 
+			ИЛИ УЧ_ДвижениеДСПроводки1.ОснованиеВНХ = &amp;ТекДокумент)</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ТекДокумент</dcsset:left>
+									<dcsset:comparisonType>Equal</dcsset:comparisonType>
+									<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>Шрифт</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Выбрать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ChooseValue</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Выбрать</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

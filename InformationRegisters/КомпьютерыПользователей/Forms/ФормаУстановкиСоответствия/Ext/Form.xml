@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Контроль входа пользователей</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelDecoration name="Надпись1" id="3">
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запуск 1С на новом компьютере %Комп под пользователем %Пользователь
+Закрепить данный компьютер за текущим пользователем?</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="Надпись1КонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="Надпись1РасширеннаяПодсказка" id="5"/>
+		</LabelDecoration>
+		<UsualGroup name="ГруппаДаНет" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа да нет</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа да нет</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДаНетРасширеннаяПодсказка" id="7"/>
+			<ChildItems>
+				<Button name="Да" id="8">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>7</Width>
+					<Height>1</Height>
+					<CommandName>Form.Command.Да</CommandName>
+					<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ExtendedTooltip name="ДаРасширеннаяПодсказка" id="9"/>
+				</Button>
+				<Button name="Отложить" id="10">
+					<Type>UsualButton</Type>
+					<Representation>PictureAndText</Representation>
+					<Width>13</Width>
+					<Height>1</Height>
+					<CommandName>Form.StandardCommand.Close</CommandName>
+					<Font ref="sys:DefaultGUIFont" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Picture>
+						<xr:Ref>StdPicture.Delete</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отложить</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ОтложитьРасширеннаяПодсказка" id="11"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="1">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<LabelDecoration name="Надпись2" id="12">
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;b&gt;Да&lt;/&gt; - Этот компьютер будет закреплен за текущим пользователем, выполнившим вход. Вход других пользователей с данного компьютера будет ограничен.
+&lt;b&gt;Отложить&lt;/&gt; - Система будет запущена, вопрос будет снова задан при следующем запуске.</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="Надпись2КонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="Надпись2РасширеннаяПодсказка" id="14"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes/>
+	<Commands>
+		<Command name="Да" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Да</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Да</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Да</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

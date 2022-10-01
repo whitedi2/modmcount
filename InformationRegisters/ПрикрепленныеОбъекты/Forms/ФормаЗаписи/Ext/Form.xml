@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<CommandSet>
+		<ExcludedCommand>Delete</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Владелец" id="1">
+			<DataPath>Запись.Владелец</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ВладелецКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<InputField name="ВладелецИмяТЧ" id="18">
+			<DataPath>Запись.ВладелецИмяТЧ</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ВладелецИмяТЧКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="ВладелецИмяТЧРасширеннаяПодсказка" id="20"/>
+		</InputField>
+		<InputField name="ВладелецСтрокаТЧ" id="21">
+			<DataPath>Запись.ВладелецСтрокаТЧ</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ВладелецСтрокаТЧКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ВладелецСтрокаТЧРасширеннаяПодсказка" id="23"/>
+		</InputField>
+		<LabelField name="Объект" id="4">
+			<DataPath>Запись.Объект</DataPath>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="ОбъектКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ОбъектРасширеннаяПодсказка" id="6"/>
+		</LabelField>
+		<InputField name="Комментарии" id="13">
+			<DataPath>Запись.Комментарии</DataPath>
+			<ContextMenu name="КомментарииКонтекстноеМеню" id="14"/>
+			<ExtendedTooltip name="КомментарииРасширеннаяПодсказка" id="15"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ПрикрепленныеОбъекты</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Удалить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Delete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Удалить</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписать" id="26">
+				<Type>CommandBarButton</Type>
+				<CommandName>0:fe558fde-99b3-45d0-a060-9fc2905309f6</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьExtendedTooltip" id="91"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="27">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<ExtendedTooltip name="ФормаЗакрытьExtendedTooltip" id="92"/>
+			</Button>
+			<Button name="ФормаЗадачаЗадачаПеренаправить" id="85">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаЗадачаЗадачаПеренаправитьExtendedTooltip" id="93"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа2" id="25">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2ExtendedTooltip" id="94"/>
+			<ChildItems>
+				<Button name="ЗаявкаСогласована" id="23">
+					<Type>UsualButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.Выполнено</CommandName>
+					<TextColor>#339966</TextColor>
+					<ExtendedTooltip name="ЗаявкаСогласованаExtendedTooltip" id="95"/>
+				</Button>
+				<Button name="Отказаться" id="88">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отказаться</CommandName>
+					<TextColor>style:NegativeTextColor</TextColor>
+					<ExtendedTooltip name="ОтказатьсяExtendedTooltip" id="96"/>
+				</Button>
+				<LabelField name="ПричинаВозврата" id="68">
+					<DataPath>ОтправлятьКомментарий</DataPath>
+					<Visible>false</Visible>
+					<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<TitleLocation>None</TitleLocation>
+					<Height>3</Height>
+					<TextColor>style:NegativeTextColor</TextColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ContextMenu name="ПричинаВозвратаКонтекстноеМеню" id="69"/>
+					<ExtendedTooltip name="ПричинаВозвратаExtendedTooltip" id="97"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Автор" id="29">
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="АвторКонтекстноеМеню" id="30"/>
+			<ExtendedTooltip name="АвторExtendedTooltip" id="98"/>
+		</InputField>
+		<Pages name="Группа3" id="79">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа3ExtendedTooltip" id="99"/>
+			<Events>
+				<Event name="OnCurrentPageChange">Группа3ПриСменеСтраницы</Event>
+			</Events>
+			<ChildItems>
+				<Page name="Группа5" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Реквизиты оповещения</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="Группа5ExtendedTooltip" id="100"/>
+					<ChildItems>
+						<LabelField name="ТемаОповещения" id="77">
+							<DataPath>ТемаОповещения</DataPath>
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Тема:</v8:content>
+								</v8:item>
+							</Title>
+							<TitleFont ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+							<Font ref="sys:DefaultGUIFont" bold="false" italic="true" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ТемаОповещенияКонтекстноеМеню" id="78"/>
+							<ExtendedTooltip name="ТемаОповещенияExtendedTooltip" id="101"/>
+						</LabelField>
+						<InputField name="Описание" id="33">
+							<ReadOnly>true</ReadOnly>
+							<TitleLocation>None</TitleLocation>
+							<Height>3</Height>
+							<MultiLine>true</MultiLine>
+							<ExtendedEdit>true</ExtendedEdit>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ОписаниеКонтекстноеМеню" id="34"/>
+							<ExtendedTooltip name="ОписаниеExtendedTooltip" id="102"/>
+						</InputField>
+						<LabelField name="Гиперссылка" id="71">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Вложение</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Left</TitleLocation>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ГиперссылкаКонтекстноеМеню" id="72"/>
+							<ExtendedTooltip name="ГиперссылкаExtendedTooltip" id="103"/>
+							<Events>
+								<Event name="Click">ГиперссылкаНажатие</Event>
+							</Events>
+						</LabelField>
+						<LabelField name="Документ" id="73">
+							<DataPath>Документ</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Документ</v8:content>
+								</v8:item>
+							</Title>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ДокументКонтекстноеМеню" id="74"/>
+							<ExtendedTooltip name="ДокументExtendedTooltip" id="104"/>
+						</LabelField>
+						<LabelField name="ГиперссылкаСтрока" id="83">
+							<DataPath>ГиперссылкаСтрока</DataPath>
+							<Visible>false</Visible>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ГиперссылкаСтрокаКонтекстноеМеню" id="84"/>
+							<ExtendedTooltip name="ГиперссылкаСтрокаExtendedTooltip" id="105"/>
+							<Events>
+								<Event name="Click">ГиперссылкаСтрокаНажатие</Event>
+							</Events>
+						</LabelField>
+						<LabelField name="Отчет" id="86">
+							<DataPath>Отчет</DataPath>
+							<Hiperlink>true</Hiperlink>
+							<ContextMenu name="ОтчетКонтекстноеМеню" id="87"/>
+							<ExtendedTooltip name="ОтчетExtendedTooltip" id="106"/>
+							<Events>
+								<Event name="Click">ОтчетНажатие</Event>
+							</Events>
+						</LabelField>
+					</ChildItems>
+				</Page>
+				<Page name="ИсторияПереписки" id="80">
+					<Visible>false</Visible>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>История переписки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>История переписки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ИсторияПерепискиExtendedTooltip" id="107"/>
+					<ChildItems>
+						<InputField name="История" id="89">
+							<DataPath>История</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<MultiLine>true</MultiLine>
+							<ContextMenu name="ИсторияКонтекстноеМеню" id="90"/>
+							<ExtendedTooltip name="ИсторияExtendedTooltip" id="108"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ИсторияИзменений" id="114">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>История изменений</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>История изменений</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ИсторияИзмененийРасширеннаяПодсказка" id="115"/>
+					<ChildItems>
+						<Table name="ИсторияИзмененийТЧ" id="116">
+							<Height>5</Height>
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>ИсторияИзменений</DataPath>
+							<RowPictureDataPath>ИсторияИзменений.DefaultPicture</RowPictureDataPath>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+							<ContextMenu name="ИсторияИзмененийТЧКонтекстноеМеню" id="117"/>
+							<AutoCommandBar name="ИсторияИзмененийТЧКоманднаяПанель" id="118"/>
+							<ExtendedTooltip name="ИсторияИзмененийТЧРасширеннаяПодсказка" id="119"/>
+							<SearchStringAddition name="ИсторияИзмененийТЧСтрокаПоиска" id="150">
+								<AdditionSource>
+									<Item>ИсторияИзмененийТЧ</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсторияИзмененийТЧСтрокаПоискаКонтекстноеМеню" id="151"/>
+								<ExtendedTooltip name="ИсторияИзмененийТЧСтрокаПоискаРасширеннаяПодсказка" id="152"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ИсторияИзмененийТЧСостояниеПросмотра" id="153">
+								<AdditionSource>
+									<Item>ИсторияИзмененийТЧ</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсторияИзмененийТЧСостояниеПросмотраКонтекстноеМеню" id="154"/>
+								<ExtendedTooltip name="ИсторияИзмененийТЧСостояниеПросмотраРасширеннаяПодсказка" id="155"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ИсторияИзмененийТЧУправлениеПоиском" id="156">
+								<AdditionSource>
+									<Item>ИсторияИзмененийТЧ</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ИсторияИзмененийТЧУправлениеПоискомКонтекстноеМеню" id="157"/>
+								<ExtendedTooltip name="ИсторияИзмененийТЧУправлениеПоискомРасширеннаяПодсказка" id="158"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="ИсторияИзменений1Период" id="120">
+									<DataPath>ИсторияИзменений.Period</DataPath>
+									<ContextMenu name="ИсторияИзменений1ПериодКонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="ИсторияИзменений1ПериодРасширеннаяПодсказка" id="122"/>
+								</LabelField>
+								<LabelField name="ИсторияИзменений1ИмяРеквизита" id="126">
+									<DataPath>ИсторияИзменений.ИмяРеквизита</DataPath>
+									<Width>20</Width>
+									<ContextMenu name="ИсторияИзменений1ИмяРеквизитаКонтекстноеМеню" id="127"/>
+									<ExtendedTooltip name="ИсторияИзменений1ИмяРеквизитаРасширеннаяПодсказка" id="128"/>
+								</LabelField>
+								<LabelField name="ИсторияИзменений1СтароеЗначение" id="144">
+									<DataPath>ИсторияИзменений.СтароеЗначение</DataPath>
+									<ContextMenu name="ИсторияИзменений1СтароеЗначениеКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="ИсторияИзменений1СтароеЗначениеРасширеннаяПодсказка" id="146"/>
+								</LabelField>
+								<LabelField name="ИсторияИзменений1НовоеЗначение" id="132">
+									<DataPath>ИсторияИзменений.НовоеЗначение</DataPath>
+									<ContextMenu name="ИсторияИзменений1НовоеЗначениеКонтекстноеМеню" id="133"/>
+									<ExtendedTooltip name="ИсторияИзменений1НовоеЗначениеРасширеннаяПодсказка" id="134"/>
+								</LabelField>
+								<LabelField name="ИсторияИзменений1Пользователь" id="141">
+									<DataPath>ИсторияИзменений.Пользователь</DataPath>
+									<ContextMenu name="ИсторияИзменений1ПользовательКонтекстноеМеню" id="142"/>
+									<ExtendedTooltip name="ИсторияИзменений1ПользовательРасширеннаяПодсказка" id="143"/>
+								</LabelField>
+								<CheckBoxField name="ИсторияИзменений1ИзменениеПроверено" id="123">
+									<DataPath>ИсторияИзменений.ИзменениеПроверено</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Проверено</v8:content>
+										</v8:item>
+									</Title>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ИсторияИзменений1ИзменениеПровереноКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="ИсторияИзменений1ИзменениеПровереноРасширеннаяПодсказка" id="125"/>
+								</CheckBoxField>
+								<LabelField name="ИсторияИзменений1ИмяТабличнойЧасти" id="129">
+									<DataPath>ИсторияИзменений.ИмяТабличнойЧасти</DataPath>
+									<ContextMenu name="ИсторияИзменений1ИмяТабличнойЧастиКонтекстноеМеню" id="130"/>
+									<ExtendedTooltip name="ИсторияИзменений1ИмяТабличнойЧастиРасширеннаяПодсказка" id="131"/>
+								</LabelField>
+								<LabelField name="ИсторияИзменений1НомерСтрокиТЧ" id="135">
+									<DataPath>ИсторияИзменений.НомерСтрокиТЧ</DataPath>
+									<ContextMenu name="ИсторияИзменений1НомерСтрокиТЧКонтекстноеМеню" id="136"/>
+									<ExtendedTooltip name="ИсторияИзменений1НомерСтрокиТЧРасширеннаяПодсказка" id="137"/>
+								</LabelField>
+								<LabelField name="ИсторияИзменений1ТипДействияПользователя" id="147">
+									<DataPath>ИсторияИзменений.ТипДействияПользователя</DataPath>
+									<ContextMenu name="ИсторияИзменений1ТипДействияПользователяКонтекстноеМеню" id="148"/>
+									<ExtendedTooltip name="ИсторияИзменений1ТипДействияПользователяРасширеннаяПодсказка" id="149"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="Группа1" id="70">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответ</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="109"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="37">
+					<DataPath>Комментарий</DataPath>
+					<TitleFont ref="style:TextFont" kind="StyleItem"/>
+					<TitleLocation>None</TitleLocation>
+					<Height>2</Height>
+					<VerticalStretch>false</VerticalStretch>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="110"/>
+					<Events>
+						<Event name="OnChange">КомментарийПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ОтправлятьКомментарий" id="75">
+			<DataPath>ОтправлятьКомментарий</DataPath>
+			<Visible>false</Visible>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ОтправлятьКомментарийКонтекстноеМеню" id="76"/>
+			<ExtendedTooltip name="ОтправлятьКомментарийExtendedTooltip" id="111"/>
+		</CheckBoxField>
+		<Button name="ОткрытьФайл" id="112">
+			<Type>Hyperlink</Type>
+			<CommandName>0</CommandName>
+			<ExtendedTooltip name="ОткрытьФайлРасширеннаяПодсказка" id="113"/>
+		</Button>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Комментарий" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТочкаМаршрута" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точка маршрута</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Документ" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтправлятьКомментарий" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправлять комментарий в виде сообщения автору</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТемаОповещения" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тема оповещения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>100</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ГиперссылкаСтрока" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Гиперссылка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Отчет" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗначениеХранилища" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Значение хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="История" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипСообщенияИзменеикСрока" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип сообщения изменеик срока</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НовыйСрок" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый срок</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсторияИзменений" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>История изменений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ИзмененияРеквизитовОбъектовИБ.Период,
+	ИзмененияРеквизитовОбъектовИБ.Объект,
+	ИзмененияРеквизитовОбъектовИБ.ИмяРеквизита,
+	ИзмененияРеквизитовОбъектовИБ.ИмяТабличнойЧасти,
+	ИзмененияРеквизитовОбъектовИБ.НомерСтрокиТЧ,
+	ИзмененияРеквизитовОбъектовИБ.СтароеЗначение,
+	ИзмененияРеквизитовОбъектовИБ.НовоеЗначение,
+	ИзмененияРеквизитовОбъектовИБ.Пользователь,
+	ИзмененияРеквизитовОбъектовИБ.ТипДействияПользователя,
+	ИзмененияРеквизитовОбъектовИБ.ИзменениеПроверено
+ИЗ
+	РегистрСведений.ИзмененияРеквизитовОбъектовИБ КАК ИзмененияРеквизитовОбъектовИБ
+ГДЕ
+	ИзмененияРеквизитовОбъектовИБ.Объект = &amp;Объект</QueryText>
+				<MainTable>1:1a48a990-93aa-4ad5-b955-2744755aa7a2</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ГиперссылкаСтрока</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ГиперссылкаСтрока</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string">Сформировать отчет по остаткам</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Выполнено" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочитать и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнено</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаявкаСогласована</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Отказаться" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказаться</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отказаться</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отказаться</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

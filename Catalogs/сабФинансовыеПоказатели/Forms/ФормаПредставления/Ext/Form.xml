@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Финансовые показатели по данным управленческого учета</v8:content>
+		</v8:item>
+	</Title>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Обновить" id="45">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="46"/>
+			</Button>
+			<Button name="ФормаНастройка" id="55">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Настройка</CommandName>
+				<ExtendedTooltip name="ФормаНастройкаРасширеннаяПодсказка" id="56"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="1">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="2"/>
+			<ChildItems>
+				<UsualGroup name="Группа7" id="40">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="41"/>
+					<ChildItems>
+						<UsualGroup name="Группа4" id="22">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Collapsible</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="23"/>
+							<ChildItems>
+								<UsualGroup name="Группа6" id="38">
+									<Width>30</Width>
+									<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="39"/>
+									<ChildItems>
+										<InputField name="Предприяте" id="47">
+											<DataPath>Предприятие</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<ClearButton>true</ClearButton>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>По всем предприятиям</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="ПредприятеКонтекстноеМеню" id="48"/>
+											<ExtendedTooltip name="ПредприятеРасширеннаяПодсказка" id="49"/>
+											<Events>
+												<Event name="OnChange">Сценарий1ПриИзменении</Event>
+											</Events>
+										</InputField>
+										<LabelField name="ЗаголовокПоказателей" id="42">
+											<DataPath>ЗаголовокПоказателей</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ContextMenu name="ЗаголовокПоказателейКонтекстноеМеню" id="43"/>
+											<ExtendedTooltip name="ЗаголовокПоказателейРасширеннаяПодсказка" id="44"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа2" id="12">
+									<Width>20</Width>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="13"/>
+									<ChildItems>
+										<InputField name="Сценарий1" id="6">
+											<DataPath>Сценарий1</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сценарий1</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="Сценарий1КонтекстноеМеню" id="7"/>
+											<ExtendedTooltip name="Сценарий1РасширеннаяПодсказка" id="8"/>
+											<Events>
+												<Event name="OnChange">Сценарий1ПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="Период1" id="14">
+											<DataPath>Период1</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Период1</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="Период1КонтекстноеМеню" id="15"/>
+											<ExtendedTooltip name="Период1РасширеннаяПодсказка" id="16"/>
+											<Events>
+												<Event name="OnChange">Сценарий1ПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа3" id="17">
+									<Width>20</Width>
+									<Group>Vertical</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="18"/>
+									<ChildItems>
+										<InputField name="Сценарий2" id="9">
+											<DataPath>Сценарий2</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сценарий2</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="Сценарий2КонтекстноеМеню" id="10"/>
+											<ExtendedTooltip name="Сценарий2РасширеннаяПодсказка" id="11"/>
+											<Events>
+												<Event name="OnChange">Сценарий1ПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="Период2" id="19">
+											<DataPath>Период2</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<InputHint>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Период2</v8:content>
+												</v8:item>
+											</InputHint>
+											<ContextMenu name="Период2КонтекстноеМеню" id="20"/>
+											<ExtendedTooltip name="Период2РасширеннаяПодсказка" id="21"/>
+											<Events>
+												<Event name="OnChange">Сценарий1ПриИзменении</Event>
+											</Events>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа8" id="50">
+									<Width>10</Width>
+									<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="51"/>
+									<ChildItems>
+										<LabelField name="ЗаголовокДинамика" id="52">
+											<DataPath>ЗаголовокДинамика</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ContextMenu name="ЗаголовокДинамикаКонтекстноеМеню" id="53"/>
+											<ExtendedTooltip name="ЗаголовокДинамикаРасширеннаяПодсказка" id="54"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа9" id="63">
+									<Width>10</Width>
+									<GroupVerticalAlign>Bottom</GroupVerticalAlign>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="64"/>
+									<ChildItems>
+										<LabelField name="ЗаголовокДинамика1" id="65">
+											<DataPath>ЗаголовокНорматив</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ContextMenu name="ЗаголовокДинамика1КонтекстноеМеню" id="66"/>
+											<ExtendedTooltip name="ЗаголовокДинамика1РасширеннаяПодсказка" id="67"/>
+										</LabelField>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа5" id="24">
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="25"/>
+					<ChildItems>
+						<InputField name="ПоказательДиаграммы1" id="32">
+							<DataPath>ПоказательДиаграммы1</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<BorderColor>style:FormBackColor</BorderColor>
+							<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатель1</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ПоказательДиаграммы1КонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ПоказательДиаграммы1РасширеннаяПодсказка" id="34"/>
+							<Events>
+								<Event name="OnChange">ПоказательДиаграммы1ПриИзменении</Event>
+							</Events>
+						</InputField>
+						<ChartField name="Диаграмма1" id="26">
+							<DataPath>Диаграмма1</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="Диаграмма1КонтекстноеМеню" id="27"/>
+							<ExtendedTooltip name="Диаграмма1РасширеннаяПодсказка" id="28"/>
+						</ChartField>
+						<InputField name="ПоказательДиаграммы2" id="35">
+							<DataPath>ПоказательДиаграммы2</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<BorderColor>style:FormBackColor</BorderColor>
+							<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатель2</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ПоказательДиаграммы2КонтекстноеМеню" id="36"/>
+							<ExtendedTooltip name="ПоказательДиаграммы2РасширеннаяПодсказка" id="37"/>
+							<Events>
+								<Event name="OnChange">ПоказательДиаграммы1ПриИзменении</Event>
+							</Events>
+						</InputField>
+						<ChartField name="Диаграмма2" id="29">
+							<DataPath>Диаграмма2</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="Диаграмма2КонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="Диаграмма2РасширеннаяПодсказка" id="31"/>
+						</ChartField>
+						<InputField name="ПоказательДиаграммы3" id="57">
+							<DataPath>ПоказательДиаграммы3</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<BorderColor>style:FormBackColor</BorderColor>
+							<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Показатель3</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ПоказательДиаграммы3КонтекстноеМеню" id="58"/>
+							<ExtendedTooltip name="ПоказательДиаграммы3РасширеннаяПодсказка" id="59"/>
+							<Events>
+								<Event name="OnChange">ПоказательДиаграммы1ПриИзменении</Event>
+							</Events>
+						</InputField>
+						<ChartField name="Диаграмма3" id="60">
+							<DataPath>Диаграмма3</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<VerticalStretch>false</VerticalStretch>
+							<ContextMenu name="Диаграмма3КонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="Диаграмма3РасширеннаяПодсказка" id="62"/>
+						</ChartField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Период1" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+			<Save>
+				<Field>Период1</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Сценарий1" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сценарий1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СценарииПланирования</v8:Type>
+			</Type>
+			<Save>
+				<Field>Сценарий1</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Сценарий2" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сценарий1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СценарииПланирования</v8:Type>
+			</Type>
+			<Save>
+				<Field>Сценарий2</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Период2" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+			<Save>
+				<Field>Период2</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Диаграмма1" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаграмма1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/chart">d5p1:Chart</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Диаграмма2" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаграмма1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/chart">d5p1:Chart</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказательДиаграммы1" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатель диаграммы1</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.сабФинансовыеПоказатели</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПоказательДиаграммы1</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ПоказательДиаграммы2" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатель диаграммы2</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.сабФинансовыеПоказатели</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПоказательДиаграммы2</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ЗаголовокПоказателей" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок показателей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Предприятие" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Предприятия</v8:Type>
+			</Type>
+			<Save>
+				<Field>Предприятие</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="ЗаголовокДинамика" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок показателей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПоказательДиаграммы3" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показатель диаграммы3</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.сабФинансовыеПоказатели</v8:Type>
+			</Type>
+			<Save>
+				<Field>ПоказательДиаграммы3</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Диаграмма3" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Диаграмма3</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.2/data/chart">d5p1:Chart</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаголовокНорматив" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заголовок показателей</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Обновить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="Настройка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Настройка</Action>
+		</Command>
+	</Commands>
+</Form>

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Width>70</Width>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<LabelField name="ОбъектСсылка" id="1">
+			<DataPath>Объект.Ref</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на оплату</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ОбъектСсылкаКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ОбъектСсылкаРасширеннаяПодсказка" id="3"/>
+		</LabelField>
+		<Table name="ОбъектЗаявкаБезнал" id="4">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ЗаявкаБезнал</DataPath>
+			<CommandSet>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОбъектЗаявкаБезналКонтекстноеМеню" id="5"/>
+			<AutoCommandBar name="ОбъектЗаявкаБезналКоманднаяПанель" id="6">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ОбъектЗаявкаБезналРасширеннаяПодсказка" id="7"/>
+			<SearchStringAddition name="ОбъектЗаявкаБезналСтрокаПоиска" id="132">
+				<AdditionSource>
+					<Item>ОбъектЗаявкаБезнал</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъектЗаявкаБезналСтрокаПоискаКонтекстноеМеню" id="133"/>
+				<ExtendedTooltip name="ОбъектЗаявкаБезналСтрокаПоискаРасширеннаяПодсказка" id="134"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОбъектЗаявкаБезналСостояниеПросмотра" id="135">
+				<AdditionSource>
+					<Item>ОбъектЗаявкаБезнал</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъектЗаявкаБезналСостояниеПросмотраКонтекстноеМеню" id="136"/>
+				<ExtendedTooltip name="ОбъектЗаявкаБезналСостояниеПросмотраРасширеннаяПодсказка" id="137"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОбъектЗаявкаБезналУправлениеПоиском" id="138">
+				<AdditionSource>
+					<Item>ОбъектЗаявкаБезнал</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ОбъектЗаявкаБезналУправлениеПоискомКонтекстноеМеню" id="139"/>
+				<ExtendedTooltip name="ОбъектЗаявкаБезналУправлениеПоискомРасширеннаяПодсказка" id="140"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ОбъектЗаявкаБезналНомерСтроки" id="8">
+					<DataPath>Объект.ЗаявкаБезнал.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбъектЗаявкаБезналНомерСтрокиКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ОбъектЗаявкаБезналНомерСтрокиРасширеннаяПодсказка" id="10"/>
+				</LabelField>
+				<ColumnGroup name="ОбъектЗаявкаБезналГруппа1" id="119">
+					<ReadOnly>true</ReadOnly>
+					<ExtendedTooltip name="ОбъектЗаявкаБезналГруппа1РасширеннаяПодсказка" id="120"/>
+					<ChildItems>
+						<InputField name="ОбъектЗаявкаБезналСтатьяДДС" id="11">
+							<DataPath>Объект.ЗаявкаБезнал.СтатьяДДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектЗаявкаБезналСтатьяДДСКонтекстноеМеню" id="12"/>
+							<ExtendedTooltip name="ОбъектЗаявкаБезналСтатьяДДСРасширеннаяПодсказка" id="13"/>
+						</InputField>
+						<InputField name="ОбъектЗаявкаБезналСуммаДДС" id="14">
+							<DataPath>Объект.ЗаявкаБезнал.СуммаДДС</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектЗаявкаБезналСуммаДДСКонтекстноеМеню" id="15"/>
+							<ExtendedTooltip name="ОбъектЗаявкаБезналСуммаДДСРасширеннаяПодсказка" id="16"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ОбъектЗаявкаБезналГруппа2" id="121">
+					<ExtendedTooltip name="ОбъектЗаявкаБезналГруппа2РасширеннаяПодсказка" id="122"/>
+					<ChildItems>
+						<InputField name="ОбъектЗаявкаБезналОрганизация" id="29">
+							<DataPath>Объект.ЗаявкаБезнал.Организация</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектЗаявкаБезналОрганизацияКонтекстноеМеню" id="30"/>
+							<ExtendedTooltip name="ОбъектЗаявкаБезналОрганизацияРасширеннаяПодсказка" id="31"/>
+						</InputField>
+						<InputField name="ОбъектЗаявкаБезналБанковскийСчет" id="32">
+							<DataPath>Объект.ЗаявкаБезнал.БанковскийСчет</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ОбъектЗаявкаБезналБанковскийСчетКонтекстноеМеню" id="33"/>
+							<ExtendedTooltip name="ОбъектЗаявкаБезналБанковскийСчетРасширеннаяПодсказка" id="34"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ОбъектЗаявкаБезналНазначениеПлатежаБух" id="38">
+					<DataPath>Объект.ЗаявкаБезнал.НазначениеПлатежаБух</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОбъектЗаявкаБезналНазначениеПлатежаБухКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ОбъектЗаявкаБезналНазначениеПлатежаБухРасширеннаяПодсказка" id="40"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Группа1" id="127">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="128"/>
+			<ChildItems>
+				<PictureDecoration name="Декорация1" id="129">
+					<Height>1</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="130"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="131"/>
+				</PictureDecoration>
+				<Button name="Записать" id="123">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Записать</CommandName>
+					<TextColor>#008000</TextColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ExtendedTooltip name="ЗаписатьРасширеннаяПодсказка" id="124"/>
+				</Button>
+				<Button name="Отменить" id="125">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Отменить</CommandName>
+					<TextColor>#FF0000</TextColor>
+					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<ExtendedTooltip name="ОтменитьРасширеннаяПодсказка" id="126"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentObject.Д_ЗаявкаНаОплату</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Записать" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Записать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Записать</Action>
+		</Command>
+		<Command name="Отменить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отменить</Action>
+		</Command>
+	</Commands>
+</Form>

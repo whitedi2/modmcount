@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Оплата поставок (САБ)</v8:content>
+		</v8:item>
+	</Title>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="СоздатьНаОсновании" id="86">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="СоздатьНаОснованииРасширеннаяПодсказка" id="87"/>
+				<ChildItems>
+					<Button name="ФормаЗаявкаНаОплату" id="84">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ЗаявкаНаОплату</CommandName>
+						<ExtendedTooltip name="ФормаЗаявкаНаОплатуРасширеннаяПодсказка" id="85"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="108">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="109"/>
+			<ChildItems>
+				<Button name="Обновить" id="116">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Обновить</CommandName>
+					<ExtendedTooltip name="ОбновитьРасширеннаяПодсказка" id="117"/>
+				</Button>
+				<InputField name="Дата" id="110">
+					<DataPath>Дата</DataPath>
+					<SpinButton>true</SpinButton>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="111"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="112"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Контрагент" id="113">
+					<DataPath>Контрагент</DataPath>
+					<ClearButton>true</ClearButton>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По всем</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="115"/>
+					<Events>
+						<Event name="OnChange">КонтрагентПриИзменении</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="ТолькоДоговорыСоСрокамиОплаты" id="124">
+					<DataPath>ТолькоДоговорыСоСрокамиОплаты</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ТолькоДоговорыСоСрокамиОплатыКонтекстноеМеню" id="125"/>
+					<ExtendedTooltip name="ТолькоДоговорыСоСрокамиОплатыРасширеннаяПодсказка" id="126"/>
+					<Events>
+						<Event name="OnChange">ТолькоДоговорыСоСрокамиОплатыПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Настройки" id="88">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Behavior>Collapsible</Behavior>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<ExtendedTooltip name="НастройкиРасширеннаяПодсказка" id="89"/>
+		</UsualGroup>
+		<Table name="Список" id="1">
+			<ChangeRowSet>false</ChangeRowSet>
+			<Footer>true</Footer>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>Настройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="Владелец" id="14">
+					<DataPath>~Список.Владелец</DataPath>
+					<ContextMenu name="ВладелецКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="Договор" id="32">
+					<DataPath>~Список.Договор</DataPath>
+					<ContextMenu name="ДоговорКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<LabelField name="СрокОплаты" id="20">
+					<DataPath>~Список.СрокОплаты</DataPath>
+					<FooterText>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итого:</v8:content>
+						</v8:item>
+					</FooterText>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+					<ContextMenu name="СрокОплатыКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СрокОплатыРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="23">
+					<DataPath>~Список.Ссылка</DataPath>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="СуммаОстаток" id="26">
+					<DataPath>~Список.СуммаОстаток</DataPath>
+					<FooterDataPath>ИтогоОстаток</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="СуммаОстатокКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="СуммаОстатокРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="Просрочено" id="35">
+					<DataPath>~Список.Просрочено</DataPath>
+					<FooterDataPath>ИтогоПросрочено</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="ПросроченоКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ПросроченоРасширеннаяПодсказка" id="37"/>
+				</LabelField>
+				<LabelField name="Нормально" id="38">
+					<DataPath>~Список.Нормально</DataPath>
+					<FooterDataPath>ИтогоНормально</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="НормальноКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="НормальноРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="КОплатеСегодня" id="41">
+					<DataPath>~Список.КОплатеСегодня</DataPath>
+					<FooterDataPath>ИтогоКОплате</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="КОплатеСегодняКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="КОплатеСегодняРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+				<LabelField name="КОплатеЗавтра" id="96">
+					<DataPath>~Список.КОплатеЗавтра</DataPath>
+					<FooterDataPath>ИтогоКОплатеЗавтра</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="КОплатеЗавтраКонтекстноеМеню" id="97"/>
+					<ExtendedTooltip name="КОплатеЗавтраРасширеннаяПодсказка" id="98"/>
+				</LabelField>
+				<LabelField name="КОплатеПослезавтра" id="99">
+					<DataPath>~Список.КОплатеПослезавтра</DataPath>
+					<FooterDataPath>ИтогоКОплатеПослезавтра</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="КОплатеПослезавтраКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="КОплатеПослезавтраРасширеннаяПодсказка" id="101"/>
+				</LabelField>
+				<LabelField name="Заявлено" id="90">
+					<DataPath>~Список.Заявлено</DataPath>
+					<FooterDataPath>ИтогоЗаявлено</FooterDataPath>
+					<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+					<ContextMenu name="ЗаявленоКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ЗаявленоРасширеннаяПодсказка" id="92"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+		<Table name="СписокПоступлений" id="44">
+			<Height>5</Height>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>СписокПоступлений</DataPath>
+			<RowPictureDataPath>СписокПоступлений.DefaultPicture</RowPictureDataPath>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокПоступленийКонтекстноеМеню" id="45"/>
+			<AutoCommandBar name="СписокПоступленийКоманднаяПанель" id="46">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокПоступленийРасширеннаяПодсказка" id="47"/>
+			<SearchStringAddition name="СписокПоступленийСтрокаПоиска" id="48">
+				<AdditionSource>
+					<Item>СписокПоступлений</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПоступленийСтрокаПоискаКонтекстноеМеню" id="49"/>
+				<ExtendedTooltip name="СписокПоступленийСтрокаПоискаРасширеннаяПодсказка" id="50"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокПоступленийСостояниеПросмотра" id="51">
+				<AdditionSource>
+					<Item>СписокПоступлений</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПоступленийСостояниеПросмотраКонтекстноеМеню" id="52"/>
+				<ExtendedTooltip name="СписокПоступленийСостояниеПросмотраРасширеннаяПодсказка" id="53"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокПоступленийУправлениеПоиском" id="54">
+				<AdditionSource>
+					<Item>СписокПоступлений</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокПоступленийУправлениеПоискомКонтекстноеМеню" id="55"/>
+				<ExtendedTooltip name="СписокПоступленийУправлениеПоискомРасширеннаяПодсказка" id="56"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокПоступленийВыбор</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="СписокПоступленийДата" id="118">
+					<DataPath>~СписокПоступлений.Дата</DataPath>
+					<Width>4</Width>
+					<Format>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</Format>
+					<ContextMenu name="СписокПоступленийДатаКонтекстноеМеню" id="119"/>
+					<ExtendedTooltip name="СписокПоступленийДатаРасширеннаяПодсказка" id="120"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийДокумент" id="63">
+					<DataPath>~СписокПоступлений.Документ</DataPath>
+					<ContextMenu name="СписокПоступленийДокументКонтекстноеМеню" id="64"/>
+					<ExtendedTooltip name="СписокПоступленийДокументРасширеннаяПодсказка" id="65"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийКомментарий" id="121">
+					<DataPath>~СписокПоступлений.Комментарий</DataPath>
+					<ContextMenu name="СписокПоступленийКомментарийКонтекстноеМеню" id="122"/>
+					<ExtendedTooltip name="СписокПоступленийКомментарийРасширеннаяПодсказка" id="123"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийСрокОплаты" id="78">
+					<DataPath>~СписокПоступлений.СрокОплаты</DataPath>
+					<ContextMenu name="СписокПоступленийСрокОплатыКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="СписокПоступленийСрокОплатыРасширеннаяПодсказка" id="80"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийСуммаОстаток" id="81">
+					<DataPath>~СписокПоступлений.СуммаОстаток</DataPath>
+					<ContextMenu name="СписокПоступленийСуммаОстатокКонтекстноеМеню" id="82"/>
+					<ExtendedTooltip name="СписокПоступленийСуммаОстатокРасширеннаяПодсказка" id="83"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийПросрочено" id="72">
+					<DataPath>~СписокПоступлений.Просрочено</DataPath>
+					<ContextMenu name="СписокПоступленийПросроченоКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="СписокПоступленийПросроченоРасширеннаяПодсказка" id="74"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийНормально" id="69">
+					<DataPath>~СписокПоступлений.Нормально</DataPath>
+					<ContextMenu name="СписокПоступленийНормальноКонтекстноеМеню" id="70"/>
+					<ExtendedTooltip name="СписокПоступленийНормальноРасширеннаяПодсказка" id="71"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийКОплатеСегодня" id="66">
+					<DataPath>~СписокПоступлений.КОплатеСегодня</DataPath>
+					<ContextMenu name="СписокПоступленийКОплатеСегодняКонтекстноеМеню" id="67"/>
+					<ExtendedTooltip name="СписокПоступленийКОплатеСегодняРасширеннаяПодсказка" id="68"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийКОплатеЗавтра" id="102">
+					<DataPath>~СписокПоступлений.КОплатеЗавтра</DataPath>
+					<ContextMenu name="СписокПоступленийКОплатеЗавтраКонтекстноеМеню" id="103"/>
+					<ExtendedTooltip name="СписокПоступленийКОплатеЗавтраРасширеннаяПодсказка" id="104"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийКОплатеПослезавтра" id="105">
+					<DataPath>~СписокПоступлений.КОплатеПослезавтра</DataPath>
+					<ContextMenu name="СписокПоступленийКОплатеПослезавтраКонтекстноеМеню" id="106"/>
+					<ExtendedTooltip name="СписокПоступленийКОплатеПослезавтраРасширеннаяПодсказка" id="107"/>
+				</LabelField>
+				<LabelField name="СписокПоступленийЗаявлено" id="93">
+					<DataPath>~СписокПоступлений.Заявлено</DataPath>
+					<ContextMenu name="СписокПоступленийЗаявленоКонтекстноеМеню" id="94"/>
+					<ExtendedTooltip name="СписокПоступленийЗаявленоРасширеннаяПодсказка" id="95"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.сабОплатаПоставок</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Список" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.Владелец</Field>
+				<Field>~Список.Договор</Field>
+				<Field>~Список.Заявлено</Field>
+				<Field>~Список.КОплатеСегодня</Field>
+				<Field>~Список.Нормально</Field>
+				<Field>~Список.Просрочено</Field>
+				<Field>~Список.СрокОплаты</Field>
+				<Field>~Список.СуммаОстаток</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДоговорыКонтрагентов.Ссылка КАК Договор,
+	ДоговорыКонтрагентов.Владелец КАК Владелец,
+	ДоговорыКонтрагентов.СрокДействия КАК СрокДействия,
+	ДоговорыКонтрагентов.СрокОплаты КАК СрокОплаты,
+	СУММА(-ХозрасчетныйОстатки.СуммаОстаток) КАК СуммаОстаток,
+	СУММА(ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt; &amp;ТекущаяДата
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ + ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt; &amp;ТекущаяДата
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Просрочено,
+	СУММА(ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &gt;= &amp;ТекущаяДата
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ + ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &gt;= &amp;ТекущаяДата
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Нормально,
+	СУММА(ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt;= &amp;ТекущаяДата
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ + ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt;= &amp;ТекущаяДата
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КОплатеСегодня,
+	СУММА(ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Сумма, 0)) КАК Заявлено,
+	СУММА(ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 1)
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ + ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 1)
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КОплатеЗавтра,
+	СУММА(ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 2)
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ + ВЫБОР
+			КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 2)
+				ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КОплатеПослезавтра
+ИЗ
+	Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(, Счет В ИЕРАРХИИ (&amp;Счета60), , ) КАК ХозрасчетныйОстатки
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.Товары КАК ПоступлениеТоваровУслугТовары
+			ПО ХозрасчетныйОстатки.Субконто3 = ПоступлениеТоваровУслугТовары.Номенклатура
+				И (НЕ ПоступлениеТоваровУслугТовары.Номенклатура.ПометкаУдаления)
+		ПО ДоговорыКонтрагентов.Ссылка = ХозрасчетныйОстатки.Субконто2
+ГДЕ
+	(НЕ &amp;ТолькоДоговорыСоСрокамиОплаты
+			ИЛИ ДоговорыКонтрагентов.УстановленСрокОплаты = &amp;ТолькоДоговорыСоСрокамиОплаты)
+	И -ХозрасчетныйОстатки.СуммаОстаток &gt; 0
+
+СГРУППИРОВАТЬ ПО
+	ДоговорыКонтрагентов.Ссылка,
+	ДоговорыКонтрагентов.Владелец,
+	ДоговорыКонтрагентов.СрокДействия,
+	ДоговорыКонтрагентов.СрокОплаты</QueryText>
+				<MainTable>Catalog.ДоговорыКонтрагентов</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Владелец</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="СписокПоступлений" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список поступлений</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<UseAlways>
+				<Field>~СписокПоступлений.Документ</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДоговорыКонтрагентов.Ссылка КАК Договор,
+	ДоговорыКонтрагентов.Владелец КАК Владелец,
+	ДоговорыКонтрагентов.СрокДействия КАК СрокДействия,
+	ДоговорыКонтрагентов.СрокОплаты КАК СрокОплаты,
+	-ХозрасчетныйОстатки.СуммаОстаток КАК СуммаОстаток,
+	ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt; &amp;ТекущаяДата
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ + ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt; &amp;ТекущаяДата
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК Просрочено,
+	ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &gt;= &amp;ТекущаяДата
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ + ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &gt;= &amp;ТекущаяДата
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК Нормально,
+	ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt;= &amp;ТекущаяДата
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ + ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) &lt;= &amp;ТекущаяДата
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК КОплатеСегодня,
+	ЕСТЬNULL(ПоступлениеТоваровУслугТовары.Сумма, 0) КАК Заявлено,
+	ХозрасчетныйОстатки.Субконто3 КАК Документ,
+	ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 1)
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ + ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 1)
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК КОплатеЗавтра,
+	ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 2)
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ + ВЫБОР
+		КОГДА НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата, ДЕНЬ, ДоговорыКонтрагентов.СрокОплаты), ДЕНЬ) = ДОБАВИТЬКДАТЕ(&amp;ТекущаяДата, ДЕНЬ, 2)
+			ТОГДА -ХозрасчетныйОстатки.СуммаОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК КОплатеПослезавтра,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ХозрасчетныйОстатки.Субконто3) = ТИП(Документ.ПоступлениеТоваровУслуг)
+			ТОГДА ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Дата
+		КОГДА ТИПЗНАЧЕНИЯ(ХозрасчетныйОстатки.Субконто3) = ТИП(Документ.ДокументРасчетовСКонтрагентом)
+			ТОГДА ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Дата
+		ИНАЧЕ ДАТАВРЕМЯ(1, 1, 1)
+	КОНЕЦ КАК Дата,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(ХозрасчетныйОстатки.Субконто3) = ТИП(Документ.ПоступлениеТоваровУслуг)
+			ТОГДА ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ПоступлениеТоваровУслуг).Комментарий
+		КОГДА ТИПЗНАЧЕНИЯ(ХозрасчетныйОстатки.Субконто3) = ТИП(Документ.ДокументРасчетовСКонтрагентом)
+			ТОГДА ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто3 КАК Документ.ДокументРасчетовСКонтрагентом).Комментарий
+		ИНАЧЕ ""
+	КОНЕЦ КАК Комментарий
+ИЗ
+	Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(, Счет В ИЕРАРХИИ (&amp;Счета60), , ) КАК ХозрасчетныйОстатки
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.Товары КАК ПоступлениеТоваровУслугТовары
+			ПО ХозрасчетныйОстатки.Субконто3 = ПоступлениеТоваровУслугТовары.Номенклатура
+				И (НЕ ПоступлениеТоваровУслугТовары.Номенклатура.ПометкаУдаления)
+		ПО ДоговорыКонтрагентов.Ссылка = ХозрасчетныйОстатки.Субконто2
+ГДЕ
+	(НЕ &amp;ТолькоДоговорыСоСрокамиОплаты
+			ИЛИ ДоговорыКонтрагентов.УстановленСрокОплаты = &amp;ТолькоДоговорыСоСрокамиОплаты)
+	И ДоговорыКонтрагентов.Ссылка = &amp;Ссылка
+
+УПОРЯДОЧИТЬ ПО
+	Дата</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ИтогоОстаток" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого остаток</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтогоПросрочено" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого просрочено</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтогоНормально" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого нормально</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтогоКОплате" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого к оплате</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтогоЗаявлено" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого заявлено</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтогоКОплатеЗавтра" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого к оплате завтра</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИтогоКОплатеПослезавтра" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого к оплате послезавтра</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Дата" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТолькоДоговорыСоСрокамиОплаты" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Только договоры со сроками оплаты</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>СуммаОстаток</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Просрочено</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Нормально</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>КОплатеСегодня</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>Заявлено</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Список.Договор</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Формат</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>ЧДЦ=2</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаявкаНаОплату" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на оплату</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка на оплату</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаявкаНаОплату</Action>
+		</Command>
+		<Command name="Обновить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Обновить</Action>
+			<Representation>Picture</Representation>
+		</Command>
+	</Commands>
+</Form>

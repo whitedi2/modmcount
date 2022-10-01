@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Начисления предприятий</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаНеобработанные" id="61">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.Необработанные</CommandName>
+				<ExtendedTooltip name="ФормаНеобработанныеРасширеннаяПодсказка" id="62"/>
+			</Button>
+			<Popup name="ФормаГруппа1" id="63">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Создать на основании</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаГруппа1РасширеннаяПодсказка" id="64"/>
+				<ChildItems>
+					<Button name="ФормаПоступлениеТМЦиУслуг" id="65">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПоступлениеТМЦиУслуг</CommandName>
+						<ExtendedTooltip name="ФормаПоступлениеТМЦиУслугРасширеннаяПодсказка" id="66"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="СписокКомпоновщикНастроекПользовательскиеНастройки" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа пользовательских настроек</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalStretch>false</VerticalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройкиРасширеннаяПодсказка" id="60"/>
+		</UsualGroup>
+		<Table name="Список" id="1">
+			<CommandBarLocation>None</CommandBarLocation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3"/>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="4"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="5">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="6"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="7"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="8">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="10"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="11">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Номер" id="32">
+					<DataPath>~Список.Номер</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="34"/>
+				</LabelField>
+				<LabelField name="Дата" id="20">
+					<DataPath>~Список.Дата</DataPath>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="Договор" id="23">
+					<DataPath>~Список.Договор</DataPath>
+					<ContextMenu name="ДоговорКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+				<LabelField name="ВидОперации" id="17">
+					<DataPath>~Список.ВидОперации</DataPath>
+					<ContextMenu name="ВидОперацииКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<LabelField name="Счет" id="53">
+					<DataPath>~Список.Счет</DataPath>
+					<ContextMenu name="СчетКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="СчетРасширеннаяПодсказка" id="55"/>
+				</LabelField>
+				<LabelField name="Контрагент" id="29">
+					<DataPath>~Список.Контрагент</DataPath>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="31"/>
+				</LabelField>
+				<LabelField name="Автор" id="14">
+					<DataPath>~Список.Автор</DataPath>
+					<ContextMenu name="АвторКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="16"/>
+				</LabelField>
+				<LabelField name="Предприятие" id="41">
+					<DataPath>~Список.Предприятие</DataPath>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="43"/>
+				</LabelField>
+				<LabelField name="СуммаДокумента" id="50">
+					<DataPath>~Список.СуммаДокумента</DataPath>
+					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="52"/>
+				</LabelField>
+				<LabelField name="Поступление" id="38">
+					<DataPath>~Список.Поступление</DataPath>
+					<ContextMenu name="ПоступлениеКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ПоступлениеРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+				<LabelField name="Комментарий" id="26">
+					<DataPath>~Список.Комментарий</DataPath>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="47">
+					<DataPath>~Список.Ссылка</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="СсылкаРасширеннаяПодсказка" id="49"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>~Список.Ссылка</Field>
+			</UseAlways>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументУЧ_Реализация.Ссылка КАК Ссылка,
+	ДокументУЧ_Реализация.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументУЧ_Реализация.Номер КАК Номер,
+	ДокументУЧ_Реализация.Дата КАК Дата,
+	ДокументУЧ_Реализация.Предприятие КАК Предприятие,
+	ДокументУЧ_Реализация.Комментарий КАК Комментарий,
+	ДокументУЧ_Реализация.Контрагент КАК Контрагент,
+	ДокументУЧ_Реализация.Счет КАК Счет,
+	ДокументУЧ_Реализация.Договор КАК Договор,
+	ДокументУЧ_Реализация.ВидОперации КАК ВидОперации,
+	ДокументУЧ_Реализация.Автор КАК Автор,
+	ДокументУЧ_Реализация.Редактор КАК Редактор,
+	ДокументУЧ_Реализация.СуммаДокумента КАК СуммаДокумента,
+	ВложенныйЗапрос.Поступление КАК Поступление
+ИЗ
+	Документ.УЧ_Реализация КАК ДокументУЧ_Реализация
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ДокументУЧ_Реализация.Ссылка КАК Реализация,
+			МАКСИМУМ(УЧ_ПоступлениеТоваров.Ссылка) КАК Поступление
+		ИЗ
+			Документ.УЧ_Реализация КАК ДокументУЧ_Реализация
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.УЧ_ПоступлениеТоваров КАК УЧ_ПоступлениеТоваров
+				ПО ДокументУЧ_Реализация.Ссылка = УЧ_ПоступлениеТоваров.ДокОснование
+					И (УЧ_ПоступлениеТоваров.ПометкаУдаления = ЛОЖЬ)
+		ГДЕ
+			ДокументУЧ_Реализация.Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Учетный.ВНХ))
+			И (ДокументУЧ_Реализация.Контрагент В (&amp;ДоступныеПредприятия)
+					ИЛИ ДокументУЧ_Реализация.ПредприятиеПоставщик В (&amp;ДоступныеПредприятия))
+			И ВЫБОР
+					КОГДА &amp;ПоказыватьОбработанные
+						ТОГДА ИСТИНА
+					ИНАЧЕ УЧ_ПоступлениеТоваров.Ссылка ЕСТЬ NULL
+				КОНЕЦ
+		
+		СГРУППИРОВАТЬ ПО
+			ДокументУЧ_Реализация.Ссылка) КАК ВложенныйЗапрос
+		ПО ДокументУЧ_Реализация.Ссылка = ВложенныйЗапрос.Реализация
+ГДЕ
+	(ДокументУЧ_Реализация.Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Учетный.ВНХ))
+			ИЛИ ДокументУЧ_Реализация.Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Учетный.КазнаВспом)))
+	И (ДокументУЧ_Реализация.Контрагент В (&amp;ДоступныеПредприятия)
+			ИЛИ ДокументУЧ_Реализация.ПредприятиеПоставщик В (&amp;ДоступныеПредприятия))
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	УЧ_ПеремещениеТоваров.Ссылка,
+	УЧ_ПеремещениеТоваров.ПометкаУдаления,
+	УЧ_ПеремещениеТоваров.Номер,
+	УЧ_ПеремещениеТоваров.Дата,
+	УЧ_ПеремещениеТоваров.Предприятие,
+	УЧ_ПеремещениеТоваров.Комментарий,
+	NULL,
+	ВЫБОР
+		КОГДА УЧ_ПеремещениеТоваров.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыПеремещений.ПеремещениеНаПредприятие)
+			ТОГДА ЗНАЧЕНИЕ(ПланСчетов.Учетный.ВНХТоварные)
+		ИНАЧЕ ЗНАЧЕНИЕ(ПланСчетов.Учетный.КазнаВспом)
+	КОНЕЦ,
+	УЧ_ПеремещениеТоваров.Договор,
+	УЧ_ПеремещениеТоваров.ВидОперации,
+	УЧ_ПеремещениеТоваров.Автор,
+	УЧ_ПеремещениеТоваров.Редактор,
+	УЧ_ПеремещениеТоваров.СуммаДокумента,
+	ВложенныйЗапрос.Поступление
+ИЗ
+	Документ.УЧ_ПеремещениеТоваров КАК УЧ_ПеремещениеТоваров
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			УЧ_ПеремещениеТоваров.Ссылка КАК Реализация,
+			МАКСИМУМ(УЧ_ПоступлениеТоваров.Ссылка) КАК Поступление
+		ИЗ
+			Документ.УЧ_ПеремещениеТоваров КАК УЧ_ПеремещениеТоваров
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.УЧ_ПоступлениеТоваров КАК УЧ_ПоступлениеТоваров
+				ПО УЧ_ПеремещениеТоваров.Ссылка = УЧ_ПоступлениеТоваров.ДокОснование
+					И (УЧ_ПоступлениеТоваров.ПометкаУдаления = ЛОЖЬ)
+		ГДЕ
+			ВЫБОР
+					КОГДА &amp;ПоказыватьОбработанные
+						ТОГДА ИСТИНА
+					ИНАЧЕ УЧ_ПоступлениеТоваров.Ссылка ЕСТЬ NULL
+				КОНЕЦ
+		
+		СГРУППИРОВАТЬ ПО
+			УЧ_ПеремещениеТоваров.Ссылка) КАК ВложенныйЗапрос
+		ПО УЧ_ПеремещениеТоваров.Ссылка = ВложенныйЗапрос.Реализация
+ГДЕ
+	(УЧ_ПеремещениеТоваров.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыПеремещений.ПеремещениеНаПредприятие)
+			ИЛИ УЧ_ПеремещениеТоваров.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыПеремещений.ПеремещениеНаПредприятиеБезВозмещения))</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Дата</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Поступление</dcsset:left>
+									<dcsset:comparisonType>Filled</dcsset:comparisonType>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ЦветТекста</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">#339966</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="Необработанные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Необработанные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Необработанные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionFilter</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Необработанные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПоступлениеТМЦиУслуг" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление ТМЦ и услуг</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление ТМЦи услуг</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоступлениеТМЦиУслуг</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

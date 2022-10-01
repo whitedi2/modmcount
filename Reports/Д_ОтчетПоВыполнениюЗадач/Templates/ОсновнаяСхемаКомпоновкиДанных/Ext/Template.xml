@@ -1,0 +1,755 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Задача</dataPath>
+			<field>Задача</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задача</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Исполнитель</dataPath>
+			<field>Исполнитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТочкаМаршрута</dataPath>
+			<field>ТочкаМаршрута</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокВыполнения</dataPath>
+			<field>СрокВыполнения</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='дд.ММ.гггг ЧЧ:мм'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата получения задачи</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='дд.ММ.гггг ЧЧ:мм'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаИсполнения</dataPath>
+			<field>ДатаИсполнения</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='дд.ММ.гггг ЧЧ:мм'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Предприятие</dataPath>
+			<field>Предприятие</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тип</dataPath>
+			<field>Тип</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пользователь</dataPath>
+			<field>Пользователь</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автор</dataPath>
+			<field>Автор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыполнения</dataPath>
+			<field>ДатаВыполнения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата выполнения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Просрочка</dataPath>
+			<field>Просрочка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просрочка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номер</dataPath>
+			<field>Номер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВнутренниеДокументы.Ссылка,
+	ВнутренниеДокументы.Автор,
+	Задача.Дата,
+	Задача.СрокВыполнения,
+	Задача.ДатаИсполнения,
+	Задача.Исполнитель,
+	Задача.Пользователь,
+	ВнутренниеДокументы.Тип,
+	ВЫБОР
+		КОГДА Задача.ДатаИсполнения = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ВЫБОР
+					КОГДА &amp;ТекущаяДата &gt; Задача.СрокВыполнения
+						ТОГДА РАЗНОСТЬДАТ(Задача.СрокВыполнения, &amp;ТекущаяДата, МИНУТА)
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА Задача.ДатаИсполнения &gt; Задача.СрокВыполнения
+					ТОГДА РАЗНОСТЬДАТ(Задача.СрокВыполнения, Задача.ДатаИсполнения, МИНУТА)
+				ИНАЧЕ 0
+			КОНЕЦ
+	КОНЕЦ КАК Просрочка,
+	Задача.ТочкаМаршрута,
+	Задача.Ссылка КАК Задача,
+	ВЫБОР
+		КОГДА Задача.ДатаИсполнения = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА &amp;ТекущаяДата
+		ИНАЧЕ Задача.ДатаИсполнения
+	КОНЕЦ КАК ДатаВыполнения,
+	ВнутренниеДокументы.Предприятие КАК Предприятие,
+	ВнутренниеДокументы.Номер
+ИЗ
+	ЖурналДокументов.ВнутренниеДокументы КАК ВнутренниеДокументы
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ВложенныйЗапрос.Документ КАК Документ
+		ИЗ
+			(ВЫБРАТЬ
+				ВнутренниеДокументы.Ссылка КАК Документ
+			ИЗ
+				ЖурналДокументов.ВнутренниеДокументы КАК ВнутренниеДокументы
+			ГДЕ
+				(ВЫБОР
+							КОГДА &amp;Авторство
+								ТОГДА ВнутренниеДокументы.Автор В (&amp;ТекущийПользователь)
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ
+						ИЛИ ВЫБОР
+							КОГДА &amp;ДоступностьПриватныхДокументов
+								ТОГДА ВнутренниеДокументы.Предприятие В (&amp;ДоступныеПредприятия)
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ
+						ИЛИ &amp;ВсеЗаявки)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				Д_ДоступностьДокументов.Документ
+			ИЗ
+				РегистрСведений.Д_ДоступностьДокументов КАК Д_ДоступностьДокументов
+			ГДЕ
+				(ВЫБОР
+							КОГДА &amp;Согласовано
+								ТОГДА Д_ДоступностьДокументов.Признак = "Согласование"
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ
+						ИЛИ ВЫБОР
+							КОГДА &amp;Оплачено
+								ТОГДА Д_ДоступностьДокументов.Признак = "Ознакомление"
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ
+						ИЛИ ВЫБОР
+							КОГДА &amp;Исполнено
+								ТОГДА Д_ДоступностьДокументов.Признак = "Исполнение"
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ)
+				И ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Пользователи) В (&amp;ТекущийПользователь)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				Д_ДоступностьДокументов.Документ
+			ИЗ
+				РегистрСведений.Д_ДоступностьДокументов КАК Д_ДоступностьДокументов
+			ГДЕ
+				(ВЫБОР
+							КОГДА &amp;ПринадлежностьПредприятию
+								ТОГДА ВЫБОР
+											КОГДА &amp;ВсеПредприятия
+												ТОГДА ИСТИНА
+											ИНАЧЕ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия) В (&amp;ДоступныеПредприятия)
+										КОНЕЦ
+										И ВЫБОР
+											КОГДА &amp;ВсеПодразделения
+													ИЛИ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия).УчетПоПодразделениям = ЛОЖЬ
+												ТОГДА ИСТИНА
+											ИНАЧЕ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение2 КАК Справочник.СтруктураПредприятия) В (&amp;ДоступныеПодразделения)
+										КОНЕЦ
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ
+						ИЛИ ВЫБОР
+							КОГДА &amp;ДопСтатьи
+								ТОГДА ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение3 КАК Справочник.СтатьиДвиженияДенежныхСредств) В (&amp;ДоступныеСтатьиСырья)
+										И ВЫБОР
+											КОГДА &amp;ВсеПредприятия
+												ТОГДА ИСТИНА
+											ИНАЧЕ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия) В (&amp;ДоступныеПредприятия)
+										КОНЕЦ
+										И ВЫБОР
+											КОГДА &amp;ВсеПодразделения
+													ИЛИ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия).УчетПоПодразделениям = ЛОЖЬ
+												ТОГДА ИСТИНА
+											ИНАЧЕ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение2 КАК Справочник.СтруктураПредприятия) В (&amp;ДоступныеПодразделения)
+										КОНЕЦ
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				Д_ДоступностьДокументов.Документ
+			ИЗ
+				РегистрСведений.Д_ДоступностьДокументов КАК Д_ДоступностьДокументов
+					ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Д_ДоступностьДокументовДокументооборота КАК Д_ДоступностьДокументовДокументооборота
+					ПО Д_ДоступностьДокументов.ИмяДокумента = Д_ДоступностьДокументовДокументооборота.ТипДокумента
+						И Д_ДоступностьДокументов.Значение3 = Д_ДоступностьДокументовДокументооборота.ПодтипДокумента
+						И (Д_ДоступностьДокументовДокументооборота.Пользователь В (&amp;ТекущийПользователь))
+						И (ВЫБОР
+							КОГДА &amp;Согласовано
+									И &amp;Оплачено
+									И &amp;Исполнено
+									И &amp;Авторство
+								ТОГДА ВЫБОР
+										КОГДА Д_ДоступностьДокументовДокументооборота.ВсеДокументы
+											ТОГДА ИСТИНА
+										КОГДА Д_ДоступностьДокументовДокументооборота.Предприятия
+											ТОГДА ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия) В (&amp;ДоступныеПредприятия)
+													И ВЫБОР
+														КОГДА &amp;ВсеПодразделения
+																ИЛИ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия).УчетПоПодразделениям = ЛОЖЬ
+															ТОГДА ИСТИНА
+														ИНАЧЕ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение2 КАК Справочник.СтруктураПредприятия) В (&amp;ДоступныеПодразделения)
+													КОНЕЦ
+										ИНАЧЕ ЛОЖЬ
+									КОНЕЦ
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ)
+			
+			ОБЪЕДИНИТЬ ВСЕ
+			
+			ВЫБРАТЬ
+				Д_ДоступностьДокументов.Документ
+			ИЗ
+				РегистрСведений.Д_ДоступностьДокументов КАК Д_ДоступностьДокументов
+					ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.Д_ДоступностьДокументовДокументооборота КАК Д_ДоступностьДокументовДокументооборота
+					ПО Д_ДоступностьДокументов.ИмяДокумента = Д_ДоступностьДокументовДокументооборота.ТипДокумента
+						И (Д_ДоступностьДокументовДокументооборота.Пользователь В (&amp;ТекущийПользователь))
+						И (Д_ДоступностьДокументовДокументооборота.ПодтипДокумента = НЕОПРЕДЕЛЕНО)
+						И (ВЫБОР
+							КОГДА &amp;Согласовано
+									И &amp;Оплачено
+									И &amp;Исполнено
+									И &amp;Авторство
+								ТОГДА ВЫБОР
+										КОГДА Д_ДоступностьДокументовДокументооборота.ВсеДокументы
+											ТОГДА ИСТИНА
+										КОГДА Д_ДоступностьДокументовДокументооборота.Предприятия
+											ТОГДА ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия) В (&amp;ДоступныеПредприятия)
+													И ВЫБОР
+														КОГДА &amp;ВсеПодразделения
+																ИЛИ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение КАК Справочник.Предприятия).УчетПоПодразделениям = ЛОЖЬ
+															ТОГДА ИСТИНА
+														ИНАЧЕ ВЫРАЗИТЬ(Д_ДоступностьДокументов.Значение2 КАК Справочник.СтруктураПредприятия) В (&amp;ДоступныеПодразделения)
+													КОНЕЦ
+										ИНАЧЕ ЛОЖЬ
+									КОНЕЦ
+							ИНАЧЕ ЛОЖЬ
+						КОНЕЦ)) КАК ВложенныйЗапрос
+		
+		СГРУППИРОВАТЬ ПО
+			ВложенныйЗапрос.Документ) КАК ВложенныйЗапрос
+		ПО ВнутренниеДокументы.Ссылка = ВложенныйЗапрос.Документ
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Задача.Задача КАК Задача
+		ПО ВнутренниеДокументы.Ссылка = Задача.Заявка
+ГДЕ
+	ВнутренниеДокументы.ПометкаУдаления = ЛОЖЬ
+	И ВЫБОР
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_ЗаявкаНаОплату)
+				ТОГДА "Заявка на оплату"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_ЗаявкаНаСогласованиеДоговора)
+				ТОГДА "Согласование договора (строительство)"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_СлужебнаяЗаписка)
+				ТОГДА "Внутренний документ"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_ЗаявкаНаОтгрузку)
+				ТОГДА "Заявка на отгрузку"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_ЗаявкаНаКадровоеДвижение)
+				ТОГДА "Заявка на кадровое движение"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_ЗаявкаНаКорректировкуБюджета)
+				ТОГДА "Заявка на корректировку текущего бюджета"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_БюджетПрочихПроектов)
+				ТОГДА "Бюджет оперативный"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_ЗаявкаНаСогласованиеДоговора)
+				ТОГДА "Согласование договора (строительство-тендер)"
+			КОГДА ТИПЗНАЧЕНИЯ(ВнутренниеДокументы.Ссылка) = ТИП(Документ.Д_Бюджет)
+				ТОГДА "Бюджет"
+			ИНАЧЕ НЕОПРЕДЕЛЕНО
+		КОНЕЦ В
+			(ВЫБРАТЬ
+				ВидыАвтомаршрутизацииПользователя.ВидАвтомаршрута
+			ИЗ
+				РегистрСведений.ВидыАвтомаршрутизацииПользователя КАК ВидыАвтомаршрутизацииПользователя
+			ГДЕ
+				ВидыАвтомаршрутизацииПользователя.Пользователь В (&amp;ТекущийПользователь))
+	И Задача.ТочкаМаршрута В(&amp;ТочкаМаршрута)</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПросроченоРабочегоВремени</dataPath>
+		<expression>БПСервер.РасчетРабочейРазницы(СрокВыполнения, ДатаВыполнения, &amp;ВыборкаДат)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Просрочено рабочего времени</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>РабочееВремяНаВыполнение</dataPath>
+		<expression>БПСервер.РасчетРабочейРазницы(Дата, СрокВыполнения, &amp;ВыборкаДат)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рабочее время на выполнение</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+	</calculatedField>
+	<parameter>
+		<name>Авторство</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Авторство</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДоступностьПриватныхДокументов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доступность приватных документов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДоступныеПредприятия</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доступные предприятия</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Предприятия</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>БюджетныйНаСервере.ПолучитьПредприятия()</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Исполнено</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Исполнено</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Оплачено</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Оплачено</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПринадлежностьПредприятию</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Принадлежность предприятию</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>Согласовано</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Согласовано</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>БПСервер.СерверноеВремя()</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТекущийПользователь</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущий пользователь</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Пользователи</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>БПСервер.ПолучитьМассивПользователей()</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВсеЗаявки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Все заявки</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВсеПредприятия</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Все предприятия</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДопСтатьи</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доп статьи</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДоступныеСтатьиСырья</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доступные статьи сырья</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Неопределено</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВсеПодразделения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Все подразделения</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">true</value>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ДоступныеПодразделения</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доступные подразделения</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ВыборкаДат</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выборка дат</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>БПСервер.ПолучитьВсеДатыКалендаря()</expression>
+		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ТочкаМаршрута</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Точка маршрута</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>true</useRestriction>
+		<expression>БПСервер.ТочкиПроцессов("согласование")</expression>
+		<valueListAllowed>true</valueListAllowed>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Тип</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Предприятие</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Исполнитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТочкаМаршрута</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Дата</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СрокВыполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаИсполнения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РабочееВремяНаВыполнение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПросроченоРабочегоВремени</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Тип</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xmlns:d6p1="http://v8.1c.ru/8.2/data/types" xsi:type="v8:Type">d6p1:Undefined</dcsset:right>
+					<dcsset:userSettingID>8cfa40cf-fa2d-43cd-b1fa-c46f21d257ac</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Задача.Выполнена</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					<dcsset:userSettingID>d9c35ba7-fdba-4cd4-8443-a2b767315407</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:userSettingID>e7236402-81c9-49cd-81f0-c21f567c7ae8</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Авторство</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДоступностьПриватныхДокументов</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Исполнено</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Оплачено</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПринадлежностьПредприятию</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Согласовано</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВсеЗаявки</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВсеПредприятия</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ДопСтатьи</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВсеПодразделения</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Ссылка</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по выполнению задач</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

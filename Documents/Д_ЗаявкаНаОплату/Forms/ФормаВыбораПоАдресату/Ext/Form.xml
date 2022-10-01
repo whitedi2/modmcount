@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Необработанные заявки</v8:content>
+		</v8:item>
+	</Title>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<Representation>List</Representation>
+			<CommandBarLocation>None</CommandBarLocation>
+			<DefaultItem>true</DefaultItem>
+			<ChoiceMode>true</ChoiceMode>
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<InitialTreeView>ExpandTopLevel</InitialTreeView>
+			<EnableStartDrag>true</EnableStartDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<Autofill>false</Autofill>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокРасширеннаяПодсказка" id="12"/>
+			<SearchStringAddition name="СписокСтрокаПоиска" id="13">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСтрокаПоискаКонтекстноеМеню" id="14"/>
+				<ExtendedTooltip name="СписокСтрокаПоискаРасширеннаяПодсказка" id="15"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокСостояниеПросмотра" id="16">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокСостояниеПросмотраКонтекстноеМеню" id="17"/>
+				<ExtendedTooltip name="СписокСостояниеПросмотраРасширеннаяПодсказка" id="18"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокУправлениеПоиском" id="19">
+				<AdditionSource>
+					<Item>Список</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="20"/>
+				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="21"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="Дата" id="4">
+					<DataPath>~Список.Date</DataPath>
+					<DefaultItem>true</DefaultItem>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="22"/>
+				</LabelField>
+				<LabelField name="Номер" id="6">
+					<DataPath>~Список.Number</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="23"/>
+				</LabelField>
+				<LabelField name="Исполнитель" id="8">
+					<DataPath>~Список.Исполнитель</DataPath>
+					<ContextMenu name="ИсполнительКонтекстноеМеню" id="9"/>
+					<ExtendedTooltip name="ИсполнительРасширеннаяПодсказка" id="24"/>
+				</LabelField>
+				<LabelField name="СостояниеДокумента" id="10">
+					<DataPath>~Список.СостояниеДокумента</DataPath>
+					<ContextMenu name="СостояниеДокументаКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="СостояниеДокументаРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	ДокументД_ЗаявкаНаОплату.Ссылка КАК Ссылка,
+	ДокументД_ЗаявкаНаОплату.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументД_ЗаявкаНаОплату.Номер КАК Номер,
+	ДокументД_ЗаявкаНаОплату.Дата КАК Дата,
+	ДокументД_ЗаявкаНаОплату.Проведен КАК Проведен,
+	ДокументД_ЗаявкаНаОплату.Предприятие КАК Предприятие,
+	ДокументД_ЗаявкаНаОплату.Комментарий КАК Комментарий,
+	ДокументД_ЗаявкаНаОплату.ПризнакПредоплаты КАК ПризнакПредоплаты,
+	ДокументД_ЗаявкаНаОплату.Доступность КАК Доступность,
+	ДокументД_ЗаявкаНаОплату.ТипИсточника КАК ТипИсточника,
+	ДокументД_ЗаявкаНаОплату.Самооплата КАК Самооплата,
+	ДокументД_ЗаявкаНаОплату.СостояниеДокумента КАК СостояниеДокумента,
+	Задача.ТочкаМаршрута КАК ТочкаМаршрута,
+	ДокументД_ЗаявкаНаОплату.МоментВремени КАК МоментВремени,
+	МАКСИМУМ(Задача.Исполнитель) КАК Исполнитель,
+	МАКСИМУМ(Задача.Ссылка) КАК Задача,
+	Задача.ТочкаМаршрута КАК ТочкаМаршрута1
+ИЗ
+	Задача.Задача КАК Задача
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Д_ЗаявкаНаОплату КАК ДокументД_ЗаявкаНаОплату
+		ПО Задача.Заявка = ДокументД_ЗаявкаНаОплату.Ссылка
+ГДЕ
+	(Задача.Исполнитель В (&amp;Исполнитель)
+			ИЛИ ДокументД_ЗаявкаНаОплату.ИсполнительОплаты В (&amp;Исполнитель))
+	И Задача.Выполнена = ЛОЖЬ
+	И Задача.ТочкаМаршрута = Значение(БизнесПроцесс.Согласование1.ТочкаМаршрута.Действие5)
+
+СГРУППИРОВАТЬ ПО
+	ДокументД_ЗаявкаНаОплату.Ссылка,
+	ДокументД_ЗаявкаНаОплату.ПометкаУдаления,
+	ДокументД_ЗаявкаНаОплату.Номер,
+	ДокументД_ЗаявкаНаОплату.Дата,
+	ДокументД_ЗаявкаНаОплату.Проведен,
+	ДокументД_ЗаявкаНаОплату.Предприятие,
+	ДокументД_ЗаявкаНаОплату.Комментарий,
+	ДокументД_ЗаявкаНаОплату.ПризнакПредоплаты,
+	ДокументД_ЗаявкаНаОплату.Доступность,
+	ДокументД_ЗаявкаНаОплату.ТипИсточника,
+	ДокументД_ЗаявкаНаОплату.Самооплата,
+	ДокументД_ЗаявкаНаОплату.СостояниеДокумента,
+	ДокументД_ЗаявкаНаОплату.МоментВремени,
+	Задача.ТочкаМаршрута,
+	Задача.ТочкаМаршрута</QueryText>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">СостояниеДокумента</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.Д_СостоянияДокументов.НаИсполнении</dcsset:right>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+					<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					<dcsset:itemsUserSettingID>911b6018-f537-43e8-a417-da56b22f9aec</dcsset:itemsUserSettingID>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

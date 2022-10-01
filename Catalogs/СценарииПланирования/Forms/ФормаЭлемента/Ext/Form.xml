@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Код" id="1">
+			<DataPath>Объект.Code</DataPath>
+			<Visible>false</Visible>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="КодРасширеннаяПодсказка" id="24"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="21">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="Родитель" id="39">
+					<DataPath>Объект.Parent</DataPath>
+					<ContextMenu name="РодительКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="41"/>
+				</InputField>
+				<InputField name="ВидБюджета" id="17">
+					<DataPath>Объект.ВидБюджета</DataPath>
+					<ContextMenu name="ВидБюджетаКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ВидБюджетаРасширеннаяПодсказка" id="27"/>
+					<Events>
+						<Event name="OnChange">ВидБюджетаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ВлкючатьВПлан" id="19">
+			<DataPath>Объект.ВлкючатьВПлан</DataPath>
+			<Visible>false</Visible>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ВлкючатьВПланКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ВлкючатьВПланРасширеннаяПодсказка" id="29"/>
+		</CheckBoxField>
+		<UsualGroup name="Группа1" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период бюджетирования</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="30"/>
+			<ChildItems>
+				<UsualGroup name="Группа4" id="37">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="38"/>
+					<ChildItems>
+						<InputField name="Период" id="45">
+							<DataPath>Период</DataPath>
+							<ContextMenu name="ПериодКонтекстноеМеню" id="46"/>
+							<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="47"/>
+							<Events>
+								<Event name="OnChange">ПериодПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ДатаНачала" id="5">
+							<DataPath>Объект.ДатаНачала</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="31"/>
+							<Events>
+								<Event name="OnChange">ДатаНачалаПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="ДатаКонца" id="7">
+							<DataPath>Объект.ДатаКонца</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатаКонцаКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ДатаКонцаРасширеннаяПодсказка" id="32"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="АктуальнаяДата" id="11">
+					<DataPath>Объект.АктуальнаяДата</DataPath>
+					<Visible>false</Visible>
+					<Enabled>false</Enabled>
+					<ContextMenu name="АктуальнаяДатаКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="АктуальнаяДатаРасширеннаяПодсказка" id="33"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Наименование" id="3">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<DropListButton>true</DropListButton>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="25"/>
+		</InputField>
+		<UsualGroup name="Группа2" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступ к бюджету</v8:content>
+				</v8:item>
+			</Title>
+			<HorizontalStretch>true</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="34"/>
+			<ChildItems>
+				<CheckBoxField name="Утвержден" id="22">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Бюджет утвержден</v8:content>
+						</v8:item>
+					</Title>
+					<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УтвержденКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="УтвержденРасширеннаяПодсказка" id="28"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакРедактирования" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запретить редактирование</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакРедактированияКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="ПризнакРедактированияРасширеннаяПодсказка" id="35"/>
+					<Events>
+						<Event name="OnChange">УстановитьСоответствиеМеждуУтверждениемИЗапретомРедактирования</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="ПризнакРедактированияБО" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Запретить редактирование БО</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПризнакРедактированияБОКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ПризнакРедактированияБОРасширеннаяПодсказка" id="36"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<CheckBoxField name="ПланированиеПоИсточникамДС" id="42">
+			<DataPath>Объект.ПланированиеПоИсточникамДС</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ПланированиеПоИсточникамДСКонтекстноеМеню" id="43"/>
+			<ExtendedTooltip name="ПланированиеПоИсточникамДСРасширеннаяПодсказка" id="44"/>
+			<Events>
+				<Event name="OnChange">ПланированиеПоИсточникамДСПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<CheckBoxField name="СоздаватьГрафикОплат" id="48">
+			<DataPath>Объект.СоздаватьГрафикОплат</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="СоздаватьГрафикОплатКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="СоздаватьГрафикОплатРасширеннаяПодсказка" id="50"/>
+		</CheckBoxField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.СценарииПланирования</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="Период" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:StandardPeriod</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

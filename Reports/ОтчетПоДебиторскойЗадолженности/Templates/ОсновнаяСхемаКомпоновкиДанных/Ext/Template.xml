@@ -1,0 +1,2481 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ОсновныеДанные</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СценарийПлана</dataPath>
+			<field>СценарийПлана</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Предприятия</dataPath>
+			<field>Предприятия</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПДЗ</dataPath>
+			<field>ПДЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПДЗ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоДнейПросрочки</dataPath>
+			<field>КоличествоДнейПросрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество дней просрочки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДЗ</dataPath>
+			<field>ДЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ДЗ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Договор</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтветственныйМенеджер</dataPath>
+			<field>ОтветственныйМенеджер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответственный менеджер</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НетОтсрочкиПоДоговору</dataPath>
+			<field>НетОтсрочкиПоДоговору</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отсутствует отсрочка по договору</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">БЛ=; БИ=Отсутствует</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отсрочка</dataPath>
+			<field>Отсрочка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КЗ</dataPath>
+			<field>КЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КЗ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=3</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДЗЗаВычетомКЗ</dataPath>
+			<field>ДЗЗаВычетомКЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого ДЗ (за вычетом КЗ)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПДЗЗаВычетомКЗ</dataPath>
+			<field>ПДЗЗаВычетомКЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итого ПДЗ (за вычетом КЗ)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатусКонтрагента</dataPath>
+			<field>СтатусКонтрагента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус контрагента</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СписаннаяДЗ</dataPath>
+			<field>СписаннаяДЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Забалансовая ДЗ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлановыеВстречныеОбязательства</dataPath>
+			<field>ПлановыеВстречныеОбязательства</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Плановые встречные обязательства</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВстречныеОбязательства</dataPath>
+			<field>ВстречныеОбязательства</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Формализованные встречные обязательства</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Верхи</dataPath>
+			<field>Верхи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Верхи (обязательства №2 неформализованные)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СвободныйОстатокФонда</dataPath>
+			<field>СвободныйОстатокФонда</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свободный остаток фонда</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПКЗ</dataPath>
+			<field>ПКЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПКЗ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоДнейПросрочкиКЗ</dataPath>
+			<field>КоличествоДнейПросрочкиКЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество дней просрочки КЗ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущаяОтсрочкаДЗ</dataPath>
+			<field>ТекущаяОтсрочкаДЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая отсрочка ДЗ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТекущаяОтсрочкаКЗ</dataPath>
+			<field>ТекущаяОтсрочкаКЗ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущая отсрочка КЗ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	УчетныйОстатки.Предприятия КАК Предприятия,
+	УчетныйОстатки.Субконто1 КАК Субконто1,
+	УчетныйОстатки.Субконто2 КАК Субконто2,
+	УчетныйОстатки.Субконто3 КАК Субконто3,
+	УчетныйОстатки.СуммаОстатокДт КАК СуммаОстатокДт,
+	УчетныйОстатки.Подразделение КАК Подразделение,
+	ВЫБОР
+		КОГДА УчетныйОстатки.Субконто3 ССЫЛКА Документ.УЧ_Реализация
+			ТОГДА ВЫРАЗИТЬ(УчетныйОстатки.Субконто3 КАК Документ.УЧ_Реализация).Дата
+		КОГДА УчетныйОстатки.Субконто3 ССЫЛКА Документ.УЧ_ПоступлениеТоваров
+			ТОГДА ВЫРАЗИТЬ(УчетныйОстатки.Субконто3 КАК Документ.УЧ_ПоступлениеТоваров).Дата
+		ИНАЧЕ ДАТАВРЕМЯ(1, 1, 1)
+	КОНЕЦ КАК ДатаДокумента,
+	УчетныйОстатки.СуммаОстатокКт КАК СуммаОстатокКт,
+	УчетныйОстатки.СуммаОстаток КАК СуммаОстаток,
+	УчетныйОстатки.Счет КАК Счет
+ПОМЕСТИТЬ ВТ_НачДанные
+ИЗ
+	РегистрБухгалтерии.Учетный.Остатки(
+			,
+			Счет.Код = "62.01"
+				ИЛИ Счет.Код = "60.01",
+			,
+			) КАК УчетныйОстатки
+ГДЕ
+	(УчетныйОстатки.СуммаОстатокДт &lt;&gt; 0
+			ИЛИ УчетныйОстатки.СуммаОстатокКт &lt;&gt; 0)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_НачДанные.Предприятия КАК Предприятия,
+	ВТ_НачДанные.Субконто1 КАК Субконто1,
+	ВТ_НачДанные.Субконто2 КАК Субконто2,
+	СУММА(ВТ_НачДанные.СуммаОстаток) КАК СуммаОстаток,
+	ВТ_НачДанные.Подразделение КАК Подразделение
+ПОМЕСТИТЬ ВТ_ОбщаяЗадолженность
+ИЗ
+	ВТ_НачДанные КАК ВТ_НачДанные
+
+СГРУППИРОВАТЬ ПО
+	ВТ_НачДанные.Предприятия,
+	ВТ_НачДанные.Субконто1,
+	ВТ_НачДанные.Субконто2,
+	ВТ_НачДанные.Подразделение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_НачДанные.Субконто2 КАК Субконто2,
+	МАКСИМУМ(ОтсрочкаПоДоговорам.Период) КАК Период
+ПОМЕСТИТЬ ВТ_МаксПериодОтсрочки
+ИЗ
+	ВТ_НачДанные КАК ВТ_НачДанные
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ОтсрочкаПоДоговорам КАК ОтсрочкаПоДоговорам
+		ПО ВТ_НачДанные.Субконто2 = ОтсрочкаПоДоговорам.Договор
+
+СГРУППИРОВАТЬ ПО
+	ВТ_НачДанные.Субконто2
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВТ_НачДанные.Предприятия КАК Предприятия,
+	ВТ_НачДанные.Субконто1 КАК Контрагент,
+	ВТ_НачДанные.Субконто2 КАК Договор,
+	ЕСТЬNULL(ВТ_НачДанные.СуммаОстатокДт, 0) КАК ДЗ,
+	ВТ_НачДанные.Подразделение КАК Подразделение,
+	ВЫБОР
+		КОГДА ВТ_НачДанные.СуммаОстатокКт &lt;&gt; 0
+				И (ВТ_НачДанные.Субконто3 = НЕОПРЕДЕЛЕНО
+					ИЛИ ВТ_НачДанные.Субконто3 = ЗНАЧЕНИЕ(Документ.УЧ_Реализация.ПустаяСсылка)
+					ИЛИ ВТ_НачДанные.Субконто3 = ЗНАЧЕНИЕ(Документ.УЧ_ПоступлениеТоваров.ПустаяСсылка))
+			ТОГДА ВЫБОР
+					КОГДА ВТ_ОбщаяЗадолженность.СуммаОстаток &gt;= 0
+						ТОГДА "Нераспределенная кредиторка"
+					ИНАЧЕ "КЗ"
+				КОНЕЦ
+		ИНАЧЕ ВТ_НачДанные.Субконто3
+	КОНЕЦ КАК Документ,
+	ВЫБОР
+		КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+			ТОГДА ВЫБОР
+					КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+						ТОГДА ВТ_НачДанные.СуммаОстатокДт
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+					ТОГДА ВТ_НачДанные.СуммаОстатокДт
+				ИНАЧЕ 0
+			КОНЕЦ
+	КОНЕЦ КАК ПДЗ,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТ_НачДанные.СуммаОстатокДт, 0) &gt; 0
+			ТОГДА ВЫБОР
+					КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+						ТОГДА ВЫБОР
+								КОГДА ВТ_НачДанные.ДатаДокумента = ДАТАВРЕМЯ(1, 1, 1)
+									ТОГДА 0
+								ИНАЧЕ ВЫБОР
+										КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+											ТОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) - ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+										ИНАЧЕ 0
+									КОНЕЦ
+							КОНЕЦ
+					ИНАЧЕ ВЫБОР
+							КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+								ТОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) - ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+							ИНАЧЕ 0
+						КОНЕЦ
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоДнейПросрочки,
+	ВЫБОР
+		КОГДА ОтсрочкаПоДоговорам.Отсрочка ЕСТЬ NULL
+				ИЛИ ОтсрочкаПоДоговорам.Отсрочка = 0
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК НетОтсрочкиПоДоговору,
+	ОтсрочкаПоДоговорам.Отсрочка КАК Отсрочка,
+	ЕСТЬNULL(ВТ_НачДанные.СуммаОстатокКт, 0) КАК КЗ,
+	ВТ_НачДанные.СуммаОстатокДт - ВЫБОР
+		КОГДА ВТ_НачДанные.СуммаОстатокКт &lt;&gt; 0
+				И (ВТ_НачДанные.Субконто3 = НЕОПРЕДЕЛЕНО
+					ИЛИ ВТ_НачДанные.Субконто3 = ЗНАЧЕНИЕ(Документ.УЧ_Реализация.ПустаяСсылка))
+			ТОГДА ВЫБОР
+					КОГДА ВТ_ОбщаяЗадолженность.СуммаОстаток &gt;= 0
+						ТОГДА 0
+					ИНАЧЕ ВТ_НачДанные.СуммаОстатокКт
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ДЗЗаВычетомКЗ,
+	ВЫБОР
+		КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+			ТОГДА ВЫБОР
+					КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+						ТОГДА ВТ_НачДанные.СуммаОстатокДт
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+					ТОГДА ВТ_НачДанные.СуммаОстатокДт
+				ИНАЧЕ 0
+			КОНЕЦ
+	КОНЕЦ - ВЫБОР
+		КОГДА ВТ_НачДанные.СуммаОстатокКт &lt;&gt; 0
+				И (ВТ_НачДанные.Субконто3 = НЕОПРЕДЕЛЕНО
+					ИЛИ ВТ_НачДанные.Субконто3 = ЗНАЧЕНИЕ(Документ.УЧ_Реализация.ПустаяСсылка))
+			ТОГДА ВЫБОР
+					КОГДА ВТ_ОбщаяЗадолженность.СуммаОстаток &gt;= 0
+						ТОГДА 0
+					ИНАЧЕ ВТ_НачДанные.СуммаОстатокКт
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ПДЗЗаВычетомКЗ,
+	NULL КАК СписаннаяДЗ,
+	NULL КАК ПлановыеВстречныеОбязательства,
+	NULL КАК ВстречныеОбязательства,
+	NULL КАК СвободныйОстатокФонда,
+	NULL КАК Верхи,
+	ВЫБОР
+		КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+			ТОГДА ВЫБОР
+					КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+						ТОГДА ВТ_НачДанные.СуммаОстатокКт
+					ИНАЧЕ 0
+				КОНЕЦ
+		ИНАЧЕ ВЫБОР
+				КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+					ТОГДА ВТ_НачДанные.СуммаОстатокКт
+				ИНАЧЕ 0
+			КОНЕЦ
+	КОНЕЦ КАК ПКЗ,
+	ВТ_НачДанные.Счет КАК Счет,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТ_НачДанные.СуммаОстатокКт, 0) &gt; 0
+			ТОГДА ВЫБОР
+					КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+						ТОГДА ВЫБОР
+								КОГДА ВТ_НачДанные.ДатаДокумента = ДАТАВРЕМЯ(1, 1, 1)
+									ТОГДА 0
+								ИНАЧЕ ВЫБОР
+										КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+											ТОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) - ЕСТЬNULL(ОтсрочкаПоДоговорам.Отсрочка, 0)
+										ИНАЧЕ 0
+									КОНЕЦ
+							КОНЕЦ
+					ИНАЧЕ ВЫБОР
+							КОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) &gt; ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+								ТОГДА РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ) - ЕСТЬNULL(ОтсрочкаПоДокументу.Отсрочка, 0)
+							ИНАЧЕ 0
+						КОНЕЦ
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоДнейПросрочкиКЗ,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТ_НачДанные.СуммаОстатокДт, 0) &gt; 0
+			ТОГДА ВЫБОР
+					КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+						ТОГДА ВЫБОР
+								КОГДА ВТ_НачДанные.ДатаДокумента = ДАТАВРЕМЯ(1, 1, 1)
+									ТОГДА 0
+								ИНАЧЕ РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ)
+							КОНЕЦ
+					ИНАЧЕ РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ)
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ТекущаяОтсрочкаДЗ,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВТ_НачДанные.СуммаОстатокКт, 0) &gt; 0
+			ТОГДА ВЫБОР
+					КОГДА ОтсрочкаПоДокументу.Отсрочка ЕСТЬ NULL
+						ТОГДА ВЫБОР
+								КОГДА ВТ_НачДанные.ДатаДокумента = ДАТАВРЕМЯ(1, 1, 1)
+									ТОГДА 0
+								ИНАЧЕ РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ)
+							КОНЕЦ
+					ИНАЧЕ РАЗНОСТЬДАТ(ВТ_НачДанные.ДатаДокумента, &amp;ПериодПользовательский, ДЕНЬ)
+				КОНЕЦ
+		ИНАЧЕ 0
+	КОНЕЦ КАК ТекущаяОтсрочкаКЗ
+ПОМЕСТИТЬ ВТ_ИтоговыеДанные
+ИЗ
+	ВТ_НачДанные КАК ВТ_НачДанные
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_МаксПериодОтсрочки КАК ВТ_МаксПериодОтсрочки
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ОтсрочкаПоДоговорам КАК ОтсрочкаПоДоговорам
+			ПО ВТ_МаксПериодОтсрочки.Субконто2 = ОтсрочкаПоДоговорам.Договор
+				И ВТ_МаксПериодОтсрочки.Период = ОтсрочкаПоДоговорам.Период
+		ПО ВТ_НачДанные.Субконто2 = ВТ_МаксПериодОтсрочки.Субконто2
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ОтсрочкаПоДоговорам КАК ОтсрочкаПоДокументу
+		ПО ВТ_НачДанные.Субконто3 = ОтсрочкаПоДокументу.Договор
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ОбщаяЗадолженность КАК ВТ_ОбщаяЗадолженность
+		ПО ВТ_НачДанные.Предприятия = ВТ_ОбщаяЗадолженность.Предприятия
+			И ВТ_НачДанные.Субконто1 = ВТ_ОбщаяЗадолженность.Субконто1
+			И ВТ_НачДанные.Субконто2 = ВТ_ОбщаяЗадолженность.Субконто2
+			И ВТ_НачДанные.Подразделение = ВТ_ОбщаяЗадолженность.Подразделение
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	УчетныйОстатки.Предприятия,
+	УчетныйОстатки.Субконто1,
+	УчетныйОстатки.Субконто2,
+	0,
+	УчетныйОстатки.Подразделение,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	УчетныйОстатки.СуммаОстаток,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL
+ИЗ
+	РегистрБухгалтерии.Учетный.Остатки(, Счет.Код = "005", , ) КАК УчетныйОстатки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВТ_ИтоговыеДанные.Предприятия КАК Предприятия,
+	ВТ_ИтоговыеДанные.Контрагент КАК Контрагент,
+	ВТ_ИтоговыеДанные.Договор КАК Договор,
+	ВТ_ИтоговыеДанные.ДЗ КАК ДЗ,
+	ВТ_ИтоговыеДанные.Подразделение КАК Подразделение,
+	ВТ_ИтоговыеДанные.Документ КАК Документ,
+	ВТ_ИтоговыеДанные.ПДЗ КАК ПДЗ,
+	ВТ_ИтоговыеДанные.КоличествоДнейПросрочки КАК КоличествоДнейПросрочки,
+	ВТ_ИтоговыеДанные.НетОтсрочкиПоДоговору КАК НетОтсрочкиПоДоговору,
+	ВТ_ИтоговыеДанные.Отсрочка КАК Отсрочка,
+	ВТ_ИтоговыеДанные.КЗ КАК КЗ,
+	ВТ_ИтоговыеДанные.ДЗЗаВычетомКЗ КАК ДЗЗаВычетомКЗ,
+	ВТ_ИтоговыеДанные.ПДЗЗаВычетомКЗ КАК ПДЗЗаВычетомКЗ,
+	ВТ_ИтоговыеДанные.СписаннаяДЗ КАК СписаннаяДЗ,
+	ВТ_ИтоговыеДанные.ПлановыеВстречныеОбязательства КАК ПлановыеВстречныеОбязательства,
+	ВТ_ИтоговыеДанные.ВстречныеОбязательства КАК ВстречныеОбязательства,
+	ВТ_ИтоговыеДанные.Верхи КАК Верхи,
+	НЕОПРЕДЕЛЕНО КАК СтатусКонтрагента,
+	ОтветственныеСрезПоследних.Ответственный КАК ОтветственныйМенеджер,
+	ВТ_ИтоговыеДанные.СвободныйОстатокФонда КАК СвободныйОстатокФонда,
+	ВТ_ИтоговыеДанные.ПКЗ КАК ПКЗ,
+	ВТ_ИтоговыеДанные.Счет КАК Счет,
+	ВТ_ИтоговыеДанные.КоличествоДнейПросрочкиКЗ КАК КоличествоДнейПросрочкиКЗ,
+	ВТ_ИтоговыеДанные.ТекущаяОтсрочкаДЗ КАК ТекущаяОтсрочкаДЗ,
+	ВТ_ИтоговыеДанные.ТекущаяОтсрочкаКЗ КАК ТекущаяОтсрочкаКЗ
+ИЗ
+	ВТ_ИтоговыеДанные КАК ВТ_ИтоговыеДанные
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Ответственные.СрезПоследних(&amp;ПериодПользовательский, ) КАК ОтветственныеСрезПоследних
+		ПО ВТ_ИтоговыеДанные.Контрагент = ОтветственныеСрезПоследних.Контрагент
+ГДЕ
+	(ВЫБОР
+				КОГДА &amp;ОграничениеКонтрагентов
+					ТОГДА ОтветственныеСрезПоследних.Ответственный.ФизическоеЛицо.Пользователь В (&amp;Ответственные)
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ
+			ИЛИ ВЫБОР
+				КОГДА &amp;ОграничениеКонтрагентов
+					ТОГДА ОтветственныеСрезПоследних.Ответственный.Пользователь В (&amp;Ответственные)
+				ИНАЧЕ ИСТИНА
+			КОНЕЦ)</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ИНН</dataPath>
+		<expression>Контрагент.ИНН</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ИНН</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КПП</dataPath>
+		<expression>Контрагент.КПП</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>КПП</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ДЗСвернутая</dataPath>
+		<expression>ДЗ-КЗ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Общая ДЗ</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПДЗСвернутая</dataPath>
+		<expression>естьNULL(ПДЗ, 0)-ЕСТЬNULL(КЗ,0) </expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Просроченная ДЗ</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ДоляДЗ</dataPath>
+		<expression>(ДЗ-КЗ)/ ВычислитьВыражение("ДЗ-КЗ", "СтатусКонтрагента", "Группировка") </expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Доля ДЗ по статусу</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧЦ=3; ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КЗСвернутая</dataPath>
+		<expression>КЗ-ДЗ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>КЗ Свернутая</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПКЗСвернутая</dataPath>
+		<expression>естьNULL(ПКЗ, 0)-ЕСТЬNULL(ДЗ,0) </expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ПКЗ Свернутая</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ДЗ</dataPath>
+		<expression>Сумма(ДЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПДЗ</dataPath>
+		<expression>Сумма(ПДЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НетОтсрочкиПоДоговору</dataPath>
+		<expression>Максимум(НетОтсрочкиПоДоговору)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Отсрочка</dataPath>
+		<expression>Максимум(Отсрочка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоДнейПросрочки</dataPath>
+		<expression>Максимум(КоличествоДнейПросрочки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВстречныеОбязательства</dataPath>
+		<expression>Сумма(ВстречныеОбязательства)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПлановыеВстречныеОбязательства</dataPath>
+		<expression>Сумма(ПлановыеВстречныеОбязательства)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КЗ</dataPath>
+		<expression>Сумма(КЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДЗСвернутая</dataPath>
+		<expression>Сумма(ДЗСвернутая)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПДЗСвернутая</dataPath>
+		<expression>Выбор когда Сумма(ПДЗСвернутая) &lt; 0 Тогда 0 Иначе Сумма(ПДЗСвернутая) Конец</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДЗЗаВычетомКЗ</dataPath>
+		<expression>Сумма(ДЗЗаВычетомКЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПДЗЗаВычетомКЗ</dataPath>
+		<expression>Сумма(ПДЗЗаВычетомКЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Верхи</dataPath>
+		<expression>Сумма(Верхи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СписаннаяДЗ</dataPath>
+		<expression>Сумма(СписаннаяДЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СвободныйОстатокФонда</dataPath>
+		<expression>Сумма(СвободныйОстатокФонда)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДоляДЗ</dataPath>
+		<expression>Выбор когда Сумма(ДЗСвернутая) = 0 Тогда 0 Иначе Сумма(ДЗСвернутая) / ВычислитьВыражение("Сумма(ДЗСвернутая)", "СтатусКонтрагента", "Группировка")  Конец </expression>
+		<group>ИНН</group>
+	</totalField>
+	<totalField>
+		<dataPath>ПКЗ</dataPath>
+		<expression>Сумма(ПКЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КЗСвернутая</dataPath>
+		<expression>Сумма(КЗСвернутая)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПКЗСвернутая</dataPath>
+		<expression>Выбор когда Сумма(ПКЗСвернутая) &lt; 0 Тогда 0 Иначе Сумма(ПКЗСвернутая) Конец</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоДнейПросрочкиКЗ</dataPath>
+		<expression>Максимум(КоличествоДнейПросрочкиКЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТекущаяОтсрочкаДЗ</dataPath>
+		<expression>Максимум(ТекущаяОтсрочкаДЗ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТекущаяОтсрочкаКЗ</dataPath>
+		<expression>Максимум(ТекущаяОтсрочкаКЗ)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>УЧ_Сервер.ГраницаВключительно(&amp;ПериодПользовательский)</expression>
+	</parameter>
+	<parameter>
+		<name>Статьи</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статьи</v8:content>
+			</v8:item>
+		</title>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ИздержкиОбращения.ТрейдМенеджментИМаркетинг</value>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ИздержкиОбращения.РетробонусИсходящий</value>
+		<value xsi:type="dcscor:DesignTimeValue">Справочник.ИздержкиОбращения.РетробонусИсходящийУсловный</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>ПериодПользовательский</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ОграничениеКонтрагентов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ограничение контрагентов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<expression>РольДоступна("допОграничитьОтчетыПоКонтрагентам")</expression>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Ответственные</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ответственные</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Пользователи</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>БПСервер.ПолучитьМассивПользователей()</expression>
+		<valueListAllowed>true</valueListAllowed>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по задолженности контрагентов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ за вычетом обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за вычетом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле4</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле7</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле8</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле5</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итого встречные обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле6</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле9</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СписаннаяДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отсрочка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущаяОтсрочкаДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТекущаяОтсрочкаКЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоДнейПросрочкиКЗ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Предприятия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fbbba89d-547a-4fb2-bf3f-f243f3e578c2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b482f59a-3b59-4383-83c9-45e2ec60ebe3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>7459dcad-7b17-496e-a292-17b4d90e1685</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e0269f3d-7bd7-4cb0-95b2-c9e2ab6b6697</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>76df46db-ea68-4f2b-8032-9187504f060d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодПользовательский</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>a6e63a17-cdc3-47dd-8cef-036c214393ff</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Ответственные</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по задолженности контрагентов</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Предприятия</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Контрагент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИНН</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОтветственныйМенеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтатусКонтрагента</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Договор</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Развернутый</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по задолженности контрагентов (развернутый)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ за вычетом обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за вычетом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле4</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле7</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле8</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле5</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итого встречные обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле6</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле9</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отсрочка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДЗЗаВычетомКЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПДЗЗаВычетомКЗ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Предприятия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fbbba89d-547a-4fb2-bf3f-f243f3e578c2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e2e33413-2daf-4655-ae58-5019a4469d75</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>7459dcad-7b17-496e-a292-17b4d90e1685</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e0269f3d-7bd7-4cb0-95b2-c9e2ab6b6697</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>76df46db-ea68-4f2b-8032-9187504f060d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодПользовательский</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>e3fd6eb9-0d53-4453-9a7d-96ede592c28b</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по задолженности контрагентов (развернутый)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Предприятия</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Контрагент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИНН</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОтветственныйМенеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтатусКонтрагента</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Договор</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Документ</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+									<dcsset:use>false</dcsset:use>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Документ</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ДЗ</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ПДЗ</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Отсрочка</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>КЗ</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Свернутый</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по задолженности контрагентов (свернутый)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>[Общая ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>[Общая ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле5</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ за вычетом обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>[Общая ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>[Общая ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле6</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за вычетом обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле7</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итого встречные обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле8</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗСвернутая - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>[Общая ДЗ] - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗСвернутая - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>[Общая ДЗ] - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле9</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗСвернутая - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗСвернутая - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле10</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе [Просроченная ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>[Общая ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗСвернутая - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>[Общая ДЗ] - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДЗСвернутая</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДоляДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПДЗСвернутая</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СписаннаяДЗ</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Предприятия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fbbba89d-547a-4fb2-bf3f-f243f3e578c2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e2e33413-2daf-4655-ae58-5019a4469d75</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>7459dcad-7b17-496e-a292-17b4d90e1685</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e0269f3d-7bd7-4cb0-95b2-c9e2ab6b6697</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>76df46db-ea68-4f2b-8032-9187504f060d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодПользовательский</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>bc2cac32-d606-4e48-88b2-f3c3e187beae</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по задолженности контрагентов (свернутый)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Предприятия</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Контрагент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИНН</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОтветственныйМенеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:use>false</dcsset:use>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Договор</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:use>false</dcsset:use>
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Документ</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+									<dcsset:use>false</dcsset:use>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Документ</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ДЗ</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ПДЗ</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Отсрочка</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>КЗ</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ОсновнойКЗ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Отчет по задолженности контрагентов (КЗ)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:userFields>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле1</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ за вычетом обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле2</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за вычетом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле3</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле4</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле7</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле8</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ - Встречные обязательства - Верхи - Плановые обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull(ВстречныеОбязательства, 0) - ЕстьNull(Верхи, 0) - ЕстьNull(ПлановыеВстречныеОбязательства, 0)
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - ЕстьNull([Формализованные встречные обязательства], 0) - ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) - ЕстьNull([Плановые встречные обязательства], 0)
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле5</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итого встречные обязательства</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле6</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ОДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>ДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>ДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>ДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>ДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:UserFieldExpression">
+					<dcsset:dataPath>ПользовательскиеПоля.Поле9</dcsset:dataPath>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПДЗ за минусом встречных обязательств</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:detailExpression>Выбор
+	Когда ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:detailExpression>
+					<dcsset:detailExpressionPresentation>Выбор
+	Когда ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:detailExpressionPresentation>
+					<dcsset:totalExpression>Выбор
+	Когда ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull(ВстречныеОбязательства, 0) + ЕстьNull(Верхи, 0) + ЕстьNull(ПлановыеВстречныеОбязательства, 0))
+Конец</dcsset:totalExpression>
+					<dcsset:totalExpressionPresentation>Выбор
+	Когда ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0)) &lt; 0
+		Тогда 0
+	Иначе ПДЗ - (ЕстьNull([Формализованные встречные обязательства], 0) + ЕстьNull([Верхи (обязательства №2 неформализованные)], 0) + ЕстьNull([Плановые встречные обязательства], 0))
+Конец</dcsset:totalExpressionPresentation>
+				</dcsset:item>
+			</dcsset:userFields>
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КЗСвернутая</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПКЗСвернутая</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПКЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Отсрочка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Предприятия</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>fbbba89d-547a-4fb2-bf3f-f243f3e578c2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>b482f59a-3b59-4383-83c9-45e2ec60ebe3</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>7459dcad-7b17-496e-a292-17b4d90e1685</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>e0269f3d-7bd7-4cb0-95b2-c9e2ab6b6697</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Счет</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Учетный.ПоставщикиОсн</dcsset:right>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>76df46db-ea68-4f2b-8032-9187504f060d</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодПользовательский</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>a6e63a17-cdc3-47dd-8cef-036c214393ff</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отчет по задолженности контрагентов (КЗ)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Предприятия</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection/>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+						</dcsset:appearance>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Контрагент</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ИНН</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОтветственныйМенеджер</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтатусКонтрагента</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Договор</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Документ</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

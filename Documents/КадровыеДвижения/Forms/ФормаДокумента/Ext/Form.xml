@@ -1,0 +1,1206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Шапка" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ШапкаExtendedTooltip" id="297"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="298"/>
+				</InputField>
+				<InputField name="Дата" id="3">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ДатаExtendedTooltip" id="299"/>
+				</InputField>
+				<PictureDecoration name="Декорация2" id="162">
+					<Visible>false</Visible>
+					<Width>31</Width>
+					<Height>1</Height>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="Декорация2КонтекстноеМеню" id="163"/>
+					<ExtendedTooltip name="Декорация2ExtendedTooltip" id="300"/>
+				</PictureDecoration>
+				<InputField name="ВидОперации" id="5">
+					<DataPath>Объект.ВидОперации</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВидыОперацийДвиженияКадров.EnumValue.ПриемНаРаботу</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВидыОперацийДвиженияКадров.EnumValue.ИзменениеШтатногоРасписания</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation/>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВидыОперацийДвиженияКадров.EnumValue.Увольнение</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВидОперацииКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ВидОперацииExtendedTooltip" id="305"/>
+					<Events>
+						<Event name="OnChange">ВидОперацииПриИзменении</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="УправленческийУчет" id="158">
+					<DataPath>Объект.УправленческийУчет</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УправленческийУчетКонтекстноеМеню" id="159"/>
+					<ExtendedTooltip name="УправленческийУчетExtendedTooltip" id="301"/>
+					<Events>
+						<Event name="OnChange">УправленческийУчетПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<CheckBoxField name="РегламентированныйУчет" id="160">
+					<DataPath>Объект.РегламентированныйУчет</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="РегламентированныйУчетКонтекстноеМеню" id="161"/>
+					<ExtendedTooltip name="РегламентированныйУчетExtendedTooltip" id="302"/>
+					<Events>
+						<Event name="OnChange">РегламентированныйУчетПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Шапка2" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка2</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Шапка2</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Шапка2ExtendedTooltip" id="303"/>
+			<ChildItems>
+				<InputField name="Предприятие" id="627">
+					<DataPath>Объект.Предприятие</DataPath>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="628"/>
+					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="629"/>
+					<Events>
+						<Event name="OnChange">ПредприятиеПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Сотрудник" id="7">
+					<DataPath>Объект.Сотрудник</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СотрудникКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="СотрудникExtendedTooltip" id="304"/>
+					<Events>
+						<Event name="OnChange">СотрудникПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Pages name="КадровоеДействие" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кадровое действие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кадровое действие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<PagesRepresentation>None</PagesRepresentation>
+			<ExtendedTooltip name="КадровоеДействиеExtendedTooltip" id="306"/>
+			<ChildItems>
+				<Page name="Перемещение" id="57">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перемещение</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Перемещение</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ПеремещениеExtendedTooltip" id="350"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаПеремещениеМестоРаботы" id="75">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Место работы</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа приема место работы</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПеремещениеМестоРаботыExtendedTooltip" id="351"/>
+						</UsualGroup>
+						<Pages name="Группа2" id="630">
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="631"/>
+							<ChildItems>
+								<Page name="Группа28" id="232">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Увольнение с мест работы</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="Группа28ExtendedTooltip" id="366"/>
+									<ChildItems>
+										<UsualGroup name="Группа3" id="638">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Управленческий учет</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Collapsible</Behavior>
+											<ControlRepresentation>Picture</ControlRepresentation>
+											<Representation>None</Representation>
+											<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="639"/>
+											<ChildItems>
+												<Table name="УчетныеДанныеПрежниеПеремещение" id="209">
+													<TitleLocation>Top</TitleLocation>
+													<Width>50</Width>
+													<Height>5</Height>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>Объект.УчетныеДанныеПрежние</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Увольнение с работы</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="УчетныеДанныеПрежниеПеремещениеКонтекстноеМеню" id="210"/>
+													<AutoCommandBar name="УчетныеДанныеПрежниеПеремещениеКоманднаяПанель" id="211">
+														<ChildItems>
+															<Button name="УчетныеДанныеПрежниеПеремещениеЗаполнитьУчетныеДанные" id="260">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ЗаполнитьУчетныеДанные</CommandName>
+																<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеЗаполнитьУчетныеДанныеExtendedTooltip" id="367"/>
+															</Button>
+															<Button name="УчетныеДанныеПрежниеПеремещениеСкопироватьУпр" id="471">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СкопироватьУпр</CommandName>
+																<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеСкопироватьУпрРасширеннаяПодсказка" id="472"/>
+															</Button>
+														</ChildItems>
+													</AutoCommandBar>
+													<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеExtendedTooltip" id="368"/>
+													<SearchStringAddition name="УчетныеДанныеПрежниеПеремещениеСтрокаПоиска" id="574">
+														<AdditionSource>
+															<Item>УчетныеДанныеПрежниеПеремещение</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="УчетныеДанныеПрежниеПеремещениеСтрокаПоискаКонтекстноеМеню" id="575"/>
+														<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеСтрокаПоискаРасширеннаяПодсказка" id="576"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="УчетныеДанныеПрежниеПеремещениеСостояниеПросмотра" id="577">
+														<AdditionSource>
+															<Item>УчетныеДанныеПрежниеПеремещение</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="УчетныеДанныеПрежниеПеремещениеСостояниеПросмотраКонтекстноеМеню" id="578"/>
+														<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеСостояниеПросмотраРасширеннаяПодсказка" id="579"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="УчетныеДанныеПрежниеПеремещениеУправлениеПоиском" id="580">
+														<AdditionSource>
+															<Item>УчетныеДанныеПрежниеПеремещение</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="УчетныеДанныеПрежниеПеремещениеУправлениеПоискомКонтекстноеМеню" id="581"/>
+														<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеУправлениеПоискомРасширеннаяПодсказка" id="582"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<LabelField name="УчетныеДанныеПрежниеНомерСтроки" id="212">
+															<DataPath>Объект.УчетныеДанныеПрежние.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="УчетныеДанныеПрежниеНомерСтрокиКонтекстноеМеню" id="213"/>
+															<ExtendedTooltip name="УчетныеДанныеПрежниеНомерСтрокиExtendedTooltip" id="369"/>
+														</LabelField>
+														<ColumnGroup name="УчетныеДанныеПрежниеПеремещениеГруппа1" id="550">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеГруппа1РасширеннаяПодсказка" id="551"/>
+															<ChildItems>
+																<InputField name="УчетныеДанныеПрежниеПредприятие" id="214">
+																	<DataPath>Объект.УчетныеДанныеПрежние.Предприятие</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПрежниеПредприятиеКонтекстноеМеню" id="215"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПредприятиеExtendedTooltip" id="370"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПрежниеПодразделение" id="216">
+																	<DataPath>Объект.УчетныеДанныеПрежние.Подразделение</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ShowInFooter>false</ShowInFooter>
+																	<ContextMenu name="УчетныеДанныеПрежниеПодразделениеКонтекстноеМеню" id="217"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПодразделениеExtendedTooltip" id="371"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<ColumnGroup name="УчетныеДанныеПрежниеПеремещениеГруппа2" id="552">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеГруппа2РасширеннаяПодсказка" id="553"/>
+															<ChildItems>
+																<InputField name="УчетныеДанныеПрежниеПеремещениеВидНачисления" id="632">
+																	<DataPath>Объект.УчетныеДанныеПрежние.ВидНачисления</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПрежниеПеремещениеВидНачисленияКонтекстноеМеню" id="633"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеВидНачисленияРасширеннаяПодсказка" id="634"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПрежниеДолжность" id="218">
+																	<DataPath>Объект.УчетныеДанныеПрежние.Должность</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПрежниеДолжностьКонтекстноеМеню" id="219"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеДолжностьExtendedTooltip" id="373"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПрежниеПеремещениеИсточникВыдачиЗП" id="610">
+																	<DataPath>Объект.УчетныеДанныеПрежние.ИсточникВыдачиЗП</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПрежниеПеремещениеИсточникВыдачиЗПКонтекстноеМеню" id="611"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеИсточникВыдачиЗПРасширеннаяПодсказка" id="612"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПрежниеПеремещениеСтруктурнаяЕдиница" id="291">
+																	<DataPath>Объект.УчетныеДанныеПрежние.СтруктурнаяЕдиница</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ShowInFooter>false</ShowInFooter>
+																	<ContextMenu name="УчетныеДанныеПрежниеПеремещениеСтруктурнаяЕдиницаКонтекстноеМеню" id="292"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеСтруктурнаяЕдиницаExtendedTooltip" id="372"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<ColumnGroup name="УчетныеДанныеПрежниеПеремещениеГруппа3" id="554">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеГруппа3РасширеннаяПодсказка" id="555"/>
+															<ChildItems>
+																<InputField name="УчетныеДанныеПрежниеПеремещениеРазмерЗП" id="266">
+																	<DataPath>Объект.УчетныеДанныеПрежние.РазмерЗП</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<FooterDataPath>Объект.УчетныеДанныеПрежние.TotalРазмерЗП</FooterDataPath>
+																	<ContextMenu name="УчетныеДанныеПрежниеПеремещениеРазмерЗПКонтекстноеМеню" id="267"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеРазмерЗПExtendedTooltip" id="374"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПрежниеПеремещениеПремиальнаяЧасть" id="520">
+																	<DataPath>Объект.УчетныеДанныеПрежние.ПремиальнаяЧасть</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ShowInFooter>false</ShowInFooter>
+																	<ContextMenu name="УчетныеДанныеПрежниеПеремещениеПремиальнаяЧастьКонтекстноеМеню" id="521"/>
+																	<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеПремиальнаяЧастьРасширеннаяПодсказка" id="522"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="УчетныеДанныеПрежниеПеремещениеДата" id="502">
+															<DataPath>Объект.УчетныеДанныеПрежние.Дата</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата увольнения</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="УчетныеДанныеПрежниеПеремещениеДатаКонтекстноеМеню" id="503"/>
+															<ExtendedTooltip name="УчетныеДанныеПрежниеПеремещениеДатаРасширеннаяПодсказка" id="504"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+												<Table name="УчетныеДанныеПеремещение" id="187">
+													<TitleLocation>Top</TitleLocation>
+													<Width>50</Width>
+													<Height>5</Height>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>Объект.УчетныеДанные</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Прием на работу</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="УчетныеДанныеПеремещениеКонтекстноеМеню" id="188"/>
+													<AutoCommandBar name="УчетныеДанныеПеремещениеКоманднаяПанель" id="189"/>
+													<ExtendedTooltip name="УчетныеДанныеПеремещениеExtendedTooltip" id="383"/>
+													<SearchStringAddition name="УчетныеДанныеПеремещениеСтрокаПоиска" id="592">
+														<AdditionSource>
+															<Item>УчетныеДанныеПеремещение</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="УчетныеДанныеПеремещениеСтрокаПоискаКонтекстноеМеню" id="593"/>
+														<ExtendedTooltip name="УчетныеДанныеПеремещениеСтрокаПоискаРасширеннаяПодсказка" id="594"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="УчетныеДанныеПеремещениеСостояниеПросмотра" id="595">
+														<AdditionSource>
+															<Item>УчетныеДанныеПеремещение</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="УчетныеДанныеПеремещениеСостояниеПросмотраКонтекстноеМеню" id="596"/>
+														<ExtendedTooltip name="УчетныеДанныеПеремещениеСостояниеПросмотраРасширеннаяПодсказка" id="597"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="УчетныеДанныеПеремещениеУправлениеПоиском" id="598">
+														<AdditionSource>
+															<Item>УчетныеДанныеПеремещение</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="УчетныеДанныеПеремещениеУправлениеПоискомКонтекстноеМеню" id="599"/>
+														<ExtendedTooltip name="УчетныеДанныеПеремещениеУправлениеПоискомРасширеннаяПодсказка" id="600"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnChange">УчетныеДанныеПеремещениеПриИзменении</Event>
+													</Events>
+													<ChildItems>
+														<LabelField name="УчетныеДанные1НомерСтроки" id="190">
+															<DataPath>Объект.УчетныеДанные.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="УчетныеДанные1НомерСтрокиКонтекстноеМеню" id="191"/>
+															<ExtendedTooltip name="УчетныеДанные1НомерСтрокиExtendedTooltip" id="384"/>
+														</LabelField>
+														<ColumnGroup name="УчетныеДанныеПеремещениеГруппа1" id="562">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="УчетныеДанныеПеремещениеГруппа1РасширеннаяПодсказка" id="563"/>
+															<ChildItems>
+																<InputField name="УчетныеДанные1Предприятие" id="192">
+																	<DataPath>Объект.УчетныеДанные.Предприятие</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанные1ПредприятиеКонтекстноеМеню" id="193"/>
+																	<ExtendedTooltip name="УчетныеДанные1ПредприятиеExtendedTooltip" id="385"/>
+																</InputField>
+																<InputField name="УчетныеДанные1Подразделение" id="194">
+																	<DataPath>Объект.УчетныеДанные.Подразделение</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанные1ПодразделениеКонтекстноеМеню" id="195"/>
+																	<ExtendedTooltip name="УчетныеДанные1ПодразделениеExtendedTooltip" id="386"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="УчетныеДанныеПеремещениеВидНачисления" id="616">
+															<DataPath>Объект.УчетныеДанные.ВидНачисления</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="УчетныеДанныеПеремещениеВидНачисленияКонтекстноеМеню" id="617"/>
+															<ExtendedTooltip name="УчетныеДанныеПеремещениеВидНачисленияРасширеннаяПодсказка" id="618"/>
+														</InputField>
+														<ColumnGroup name="УчетныеДанныеПеремещениеГруппа2" id="564">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="УчетныеДанныеПеремещениеГруппа2РасширеннаяПодсказка" id="565"/>
+															<ChildItems>
+																<InputField name="УчетныеДанные1Должность" id="196">
+																	<DataPath>Объект.УчетныеДанные.Должность</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанные1ДолжностьКонтекстноеМеню" id="197"/>
+																	<ExtendedTooltip name="УчетныеДанные1ДолжностьExtendedTooltip" id="388"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПеремещениеСтруктурнаяЕдиница" id="293">
+																	<DataPath>Объект.УчетныеДанные.СтруктурнаяЕдиница</DataPath>
+																	<Visible>false</Visible>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПеремещениеСтруктурнаяЕдиницаКонтекстноеМеню" id="294"/>
+																	<ExtendedTooltip name="УчетныеДанныеПеремещениеСтруктурнаяЕдиницаExtendedTooltip" id="387"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПеремещениеИсточникВыдачиЗП" id="613">
+																	<DataPath>Объект.УчетныеДанные.ИсточникВыдачиЗП</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПеремещениеИсточникВыдачиЗПКонтекстноеМеню" id="614"/>
+																	<ExtendedTooltip name="УчетныеДанныеПеремещениеИсточникВыдачиЗПРасширеннаяПодсказка" id="615"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<ColumnGroup name="УчетныеДанныеПеремещениеГруппа3" id="566">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="УчетныеДанныеПеремещениеГруппа3РасширеннаяПодсказка" id="567"/>
+															<ChildItems>
+																<InputField name="УчетныеДанныеПеремещениеРазмерЗП" id="270">
+																	<DataPath>Объект.УчетныеДанные.РазмерЗП</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<FooterDataPath>Объект.УчетныеДанные.TotalРазмерЗП</FooterDataPath>
+																	<ContextMenu name="УчетныеДанныеПеремещениеРазмерЗПКонтекстноеМеню" id="271"/>
+																	<ExtendedTooltip name="УчетныеДанныеПеремещениеРазмерЗПExtendedTooltip" id="389"/>
+																</InputField>
+																<InputField name="УчетныеДанныеПеремещениеПремиальнаяЧасть" id="523">
+																	<DataPath>Объект.УчетныеДанные.ПремиальнаяЧасть</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="УчетныеДанныеПеремещениеПремиальнаяЧастьКонтекстноеМеню" id="524"/>
+																	<ExtendedTooltip name="УчетныеДанныеПеремещениеПремиальнаяЧастьРасширеннаяПодсказка" id="525"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
+														<InputField name="УчетныеДанныеПеремещениеДата" id="508">
+															<DataPath>Объект.УчетныеДанные.Дата</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата приема</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="УчетныеДанныеПеремещениеДатаКонтекстноеМеню" id="509"/>
+															<ExtendedTooltip name="УчетныеДанныеПеремещениеДатаРасширеннаяПодсказка" id="510"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="Группа4" id="640">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Регламентированный учет</v8:content>
+												</v8:item>
+											</Title>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Collapsible</Behavior>
+											<ControlRepresentation>Picture</ControlRepresentation>
+											<Representation>None</Representation>
+											<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="641"/>
+											<ChildItems>
+												<Table name="РегламентированныеДанныеПрежниеПеремещение" id="220">
+													<TitleLocation>Top</TitleLocation>
+													<Width>50</Width>
+													<Height>5</Height>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>Объект.РегламентированныеДанныеПрежние</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Увольнение с работы</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеКонтекстноеМеню" id="221"/>
+													<AutoCommandBar name="РегламентированныеДанныеПрежниеПеремещениеКоманднаяПанель" id="222">
+														<ChildItems>
+															<Button name="РегламентированныеДанныеПрежниеПеремещениеЗаполнитьРегламентированныеДанные" id="261">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.ЗаполнитьРегламентированныеДанные</CommandName>
+																<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеЗаполнитьРегламентированныеДанныеExtendedTooltip" id="375"/>
+															</Button>
+															<Button name="РегламентированныеДанныеПрежниеПеремещениеСкопироватьРегл" id="469">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СкопироватьРегл</CommandName>
+																<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеСкопироватьРеглРасширеннаяПодсказка" id="470"/>
+															</Button>
+														</ChildItems>
+													</AutoCommandBar>
+													<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеExtendedTooltip" id="376"/>
+													<SearchStringAddition name="РегламентированныеДанныеПрежниеПеремещениеСтрокаПоиска" id="583">
+														<AdditionSource>
+															<Item>РегламентированныеДанныеПрежниеПеремещение</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеСтрокаПоискаКонтекстноеМеню" id="584"/>
+														<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеСтрокаПоискаРасширеннаяПодсказка" id="585"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="РегламентированныеДанныеПрежниеПеремещениеСостояниеПросмотра" id="586">
+														<AdditionSource>
+															<Item>РегламентированныеДанныеПрежниеПеремещение</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеСостояниеПросмотраКонтекстноеМеню" id="587"/>
+														<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеСостояниеПросмотраРасширеннаяПодсказка" id="588"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="РегламентированныеДанныеПрежниеПеремещениеУправлениеПоиском" id="589">
+														<AdditionSource>
+															<Item>РегламентированныеДанныеПрежниеПеремещение</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеУправлениеПоискомКонтекстноеМеню" id="590"/>
+														<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеУправлениеПоискомРасширеннаяПодсказка" id="591"/>
+													</SearchControlAddition>
+													<ChildItems>
+														<LabelField name="РегламентированныеДанныеПрежниеНомерСтроки" id="223">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПрежниеНомерСтрокиКонтекстноеМеню" id="224"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеНомерСтрокиExtendedTooltip" id="377"/>
+														</LabelField>
+														<InputField name="РегламентированныеДанныеПрежниеЮрЛицо" id="225">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.ЮрЛицо</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПрежниеЮрЛицоКонтекстноеМеню" id="226"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеЮрЛицоExtendedTooltip" id="378"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПрежниеПодразделение" id="227">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.Подразделение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПодразделениеКонтекстноеМеню" id="228"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПодразделениеExtendedTooltip" id="379"/>
+														</InputField>
+														<ColumnGroup name="РегламентированныеДанныеПрежниеПеремещениеГруппа1" id="556">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеГруппа1РасширеннаяПодсказка" id="557"/>
+														</ColumnGroup>
+														<InputField name="РегламентированныеДанныеПрежниеДолжность" id="229">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.Должность</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПрежниеДолжностьКонтекстноеМеню" id="230"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеДолжностьExtendedTooltip" id="380"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПрежниеПеремещениеВидНачисления" id="635">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.ВидНачисления</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеВидНачисленияКонтекстноеМеню" id="636"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеВидНачисленияРасширеннаяПодсказка" id="637"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПрежниеПеремещениеРазмерЗП" id="268">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.РазмерЗП</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<FooterDataPath>Объект.РегламентированныеДанныеПрежние.TotalРазмерЗП</FooterDataPath>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеРазмерЗПКонтекстноеМеню" id="269"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеРазмерЗПExtendedTooltip" id="381"/>
+															<Events>
+																<Event name="OnChange">РегламентированныеДанныеПрежниеПеремещениеРазмерЗППриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПрежниеПеремещениеПремиальнаяЧасть" id="526">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.ПремиальнаяЧасть</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеПремиальнаяЧастьКонтекстноеМеню" id="527"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеПремиальнаяЧастьРасширеннаяПодсказка" id="528"/>
+														</InputField>
+														<ColumnGroup name="РегламентированныеДанныеПрежниеПеремещениеГруппа2" id="558">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеГруппа2РасширеннаяПодсказка" id="559"/>
+														</ColumnGroup>
+														<ColumnGroup name="РегламентированныеДанныеПрежниеПеремещениеГруппа3" id="560">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеГруппа3РасширеннаяПодсказка" id="561"/>
+														</ColumnGroup>
+														<InputField name="РегламентированныеДанныеПрежниеПеремещениеПолнаяСтавка" id="479">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.ПолнаяСтавка</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеПолнаяСтавкаКонтекстноеМеню" id="480"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеПолнаяСтавкаРасширеннаяПодсказка" id="481"/>
+															<Events>
+																<Event name="OnChange">РегламентированныеДанныеПрежниеПеремещениеПолнаяСтавкаПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПрежниеПеремещениеПроцентСтавки" id="482">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.ПроцентСтавки</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеПроцентСтавкиКонтекстноеМеню" id="483"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеПроцентСтавкиРасширеннаяПодсказка" id="484"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПрежниеПеремещениеДата" id="505">
+															<DataPath>Объект.РегламентированныеДанныеПрежние.Дата</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата увольнения</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПрежниеПеремещениеДатаКонтекстноеМеню" id="506"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПрежниеПеремещениеДатаРасширеннаяПодсказка" id="507"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+												<Table name="РегламентированныеДанныеПеремещение" id="198">
+													<TitleLocation>Top</TitleLocation>
+													<Width>50</Width>
+													<Height>5</Height>
+													<AutoInsertNewRow>true</AutoInsertNewRow>
+													<EnableStartDrag>true</EnableStartDrag>
+													<EnableDrag>true</EnableDrag>
+													<FileDragMode>AsFile</FileDragMode>
+													<DataPath>Объект.РегламентированныеДанные</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Прием на работу</v8:content>
+														</v8:item>
+													</Title>
+													<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+													<SearchStringLocation>None</SearchStringLocation>
+													<ViewStatusLocation>None</ViewStatusLocation>
+													<SearchControlLocation>None</SearchControlLocation>
+													<RowFilter xsi:nil="true"/>
+													<ContextMenu name="РегламентированныеДанныеПеремещениеКонтекстноеМеню" id="199"/>
+													<AutoCommandBar name="РегламентированныеДанныеПеремещениеКоманднаяПанель" id="200"/>
+													<ExtendedTooltip name="РегламентированныеДанныеПеремещениеExtendedTooltip" id="390"/>
+													<SearchStringAddition name="РегламентированныеДанныеПеремещениеСтрокаПоиска" id="601">
+														<AdditionSource>
+															<Item>РегламентированныеДанныеПеремещение</Item>
+															<Type>SearchStringRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="РегламентированныеДанныеПеремещениеСтрокаПоискаКонтекстноеМеню" id="602"/>
+														<ExtendedTooltip name="РегламентированныеДанныеПеремещениеСтрокаПоискаРасширеннаяПодсказка" id="603"/>
+													</SearchStringAddition>
+													<ViewStatusAddition name="РегламентированныеДанныеПеремещениеСостояниеПросмотра" id="604">
+														<AdditionSource>
+															<Item>РегламентированныеДанныеПеремещение</Item>
+															<Type>ViewStatusRepresentation</Type>
+														</AdditionSource>
+														<ContextMenu name="РегламентированныеДанныеПеремещениеСостояниеПросмотраКонтекстноеМеню" id="605"/>
+														<ExtendedTooltip name="РегламентированныеДанныеПеремещениеСостояниеПросмотраРасширеннаяПодсказка" id="606"/>
+													</ViewStatusAddition>
+													<SearchControlAddition name="РегламентированныеДанныеПеремещениеУправлениеПоиском" id="607">
+														<AdditionSource>
+															<Item>РегламентированныеДанныеПеремещение</Item>
+															<Type>SearchControl</Type>
+														</AdditionSource>
+														<ContextMenu name="РегламентированныеДанныеПеремещениеУправлениеПоискомКонтекстноеМеню" id="608"/>
+														<ExtendedTooltip name="РегламентированныеДанныеПеремещениеУправлениеПоискомРасширеннаяПодсказка" id="609"/>
+													</SearchControlAddition>
+													<Events>
+														<Event name="OnChange">РегламентированныеДанныеПеремещениеПриИзменении</Event>
+													</Events>
+													<ChildItems>
+														<LabelField name="РегламентированныеДанные1НомерСтроки" id="201">
+															<DataPath>Объект.РегламентированныеДанные.LineNumber</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанные1НомерСтрокиКонтекстноеМеню" id="202"/>
+															<ExtendedTooltip name="РегламентированныеДанные1НомерСтрокиExtendedTooltip" id="391"/>
+														</LabelField>
+														<ColumnGroup name="РегламентированныеДанныеПеремещениеГруппа1" id="568">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеГруппа1РасширеннаяПодсказка" id="569"/>
+														</ColumnGroup>
+														<InputField name="РегламентированныеДанные1ЮрЛицо" id="203">
+															<DataPath>Объект.РегламентированныеДанные.ЮрЛицо</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанные1ЮрЛицоКонтекстноеМеню" id="204"/>
+															<ExtendedTooltip name="РегламентированныеДанные1ЮрЛицоExtendedTooltip" id="392"/>
+														</InputField>
+														<InputField name="РегламентированныеДанные1Подразделение" id="205">
+															<DataPath>Объект.РегламентированныеДанные.Подразделение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанные1ПодразделениеКонтекстноеМеню" id="206"/>
+															<ExtendedTooltip name="РегламентированныеДанные1ПодразделениеExtendedTooltip" id="393"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПеремещениеВидНачисления" id="619">
+															<DataPath>Объект.РегламентированныеДанные.ВидНачисления</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПеремещениеВидНачисленияКонтекстноеМеню" id="620"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеВидНачисленияРасширеннаяПодсказка" id="621"/>
+														</InputField>
+														<InputField name="РегламентированныеДанные1Должность" id="207">
+															<DataPath>Объект.РегламентированныеДанные.Должность</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанные1ДолжностьКонтекстноеМеню" id="208"/>
+															<ExtendedTooltip name="РегламентированныеДанные1ДолжностьExtendedTooltip" id="394"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПеремещениеРазмерЗП" id="272">
+															<DataPath>Объект.РегламентированныеДанные.РазмерЗП</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<FooterDataPath>Объект.РегламентированныеДанные.TotalРазмерЗП</FooterDataPath>
+															<ContextMenu name="РегламентированныеДанныеПеремещениеРазмерЗПКонтекстноеМеню" id="273"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеРазмерЗПExtendedTooltip" id="395"/>
+															<Events>
+																<Event name="OnChange">РегламентированныеДанныеПеремещениеРазмерЗППриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПеремещениеПремиальнаяЧасть" id="529">
+															<DataPath>Объект.РегламентированныеДанные.ПремиальнаяЧасть</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПеремещениеПремиальнаяЧастьКонтекстноеМеню" id="530"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеПремиальнаяЧастьРасширеннаяПодсказка" id="531"/>
+														</InputField>
+														<ColumnGroup name="РегламентированныеДанныеПеремещениеГруппа2" id="570">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеГруппа2РасширеннаяПодсказка" id="571"/>
+														</ColumnGroup>
+														<ColumnGroup name="РегламентированныеДанныеПеремещениеГруппа3" id="572">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеГруппа3РасширеннаяПодсказка" id="573"/>
+														</ColumnGroup>
+														<InputField name="РегламентированныеДанныеПеремещениеПолнаяСтавка" id="485">
+															<DataPath>Объект.РегламентированныеДанные.ПолнаяСтавка</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПеремещениеПолнаяСтавкаКонтекстноеМеню" id="486"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеПолнаяСтавкаРасширеннаяПодсказка" id="487"/>
+															<Events>
+																<Event name="OnChange">РегламентированныеДанныеПеремещениеПолнаяСтавкаПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПеремещениеПроцентСтавки" id="488">
+															<DataPath>Объект.РегламентированныеДанные.ПроцентСтавки</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПеремещениеПроцентСтавкиКонтекстноеМеню" id="489"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеПроцентСтавкиРасширеннаяПодсказка" id="490"/>
+														</InputField>
+														<InputField name="РегламентированныеДанныеПеремещениеДата" id="511">
+															<DataPath>Объект.РегламентированныеДанные.Дата</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата приема</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="РегламентированныеДанныеПеремещениеДатаКонтекстноеМеню" id="512"/>
+															<ExtendedTooltip name="РегламентированныеДанныеПеремещениеДатаРасширеннаяПодсказка" id="513"/>
+														</InputField>
+													</ChildItems>
+												</Table>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаПеремещениеСведенияОЗП" id="89">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Сведения о заработной плате</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа приема сведения ОЗП</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ExtendedTooltip name="ГруппаПеремещениеСведенияОЗПExtendedTooltip" id="396"/>
+											<ChildItems>
+												<UsualGroup name="Группа17" id="491">
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа17РасширеннаяПодсказка" id="492"/>
+													<ChildItems>
+														<UsualGroup name="Группа23" id="143">
+															<Group>Vertical</Group>
+															<Behavior>Usual</Behavior>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="Группа23ExtendedTooltip" id="402"/>
+															<ChildItems>
+																<InputField name="ОбщийРазмерЗП" id="101">
+																	<DataPath>Объект.ОбщийРазмерЗП</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Общий размер зарплаты</v8:content>
+																		</v8:item>
+																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ОбщийРазмерЗПКонтекстноеМеню" id="102"/>
+																	<ExtendedTooltip name="ОбщийРазмерЗПРасширеннаяПодсказка" id="403"/>
+																</InputField>
+																<InputField name="КомпенсацияАрендыЖилья" id="106">
+																	<DataPath>Объект.КомпенсацияАрендыЖилья</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="КомпенсацияАрендыЖильяКонтекстноеМеню" id="107"/>
+																	<ExtendedTooltip name="КомпенсацияАрендыЖильяРасширеннаяПодсказка" id="407"/>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="Группа18" id="105">
+															<Group>Vertical</Group>
+															<Behavior>Usual</Behavior>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="Группа18ExtendedTooltip" id="406"/>
+															<ChildItems>
+																<InputField name="ПремиальнаяЧасть" id="103">
+																	<DataPath>Объект.ПремиальнаяЧасть</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>20</Width>
+																	<ContextMenu name="ПремиальнаяЧастьКонтекстноеМеню" id="104"/>
+																	<ExtendedTooltip name="ПремиальнаяЧастьРасширеннаяПодсказка" id="401"/>
+																</InputField>
+																<InputField name="КомпенсацияСотовойСвязи" id="108">
+																	<DataPath>Объект.КомпенсацияСотовойСвязи</DataPath>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="КомпенсацияСотовойСвязиКонтекстноеМеню" id="109"/>
+																	<ExtendedTooltip name="КомпенсацияСотовойСвязиРасширеннаяПодсказка" id="408"/>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="УсловияУвольнения" id="118">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Условия увольнения</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Условия увольнения</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ExtendedTooltip name="УсловияУвольненияExtendedTooltip" id="440"/>
+											<ChildItems>
+												<UsualGroup name="Группа20" id="129">
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа20ExtendedTooltip" id="441"/>
+													<ChildItems>
+														<InputField name="ВыплатыПриУвольнении" id="119">
+															<DataPath>Объект.ВыплатыПриУвольнении</DataPath>
+															<ContextMenu name="ВыплатыПриУвольненииКонтекстноеМеню" id="120"/>
+															<ExtendedTooltip name="ВыплатыПриУвольненииExtendedTooltip" id="442"/>
+															<Events>
+																<Event name="OnChange">ВыплатыПриУвольненииПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ВыплатыПриУвольненииПояснение" id="123">
+															<DataPath>Объект.ВыплатыПриУвольненииПояснение</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Пояснение</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ВыплатыПриУвольненииПояснениеКонтекстноеМеню" id="124"/>
+															<ExtendedTooltip name="ВыплатыПриУвольненииПояснениеExtendedTooltip" id="443"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Группа21" id="130">
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа21ExtendedTooltip" id="444"/>
+													<ChildItems>
+														<InputField name="ВыплатыПриУвольненииОфициальные" id="121">
+															<DataPath>Объект.ВыплатыПриУвольненииОфициальные</DataPath>
+															<ContextMenu name="ВыплатыПриУвольненииОфициальныеКонтекстноеМеню" id="122"/>
+															<ExtendedTooltip name="ВыплатыПриУвольненииОфициальныеExtendedTooltip" id="445"/>
+															<Events>
+																<Event name="OnChange">ВыплатыПриУвольненииОфициальныеПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ВыплатыПриУвольненииОфициальныеПояснение" id="125">
+															<DataPath>Объект.ВыплатыПриУвольненииОфициальныеПояснение</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Пояснение</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ВыплатыПриУвольненииОфициальныеПояснениеКонтекстноеМеню" id="126"/>
+															<ExtendedTooltip name="ВыплатыПриУвольненииОфициальныеПояснениеExtendedTooltip" id="446"/>
+														</InputField>
+														<InputField name="ВсегоВыплатПриУвольнени" id="127">
+															<DataPath>Объект.ВсегоВыплатПриУвольнени</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+															<ContextMenu name="ВсегоВыплатПриУвольнениКонтекстноеМеню" id="128"/>
+															<ExtendedTooltip name="ВсегоВыплатПриУвольнениExtendedTooltip" id="448"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Группа6" id="287">
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа6ExtendedTooltip" id="447"/>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаУвольнениеПрочее" id="131">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Прочие сведения</v8:content>
+												</v8:item>
+											</Title>
+											<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа приема прочее</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаУвольнениеПрочееExtendedTooltip" id="451"/>
+											<ChildItems>
+												<UsualGroup name="Группа22" id="132">
+													<Group>Horizontal</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="Группа22ExtendedTooltip" id="452"/>
+													<ChildItems>
+														<InputField name="ДатаДействительногоВыхода2" id="135">
+															<DataPath>Объект.Период</DataPath>
+															<Visible>false</Visible>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Последний фактический рабочий день</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ДатаДействительногоВыхода2КонтекстноеМеню" id="136"/>
+															<ExtendedTooltip name="ДатаДействительногоВыхода2ExtendedTooltip" id="453"/>
+														</InputField>
+														<InputField name="ДатаПриема2" id="133">
+															<DataPath>Объект.ДатаРегл</DataPath>
+															<Visible>false</Visible>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Дата увольнения(оф.)</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ДатаПриема2КонтекстноеМеню" id="134"/>
+															<ExtendedTooltip name="ДатаПриема2ExtendedTooltip" id="454"/>
+														</InputField>
+														<LabelField name="РазмерЗпУстановленныйРанее2" id="466">
+															<DataPath>РазмерЗпУстановленныйРанее</DataPath>
+															<Visible>false</Visible>
+															<ContextMenu name="РазмерЗпУстановленныйРанее2КонтекстноеМеню" id="467"/>
+															<ExtendedTooltip name="РазмерЗпУстановленныйРанее2РасширеннаяПодсказка" id="468"/>
+														</LabelField>
+														<InputField name="ПрочаяИнформация2" id="137">
+															<DataPath>Объект.ПрочаяИнформация</DataPath>
+															<Visible>false</Visible>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПрочаяИнформация2КонтекстноеМеню" id="138"/>
+															<ExtendedTooltip name="ПрочаяИнформация2ExtendedTooltip" id="455"/>
+														</InputField>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="Группа27" id="231">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Прием на работу</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="Группа27ExtendedTooltip" id="382"/>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+		<UsualGroup name="Группа1" id="622">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="623"/>
+			<ChildItems>
+				<InputField name="Комментарий" id="139">
+					<DataPath>Объект.Комментарий</DataPath>
+					<ContextMenu name="КомментарийКонтекстноеМеню" id="140"/>
+					<ExtendedTooltip name="КомментарийExtendedTooltip" id="456"/>
+				</InputField>
+				<LabelField name="Автор" id="624">
+					<DataPath>Объект.Автор</DataPath>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="АвторКонтекстноеМеню" id="625"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="626"/>
+				</LabelField>
+				<InputField name="ДокументОснование" id="499">
+					<DataPath>Объект.ДокОснование</DataPath>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="500"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="501"/>
+					<Events>
+						<Event name="StartChoice">ДокументОснованиеНачалоВыбора</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.КадровыеДвижения</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+		<Attribute name="РазмерЗпУстановленныйРанее" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Размер зп, установленный ранее</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗаполнитьУчетныеДанные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить учетные данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьУчетныеДанные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьРегламентированныеДанные" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить регламентированные данные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьРегламентированныеДанные</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СкопироватьРегл" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скопировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скопировать регл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СкопироватьРегл</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СкопироватьУпр" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скопировать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скопировать упр</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СкопироватьУпр</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

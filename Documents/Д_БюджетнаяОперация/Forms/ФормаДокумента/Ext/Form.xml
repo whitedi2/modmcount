@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Height>20</Height>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаКоманда1" id="197">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаКоманда1РасширеннаяПодсказка" id="301"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="ExternalEvent">ВнешнееСобытие</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="ActivationProcessing">ОбработкаАктивизации</Event>
+		<Event name="FillCheckProcessingAtServer">ОбработкаПроверкиЗаполненияНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа" id="22">
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаРасширеннаяПодсказка" id="302"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="303"/>
+				</InputField>
+				<InputField name="Дата" id="3">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="304"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="23">
+			<HorizontalStretch>false</HorizontalStretch>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="305"/>
+			<ChildItems>
+				<InputField name="Сценарий" id="64">
+					<DataPath>Объект.Сценарий</DataPath>
+					<ContextMenu name="СценарийКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="СценарийРасширеннаяПодсказка" id="306"/>
+				</InputField>
+				<InputField name="Предприятие" id="5">
+					<DataPath>Объект.Предприятие</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="307"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<Table name="ЗаписиРегистра" id="203">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗаписиРегистраКонтекстноеМеню" id="204"/>
+			<AutoCommandBar name="ЗаписиРегистраКоманднаяПанель" id="205"/>
+			<ExtendedTooltip name="ЗаписиРегистраРасширеннаяПодсказка" id="308"/>
+			<SearchStringAddition name="ЗаписиРегистраСтрокаПоиска" id="309">
+				<AdditionSource>
+					<Item>ЗаписиРегистра</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаписиРегистраСтрокаПоискаКонтекстноеМеню" id="310"/>
+				<ExtendedTooltip name="ЗаписиРегистраСтрокаПоискаРасширеннаяПодсказка" id="311"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаписиРегистраСостояниеПросмотра" id="312">
+				<AdditionSource>
+					<Item>ЗаписиРегистра</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаписиРегистраСостояниеПросмотраКонтекстноеМеню" id="313"/>
+				<ExtendedTooltip name="ЗаписиРегистраСостояниеПросмотраРасширеннаяПодсказка" id="314"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаписиРегистраУправлениеПоиском" id="315">
+				<AdditionSource>
+					<Item>ЗаписиРегистра</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаписиРегистраУправлениеПоискомКонтекстноеМеню" id="316"/>
+				<ExtendedTooltip name="ЗаписиРегистраУправлениеПоискомРасширеннаяПодсказка" id="317"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="ЗаписиРегистраНомерСтроки" id="251">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиРегистраНомерСтрокиКонтекстноеМеню" id="252"/>
+					<ExtendedTooltip name="ЗаписиРегистраНомерСтрокиРасширеннаяПодсказка" id="318"/>
+				</LabelField>
+				<InputField name="ЗаписиРегистраСчетДт" id="259">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиРегистраСчетДтКонтекстноеМеню" id="260"/>
+					<ExtendedTooltip name="ЗаписиРегистраСчетДтРасширеннаяПодсказка" id="319"/>
+				</InputField>
+				<InputField name="ЗаписиРегистраПодразделениеДт" id="334">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиРегистраПодразделениеДтКонтекстноеМеню" id="335"/>
+					<ExtendedTooltip name="ЗаписиРегистраПодразделениеДтРасширеннаяПодсказка" id="336"/>
+				</InputField>
+				<ColumnGroup name="ЗаписиРегистраГруппа1" id="291">
+					<ExtendedTooltip name="ЗаписиРегистраГруппа1РасширеннаяПодсказка" id="320"/>
+					<ChildItems>
+						<InputField name="ЗаписиРегистраСубконтоДт1" id="261">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраСубконтоДт1КонтекстноеМеню" id="262"/>
+							<ExtendedTooltip name="ЗаписиРегистраСубконтоДт1РасширеннаяПодсказка" id="321"/>
+						</InputField>
+						<InputField name="ЗаписиРегистраСубконтоДт2" id="263">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраСубконтоДт2КонтекстноеМеню" id="264"/>
+							<ExtendedTooltip name="ЗаписиРегистраСубконтоДт2РасширеннаяПодсказка" id="322"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ЗаписиРегистраСчетКт" id="273">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиРегистраСчетКтКонтекстноеМеню" id="274"/>
+					<ExtendedTooltip name="ЗаписиРегистраСчетКтРасширеннаяПодсказка" id="323"/>
+				</InputField>
+				<InputField name="ЗаписиРегистраПодразделениеКт" id="337">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиРегистраПодразделениеКтКонтекстноеМеню" id="338"/>
+					<ExtendedTooltip name="ЗаписиРегистраПодразделениеКтРасширеннаяПодсказка" id="339"/>
+				</InputField>
+				<ColumnGroup name="ЗаписиРегистраГруппа3" id="293">
+					<ExtendedTooltip name="ЗаписиРегистраГруппа3РасширеннаяПодсказка" id="324"/>
+					<ChildItems>
+						<InputField name="ЗаписиРегистраСубконтоКт1" id="275">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраСубконтоКт1КонтекстноеМеню" id="276"/>
+							<ExtendedTooltip name="ЗаписиРегистраСубконтоКт1РасширеннаяПодсказка" id="325"/>
+						</InputField>
+						<InputField name="ЗаписиРегистраСубконтоКт2" id="277">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраСубконтоКт2КонтекстноеМеню" id="278"/>
+							<ExtendedTooltip name="ЗаписиРегистраСубконтоКт2РасширеннаяПодсказка" id="326"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиРегистраГруппа2" id="298">
+					<ExtendedTooltip name="ЗаписиРегистраГруппа2РасширеннаяПодсказка" id="327"/>
+					<ChildItems>
+						<InputField name="ЗаписиРегистраКоличество" id="296">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраКоличествоКонтекстноеМеню" id="297"/>
+							<ExtendedTooltip name="ЗаписиРегистраКоличествоРасширеннаяПодсказка" id="328"/>
+						</InputField>
+						<InputField name="ЗаписиРегистраКоличествоКРХ" id="299">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраКоличествоКРХКонтекстноеМеню" id="300"/>
+							<ExtendedTooltip name="ЗаписиРегистраКоличествоКРХРасширеннаяПодсказка" id="329"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиРегистраГруппа5" id="295">
+					<ExtendedTooltip name="ЗаписиРегистраГруппа5РасширеннаяПодсказка" id="330"/>
+					<ChildItems>
+						<InputField name="ЗаписиРегистраСумма" id="287">
+							<HorizontalAlign>Left</HorizontalAlign>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраСуммаКонтекстноеМеню" id="288"/>
+							<ExtendedTooltip name="ЗаписиРегистраСуммаРасширеннаяПодсказка" id="331"/>
+						</InputField>
+						<InputField name="ЗаписиРегистраСодержание" id="289">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраСодержаниеКонтекстноеМеню" id="290"/>
+							<ExtendedTooltip name="ЗаписиРегистраСодержаниеРасширеннаяПодсказка" id="332"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<ColumnGroup name="ЗаписиРегистраГруппа4" id="343">
+					<ExtendedTooltip name="ЗаписиРегистраГруппа4РасширеннаяПодсказка" id="344"/>
+					<ChildItems>
+						<InputField name="ЗаписиРегистраЗаявитель" id="345">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраЗаявительКонтекстноеМеню" id="346"/>
+							<ExtendedTooltip name="ЗаписиРегистраЗаявительРасширеннаяПодсказка" id="347"/>
+						</InputField>
+						<InputField name="ЗаписиРегистраПодразделениеЗаявителя" id="340">
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ЗаписиРегистраПодразделениеЗаявителяКонтекстноеМеню" id="341"/>
+							<ExtendedTooltip name="ЗаписиРегистраПодразделениеЗаявителяРасширеннаяПодсказка" id="342"/>
+						</InputField>
+					</ChildItems>
+				</ColumnGroup>
+				<InputField name="ЗаписиРегистраАвторЗаписи" id="348">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаписиРегистраАвторЗаписиКонтекстноеМеню" id="349"/>
+					<ExtendedTooltip name="ЗаписиРегистраАвторЗаписиРасширеннаяПодсказка" id="350"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<InputField name="Комментарий" id="201">
+			<DataPath>Объект.Комментарий</DataPath>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="202"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="333"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.Д_БюджетнаяОперация</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<Index>1</Index>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
+</Form>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="38">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="39"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Number</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Дата" id="4">
+					<DataPath>Объект.Date</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="6"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Предприятие" id="7">
+			<DataPath>Объект.Предприятие</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ПредприятиеКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="9"/>
+		</InputField>
+		<InputField name="Сценарий" id="10">
+			<DataPath>Объект.Сценарий</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="СценарийКонтекстноеМеню" id="11"/>
+			<ExtendedTooltip name="СценарийРасширеннаяПодсказка" id="12"/>
+		</InputField>
+		<Table name="Нормативы" id="13">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.Нормативы</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="НормативыКонтекстноеМеню" id="14"/>
+			<AutoCommandBar name="НормативыКоманднаяПанель" id="15"/>
+			<ExtendedTooltip name="НормативыРасширеннаяПодсказка" id="16"/>
+			<SearchStringAddition name="НормативыСтрокаПоиска" id="17">
+				<AdditionSource>
+					<Item>Нормативы</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="НормативыСтрокаПоискаКонтекстноеМеню" id="18"/>
+				<ExtendedTooltip name="НормативыСтрокаПоискаРасширеннаяПодсказка" id="19"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="НормативыСостояниеПросмотра" id="20">
+				<AdditionSource>
+					<Item>Нормативы</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="НормативыСостояниеПросмотраКонтекстноеМеню" id="21"/>
+				<ExtendedTooltip name="НормативыСостояниеПросмотраРасширеннаяПодсказка" id="22"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="НормативыУправлениеПоиском" id="23">
+				<AdditionSource>
+					<Item>Нормативы</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="НормативыУправлениеПоискомКонтекстноеМеню" id="24"/>
+				<ExtendedTooltip name="НормативыУправлениеПоискомРасширеннаяПодсказка" id="25"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="OnStartEdit">НормативыПриНачалеРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="НормативыНомерСтроки" id="26">
+					<DataPath>Объект.Нормативы.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НормативыНомерСтрокиКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="НормативыНомерСтрокиРасширеннаяПодсказка" id="28"/>
+				</LabelField>
+				<InputField name="НормативыНоменклатура" id="29">
+					<DataPath>Объект.Нормативы.Номенклатура</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceFoldersAndItems>FoldersAndItems</ChoiceFoldersAndItems>
+					<ContextMenu name="НормативыНоменклатураКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="НормативыНоменклатураРасширеннаяПодсказка" id="31"/>
+				</InputField>
+				<InputField name="НормативыНорматив" id="32">
+					<DataPath>Объект.Нормативы.Норматив</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НормативыНормативКонтекстноеМеню" id="33"/>
+					<ExtendedTooltip name="НормативыНормативРасширеннаяПодсказка" id="34"/>
+				</InputField>
+				<InputField name="НормативыЗначение" id="35">
+					<DataPath>Объект.Нормативы.Значение</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НормативыЗначениеКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="НормативыЗначениеРасширеннаяПодсказка" id="37"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DocumentObject.УЧ_УстановкаНормативовНоменклатуры</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+			<UseAlways>
+				<Field>Объект.RegisterRecords</Field>
+			</UseAlways>
+		</Attribute>
+	</Attributes>
+</Form>

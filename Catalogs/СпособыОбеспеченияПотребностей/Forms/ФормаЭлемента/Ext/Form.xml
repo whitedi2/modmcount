@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="25">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="26"/>
+			<ChildItems>
+				<InputField name="Код" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="3"/>
+				</InputField>
+				<InputField name="Наименование" id="4">
+					<DataPath>Объект.Description</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ChoiceButton>true</ChoiceButton>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="StartChoice">НаименованиеНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="Предприятие" id="7">
+					<DataPath>Объект.Предприятие</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="9"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="ИсточникОбеспечения" id="95">
+			<DataPath>Объект.ИсточникОбеспечения</DataPath>
+			<ContextMenu name="ИсточникОбеспеченияКонтекстноеМеню" id="96"/>
+			<ExtendedTooltip name="ИсточникОбеспеченияРасширеннаяПодсказка" id="97"/>
+		</InputField>
+		<UsualGroup name="Группа2" id="27">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="28"/>
+			<ChildItems>
+				<InputField name="КалендарьЗаказов" id="72">
+					<DataPath>Объект.КалендарьЗаказов</DataPath>
+					<Visible>false</Visible>
+					<InputHint>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>заказ в любой день</v8:content>
+						</v8:item>
+					</InputHint>
+					<ContextMenu name="КалендарьЗаказовКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="КалендарьЗаказовРасширеннаяПодсказка" id="74"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа3" id="29">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="30"/>
+			<ChildItems>
+				<InputField name="СрокИсполненияЗаказа" id="13">
+					<DataPath>Объект.СрокИсполненияЗаказа</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СрокИсполненияЗаказаКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="СрокИсполненияЗаказаРасширеннаяПодсказка" id="15"/>
+				</InputField>
+				<InputField name="Календарь" id="22">
+					<DataPath>Объект.КалендарьПоставок</DataPath>
+					<Visible>false</Visible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КалендарьКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="КалендарьРасширеннаяПодсказка" id="24"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа4" id="75">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="76"/>
+			<ChildItems>
+				<Table name="ИсточникиОбеспеченияПотребностей" id="53">
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.ИсточникиОбеспеченияПотребностей</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ИсточникиОбеспеченияПотребностейКонтекстноеМеню" id="54"/>
+					<AutoCommandBar name="ИсточникиОбеспеченияПотребностейКоманднаяПанель" id="55"/>
+					<ExtendedTooltip name="ИсточникиОбеспеченияПотребностейРасширеннаяПодсказка" id="56"/>
+					<SearchStringAddition name="ИсточникиОбеспеченияПотребностейСтрокаПоиска" id="57">
+						<AdditionSource>
+							<Item>ИсточникиОбеспеченияПотребностей</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсточникиОбеспеченияПотребностейСтрокаПоискаКонтекстноеМеню" id="58"/>
+						<ExtendedTooltip name="ИсточникиОбеспеченияПотребностейСтрокаПоискаРасширеннаяПодсказка" id="59"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ИсточникиОбеспеченияПотребностейСостояниеПросмотра" id="60">
+						<AdditionSource>
+							<Item>ИсточникиОбеспеченияПотребностей</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсточникиОбеспеченияПотребностейСостояниеПросмотраКонтекстноеМеню" id="61"/>
+						<ExtendedTooltip name="ИсточникиОбеспеченияПотребностейСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ИсточникиОбеспеченияПотребностейУправлениеПоиском" id="63">
+						<AdditionSource>
+							<Item>ИсточникиОбеспеченияПотребностей</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ИсточникиОбеспеченияПотребностейУправлениеПоискомКонтекстноеМеню" id="64"/>
+						<ExtendedTooltip name="ИсточникиОбеспеченияПотребностейУправлениеПоискомРасширеннаяПодсказка" id="65"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ИсточникиОбеспеченияПотребностейНомерСтроки" id="66">
+							<DataPath>Объект.ИсточникиОбеспеченияПотребностей.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ИсточникиОбеспеченияПотребностейНомерСтрокиКонтекстноеМеню" id="67"/>
+							<ExtendedTooltip name="ИсточникиОбеспеченияПотребностейНомерСтрокиРасширеннаяПодсказка" id="68"/>
+						</LabelField>
+						<InputField name="ИсточникиОбеспеченияПотребностейИсточникОбеспечения" id="69">
+							<DataPath>Объект.ИсточникиОбеспеченияПотребностей.ИсточникОбеспечения</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ИсточникиОбеспеченияПотребностейИсточникОбеспеченияКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="ИсточникиОбеспеченияПотребностейИсточникОбеспеченияРасширеннаяПодсказка" id="71"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<Table name="Подразделения" id="34">
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>Объект.Подразделения</DataPath>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПодразделенияКонтекстноеМеню" id="35"/>
+					<AutoCommandBar name="ПодразделенияКоманднаяПанель" id="36"/>
+					<ExtendedTooltip name="ПодразделенияРасширеннаяПодсказка" id="37"/>
+					<SearchStringAddition name="ПодразделенияСтрокаПоиска" id="38">
+						<AdditionSource>
+							<Item>Подразделения</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПодразделенияСтрокаПоискаКонтекстноеМеню" id="39"/>
+						<ExtendedTooltip name="ПодразделенияСтрокаПоискаРасширеннаяПодсказка" id="40"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПодразделенияСостояниеПросмотра" id="41">
+						<AdditionSource>
+							<Item>Подразделения</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПодразделенияСостояниеПросмотраКонтекстноеМеню" id="42"/>
+						<ExtendedTooltip name="ПодразделенияСостояниеПросмотраРасширеннаяПодсказка" id="43"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПодразделенияУправлениеПоиском" id="44">
+						<AdditionSource>
+							<Item>Подразделения</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПодразделенияУправлениеПоискомКонтекстноеМеню" id="45"/>
+						<ExtendedTooltip name="ПодразделенияУправлениеПоискомРасширеннаяПодсказка" id="46"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<LabelField name="ПодразделенияНомерСтроки" id="47">
+							<DataPath>Объект.Подразделения.LineNumber</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПодразделенияНомерСтрокиКонтекстноеМеню" id="48"/>
+							<ExtendedTooltip name="ПодразделенияНомерСтрокиРасширеннаяПодсказка" id="49"/>
+						</LabelField>
+						<InputField name="ПодразделенияПодразделение" id="50">
+							<DataPath>Объект.Подразделения.Подразделение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПодразделенияПодразделениеКонтекстноеМеню" id="51"/>
+							<ExtendedTooltip name="ПодразделенияПодразделениеРасширеннаяПодсказка" id="52"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа7" id="93">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="94"/>
+			<ChildItems>
+				<UsualGroup name="Группа5" id="89">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказы</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<Table name="ГрафикЗаказов" id="98">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ГрафикЗаказовКонтекстноеМеню" id="99"/>
+							<AutoCommandBar name="ГрафикЗаказовКоманднаяПанель" id="100"/>
+							<ExtendedTooltip name="ГрафикЗаказовРасширеннаяПодсказка" id="101"/>
+							<SearchStringAddition name="ГрафикЗаказовСтрокаПоиска" id="102">
+								<AdditionSource>
+									<Item>ГрафикЗаказов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ГрафикЗаказовСтрокаПоискаКонтекстноеМеню" id="103"/>
+								<ExtendedTooltip name="ГрафикЗаказовСтрокаПоискаРасширеннаяПодсказка" id="104"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ГрафикЗаказовСостояниеПросмотра" id="105">
+								<AdditionSource>
+									<Item>ГрафикЗаказов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ГрафикЗаказовСостояниеПросмотраКонтекстноеМеню" id="106"/>
+								<ExtendedTooltip name="ГрафикЗаказовСостояниеПросмотраРасширеннаяПодсказка" id="107"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ГрафикЗаказовУправлениеПоиском" id="108">
+								<AdditionSource>
+									<Item>ГрафикЗаказов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ГрафикЗаказовУправлениеПоискомКонтекстноеМеню" id="109"/>
+								<ExtendedTooltip name="ГрафикЗаказовУправлениеПоискомРасширеннаяПодсказка" id="110"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ГрафикЗаказовДеньНеделиЗаказов" id="114">
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ГрафикЗаказовДеньНеделиЗаказовКонтекстноеМеню" id="115"/>
+									<ExtendedTooltip name="ГрафикЗаказовДеньНеделиЗаказовРасширеннаяПодсказка" id="116"/>
+								</InputField>
+								<InputField name="ГрафикЗаказовЧетностьЗаказов" id="117">
+									<EditMode>EnterOnInput</EditMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>по четным</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">по четным</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>по нечетным</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">по нечетным</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>еженедельно</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">еженедельно</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ГрафикЗаказовЧетностьЗаказовКонтекстноеМеню" id="118"/>
+									<ExtendedTooltip name="ГрафикЗаказовЧетностьЗаказовРасширеннаяПодсказка" id="119"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа6" id="91">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>График заказов/поставок</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="92"/>
+					<ChildItems>
+						<Table name="ГрафикПоставок" id="120">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<FileDragMode>AsFile</FileDragMode>
+							<DataPath>Объект.ГрафикЗаказовПоставок</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="ГрафикПоставокКонтекстноеМеню" id="121"/>
+							<AutoCommandBar name="ГрафикПоставокКоманднаяПанель" id="122"/>
+							<ExtendedTooltip name="ГрафикПоставокРасширеннаяПодсказка" id="123"/>
+							<SearchStringAddition name="ГрафикПоставокСтрокаПоиска" id="124">
+								<AdditionSource>
+									<Item>ГрафикПоставок</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ГрафикПоставокСтрокаПоискаКонтекстноеМеню" id="125"/>
+								<ExtendedTooltip name="ГрафикПоставокСтрокаПоискаРасширеннаяПодсказка" id="126"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="ГрафикПоставокСостояниеПросмотра" id="127">
+								<AdditionSource>
+									<Item>ГрафикПоставок</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="ГрафикПоставокСостояниеПросмотраКонтекстноеМеню" id="128"/>
+								<ExtendedTooltip name="ГрафикПоставокСостояниеПросмотраРасширеннаяПодсказка" id="129"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="ГрафикПоставокУправлениеПоиском" id="130">
+								<AdditionSource>
+									<Item>ГрафикПоставок</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="ГрафикПоставокУправлениеПоискомКонтекстноеМеню" id="131"/>
+								<ExtendedTooltip name="ГрафикПоставокУправлениеПоискомРасширеннаяПодсказка" id="132"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<InputField name="ГрафикПоставокДеньНеделиПоставки" id="136">
+									<DataPath>Объект.ГрафикЗаказовПоставок.ДеньНеделиЗаказа</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ГрафикПоставокДеньНеделиПоставкиКонтекстноеМеню" id="137"/>
+									<ExtendedTooltip name="ГрафикПоставокДеньНеделиПоставкиРасширеннаяПодсказка" id="138"/>
+								</InputField>
+								<InputField name="ГрафикПоставокЧетностьПоставки" id="139">
+									<DataPath>Объект.ГрафикЗаказовПоставок.ЧетностьЗаказа</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>по четным</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">по четным</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>по нечетным</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">по нечетным</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>еженедельно</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">еженедельно</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ГрафикПоставокЧетностьПоставкиКонтекстноеМеню" id="140"/>
+									<ExtendedTooltip name="ГрафикПоставокЧетностьПоставкиРасширеннаяПодсказка" id="141"/>
+								</InputField>
+								<InputField name="ГрафикПоставокДеньНеделиПоставки1" id="142">
+									<DataPath>Объект.ГрафикЗаказовПоставок.ДеньНеделиПоставки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ГрафикПоставокДеньНеделиПоставки1КонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="ГрафикПоставокДеньНеделиПоставки1РасширеннаяПодсказка" id="144"/>
+								</InputField>
+								<InputField name="ГрафикПоставокЧетностьПоставки1" id="145">
+									<DataPath>Объект.ГрафикЗаказовПоставок.ЧетностьПоставки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>по четным</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">по четным</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>по нечетным</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">по нечетным</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>еженедельно</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string">еженедельно</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ГрафикПоставокЧетностьПоставки1КонтекстноеМеню" id="146"/>
+									<ExtendedTooltip name="ГрафикПоставокЧетностьПоставки1РасширеннаяПодсказка" id="147"/>
+								</InputField>
+								<InputField name="ГрафикПоставокПлановыйСрокПоставки" id="148">
+									<DataPath>Объект.ГрафикЗаказовПоставок.ПлановыйСрокПоставки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ГрафикПоставокПлановыйСрокПоставкиКонтекстноеМеню" id="149"/>
+									<ExtendedTooltip name="ГрафикПоставокПлановыйСрокПоставкиРасширеннаяПодсказка" id="150"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.СпособыОбеспеченияПотребностей</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

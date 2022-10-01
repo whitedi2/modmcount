@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<Width>25</Width>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Предприятие" id="3">
+			<DataPath>Объект.Предприятие</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основное предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<TitleLocation>None</TitleLocation>
+			<ClearButton>true</ClearButton>
+			<ContextMenu name="ПредприятиеКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="9"/>
+			<Events>
+				<Event name="OnChange">ПредприятиеПриИзменении</Event>
+				<Event name="StartChoice">ПредприятиеНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="Пользователь" id="5">
+			<DataPath>Объект.Пользователь</DataPath>
+			<UserVisible>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="b9e8abee-e661-4ea6-997a-3590241c06f0">false</xr:Value>
+				<xr:Value name="f2ed4fa0-4919-48b9-85b6-8248d05304ed">false</xr:Value>
+				<xr:Value name="e9c634aa-7e64-4955-be11-bbb731a77c94">false</xr:Value>
+				<xr:Value name="958b2c50-8018-410d-8a8e-195d38018c47">false</xr:Value>
+			</UserVisible>
+			<TitleLocation>Top</TitleLocation>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ПользовательРасширеннаяПодсказка" id="10"/>
+			<Events>
+				<Event name="OnChange">ПользовательПриИзменении</Event>
+			</Events>
+		</InputField>
+		<InputField name="РабочаяДата" id="12">
+			<DataPath>Объект.РабочаяДата</DataPath>
+			<TitleLocation>Top</TitleLocation>
+			<HorizontalStretch>true</HorizontalStretch>
+			<ContextMenu name="РабочаяДатаКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="РабочаяДатаРасширеннаяПодсказка" id="14"/>
+			<Events>
+				<Event name="OnChange">РабочаяДатаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<LabelDecoration name="Декорация1" id="7">
+			<Font ref="style:TextFont" kind="StyleItem"/>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При выборе основного предприятия, другие предприятия, доступные пользователю, становятся недоступными для выбора.
+Также по выбранному предприятию фильтруются все списки и журналы документов. Если очистить данное поле, то фильтр снимается.</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="Декорация1КонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="11"/>
+		</LabelDecoration>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.Д_УстановитьПредприятие</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+</Form>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Запись.Period</DataPath>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодРасширеннаяПодсказка" id="13"/>
+		</InputField>
+		<InputField name="Номенклатура" id="3">
+			<DataPath>Запись.Номенклатура</DataPath>
+			<ContextMenu name="НоменклатураКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="14"/>
+		</InputField>
+		<InputField name="Предприятие" id="5">
+			<DataPath>Запись.Предприятие</DataPath>
+			<ContextMenu name="ПредприятиеКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="Сумма" id="7">
+			<DataPath>Запись.Сумма</DataPath>
+			<ContextMenu name="СуммаКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="16"/>
+		</InputField>
+		<UsualGroup name="Группа1" id="11">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="17"/>
+			<ChildItems>
+				<InputField name="СуммаФакт" id="9">
+					<DataPath>Запись.СуммаФакт</DataPath>
+					<ContextMenu name="СуммаФактКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="СуммаФактРасширеннаяПодсказка" id="18"/>
+				</InputField>
+				<Button name="ПолучитьФакт" id="12">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ПолучитьФакт</CommandName>
+					<ExtendedTooltip name="ПолучитьФактРасширеннаяПодсказка" id="19"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ПлановаяСебестоимость</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПолучитьФакт" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить факт</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить факт</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПолучитьФакт</Action>
+		</Command>
+	</Commands>
+</Form>
