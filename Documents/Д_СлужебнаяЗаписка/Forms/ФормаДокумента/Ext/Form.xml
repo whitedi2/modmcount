@@ -16,9 +16,14 @@
 		<ChildItems>
 			<Button name="ФормаДокументСогласовать" id="268">
 				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>0</CommandName>
+				<CommandName>Catalog.СогласованиеОбщее.StandardCommand.CreateBasedOn</CommandName>
 				<DataPath>Объект.Ref</DataPath>
+				<Picture>
+					<xr:Ref>StdPicture.BusinessProcessStart</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
 				<Title>
 					<v8:item>
 						<v8:lang>ru</v8:lang>
@@ -412,7 +417,6 @@
 									<EnableStartDrag>true</EnableStartDrag>
 									<EnableDrag>true</EnableDrag>
 									<FileDragMode>AsFile</FileDragMode>
-									<DataPath>Объект.СЗ</DataPath>
 									<SearchStringLocation>None</SearchStringLocation>
 									<ViewStatusLocation>None</ViewStatusLocation>
 									<SearchControlLocation>None</SearchControlLocation>
@@ -423,22 +427,22 @@
 										<ChildItems>
 											<Button name="СЗДобавить" id="226">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.СЗ.StandardCommand.Add</CommandName>
+												<CommandName>127:b0016a68-ec64-4e6d-b905-c71fd62efc4c</CommandName>
 												<ExtendedTooltip name="СЗДобавитьExtendedTooltip" id="628"/>
 											</Button>
 											<Button name="СЗСкопировать" id="227">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.СЗ.StandardCommand.Copy</CommandName>
+												<CommandName>127:0ae4bea5-23be-42a7-b69e-97b11b29c453</CommandName>
 												<ExtendedTooltip name="СЗСкопироватьExtendedTooltip" id="629"/>
 											</Button>
 											<Button name="СЗПереместитьВверх" id="228">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.СЗ.StandardCommand.MoveUp</CommandName>
+												<CommandName>127:37740564-9e86-44a0-bea9-3f485a5a3f91</CommandName>
 												<ExtendedTooltip name="СЗПереместитьВверхExtendedTooltip" id="630"/>
 											</Button>
 											<Button name="СЗПереместитьВниз" id="229">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.СЗ.StandardCommand.MoveDown</CommandName>
+												<CommandName>127:fa51b106-eae6-44c7-8054-76cbb3100603</CommandName>
 												<ExtendedTooltip name="СЗПереместитьВнизExtendedTooltip" id="631"/>
 											</Button>
 											<Button name="ПолучитьЛимиты" id="213">
@@ -448,7 +452,7 @@
 											</Button>
 											<Button name="СЗУдалить" id="230">
 												<Type>CommandBarButton</Type>
-												<CommandName>Form.Item.СЗ.StandardCommand.Delete</CommandName>
+												<CommandName>127:8d772f97-c0ef-47c0-9cb0-efea28c61341</CommandName>
 												<ExtendedTooltip name="СЗУдалитьExtendedTooltip" id="633"/>
 											</Button>
 											<Button name="СЗПрямоеУвеличениеБюджета" id="323">
@@ -494,12 +498,11 @@
 										<ExtendedTooltip name="СЗУправлениеПоискомРасширеннаяПодсказка" id="975"/>
 									</SearchControlAddition>
 									<Events>
-										<Event name="BeforeAddRow">СЗПередНачаломДобавления</Event>
-										<Event name="BeforeEditEnd">СЗПередОкончаниемРедактирования</Event>
+										<Event name="2391e7b8-7235-45d7-ab7e-6ff3dc086396">СЗПередНачаломДобавления</Event>
+										<Event name="4d88756d-bad4-4fde-92e1-c1f1402ac6b2">СЗПередОкончаниемРедактирования</Event>
 									</Events>
 									<ChildItems>
 										<LabelField name="СЗНомерСтроки" id="130">
-											<DataPath>Объект.СЗ.LineNumber</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="СЗНомерСтрокиКонтекстноеМеню" id="131"/>
 											<ExtendedTooltip name="СЗНомерСтрокиExtendedTooltip" id="636"/>
@@ -508,7 +511,6 @@
 											<ExtendedTooltip name="СЗГруппа5ExtendedTooltip" id="637"/>
 											<ChildItems>
 												<InputField name="СЗЦФО" id="209">
-													<DataPath>Объект.СЗ.ЦФО</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗЦФОКонтекстноеМеню" id="210"/>
 													<ExtendedTooltip name="СЗЦФОExtendedTooltip" id="638"/>
@@ -518,7 +520,6 @@
 													</Events>
 												</InputField>
 												<InputField name="СЗПодразделение" id="150">
-													<DataPath>Объект.СЗ.ВидДеятельности</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗПодразделениеКонтекстноеМеню" id="151"/>
 													<ExtendedTooltip name="СЗПодразделениеExtendedTooltip" id="639"/>
@@ -532,7 +533,6 @@
 											<ExtendedTooltip name="СЗГруппа6ExtendedTooltip" id="640"/>
 											<ChildItems>
 												<InputField name="СЗСтатьяБДДС" id="142">
-													<DataPath>Объект.СЗ.СтатьяБДДС</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 													<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
@@ -543,7 +543,6 @@
 													</Events>
 												</InputField>
 												<InputField name="СЗИнвПроект" id="271">
-													<DataPath>Объект.СЗ.ИнвПроект</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗИнвПроектКонтекстноеМеню" id="272"/>
 													<ExtendedTooltip name="СЗИнвПроектExtendedTooltip" id="642"/>
@@ -554,13 +553,11 @@
 											<ExtendedTooltip name="СЗГруппа4ExtendedTooltip" id="643"/>
 											<ChildItems>
 												<InputField name="СЗЛимитНаНачалоЗатраты" id="166">
-													<DataPath>Объект.СЗ.СуммаПП</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗЛимитНаНачалоЗатратыКонтекстноеМеню" id="167"/>
 													<ExtendedTooltip name="СЗЛимитНаНачалоЗатратыExtendedTooltip" id="644"/>
 												</InputField>
 												<InputField name="СЗЛимитНаНачало" id="136">
-													<DataPath>Объект.СЗ.СуммаППДДС</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗЛимитНаНачалоКонтекстноеМеню" id="137"/>
 													<ExtendedTooltip name="СЗЛимитНаНачалоExtendedTooltip" id="645"/>
@@ -571,13 +568,11 @@
 											<ExtendedTooltip name="СЗГруппа8ExtendedTooltip" id="646"/>
 											<ChildItems>
 												<InputField name="СЗФактПоЗаявкам" id="463">
-													<DataPath>Объект.СЗ.ФактПоЗаявкам</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗФактПоЗаявкамКонтекстноеМеню" id="464"/>
 													<ExtendedTooltip name="СЗФактПоЗаявкамExtendedTooltip" id="647"/>
 												</InputField>
 												<InputField name="СЗСуммаБДДС" id="140">
-													<DataPath>Объект.СЗ.СуммаБДДС</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗСуммаБДДСКонтекстноеМеню" id="141"/>
 													<ExtendedTooltip name="СЗСуммаБДДСExtendedTooltip" id="648"/>
@@ -588,7 +583,6 @@
 											<ExtendedTooltip name="СЗГруппа3ExtendedTooltip" id="649"/>
 											<ChildItems>
 												<InputField name="СЗСтатьяЗатрат" id="193">
-													<DataPath>Объект.СЗ.СтатьяЗатрат</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<AutoMarkIncomplete>true</AutoMarkIncomplete>
 													<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
@@ -599,7 +593,6 @@
 													</Events>
 												</InputField>
 												<InputField name="СЗСуммаСеб" id="138">
-													<DataPath>Объект.СЗ.СуммаСеб</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗСуммаСебКонтекстноеМеню" id="139"/>
 													<ExtendedTooltip name="СЗСуммаСебExtendedTooltip" id="651"/>
@@ -613,7 +606,6 @@
 											<ExtendedTooltip name="СЗГруппа2ExtendedTooltip" id="653"/>
 											<ChildItems>
 												<InputField name="СЗНоменклатура" id="146">
-													<DataPath>Объект.СЗ.Номенклатура</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗНоменклатураКонтекстноеМеню" id="147"/>
 													<ExtendedTooltip name="СЗНоменклатураExtendedTooltip" id="654"/>
@@ -624,7 +616,6 @@
 											<ExtendedTooltip name="СЗГруппа7ExtendedTooltip" id="655"/>
 											<ChildItems>
 												<InputField name="СЗВидДвижения" id="326">
-													<DataPath>Объект.СЗ.ВидДвижения</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ChoiceList>
 														<xr:Item>
@@ -659,7 +650,6 @@
 													<ExtendedTooltip name="СЗВидДвиженияExtendedTooltip" id="656"/>
 												</InputField>
 												<InputField name="СЗОснование" id="148">
-													<DataPath>Объект.СЗ.Основание</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="СЗОснованиеКонтекстноеМеню" id="149"/>
 													<ExtendedTooltip name="СЗОснованиеExtendedTooltip" id="657"/>
@@ -970,7 +960,6 @@
 															<EnableStartDrag>true</EnableStartDrag>
 															<EnableDrag>true</EnableDrag>
 															<FileDragMode>AsFile</FileDragMode>
-															<DataPath>Объект.Адресаты</DataPath>
 															<SearchStringLocation>None</SearchStringLocation>
 															<ViewStatusLocation>None</ViewStatusLocation>
 															<SearchControlLocation>None</SearchControlLocation>
@@ -1012,7 +1001,6 @@
 															</SearchControlAddition>
 															<ChildItems>
 																<InputField name="АдресатыПользователь" id="243">
-																	<DataPath>Объект.Адресаты.Пользователь</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1053,7 +1041,6 @@
 															<EnableStartDrag>true</EnableStartDrag>
 															<EnableDrag>true</EnableDrag>
 															<FileDragMode>AsFile</FileDragMode>
-															<DataPath>Объект.ЗамещенныеПриказы</DataPath>
 															<SearchStringLocation>None</SearchStringLocation>
 															<ViewStatusLocation>None</ViewStatusLocation>
 															<SearchControlLocation>None</SearchControlLocation>
@@ -1087,13 +1074,11 @@
 															</SearchControlAddition>
 															<ChildItems>
 																<LabelField name="ЗамещенныеПриказыНомерСтроки" id="312">
-																	<DataPath>Объект.ЗамещенныеПриказы.LineNumber</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ContextMenu name="ЗамещенныеПриказыНомерСтрокиКонтекстноеМеню" id="313"/>
 																	<ExtendedTooltip name="ЗамещенныеПриказыНомерСтрокиExtendedTooltip" id="690"/>
 																</LabelField>
 																<InputField name="ЗамещенныеПриказыПриказ" id="314">
-																	<DataPath>Объект.ЗамещенныеПриказы.Приказ</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ContextMenu name="ЗамещенныеПриказыПриказКонтекстноеМеню" id="315"/>
 																	<ExtendedTooltip name="ЗамещенныеПриказыПриказExtendedTooltip" id="691"/>
@@ -1147,7 +1132,6 @@
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<FileDragMode>AsFile</FileDragMode>
-													<DataPath>Объект.УсловияКлиента</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1188,14 +1172,13 @@
 														<ExtendedTooltip name="УсловияКлиентаУправлениеПоискомРасширеннаяПодсказка" id="1002"/>
 													</SearchControlAddition>
 													<Events>
-														<Event name="OnEditEnd">УсловияКлиентаПриОкончанииРедактирования</Event>
-														<Event name="OnActivateRow">УсловияКлиентаПриАктивизацииСтроки</Event>
-														<Event name="OnStartEdit">УсловияКлиентаПриНачалеРедактирования</Event>
-														<Event name="AfterDeleteRow">УсловияКлиентаПослеУдаления</Event>
+														<Event name="01d80ddd-dce5-4db3-beb5-f63c97cb05b9">УсловияКлиентаПриОкончанииРедактирования</Event>
+														<Event name="60edb81d-887b-478e-94ee-7fef2b13393d">УсловияКлиентаПриАктивизацииСтроки</Event>
+														<Event name="b3c10170-c5ff-4cba-b537-679e1c872b45">УсловияКлиентаПриНачалеРедактирования</Event>
+														<Event name="de65638d-a806-4a76-bc10-f62bbc86e0e7">УсловияКлиентаПослеУдаления</Event>
 													</Events>
 													<ChildItems>
 														<LabelField name="УсловияКлиентаНомерСтроки" id="410">
-															<DataPath>Объект.УсловияКлиента.LineNumber</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<Width>2</Width>
 															<HorizontalStretch>false</HorizontalStretch>
@@ -1207,7 +1190,6 @@
 															<ExtendedTooltip name="УсловияКлиентаГруппа1ExtendedTooltip" id="696"/>
 															<ChildItems>
 																<InputField name="УсловияКлиентаКонтрагент" id="412">
-																	<DataPath>Объект.УсловияКлиента.Контрагент</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ContextMenu name="УсловияКлиентаКонтрагентКонтекстноеМеню" id="413"/>
 																	<ExtendedTooltip name="УсловияКлиентаКонтрагентExtendedTooltip" id="697"/>
@@ -1216,7 +1198,6 @@
 																	</Events>
 																</InputField>
 																<InputField name="УсловияКлиентаДата" id="461">
-																	<DataPath>Объект.УсловияКлиента.Дата</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ContextMenu name="УсловияКлиентаДатаКонтекстноеМеню" id="462"/>
 																	<ExtendedTooltip name="УсловияКлиентаДатаExtendedTooltip" id="698"/>
@@ -1238,7 +1219,6 @@
 															<ExtendedTooltip name="УсловияКлиентаГруппа4ExtendedTooltip" id="699"/>
 															<ChildItems>
 																<InputField name="Показ1" id="446">
-																	<DataPath>Объект.УсловияКлиента.Показ1</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1253,7 +1233,6 @@
 																	<ExtendedTooltip name="Показ1ExtendedTooltip" id="700"/>
 																</InputField>
 																<InputField name="Показ9" id="501">
-																	<DataPath>Объект.УсловияКлиента.Показ9</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1264,7 +1243,6 @@
 																	<ExtendedTooltip name="Показ9ExtendedTooltip" id="701"/>
 																</InputField>
 																<InputField name="Показ11" id="513">
-																	<DataPath>Объект.УсловияКлиента.Показ11</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<ShowInFooter>false</ShowInFooter>
@@ -1274,7 +1252,6 @@
 																	<ExtendedTooltip name="Показ11ExtendedTooltip" id="710"/>
 																</InputField>
 																<InputField name="Показ2" id="448">
-																	<DataPath>Объект.УсловияКлиента.Показ2</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1291,7 +1268,6 @@
 																	<ExtendedTooltip name="Показ2ExtendedTooltip" id="702"/>
 																</InputField>
 																<InputField name="Показ10" id="503">
-																	<DataPath>Объект.УсловияКлиента.Показ10</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1302,7 +1278,6 @@
 																	<ExtendedTooltip name="Показ10ExtendedTooltip" id="703"/>
 																</InputField>
 																<InputField name="Показ3" id="450">
-																	<DataPath>Объект.УсловияКлиента.Показ3</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1319,7 +1294,6 @@
 																	<ExtendedTooltip name="Показ3ExtendedTooltip" id="704"/>
 																</InputField>
 																<InputField name="Показ4" id="452">
-																	<DataPath>Объект.УсловияКлиента.Показ4</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1336,7 +1310,6 @@
 																	<ExtendedTooltip name="Показ4ExtendedTooltip" id="705"/>
 																</InputField>
 																<InputField name="Показ8" id="492">
-																	<DataPath>Объект.УсловияКлиента.Показ8</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1353,7 +1326,6 @@
 																	<ExtendedTooltip name="Показ8ExtendedTooltip" id="709"/>
 																</InputField>
 																<InputField name="Показ5" id="454">
-																	<DataPath>Объект.УсловияКлиента.Показ5</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1370,7 +1342,6 @@
 																	<ExtendedTooltip name="Показ5ExtendedTooltip" id="706"/>
 																</InputField>
 																<InputField name="Показ6" id="456">
-																	<DataPath>Объект.УсловияКлиента.Показ6</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1387,7 +1358,6 @@
 																	<ExtendedTooltip name="Показ6ExtendedTooltip" id="707"/>
 																</InputField>
 																<InputField name="Показ7" id="458">
-																	<DataPath>Объект.УсловияКлиента.Показ7</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1417,7 +1387,6 @@
 															<ExtendedTooltip name="УсловияКлиентаГруппа3ExtendedTooltip" id="711"/>
 															<ChildItems>
 																<InputField name="УсловияКлиентаТекМесячнаяПотребность" id="441">
-																	<DataPath>Объект.УсловияКлиента.ТекущаяМесячнаяПотребность</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1432,7 +1401,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекМесячнаяПотребностьExtendedTooltip" id="712"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекТипСпирта" id="511">
-																	<DataPath>Объект.УсловияКлиента.ТекТипСпирта</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<HorizontalAlign>Right</HorizontalAlign>
 																	<EditMode>EnterOnInput</EditMode>
@@ -1472,7 +1440,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекТипСпиртаExtendedTooltip" id="713"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекЕдИзмерения" id="519">
-																	<DataPath>Объект.УсловияКлиента.ТекЕдИзмерения</DataPath>
 																	<HorizontalAlign>Right</HorizontalAlign>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1483,7 +1450,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекЕдИзмеренияExtendedTooltip" id="723"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекЦена" id="414">
-																	<DataPath>Объект.УсловияКлиента.ТекЦена</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1499,7 +1465,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекЦенаExtendedTooltip" id="714"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекНДС" id="509">
-																	<DataPath>Объект.УсловияКлиента.ТекНДС</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<HorizontalAlign>Right</HorizontalAlign>
 																	<EditMode>EnterOnInput</EditMode>
@@ -1511,7 +1476,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекНДСExtendedTooltip" id="715"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекВерх" id="418">
-																	<DataPath>Объект.УсловияКлиента.ТекВерх</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1525,7 +1489,6 @@
 																	</Events>
 																</InputField>
 																<InputField name="УсловияКлиентаТекОтсрочка" id="416">
-																	<DataPath>Объект.УсловияКлиента.ТекОтсрочка</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1542,7 +1505,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекОтсрочкаExtendedTooltip" id="717"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекМаксКоличествоДнейПросрочки" id="424">
-																	<DataPath>Объект.УсловияКлиента.ТекМаксКоличествоДнейПросрочки</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1553,7 +1515,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекМаксКоличествоДнейПросрочкиExtendedTooltip" id="721"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекПредоплата" id="494">
-																	<DataPath>Объект.УсловияКлиента.ТекПредоплата</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1564,7 +1525,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекПредоплатаExtendedTooltip" id="718"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекущийЛимитДЗ" id="420">
-																	<DataPath>Объект.УсловияКлиента.ТекущийЛимитДЗ</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1575,7 +1535,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТекущийЛимитДЗExtendedTooltip" id="719"/>
 																</InputField>
 																<InputField name="УсловияКлиентаТекущийЛимитПДЗ" id="422">
-																	<DataPath>Объект.УсловияКлиента.ТекущийЛимитПДЗ</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1607,7 +1566,6 @@
 															<ExtendedTooltip name="УсловияКлиентаГруппа2ExtendedTooltip" id="724"/>
 															<ChildItems>
 																<InputField name="УсловияКлиентаМесячнаяПотребность" id="443">
-																	<DataPath>Объект.УсловияКлиента.МесячнаяПотребность</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1625,7 +1583,6 @@
 																	</Events>
 																</InputField>
 																<InputField name="УсловияКлиентаТипСпирта" id="507">
-																	<DataPath>Объект.УсловияКлиента.ТипСпирта</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<HorizontalAlign>Right</HorizontalAlign>
 																	<EditMode>EnterOnInput</EditMode>
@@ -1666,7 +1623,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаТипСпиртаExtendedTooltip" id="726"/>
 																</InputField>
 																<InputField name="УсловияКлиентаЕдИзмерения" id="523">
-																	<DataPath>Объект.УсловияКлиента.ЕдИзмерения</DataPath>
 																	<HorizontalAlign>Right</HorizontalAlign>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1677,7 +1633,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаЕдИзмеренияExtendedTooltip" id="736"/>
 																</InputField>
 																<InputField name="УсловияКлиентаЦена" id="426">
-																	<DataPath>Объект.УсловияКлиента.Цена</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1697,7 +1652,6 @@
 																	</Events>
 																</InputField>
 																<InputField name="УсловияКлиентаНДС" id="505">
-																	<DataPath>Объект.УсловияКлиента.НДС</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<HorizontalAlign>Right</HorizontalAlign>
 																	<EditMode>EnterOnInput</EditMode>
@@ -1709,7 +1663,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаНДСExtendedTooltip" id="728"/>
 																</InputField>
 																<InputField name="УсловияКлиентаВерх" id="430">
-																	<DataPath>Объект.УсловияКлиента.Верх</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<Width>17</Width>
@@ -1718,7 +1671,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаВерхExtendedTooltip" id="729"/>
 																</InputField>
 																<InputField name="УсловияКлиентаОтсрочка" id="428">
-																	<DataPath>Объект.УсловияКлиента.Отсрочка</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1737,7 +1689,6 @@
 																	</Events>
 																</InputField>
 																<InputField name="УсловияКлиентаМаксКоличествоДнейПросрочки" id="436">
-																	<DataPath>Объект.УсловияКлиента.МаксКоличествоДнейПросрочки</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<Width>17</Width>
@@ -1749,7 +1700,6 @@
 																	</Events>
 																</InputField>
 																<InputField name="УсловияКлиентаПредоплата" id="496">
-																	<DataPath>Объект.УсловияКлиента.Предоплата</DataPath>
 																	<TitleLocation>None</TitleLocation>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1760,7 +1710,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаПредоплатаExtendedTooltip" id="731"/>
 																</InputField>
 																<InputField name="УсловияКлиентаЛимитДЗ" id="432">
-																	<DataPath>Объект.УсловияКлиента.ЛимитДЗ</DataPath>
 																	<ReadOnly>true</ReadOnly>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1770,7 +1719,6 @@
 																	<ExtendedTooltip name="УсловияКлиентаЛимитДЗExtendedTooltip" id="732"/>
 																</InputField>
 																<InputField name="УсловияКлиентаЛимитПДЗ" id="434">
-																	<DataPath>Объект.УсловияКлиента.ЛимитПДЗ</DataPath>
 																	<ReadOnly>true</ReadOnly>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
@@ -1798,7 +1746,6 @@
 													<EnableStartDrag>true</EnableStartDrag>
 													<EnableDrag>true</EnableDrag>
 													<FileDragMode>AsFile</FileDragMode>
-													<DataPath>Объект.ДоговоренностиКлиента</DataPath>
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -1839,20 +1786,18 @@
 														<ExtendedTooltip name="ДоговоренностиКлиентаУправлениеПоискомРасширеннаяПодсказка" id="1011"/>
 													</SearchControlAddition>
 													<Events>
-														<Event name="OnEditEnd">ДоговоренностиКлиентаПриОкончанииРедактирования</Event>
-														<Event name="BeforeAddRow">ДоговоренностиКлиентаПередНачаломДобавления</Event>
-														<Event name="OnStartEdit">ДоговоренностиКлиентаПриНачалеРедактирования</Event>
+														<Event name="01d80ddd-dce5-4db3-beb5-f63c97cb05b9">ДоговоренностиКлиентаПриОкончанииРедактирования</Event>
+														<Event name="2391e7b8-7235-45d7-ab7e-6ff3dc086396">ДоговоренностиКлиентаПередНачаломДобавления</Event>
+														<Event name="b3c10170-c5ff-4cba-b537-679e1c872b45">ДоговоренностиКлиентаПриНачалеРедактирования</Event>
 													</Events>
 													<ChildItems>
 														<LabelField name="ДоговоренностиКлиентаНомерСтроки" id="833">
-															<DataPath>Объект.ДоговоренностиКлиента.LineNumber</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<Width>2</Width>
 															<ContextMenu name="ДоговоренностиКлиентаНомерСтрокиКонтекстноеМеню" id="834"/>
 															<ExtendedTooltip name="ДоговоренностиКлиентаНомерСтрокиРасширеннаяПодсказка" id="835"/>
 														</LabelField>
 														<InputField name="ДоговоренностиКлиентаКонтрагент" id="839">
-															<DataPath>Объект.ДоговоренностиКлиента.Контрагент</DataPath>
 															<UserVisible>
 																<xr:Common>false</xr:Common>
 																<xr:Value name="15d2388e-eaea-4e9a-9ec8-1fe70acbc96f">true</xr:Value>
@@ -1863,21 +1808,18 @@
 															<ExtendedTooltip name="ДоговоренностиКлиентаКонтрагентРасширеннаяПодсказка" id="841"/>
 														</InputField>
 														<InputField name="ДоговоренностиКлиентаДата" id="836">
-															<DataPath>Объект.ДоговоренностиКлиента.Дата</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<ShowInFooter>false</ShowInFooter>
 															<ContextMenu name="ДоговоренностиКлиентаДатаКонтекстноеМеню" id="837"/>
 															<ExtendedTooltip name="ДоговоренностиКлиентаДатаРасширеннаяПодсказка" id="838"/>
 														</InputField>
 														<InputField name="ДоговоренностиКлиентаПредприятие" id="842">
-															<DataPath>Объект.ДоговоренностиКлиента.Предприятие</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<Width>10</Width>
 															<ContextMenu name="ДоговоренностиКлиентаПредприятиеКонтекстноеМеню" id="843"/>
 															<ExtendedTooltip name="ДоговоренностиКлиентаПредприятиеРасширеннаяПодсказка" id="844"/>
 														</InputField>
 														<InputField name="ДоговоренностиКлиентаНоменклатура" id="884">
-															<DataPath>Объект.ДоговоренностиКлиента.Номенклатура</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<Width>10</Width>
 															<ContextMenu name="ДоговоренностиКлиентаНоменклатураКонтекстноеМеню" id="885"/>
@@ -1888,7 +1830,6 @@
 															<ExtendedTooltip name="ДоговоренностиКлиентаГруппа3РасширеннаяПодсказка" id="870"/>
 															<ChildItems>
 																<InputField name="ДоговоренностиКлиентаПоказ1" id="871">
-																	<DataPath>Объект.ДоговоренностиКлиента.Показ1</DataPath>
 																	<ReadOnly>true</ReadOnly>
 																	<Title>
 																		<v8:item>
@@ -1901,7 +1842,6 @@
 																	<ExtendedTooltip name="ДоговоренностиКлиентаПоказ1РасширеннаяПодсказка" id="873"/>
 																</InputField>
 																<InputField name="ДоговоренностиКлиентаПоказ2" id="874">
-																	<DataPath>Объект.ДоговоренностиКлиента.Показ2</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<ContextMenu name="ДоговоренностиКлиентаПоказ2КонтекстноеМеню" id="875"/>
@@ -1920,7 +1860,6 @@
 															<ExtendedTooltip name="ДоговоренностиКлиентаГруппа1РасширеннаяПодсказка" id="862"/>
 															<ChildItems>
 																<InputField name="ДоговоренностиКлиентаТекЦена" id="877">
-																	<DataPath>Объект.ДоговоренностиКлиента.ТекЦена</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1932,7 +1871,6 @@
 																	<ExtendedTooltip name="ДоговоренностиКлиентаТекЦенаРасширеннаяПодсказка" id="879"/>
 																</InputField>
 																<InputField name="ДоговоренностиКлиентаТекВерх" id="866">
-																	<DataPath>Объект.ДоговоренностиКлиента.ТекВерх</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<ContextMenu name="ДоговоренностиКлиентаТекВерхКонтекстноеМеню" id="867"/>
@@ -1950,7 +1888,6 @@
 															<ExtendedTooltip name="ДоговоренностиКлиентаГруппа2РасширеннаяПодсказка" id="860"/>
 															<ChildItems>
 																<InputField name="ДоговоренностиКлиентаЦена" id="845">
-																	<DataPath>Объект.ДоговоренностиКлиента.Цена</DataPath>
 																	<Title>
 																		<v8:item>
 																			<v8:lang>ru</v8:lang>
@@ -1962,7 +1899,6 @@
 																	<ExtendedTooltip name="ДоговоренностиКлиентаЦенаРасширеннаяПодсказка" id="847"/>
 																</InputField>
 																<InputField name="ДоговоренностиКлиентаВерх" id="848">
-																	<DataPath>Объект.ДоговоренностиКлиента.Верх</DataPath>
 																	<EditMode>EnterOnInput</EditMode>
 																	<ShowInHeader>false</ShowInHeader>
 																	<ContextMenu name="ДоговоренностиКлиентаВерхКонтекстноеМеню" id="849"/>
@@ -1971,7 +1907,6 @@
 															</ChildItems>
 														</ColumnGroup>
 														<InputField name="ДоговоренностиКлиентаКтоОтдает" id="887">
-															<DataPath>Объект.ДоговоренностиКлиента.КтоОтдает</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<ContextMenu name="ДоговоренностиКлиентаКтоОтдаетКонтекстноеМеню" id="888"/>
 															<ExtendedTooltip name="ДоговоренностиКлиентаКтоОтдаетРасширеннаяПодсказка" id="889"/>
@@ -3713,13 +3648,6 @@
 				</Visible>
 			</Item>
 			<Item>
-				<Command>Document.Д_СлужебнаяЗаписка.Command.Печать</Command>
-				<Type>Auto</Type>
-				<Visible>
-					<xr:Common>false</xr:Common>
-				</Visible>
-			</Item>
-			<Item>
 				<Command>0</Command>
 				<Type>Auto</Type>
 				<DefaultVisible>false</DefaultVisible>
@@ -3736,7 +3664,7 @@
 				</Visible>
 			</Item>
 			<Item>
-				<Command>Document.Д_СлужебнаяЗаписка.Command.Согласовать</Command>
+				<Command>0:ca624677-6244-4b76-8418-3612db9c7b24</Command>
 				<Type>Auto</Type>
 				<DefaultVisible>false</DefaultVisible>
 				<Visible>

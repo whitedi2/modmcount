@@ -3,11 +3,6 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
-	<Events>
-		<Event name="AfterWrite">ПослеЗаписи</Event>
-		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
-		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
-	</Events>
 	<ChildItems>
 		<InputField name="Код" id="1">
 			<DataPath>Объект.Code</DataPath>
@@ -28,27 +23,20 @@
 			<ContextMenu name="ОписаниеКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="12"/>
 		</LabelField>
+		<Button name="Автонастройка" id="21">
+			<Type>UsualButton</Type>
+			<CommandName>Form.Command.Автозаполнение</CommandName>
+			<ExtendedTooltip name="АвтонастройкаРасширеннаяПодсказка" id="22"/>
+		</Button>
 		<Button name="ОткрытьСтруктуруПредприятия" id="19">
 			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.ОткрытьОбработкуДокументов</CommandName>
+			<CommandName>Form.Command.ОткрытьАвтомаршруты</CommandName>
 			<ExtendedTooltip name="ОткрытьСтруктуруПредприятияРасширеннаяПодсказка" id="20"/>
 		</Button>
-		<Button name="ОткрытьЖурналУправленческихДокументов" id="21">
+		<Button name="ОткрытьВидыВнутреннихДокументов" id="23">
 			<Type>Hyperlink</Type>
-			<Visible>false</Visible>
-			<CommandName>Form.Command.ОткрытьЖурналУправленческихДокументов</CommandName>
-			<ExtendedTooltip name="ОткрытьЖурналУправленческихДокументовРасширеннаяПодсказка" id="22"/>
-		</Button>
-		<Button name="ОткрытьЖурналДокументооборота" id="23">
-			<Type>Hyperlink</Type>
-			<Visible>false</Visible>
-			<CommandName>Form.Command.ОткрытьЖурналДокументооборота</CommandName>
-			<ExtendedTooltip name="ОткрытьЖурналДокументооборотаРасширеннаяПодсказка" id="24"/>
-		</Button>
-		<Button name="РасширенныеНастройкиДостепа" id="25">
-			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.РасширенныеНастройкиДоступа</CommandName>
-			<ExtendedTooltip name="РасширенныеНастройкиДостепаРасширеннаяПодсказка" id="26"/>
+			<CommandName>Form.Command.ОткрытьВидыВнутреннихДокументов</CommandName>
+			<ExtendedTooltip name="ОткрытьВидыВнутреннихДокументовРасширеннаяПодсказка" id="24"/>
 		</Button>
 		<CheckBoxField name="Выполнено" id="7">
 			<DataPath>Объект.Выполнено</DataPath>
@@ -83,17 +71,17 @@
 		</Attribute>
 	</Attributes>
 	<Commands>
-		<Command name="ОткрытьОбработкуДокументов" id="1">
+		<Command name="ОткрытьАвтомаршруты" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть обработку документов</v8:content>
+					<v8:content>Открыть автомаршруты</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть обработку документов</v8:content>
+					<v8:content>Открыть автомаршруты</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ОткрытьАвтомаршруты</Action>
@@ -113,50 +101,20 @@
 			</ToolTip>
 			<Action>Автонастройка</Action>
 		</Command>
-		<Command name="ОткрытьЖурналУправленческихДокументов" id="3">
+		<Command name="ОткрытьВидыВнутреннихДокументов" id="3">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть журнал управленческих документов</v8:content>
+					<v8:content>Открыть виды внутренних документов</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть журнал управленческих документов</v8:content>
+					<v8:content>Открыть автомаршруты</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОткрытьЖурналУправленческихДокументов</Action>
-		</Command>
-		<Command name="ОткрытьЖурналДокументооборота" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть журнал документооборота</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть журнал управленческих документов</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОткрытьЖурналДокументооборота</Action>
-		</Command>
-		<Command name="РасширенныеНастройкиДоступа" id="5">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Расширенные настройки доступа</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Расширенные настройки доступа</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>РасширенныеНастройкиДоступа</Action>
+			<Action>ОткрытьСтруктуруПредприятия</Action>
 		</Command>
 	</Commands>
 </Form>

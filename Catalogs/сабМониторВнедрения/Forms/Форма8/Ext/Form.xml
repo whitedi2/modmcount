@@ -38,6 +38,44 @@
 			<ContextMenu name="ОграничениеПравРедактированияКлючевыхСправочниковКонтекстноеМеню" id="32"/>
 			<ExtendedTooltip name="ОграничениеПравРедактированияКлючевыхСправочниковРасширеннаяПодсказка" id="33"/>
 		</CheckBoxField>
+		<CheckBoxField name="ФоноваяОбработкаБУДокументов" id="37">
+			<DataPath>ФоноваяОбработкаБУДокументов</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При установке галочки программа будет пытаться автоматически обработаьь БУ документы, в случае неудачи, документ остается в списке Неопбаботанных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ФоноваяОбработкаБУДокументовКонтекстноеМеню" id="38"/>
+			<ExtendedTooltip name="ФоноваяОбработкаБУДокументовРасширеннаяПодсказка" id="39"/>
+			<Events>
+				<Event name="OnChange">ФоноваяОбработкаБУДокументовПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<CheckBoxField name="ФоноваяПроверкаБУДокументов" id="40">
+			<DataPath>ФоноваяПроверкаБУДокументов</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>При установке галочки будет автоматически проверять документы по списку Измененные и перезаполнять их по изменениям БУ документа</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ФоноваяПроверкаБУДокументовКонтекстноеМеню" id="41"/>
+			<ExtendedTooltip name="ФоноваяПроверкаБУДокументовРасширеннаяПодсказка" id="42"/>
+		</CheckBoxField>
+		<CheckBoxField name="ИспользоватьБизнесПроцессы" id="43">
+			<DataPath>ИспользоватьБизнесПроцессы</DataPath>
+			<TitleLocation>Right</TitleLocation>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="ИспользоватьБизнесПроцессыКонтекстноеМеню" id="44"/>
+			<ExtendedTooltip name="ИспользоватьБизнесПроцессыРасширеннаяПодсказка" id="45"/>
+		</CheckBoxField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СпособДоставкиПоУмолчанию" id="1">
@@ -71,6 +109,39 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.ТипыЦенНоменклатуры</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФоноваяОбработкаБУДокументов" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фоновая авто-обработка БУ документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФоноваяПроверкаБУДокументов" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фоновая авто-проверка БУ документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьБизнесПроцессы" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать бизнес процессы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>

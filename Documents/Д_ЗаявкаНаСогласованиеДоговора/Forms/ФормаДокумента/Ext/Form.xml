@@ -147,6 +147,58 @@
 								<Value xsi:type="xr:DesignTimeRef">f4d0c339-3a18-440b-8a5c-a6518dddde9a.752b274b-d33e-4929-9cff-87b93c4b22f2</Value>
 							</xr:Value>
 						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Согласование договора (стройка)</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">da6bf94a-d2ee-4deb-b7e1-0f910c09d5ae.10220e3a-d623-49fe-8603-e4c9d23a9a7e</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Согласование договора (стройка-тендер)</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">da6bf94a-d2ee-4deb-b7e1-0f910c09d5ae.67aa3831-4c71-4a61-97c2-b392e45c929e</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Согласование договора на проведение ТММ (ВД)</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">da6bf94a-d2ee-4deb-b7e1-0f910c09d5ae.16f066d6-dc64-4e06-b394-aac44432ab4c</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Согласование договора по оплате РБ</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">da6bf94a-d2ee-4deb-b7e1-0f910c09d5ae.752b274b-d33e-4929-9cff-87b93c4b22f2</Value>
+							</xr:Value>
+						</xr:Item>
 					</ChoiceList>
 					<BackColor>style:ReportHeaderBackColor</BackColor>
 					<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
@@ -413,6 +465,22 @@
 										<Value xsi:type="xr:DesignTimeRef">f4d0c339-3a18-440b-8a5c-a6518dddde9a.3f89dae8-b84d-40fc-a4f1-7b0431e69cab</Value>
 									</xr:Value>
 								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">da6bf94a-d2ee-4deb-b7e1-0f910c09d5ae.10220e3a-d623-49fe-8603-e4c9d23a9a7e</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">da6bf94a-d2ee-4deb-b7e1-0f910c09d5ae.3f89dae8-b84d-40fc-a4f1-7b0431e69cab</Value>
+									</xr:Value>
+								</xr:Item>
 							</ChoiceList>
 							<ContextMenu name="ВидСЗКонтекстноеМеню" id="1021"/>
 							<ExtendedTooltip name="ВидСЗРасширеннаяПодсказка" id="1022"/>
@@ -467,6 +535,14 @@
 							<HorizontalStretch>true</HorizontalStretch>
 							<ContextMenu name="ЦФОСтрКонтекстноеМеню" id="483"/>
 							<ExtendedTooltip name="ЦФОСтрExtendedTooltip" id="670"/>
+						</InputField>
+						<InputField name="ВидДоговора" id="1031">
+							<DataPath>Объект.ВидДоговора</DataPath>
+							<ContextMenu name="ВидДоговораКонтекстноеМеню" id="1032"/>
+							<ExtendedTooltip name="ВидДоговораРасширеннаяПодсказка" id="1033"/>
+							<Events>
+								<Event name="OnChange">ВидДоговораПриИзменении</Event>
+							</Events>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -633,6 +709,11 @@
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
+				<InputField name="СтатьяДДС" id="1034">
+					<DataPath>Объект.СтатьяДДС</DataPath>
+					<ContextMenu name="СтатьяДДСКонтекстноеМеню" id="1035"/>
+					<ExtendedTooltip name="СтатьяДДСРасширеннаяПодсказка" id="1036"/>
+				</InputField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа5" id="1008">
@@ -1884,6 +1965,17 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЕстьСтатьиДляДоговоров" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть статьи для договоров</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

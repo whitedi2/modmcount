@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
+		<Event name="36205ca4-af87-4708-b594-00ffb647b887">ПередСтартом</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="9">
+			<ReadOnly>true</ReadOnly>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="68"/>
+		</UsualGroup>
+		<InputField name="Предприятие" id="15">
+			<DataPath>Объект.Предприятие</DataPath>
+			<Enabled>false</Enabled>
+			<ContextMenu name="ПредприятиеКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="ПредприятиеExtendedTooltip" id="69"/>
+		</InputField>
+		<UsualGroup name="Группа3" id="56">
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3ExtendedTooltip" id="70"/>
+			<ChildItems>
+				<LabelField name="Заявка" id="13">
+					<DataPath>Объект.Заявка</DataPath>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="ЗаявкаКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ЗаявкаExtendedTooltip" id="71"/>
+					<Events>
+						<Event name="Click">ЗаявкаНажатие</Event>
+					</Events>
+				</LabelField>
+				<UsualGroup name="Группа4" id="97">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="98"/>
+					<ChildItems>
+						<InputField name="ТипБюджета" id="49">
+							<DataPath>Объект.ТипБюджета</DataPath>
+							<ListChoiceMode>true</ListChoiceMode>
+							<BackColor>style:ReportHeaderBackColor</BackColor>
+							<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							<ContextMenu name="ТипБюджетаКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ТипБюджетаExtendedTooltip" id="72"/>
+							<Events>
+								<Event name="OnChange">ТипБюджетаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Описание" id="19">
+			<DataPath>Объект.Описание</DataPath>
+			<Height>2</Height>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="20"/>
+			<ExtendedTooltip name="ОписаниеExtendedTooltip" id="73"/>
+		</InputField>
+		<Table name="ДопСогласование" id="30">
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<FileDragMode>AsFile</FileDragMode>
+			<DataPath>Объект.ДопСогласование</DataPath>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ДопСогласованиеКонтекстноеМеню" id="31"/>
+			<AutoCommandBar name="ДопСогласованиеКоманднаяПанель" id="32">
+				<ChildItems>
+					<Popup name="ДопСогласованиеГруппа1" id="58">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Подбор</v8:content>
+							</v8:item>
+						</Title>
+						<Picture>
+							<xr:Ref>StdPicture.ShowData</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ДопСогласованиеГруппа1ExtendedTooltip" id="74"/>
+						<ChildItems>
+							<Button name="ДопСогласованиеПодбор" id="57">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПодборМаршрута</CommandName>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Подбор маршрута</v8:content>
+									</v8:item>
+								</Title>
+								<ExtendedTooltip name="ДопСогласованиеПодборExtendedTooltip" id="75"/>
+							</Button>
+							<Button name="ДопСогласованиеПодборПользователя" id="59">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ПодборПользователя</CommandName>
+								<ExtendedTooltip name="ДопСогласованиеПодборПользователяExtendedTooltip" id="76"/>
+							</Button>
+						</ChildItems>
+					</Popup>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ДопСогласованиеExtendedTooltip" id="77"/>
+			<SearchStringAddition name="ДопСогласованиеСтрокаПоиска" id="88">
+				<AdditionSource>
+					<Item>ДопСогласование</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДопСогласованиеСтрокаПоискаКонтекстноеМеню" id="89"/>
+				<ExtendedTooltip name="ДопСогласованиеСтрокаПоискаРасширеннаяПодсказка" id="90"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ДопСогласованиеСостояниеПросмотра" id="91">
+				<AdditionSource>
+					<Item>ДопСогласование</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ДопСогласованиеСостояниеПросмотраКонтекстноеМеню" id="92"/>
+				<ExtendedTooltip name="ДопСогласованиеСостояниеПросмотраРасширеннаяПодсказка" id="93"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ДопСогласованиеУправлениеПоиском" id="94">
+				<AdditionSource>
+					<Item>ДопСогласование</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ДопСогласованиеУправлениеПоискомКонтекстноеМеню" id="95"/>
+				<ExtendedTooltip name="ДопСогласованиеУправлениеПоискомРасширеннаяПодсказка" id="96"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeEditEnd">ДопСогласованиеПередОкончаниемРедактирования</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДопСогласованиеНомерСтроки" id="33">
+					<DataPath>Объект.ДопСогласование.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДопСогласованиеНомерСтрокиКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="ДопСогласованиеНомерСтрокиExtendedTooltip" id="78"/>
+				</LabelField>
+				<InputField name="ДопСогласованиеСубъектСогласования" id="35">
+					<DataPath>Объект.ДопСогласование.СубъектСогласования</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДопСогласованиеСубъектСогласованияКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="ДопСогласованиеСубъектСогласованияExtendedTooltip" id="79"/>
+					<Events>
+						<Event name="StartChoice">ДопСогласованиеСубъектСогласованияНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<CheckBoxField name="ДопСогласованиеСогласовано" id="37">
+					<DataPath>Объект.ДопСогласование.Согласовано</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДопСогласованиеСогласованоКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ДопСогласованиеСогласованоExtendedTooltip" id="80"/>
+				</CheckBoxField>
+				<CheckBoxField name="ДопСогласованиеПройден" id="41">
+					<DataPath>Объект.ДопСогласование.Пройден</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ДопСогласованиеПройденКонтекстноеМеню" id="42"/>
+					<ExtendedTooltip name="ДопСогласованиеПройденExtendedTooltip" id="81"/>
+				</CheckBoxField>
+				<InputField name="ДопСогласованиеПользователь" id="43">
+					<DataPath>Объект.ДопСогласование.Пользователь</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДопСогласованиеПользовательКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДопСогласованиеПользовательExtendedTooltip" id="82"/>
+				</InputField>
+				<InputField name="ДопСогласованиеКомментарии" id="45">
+					<DataPath>Объект.ДопСогласование.Комментарии</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДопСогласованиеКомментарииКонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="ДопСогласованиеКомментарииExtendedTooltip" id="83"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+		<UsualGroup name="Группа2" id="55">
+			<UserVisible>
+				<xr:Common>false</xr:Common>
+			</UserVisible>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2ExtendedTooltip" id="84"/>
+			<ChildItems>
+				<CheckBoxField name="Стартован" id="51">
+					<DataPath>Объект.DataVersion</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СтартованКонтекстноеМеню" id="52"/>
+					<ExtendedTooltip name="СтартованExtendedTooltip" id="85"/>
+				</CheckBoxField>
+				<CheckBoxField name="Завершен" id="53">
+					<DataPath>Объект.DeletionMark</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗавершенКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="ЗавершенExtendedTooltip" id="86"/>
+				</CheckBoxField>
+				<CheckBoxField name="ОснованиеЗаблокирован" id="61">
+					<DataPath>Объект.ОснованиеЗаблокирован</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОснованиеЗаблокированКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="ОснованиеЗаблокированExtendedTooltip" id="87"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.УтверждениеБюджета</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПодборМаршрута" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор маршрута</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор маршрута</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.BusinessProcess</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Подбор</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ПодборПользователя" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор пользователя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.ActiveUsers</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодборПользователя</Action>
+			<Representation>TextPicture</Representation>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

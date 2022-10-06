@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаЗаписать" id="32">
+				<Type>CommandBarButton</Type>
+				<UserVisible>
+					<xr:Common>false</xr:Common>
+				</UserVisible>
+				<CommandName>Form.StandardCommand.Write</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьExtendedTooltip" id="49"/>
+			</Button>
+			<Button name="ФормаОбщаяКомандаДополнительныеСведенияКоманднаяПанель" id="75">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаОбщаяКомандаДополнительныеСведенияКоманднаяПанельРасширеннаяПодсказка" id="76"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="Группа1" id="19">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1ExtendedTooltip" id="50"/>
+			<ChildItems>
+				<InputField name="Номер" id="1">
+					<DataPath>Объект.Code</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НомерКонтекстноеМеню" id="2"/>
+					<ExtendedTooltip name="НомерExtendedTooltip" id="51"/>
+				</InputField>
+				<InputField name="Дата" id="5">
+					<DataPath>Объект.Description</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаКонтекстноеМеню" id="6"/>
+					<ExtendedTooltip name="ДатаExtendedTooltip" id="52"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="20">
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Бизнес-процесс</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="Группа2ExtendedTooltip" id="53"/>
+			<ChildItems>
+				<InputField name="Автор" id="35">
+					<DataPath>Объект.Автор</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="АвторКонтекстноеМеню" id="36"/>
+					<ExtendedTooltip name="АвторExtendedTooltip" id="54"/>
+				</InputField>
+				<InputField name="Заявка" id="11">
+					<DataPath>Объект.Заявка</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ЗаявкаКонтекстноеМеню" id="12"/>
+					<ExtendedTooltip name="ЗаявкаExtendedTooltip" id="55"/>
+				</InputField>
+				<InputField name="БизнесПроцесс" id="7">
+					<DataPath>Объект.DeletionMark</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="БизнесПроцессКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="БизнесПроцессExtendedTooltip" id="56"/>
+				</InputField>
+				<InputField name="ТочкаМаршрута" id="9">
+					<DataPath>Объект.Ref</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ТочкаМаршрутаКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="ТочкаМаршрутаExtendedTooltip" id="57"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа3" id="21">
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адресация</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="Группа3ExtendedTooltip" id="58"/>
+			<ChildItems>
+				<InputField name="Наименование1" id="45">
+					<DataPath>Объект.DataVersion</DataPath>
+					<ContextMenu name="Наименование1КонтекстноеМеню" id="46"/>
+					<ExtendedTooltip name="Наименование1ExtendedTooltip" id="59"/>
+				</InputField>
+				<InputField name="Предприятие" id="13">
+					<DataPath>Объект.Предприятие</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ПредприятиеExtendedTooltip" id="60"/>
+				</InputField>
+				<InputField name="Исполнитель" id="15">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ИсполнительКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="ИсполнительExtendedTooltip" id="61"/>
+				</InputField>
+				<InputField name="Должность" id="17">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДолжностьКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="ДолжностьExtendedTooltip" id="62"/>
+				</InputField>
+				<InputField name="ДатаНачала" id="26">
+					<DataPath>Объект.ДатаНачала</DataPath>
+					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ДатаНачалаExtendedTooltip" id="63"/>
+				</InputField>
+				<InputField name="Пользователь" id="47">
+					<DataPath>Объект.Пользователь</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="ПользовательКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ПользовательExtendedTooltip" id="64"/>
+				</InputField>
+				<InputField name="ДатаИсполнения" id="28">
+					<DataPath>Объект.ДатаИсполнения</DataPath>
+					<ContextMenu name="ДатаИсполненияКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ДатаИсполненияExtendedTooltip" id="65"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Админские" id="43">
+			<UserVisible>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="7d38c762-52d4-43a5-bb96-b91e8ab07b08">true</xr:Value>
+			</UserVisible>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Админские</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Админские</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="АдминскиеExtendedTooltip" id="66"/>
+			<ChildItems>
+				<InputField name="БизнесПроцесс1" id="22">
+					<DataPath>Объект.DeletionMark</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="БизнесПроцесс1КонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="БизнесПроцесс1ExtendedTooltip" id="67"/>
+				</InputField>
+				<InputField name="Исполнитель1" id="24">
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="Исполнитель1КонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="Исполнитель1ExtendedTooltip" id="68"/>
+				</InputField>
+				<InputField name="Наименование" id="33">
+					<DataPath>Объект.DataVersion</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="34"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="69"/>
+				</InputField>
+				<InputField name="ТочкаМаршрута1" id="37">
+					<DataPath>Объект.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ТочкаМаршрута1КонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ТочкаМаршрута1ExtendedTooltip" id="70"/>
+				</InputField>
+				<InputField name="Комментарии" id="39">
+					<DataPath>Объект.Комментарии</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<ContextMenu name="КомментарииКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="КомментарииExtendedTooltip" id="71"/>
+				</InputField>
+				<UsualGroup name="Группа4" id="44">
+					<Group>Horizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа4ExtendedTooltip" id="72"/>
+					<ChildItems>
+						<InputField name="Дата1" id="41">
+							<DataPath>Объект.Description</DataPath>
+							<ContextMenu name="Дата1КонтекстноеМеню" id="42"/>
+							<ExtendedTooltip name="Дата1ExtendedTooltip" id="73"/>
+						</InputField>
+						<CheckBoxField name="Выполнена" id="30">
+							<DataPath>Объект.Predefined</DataPath>
+							<UserVisible>
+								<xr:Common>false</xr:Common>
+							</UserVisible>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВыполненаКонтекстноеМеню" id="31"/>
+							<ExtendedTooltip name="ВыполненаExtendedTooltip" id="74"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.Задача</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>0:385ede1b-0a47-4588-a58c-03440688bc30</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:678c2690-c72b-4f2e-832a-c52045e9842a</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:3c2fa812-6a3b-4a38-ba20-45fbca4371f0</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:41ddc12a-979e-464a-a808-3da7679c8793</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:ae332918-de62-4692-a7a8-55a51692aaf3</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:b3b6e521-d22e-4742-bb30-38d14d484450</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:b9380460-143e-4bde-ab18-0656774b8655</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:c2d5d1ee-62a9-48e4-9e7c-2d2504bcf0f3</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+			<Item>
+				<Command>0:84ba214e-3ec7-4df7-84c4-16e6257318d4</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
+</Form>

@@ -3,6 +3,10 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Код" id="1">
 			<DataPath>Объект.Code</DataPath>
@@ -23,6 +27,11 @@
 			<ContextMenu name="ОписаниеКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="12"/>
 		</LabelField>
+		<InputField name="ДатаВводаОстатков" id="23">
+			<DataPath>ДатаВводаОстатков</DataPath>
+			<ContextMenu name="ДатаВводаОстатковКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="ДатаВводаОстатковРасширеннаяПодсказка" id="25"/>
+		</InputField>
 		<Button name="Автонастройка" id="21">
 			<Type>UsualButton</Type>
 			<CommandName>Form.Command.Автозаполнение</CommandName>
@@ -30,13 +39,8 @@
 		</Button>
 		<Button name="ОткрытьСтруктуруПредприятия" id="19">
 			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.ОткрытьАвтомаршруты</CommandName>
+			<CommandName>Form.Command.ОткрытьВводОстатков</CommandName>
 			<ExtendedTooltip name="ОткрытьСтруктуруПредприятияРасширеннаяПодсказка" id="20"/>
-		</Button>
-		<Button name="ОткрытьВидыВнутреннихДокументов" id="23">
-			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.ОткрытьВидыВнутреннихДокументов</CommandName>
-			<ExtendedTooltip name="ОткрытьВидыВнутреннихДокументовРасширеннаяПодсказка" id="24"/>
 		</Button>
 		<CheckBoxField name="Выполнено" id="7">
 			<DataPath>Объект.Выполнено</DataPath>
@@ -69,19 +73,33 @@
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
 		</Attribute>
-	</Attributes>
-	<Commands>
-		<Command name="ОткрытьАвтомаршруты" id="1">
+		<Attribute name="ДатаВводаОстатков" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть автомаршруты</v8:content>
+					<v8:content>Дата ввода остатков</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОткрытьВводОстатков" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть ввод остатков</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть автомаршруты</v8:content>
+					<v8:content>Открыть ввод остатков</v8:content>
 				</v8:item>
 			</ToolTip>
 			<Action>ОткрытьАвтомаршруты</Action>
@@ -100,21 +118,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Автонастройка</Action>
-		</Command>
-		<Command name="ОткрытьВидыВнутреннихДокументов" id="3">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть виды внутренних документов</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть автомаршруты</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ОткрытьСтруктуруПредприятия</Action>
 		</Command>
 	</Commands>
 </Form>

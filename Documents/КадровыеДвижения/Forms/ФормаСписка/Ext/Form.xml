@@ -99,33 +99,33 @@
 					</SearchControlAddition>
 					<ChildItems>
 						<LabelField name="Дата" id="4">
-							<DataPath>~Список.Date~Список.Дата</DataPath>
+							<DataPath>Список.Date</DataPath>
 							<DefaultItem>true</DefaultItem>
 							<ContextMenu name="ДатаКонтекстноеМеню" id="5"/>
 							<ExtendedTooltip name="ДатаExtendedTooltip" id="66"/>
 						</LabelField>
 						<LabelField name="Номер" id="6">
-							<DataPath>~Список.Number~Список.Номер</DataPath>
+							<DataPath>Список.Number</DataPath>
 							<ContextMenu name="НомерКонтекстноеМеню" id="7"/>
 							<ExtendedTooltip name="НомерExtendedTooltip" id="67"/>
 						</LabelField>
 						<InputField name="ВидОперации" id="8">
-							<DataPath>~Список.ВидОперации</DataPath>
+							<DataPath>Список.ВидОперации</DataPath>
 							<ContextMenu name="ВидОперацииКонтекстноеМеню" id="9"/>
 							<ExtendedTooltip name="ВидОперацииExtendedTooltip" id="68"/>
 						</InputField>
 						<LabelField name="Сотрудник" id="10">
-							<DataPath>~Список.Сотрудник</DataPath>
+							<DataPath>Список.Сотрудник</DataPath>
 							<ContextMenu name="СотрудникКонтекстноеМеню" id="11"/>
 							<ExtendedTooltip name="СотрудникExtendedTooltip" id="69"/>
 						</LabelField>
 						<LabelField name="Комментарий" id="14">
-							<DataPath>~Список.Комментарий</DataPath>
+							<DataPath>Список.Комментарий</DataPath>
 							<ContextMenu name="КомментарийКонтекстноеМеню" id="15"/>
 							<ExtendedTooltip name="КомментарийExtendedTooltip" id="70"/>
 						</LabelField>
 						<LabelField name="Автор" id="78">
-							<DataPath>~Список.Автор</DataPath>
+							<DataPath>Список.Автор</DataPath>
 							<ContextMenu name="АвторКонтекстноеМеню" id="79"/>
 							<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="80"/>
 						</LabelField>
@@ -140,7 +140,7 @@
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
 					<FileDragMode>AsFile</FileDragMode>
-					<DataPath>~Items.Список.CurrentData.ДопСогласование</DataPath>
+					<DataPath>Items.Список.CurrentData.ДопСогласование</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -186,13 +186,13 @@
 							<ExtendedTooltip name="ДопСогласованиеГруппа1ExtendedTooltip" id="72"/>
 							<ChildItems>
 								<InputField name="ДопСогласованиеСубъектСогласования" id="62">
-									<DataPath>~Items.Список.CurrentData.ДопСогласование.СубъектСогласования</DataPath>
+									<DataPath>Items.Список.CurrentData.ДопСогласование.СубъектСогласования</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ДопСогласованиеСубъектСогласованияКонтекстноеМеню" id="63"/>
 									<ExtendedTooltip name="ДопСогласованиеСубъектСогласованияExtendedTooltip" id="73"/>
 								</InputField>
 								<InputField name="ДопСогласованиеКомментарии" id="50">
-									<DataPath>~Items.Список.CurrentData.ДопСогласование.Комментарии</DataPath>
+									<DataPath>Items.Список.CurrentData.ДопСогласование.Комментарии</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="ДопСогласованиеКомментарииКонтекстноеМеню" id="51"/>
 									<ExtendedTooltip name="ДопСогласованиеКомментарииExtendedTooltip" id="74"/>
@@ -203,14 +203,14 @@
 							<ExtendedTooltip name="ДопСогласованиеГруппа2ExtendedTooltip" id="75"/>
 							<ChildItems>
 								<CheckBoxField name="ДопСогласованиеСогласовано" id="58">
-									<DataPath>~Items.Список.CurrentData.ДопСогласование.Согласовано</DataPath>
+									<DataPath>Items.Список.CurrentData.ДопСогласование.Согласовано</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ДопСогласованиеСогласованоКонтекстноеМеню" id="59"/>
 									<ExtendedTooltip name="ДопСогласованиеСогласованоExtendedTooltip" id="76"/>
 								</CheckBoxField>
 								<CheckBoxField name="ДопСогласованиеПройден" id="54">
-									<DataPath>~Items.Список.CurrentData.ДопСогласование.Пройден</DataPath>
+									<DataPath>Items.Список.CurrentData.ДопСогласование.Пройден</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ДопСогласованиеПройденКонтекстноеМеню" id="55"/>
@@ -280,7 +280,7 @@
 				И (&amp;ЮрЛицо = ЗНАЧЕНИЕ(Справочник.Организации.ПустаяСсылка)
 						ИЛИ КадровыеДвижения.РегламентированныеДанныеПрежние.ЮрЛицо = &amp;ЮрЛицо)) КАК ВложенныйЗапрос1
 			ПО ВложенныйЗапрос.Ссылка = ВложенныйЗапрос1.Ссылка) КАК ВложенныйЗапрос
-		ЛЕВОЕ СОЕДИНЕНИЕ БизнесПроцесс.СогласованиеОбщее КАК СогласованиеОбщее
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.СогласованиеОбщее КАК СогласованиеОбщее
 		ПО ВложенныйЗапрос.Ссылка = СогласованиеОбщее.Заявка
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.КадровыеДвижения КАК КадровыеДвижения
 		ПО ВложенныйЗапрос.Ссылка = КадровыеДвижения.Ссылка</QueryText>

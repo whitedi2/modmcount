@@ -23,11 +23,6 @@
 				</Title>
 				<ExtendedTooltip name="ФормаБюджетПродажExtendedTooltip" id="229"/>
 			</Button>
-			<Button name="ФормаЗаполнитьПоОснованию" id="204">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ЗаполнитьПоОснованию</CommandName>
-				<ExtendedTooltip name="ФормаЗаполнитьПоОснованиюExtendedTooltip" id="230"/>
-			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -66,6 +61,7 @@
 				</InputField>
 				<InputField name="ВидОперации" id="327">
 					<DataPath>Объект.ВидОперации</DataPath>
+					<Visible>false</Visible>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ChoiceList>
 						<xr:Item>
@@ -98,6 +94,25 @@
 					<ContextMenu name="ВидОперацииКонтекстноеМеню" id="328"/>
 					<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="329"/>
 				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа7" id="369">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="370"/>
+			<ChildItems>
+				<InputField name="ДокОснование" id="205">
+					<DataPath>Объект.ДокОснование</DataPath>
+					<BackColor>style:ReportGroup1BackColor</BackColor>
+					<ContextMenu name="ДокОснованиеКонтекстноеМеню" id="206"/>
+					<ExtendedTooltip name="ДокОснованиеExtendedTooltip" id="232"/>
+				</InputField>
+				<Button name="ФормаЗаполнитьПоОснованию" id="204">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ЗаполнитьПоОснованию</CommandName>
+					<ExtendedTooltip name="ФормаЗаполнитьПоОснованиюExtendedTooltip" id="230"/>
+				</Button>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа13" id="176">
@@ -874,17 +889,13 @@
 			</ChildItems>
 		</Pages>
 		<UsualGroup name="Группа17" id="353">
+			<Visible>false</Visible>
 			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа17РасширеннаяПодсказка" id="354"/>
 			<ChildItems>
-				<InputField name="ДокОснование" id="205">
-					<DataPath>Объект.ДокОснование</DataPath>
-					<ContextMenu name="ДокОснованиеКонтекстноеМеню" id="206"/>
-					<ExtendedTooltip name="ДокОснованиеExtendedTooltip" id="232"/>
-				</InputField>
 				<PictureDecoration name="Декорация1" id="361">
 					<Height>1</Height>
 					<HorizontalStretch>true</HorizontalStretch>
@@ -894,12 +905,14 @@
 				</PictureDecoration>
 				<LabelField name="СуммаБезналичногоРасчета" id="355">
 					<DataPath>Объект.СуммаБезналичногоРасчета</DataPath>
+					<Visible>false</Visible>
 					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 					<ContextMenu name="СуммаБезналичногоРасчетаКонтекстноеМеню" id="356"/>
 					<ExtendedTooltip name="СуммаБезналичногоРасчетаРасширеннаяПодсказка" id="357"/>
 				</LabelField>
 				<LabelField name="СуммаНаличногоРасчета" id="358">
 					<DataPath>Объект.СуммаНаличногоРасчета</DataPath>
+					<Visible>false</Visible>
 					<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 					<ContextMenu name="СуммаНаличногоРасчетаКонтекстноеМеню" id="359"/>
 					<ExtendedTooltip name="СуммаНаличногоРасчетаРасширеннаяПодсказка" id="360"/>

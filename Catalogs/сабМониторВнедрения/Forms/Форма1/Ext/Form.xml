@@ -3,6 +3,9 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Код" id="1">
 			<DataPath>Объект.Code</DataPath>
@@ -23,15 +26,84 @@
 			<ContextMenu name="ОписаниеКонтекстноеМеню" id="11"/>
 			<ExtendedTooltip name="ОписаниеРасширеннаяПодсказка" id="12"/>
 		</LabelField>
+		<UsualGroup name="Группа1" id="31">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="32"/>
+			<ChildItems>
+				<CheckBoxField name="ЗаполнитьКлассификаторСтатейЗатрат" id="25">
+					<DataPath>Объект.Настройка1</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнить классификатор статей затрат</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="ЗаполнитьКлассификаторСтатейЗатратКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ЗаполнитьКлассификаторСтатейЗатратРасширеннаяПодсказка" id="27"/>
+				</CheckBoxField>
+				<Button name="ОткрытьОбразецЗатрат" id="33">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ОткрытьОбразецЗатрат</CommandName>
+					<ExtendedTooltip name="ОткрытьОбразецЗатратРасширеннаяПодсказка" id="34"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="35">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<CheckBoxField name="ЗаполнитьКлассификаторСтатейДДС" id="28">
+					<DataPath>Объект.Настройка2</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнить классификатор статей ДДС</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Switcher</CheckBoxType>
+					<ContextMenu name="ЗаполнитьКлассификаторСтатейДДСКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ЗаполнитьКлассификаторСтатейДДСРасширеннаяПодсказка" id="30"/>
+				</CheckBoxField>
+				<Button name="ОткрытьОбразецДДС" id="37">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ОткрытьОбразецДДС</CommandName>
+					<ExtendedTooltip name="ОткрытьОбразецДДСРасширеннаяПодсказка" id="38"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<Button name="ФормаАвтозаполнение" id="19">
 			<Type>UsualButton</Type>
 			<CommandName>Form.Command.Автонастройка</CommandName>
 			<ExtendedTooltip name="ФормаАвтозаполнениеРасширеннаяПодсказка" id="20"/>
 		</Button>
-		<Button name="ОткрытьФормуНастройки" id="21">
+		<Button name="ОткрытьВидыСубконто" id="21">
 			<Type>Hyperlink</Type>
-			<CommandName>Form.Command.ОткрытьФормуНастройки</CommandName>
-			<ExtendedTooltip name="ОткрытьФормуНастройкиРасширеннаяПодсказка" id="22"/>
+			<CommandName>Form.Command.ОткрытьВидыСубконто</CommandName>
+			<ExtendedTooltip name="ОткрытьВидыСубконтоРасширеннаяПодсказка" id="22"/>
+		</Button>
+		<Button name="ОткрытьУправленческийПланСчетов" id="23">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ОткрытьУправленческийПланСчетов</CommandName>
+			<ExtendedTooltip name="ОткрытьУправленческийПланСчетовРасширеннаяПодсказка" id="24"/>
+		</Button>
+		<Button name="ОткрытьСтатьиЗатрат" id="39">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ОткрытьСтатьиЗатрат</CommandName>
+			<ExtendedTooltip name="ОткрытьСтатьиЗатратРасширеннаяПодсказка" id="40"/>
+		</Button>
+		<Button name="ОткрытьСтатьиДДС" id="41">
+			<Type>Hyperlink</Type>
+			<CommandName>Form.Command.ОткрытьСтатьиДДС</CommandName>
+			<ExtendedTooltip name="ОткрытьСтатьиДДСРасширеннаяПодсказка" id="42"/>
 		</Button>
 		<CheckBoxField name="Выполнено" id="7">
 			<DataPath>Объект.Выполнено</DataPath>
@@ -64,6 +136,28 @@
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
 		</Attribute>
+		<Attribute name="ЗаполнитьКлассификаторСтатейЗатрат" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить классификатор статей затрат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаполнитьКлассификаторСтатейДДС" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить классификатор статей ДДС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Автонастройка" id="1">
@@ -81,20 +175,96 @@
 			</ToolTip>
 			<Action>Автозаполнение</Action>
 		</Command>
-		<Command name="ОткрытьФормуНастройки" id="2">
+		<Command name="ОткрытьВидыСубконто" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть форму настройки</v8:content>
+					<v8:content>Открыть виды субконто</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Открыть форму настройки</v8:content>
+					<v8:content>Открыть виды субконто</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ОткрытьФормуНастройки</Action>
+			<Action>ОткрытьВидыСубконто</Action>
+		</Command>
+		<Command name="ОткрытьУправленческийПланСчетов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть управленческий план счетов</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть виды субконто</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьУправленческийПланСчетов</Action>
+		</Command>
+		<Command name="ОткрытьОбразецЗатрат" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть образец затрат</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть образец затрат</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьОбразецЗатрат</Action>
+		</Command>
+		<Command name="ОткрытьОбразецДДС" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть образец ДДС
+</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть образец затрат</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьОбразецДДС</Action>
+		</Command>
+		<Command name="ОткрытьСтатьиЗатрат" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть статьи затрат</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть виды субконто</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьСтатьиЗатрат</Action>
+		</Command>
+		<Command name="ОткрытьСтатьиДДС" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть статьи ДДС</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть виды субконто</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьСтатьиДДС</Action>
 		</Command>
 	</Commands>
 </Form>
