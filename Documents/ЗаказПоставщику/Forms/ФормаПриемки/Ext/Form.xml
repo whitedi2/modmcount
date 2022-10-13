@@ -42,41 +42,118 @@
 					<ChildItemsWidth>LeftWide</ChildItemsWidth>
 					<ExtendedTooltip name="СтраницаЗаказыРасширеннаяПодсказка" id="75"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаНазадДалее" id="64">
+						<UsualGroup name="ГруппаПараметрыЗаказов" id="362">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметры заказов</v8:content>
+								</v8:item>
+							</Title>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Группа назад далее</v8:content>
+									<v8:content>Группа параметры заказов</v8:content>
 								</v8:item>
 							</ToolTip>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаНазадДалееРасширеннаяПодсказка" id="65"/>
+							<ExtendedTooltip name="ГруппаПараметрыЗаказовРасширеннаяПодсказка" id="363"/>
 							<ChildItems>
-								<UsualGroup name="Группа3" id="568">
+								<InputField name="ДатаНачала" id="364">
+									<DataPath>ДатаНачала</DataPath>
+									<Width>6</Width>
+									<SpinButton>true</SpinButton>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="365"/>
+									<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="366"/>
+									<Events>
+										<Event name="OnChange">ДатаПоступленияЗаказаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="ДатаОкончания" id="367">
+									<DataPath>ДатаОкончания</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>по</v8:content>
+										</v8:item>
+									</Title>
+									<Width>6</Width>
+									<SpinButton>true</SpinButton>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>ДФ=dd.MM.yy</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="368"/>
+									<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="369"/>
+									<Events>
+										<Event name="OnChange">ДатаПоступленияЗаказаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<Button name="ПредыдущийДень" id="548">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.ДеньПредыдущий</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.MoveLeft</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ПредыдущийДеньРасширеннаяПодсказка" id="549"/>
+								</Button>
+								<Button name="ДеньСледующий" id="550">
+									<Type>UsualButton</Type>
+									<Visible>false</Visible>
+									<Representation>Picture</Representation>
+									<CommandName>Form.Command.ДеньСледующий</CommandName>
+									<Picture>
+										<xr:Ref>StdPicture.MoveRight</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</Picture>
+									<ExtendedTooltip name="ДеньСледующийРасширеннаяПодсказка" id="551"/>
+								</Button>
+								<InputField name="Контрагент" id="552">
+									<DataPath>Контрагент</DataPath>
+									<Visible>false</Visible>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Поставщик</v8:content>
+										</v8:item>
+									</Title>
+									<ClearButton>true</ClearButton>
+									<ContextMenu name="КонтрагентКонтекстноеМеню" id="553"/>
+									<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="554"/>
+									<Events>
+										<Event name="OnChange">КонтрагентПриИзменении</Event>
+									</Events>
+								</InputField>
+								<UsualGroup name="Группа13" id="612">
+									<Visible>false</Visible>
 									<Group>Horizontal</Group>
 									<Behavior>Usual</Behavior>
+									<Representation>StrongSeparation</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="569"/>
+									<ExtendedTooltip name="Группа13РасширеннаяПодсказка" id="613"/>
 									<ChildItems>
-										<Button name="Далее" id="68">
+										<Button name="ИзменитьФорму1" id="610">
 											<Type>UsualButton</Type>
-											<DefaultButton>true</DefaultButton>
-											<CommandName>Form.Command.Далее</CommandName>
-											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-											<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="69"/>
+											<Representation>Picture</Representation>
+											<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+											<ExtendedTooltip name="ИзменитьФорму1РасширеннаяПодсказка" id="611"/>
 										</Button>
 									</ChildItems>
 								</UsualGroup>
-								<LabelDecoration name="Декорация1" id="559">
-									<HorizontalStretch>true</HorizontalStretch>
-									<ContextMenu name="Декорация1КонтекстноеМеню" id="560"/>
-									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="561"/>
-								</LabelDecoration>
 								<CommandBar name="Группа4" id="570">
-									<HorizontalLocation>Right</HorizontalLocation>
 									<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="571"/>
 									<ChildItems>
 										<ButtonGroup name="Группа11" id="606">
@@ -121,106 +198,48 @@
 										</Button>
 										<Button name="ПоказыватьЗакрытые" id="564">
 											<Type>CommandBarButton</Type>
+											<Visible>false</Visible>
 											<Check>true</Check>
 											<CommandName>Form.Command.СкрытьЗакрытые</CommandName>
 											<ExtendedTooltip name="ПоказыватьЗакрытыеРасширеннаяПодсказка" id="565"/>
 										</Button>
 									</ChildItems>
 								</CommandBar>
-								<UsualGroup name="ГруппаПараметрыЗаказов" id="362">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа параметры заказов</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Группа параметры заказов</v8:content>
-										</v8:item>
-									</ToolTip>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНазадДалее" id="64">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа назад далее</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНазадДалееРасширеннаяПодсказка" id="65"/>
+							<ChildItems>
+								<UsualGroup name="Группа3" id="568">
 									<Group>Horizontal</Group>
 									<Behavior>Usual</Behavior>
-									<Representation>None</Representation>
 									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="ГруппаПараметрыЗаказовРасширеннаяПодсказка" id="363"/>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="569"/>
 									<ChildItems>
-										<InputField name="ДатаНачала" id="364">
-											<DataPath>ДатаНачала</DataPath>
-											<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="365"/>
-											<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="366"/>
-											<Events>
-												<Event name="OnChange">ДатаПоступленияЗаказаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ДатаОкончания" id="367">
-											<DataPath>ДатаОкончания</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>по</v8:content>
-												</v8:item>
-											</Title>
-											<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="368"/>
-											<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="369"/>
-											<Events>
-												<Event name="OnChange">ДатаПоступленияЗаказаПриИзменении</Event>
-											</Events>
-										</InputField>
-										<Button name="ПредыдущийДень" id="548">
+										<Button name="Далее" id="68">
 											<Type>UsualButton</Type>
-											<Representation>Picture</Representation>
-											<CommandName>Form.Command.ДеньПредыдущий</CommandName>
-											<Picture>
-												<xr:Ref>StdPicture.MoveLeft</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<ExtendedTooltip name="ПредыдущийДеньРасширеннаяПодсказка" id="549"/>
+											<DefaultButton>true</DefaultButton>
+											<CommandName>Form.Command.Далее</CommandName>
+											<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ExtendedTooltip name="ДалееРасширеннаяПодсказка" id="69"/>
 										</Button>
-										<Button name="ДеньСледующий" id="550">
-											<Type>UsualButton</Type>
-											<Representation>Picture</Representation>
-											<CommandName>Form.Command.ДеньСледующий</CommandName>
-											<Picture>
-												<xr:Ref>StdPicture.MoveRight</xr:Ref>
-												<xr:LoadTransparent>true</xr:LoadTransparent>
-											</Picture>
-											<ExtendedTooltip name="ДеньСледующийРасширеннаяПодсказка" id="551"/>
-										</Button>
-										<InputField name="Контрагент" id="552">
-											<DataPath>Контрагент</DataPath>
-											<Visible>false</Visible>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Поставщик</v8:content>
-												</v8:item>
-											</Title>
-											<ClearButton>true</ClearButton>
-											<ContextMenu name="КонтрагентКонтекстноеМеню" id="553"/>
-											<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="554"/>
-											<Events>
-												<Event name="OnChange">КонтрагентПриИзменении</Event>
-											</Events>
-										</InputField>
-										<UsualGroup name="Группа13" id="612">
-											<Group>Horizontal</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>StrongSeparation</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="Группа13РасширеннаяПодсказка" id="613"/>
-											<ChildItems>
-												<Button name="ИзменитьФорму1" id="610">
-													<Type>UsualButton</Type>
-													<Representation>Picture</Representation>
-													<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
-													<ExtendedTooltip name="ИзменитьФорму1РасширеннаяПодсказка" id="611"/>
-												</Button>
-											</ChildItems>
-										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
+								<LabelDecoration name="Декорация1" id="559">
+									<HorizontalStretch>true</HorizontalStretch>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="560"/>
+									<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="561"/>
+								</LabelDecoration>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаВариантОбработки" id="226">
@@ -349,6 +368,10 @@
 								<ContextMenu name="СписокЗаказыУправлениеПоискомКонтекстноеМеню" id="242"/>
 								<ExtendedTooltip name="СписокЗаказыУправлениеПоискомРасширеннаяПодсказка" id="243"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">СписокЗаказыВыбор</Event>
+								<Event name="OnActivateRow">СписокЗаказыПриАктивизацииСтроки</Event>
+							</Events>
 							<ChildItems>
 								<InputField name="СписокЗаказыДатаПоступления" id="283">
 									<DataPath>СписокЗаказы.ДатаПоступления</DataPath>
@@ -683,10 +706,12 @@
 							<Behavior>Collapsible</Behavior>
 							<ControlRepresentation>Picture</ControlRepresentation>
 							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаШапкаТННРасширеннаяПодсказка" id="207"/>
 							<ChildItems>
 								<InputField name="СуммаИтогоДок" id="208">
 									<DataPath>СуммаИтогоДок</DataPath>
+									<Visible>false</Visible>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -811,6 +836,7 @@
 											<ControlRepresentation>Picture</ControlRepresentation>
 											<Representation>None</Representation>
 											<ChildItemsWidth>Equal</ChildItemsWidth>
+											<ShowTitle>false</ShowTitle>
 											<BackColor>#FFF4CB</BackColor>
 											<ExtendedTooltip name="ГруппаСканРасширеннаяПодсказка" id="317"/>
 											<ChildItems>
@@ -864,7 +890,7 @@
 														<InputField name="Скан_Штрихкод" id="345">
 															<DataPath>Скан_Штрихкод</DataPath>
 															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<Width>17</Width>
+															<Width>40</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<ContextMenu name="Скан_ШтрихкодКонтекстноеМеню" id="346"/>
 															<ExtendedTooltip name="Скан_ШтрихкодРасширеннаяПодсказка" id="347"/>
@@ -875,24 +901,11 @@
 														<InputField name="Скан_Количество" id="351">
 															<DataPath>Скан_Количество</DataPath>
 															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+															<Width>7</Width>
 															<ContextMenu name="Скан_КоличествоКонтекстноеМеню" id="352"/>
 															<ExtendedTooltip name="Скан_КоличествоРасширеннаяПодсказка" id="353"/>
 															<Events>
 																<Event name="OnChange">Скан_КоличествоПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="Скан_КоличествоБонуснойПродукции" id="647">
-															<DataPath>Скан_КоличествоБонуснойПродукции</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Кол-во бонус</v8:content>
-																</v8:item>
-															</Title>
-															<ContextMenu name="Скан_КоличествоБонуснойПродукцииКонтекстноеМеню" id="648"/>
-															<ExtendedTooltip name="Скан_КоличествоБонуснойПродукцииРасширеннаяПодсказка" id="649"/>
-															<Events>
-																<Event name="OnChange">Скан_КоличествоБонуснойПродукцииПриИзменении</Event>
 															</Events>
 														</InputField>
 														<LabelField name="Скан_Номенклатура" id="348">
@@ -1018,7 +1031,7 @@
 													<v8:content>Группа план факт</v8:content>
 												</v8:item>
 											</ToolTip>
-											<HorizontalStretch>true</HorizontalStretch>
+											<Group>Vertical</Group>
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
 											<ShowTitle>false</ShowTitle>
@@ -1027,7 +1040,6 @@
 												<Table name="ТЗ_ПланФакт" id="78">
 													<Representation>List</Representation>
 													<ChangeRowSet>false</ChangeRowSet>
-													<Height>5</Height>
 													<Footer>true</Footer>
 													<UseAlternationRowColor>true</UseAlternationRowColor>
 													<AutoInsertNewRow>true</AutoInsertNewRow>
@@ -1101,39 +1113,6 @@
 														<Event name="OnChange">ТЗ_ПланФактПриИзменении</Event>
 													</Events>
 													<ChildItems>
-														<CheckBoxField name="ТЗ_ПланФактВыделено" id="642">
-															<DataPath>ТЗ_ПланФакт.Выделено</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>V</v8:content>
-																</v8:item>
-															</Title>
-															<TitleLocation>None</TitleLocation>
-															<EditMode>EnterOnInput</EditMode>
-															<FixingInTable>Left</FixingInTable>
-															<HeaderPicture>
-																<xr:Ref>StdPicture.CheckAll</xr:Ref>
-																<xr:LoadTransparent>true</xr:LoadTransparent>
-															</HeaderPicture>
-															<CheckBoxType>Auto</CheckBoxType>
-															<ContextMenu name="ТЗ_ПланФактВыделеноКонтекстноеМеню" id="643"/>
-															<ExtendedTooltip name="ТЗ_ПланФактВыделеноРасширеннаяПодсказка" id="644"/>
-														</CheckBoxField>
-														<InputField name="ТЗ_ПланФактНомерСтроки" id="639">
-															<DataPath>ТЗ_ПланФакт.НомерСтроки</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>№</v8:content>
-																</v8:item>
-															</Title>
-															<EditMode>EnterOnInput</EditMode>
-															<FixingInTable>Left</FixingInTable>
-															<Width>2</Width>
-															<ContextMenu name="ТЗ_ПланФактНомерСтрокиКонтекстноеМеню" id="640"/>
-															<ExtendedTooltip name="ТЗ_ПланФактНомерСтрокиРасширеннаяПодсказка" id="641"/>
-														</InputField>
 														<InputField name="ТЗ_ПланФактАртикул" id="91">
 															<DataPath>ТЗ_ПланФакт.Номенклатура.Code</DataPath>
 															<ReadOnly>true</ReadOnly>
@@ -1141,7 +1120,7 @@
 															<EditMode>EnterOnInput</EditMode>
 															<FixingInTable>Left</FixingInTable>
 															<FooterBackColor>#E6E6E6</FooterBackColor>
-															<Width>9</Width>
+															<Width>7</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<BackColor>#E6E6E6</BackColor>
 															<ContextMenu name="ТЗ_ПланФактАртикулКонтекстноеМеню" id="92"/>
@@ -1192,7 +1171,7 @@
 															<TitleBackColor>#E6E6E6</TitleBackColor>
 															<EditMode>EnterOnInput</EditMode>
 															<FooterBackColor>#E6E6E6</FooterBackColor>
-															<Width>7</Width>
+															<Width>3</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<BackColor>#E6E6E6</BackColor>
 															<ContextMenu name="ТЗ_ПланФактЕдИзмКонтекстноеМеню" id="101"/>
@@ -1201,6 +1180,7 @@
 														<InputField name="ТЗ_ПланФактСрокГодности" id="385">
 															<DataPath>ТЗ_ПланФакт.СрокГодности</DataPath>
 															<EditMode>Directly</EditMode>
+															<Width>8</Width>
 															<ContextMenu name="ТЗ_ПланФактСрокГодностиКонтекстноеМеню" id="386"/>
 															<ExtendedTooltip name="ТЗ_ПланФактСрокГодностиРасширеннаяПодсказка" id="387"/>
 														</InputField>
@@ -1273,7 +1253,7 @@
 																	<EditMode>Directly</EditMode>
 																	<FooterDataPath>ТЗ_ПланФактКоличествоДокТекстПодвала</FooterDataPath>
 																	<FooterHorizontalAlign>Right</FooterHorizontalAlign>
-																	<Width>10</Width>
+																	<Width>7</Width>
 																	<HorizontalStretch>false</HorizontalStretch>
 																	<ContextMenu name="ТЗ_ПланФактКоличествоДокКонтекстноеМеню" id="107"/>
 																	<ExtendedTooltip name="ТЗ_ПланФактКоличествоДокРасширеннаяПодсказка" id="108"/>
@@ -1294,26 +1274,13 @@
 																	<FooterDataPath>ТЗ_ПланФактКоличествоКОформлениюТекстПодвала</FooterDataPath>
 																	<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 																	<FooterHorizontalAlign>Right</FooterHorizontalAlign>
-																	<Width>13</Width>
+																	<Width>7</Width>
 																	<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 																	<ContextMenu name="ТЗ_ПланФактКоличествоКОформлениюКонтекстноеМеню" id="304"/>
 																	<ExtendedTooltip name="ТЗ_ПланФактКоличествоКОформлениюРасширеннаяПодсказка" id="305"/>
 																	<Events>
 																		<Event name="OnChange">ТЗ_ПланФактКоличествоКОформлениюПриИзменении</Event>
 																	</Events>
-																</InputField>
-																<InputField name="ТЗ_ПланФактКоличествоБонуснойПродукции" id="650">
-																	<DataPath>ТЗ_ПланФакт.КоличествоБонуснойПродукции</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Бонус</v8:content>
-																		</v8:item>
-																	</Title>
-																	<EditMode>EnterOnInput</EditMode>
-																	<Width>8</Width>
-																	<ContextMenu name="ТЗ_ПланФактКоличествоБонуснойПродукцииКонтекстноеМеню" id="651"/>
-																	<ExtendedTooltip name="ТЗ_ПланФактКоличествоБонуснойПродукцииРасширеннаяПодсказка" id="652"/>
 																</InputField>
 															</ChildItems>
 														</ColumnGroup>
@@ -1363,6 +1330,7 @@
 																		</v8:item>
 																	</Title>
 																	<EditMode>Directly</EditMode>
+																	<Width>7</Width>
 																	<ContextMenu name="ТЗ_ПланФактЦенаДокКонтекстноеМеню" id="116"/>
 																	<ExtendedTooltip name="ТЗ_ПланФактЦенаДокРасширеннаяПодсказка" id="117"/>
 																	<Events>
@@ -1371,14 +1339,8 @@
 																</InputField>
 																<InputField name="ТЗ_ПланФактЦенаДокБезНДС" id="405">
 																	<DataPath>ТЗ_ПланФакт.ЦенаДокБезНДС</DataPath>
-																	<Title>
-																		<v8:item>
-																			<v8:lang>ru</v8:lang>
-																			<v8:content>Поставщика 
-без НДС</v8:content>
-																		</v8:item>
-																	</Title>
 																	<EditMode>Directly</EditMode>
+																	<Width>7</Width>
 																	<ContextMenu name="ТЗ_ПланФактЦенаДокБезНДСКонтекстноеМеню" id="406"/>
 																	<ExtendedTooltip name="ТЗ_ПланФактЦенаДокБезНДСРасширеннаяПодсказка" id="407"/>
 																	<Events>
@@ -1387,67 +1349,81 @@
 																</InputField>
 															</ChildItems>
 														</ColumnGroup>
-														<InputField name="ТЗ_ПланФактСтавкаНДС" id="118">
-															<DataPath>ТЗ_ПланФакт.СтавкаНДС</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<TitleBackColor>#E6E6E6</TitleBackColor>
-															<EditMode>EnterOnInput</EditMode>
-															<FooterBackColor>#E6E6E6</FooterBackColor>
-															<BackColor>#E6E6E6</BackColor>
-															<ContextMenu name="ТЗ_ПланФактСтавкаНДСКонтекстноеМеню" id="119"/>
-															<ExtendedTooltip name="ТЗ_ПланФактСтавкаНДСРасширеннаяПодсказка" id="120"/>
-														</InputField>
-														<InputField name="ТЗ_ПланФактСуммаСНДС" id="121">
-															<DataPath>ТЗ_ПланФакт.СуммаСНДС</DataPath>
-															<Visible>false</Visible>
-															<ReadOnly>true</ReadOnly>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ТЗ_ПланФактСуммаСНДСКонтекстноеМеню" id="122"/>
-															<ExtendedTooltip name="ТЗ_ПланФактСуммаСНДСРасширеннаяПодсказка" id="123"/>
-														</InputField>
-														<InputField name="ТЗ_ПланФактСумма" id="310">
-															<DataPath>ТЗ_ПланФакт.Сумма</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<TitleBackColor>#E1E1FA</TitleBackColor>
-															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<EditMode>EnterOnInput</EditMode>
-															<FooterDataPath>ТЗ_ПланФактСуммаТекстПодвала</FooterDataPath>
-															<FooterBackColor>#E1E1FA</FooterBackColor>
-															<FooterFont ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
-															<Width>10</Width>
-															<BackColor>#E1E1FA</BackColor>
-															<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<ContextMenu name="ТЗ_ПланФактСуммаКонтекстноеМеню" id="311"/>
-															<ExtendedTooltip name="ТЗ_ПланФактСуммаРасширеннаяПодсказка" id="312"/>
-														</InputField>
-														<InputField name="ТЗ_ПланФактСуммаДок" id="394">
-															<DataPath>ТЗ_ПланФакт.СуммаДок</DataPath>
-															<EditMode>Directly</EditMode>
-															<FooterDataPath>ТЗ_ПланФактСуммаДокТекстПодвала</FooterDataPath>
-															<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
-															<ContextMenu name="ТЗ_ПланФактСуммаДокКонтекстноеМеню" id="395"/>
-															<ExtendedTooltip name="ТЗ_ПланФактСуммаДокРасширеннаяПодсказка" id="396"/>
-															<Events>
-																<Event name="OnChange">ТЗ_ПланФактСуммаДокПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ТЗ_ПланФактСуммаНДСДок" id="391">
-															<DataPath>ТЗ_ПланФакт.СуммаНДСДок</DataPath>
+														<ColumnGroup name="ТЗ_ПланФактГруппаСумма" id="626">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
-																	<v8:content>Сумма НДС
-в ТТН</v8:content>
+																	<v8:content>Сумма</v8:content>
 																</v8:item>
 															</Title>
-															<EditMode>Directly</EditMode>
-															<FooterDataPath>ТЗ_ПланФактСуммаНДСДокТекстПодвала</FooterDataPath>
-															<FooterHorizontalAlign>Right</FooterHorizontalAlign>
-															<ContextMenu name="ТЗ_ПланФактСуммаНДСДокКонтекстноеМеню" id="392"/>
-															<ExtendedTooltip name="ТЗ_ПланФактСуммаНДСДокРасширеннаяПодсказка" id="393"/>
-														</InputField>
+															<Group>Horizontal</Group>
+															<ShowInHeader>true</ShowInHeader>
+															<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+															<ExtendedTooltip name="ТЗ_ПланФактГруппаСуммаРасширеннаяПодсказка" id="627"/>
+															<ChildItems>
+																<InputField name="ТЗ_ПланФактСтавкаНДС" id="118">
+																	<DataPath>ТЗ_ПланФакт.СтавкаНДС</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<TitleBackColor>#E6E6E6</TitleBackColor>
+																	<EditMode>EnterOnInput</EditMode>
+																	<FooterBackColor>#E6E6E6</FooterBackColor>
+																	<BackColor>#E6E6E6</BackColor>
+																	<ContextMenu name="ТЗ_ПланФактСтавкаНДСКонтекстноеМеню" id="119"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактСтавкаНДСРасширеннаяПодсказка" id="120"/>
+																</InputField>
+																<InputField name="ТЗ_ПланФактСуммаСНДС" id="121">
+																	<DataPath>ТЗ_ПланФакт.СуммаСНДС</DataPath>
+																	<Visible>false</Visible>
+																	<ReadOnly>true</ReadOnly>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ContextMenu name="ТЗ_ПланФактСуммаСНДСКонтекстноеМеню" id="122"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактСуммаСНДСРасширеннаяПодсказка" id="123"/>
+																</InputField>
+																<InputField name="ТЗ_ПланФактСумма" id="310">
+																	<DataPath>ТЗ_ПланФакт.Сумма</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<TitleBackColor>#E1E1FA</TitleBackColor>
+																	<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<FooterDataPath>ТЗ_ПланФактСуммаТекстПодвала</FooterDataPath>
+																	<FooterBackColor>#E1E1FA</FooterBackColor>
+																	<FooterFont ref="style:NormalTextFont" height="11" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+																	<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+																	<Width>10</Width>
+																	<BackColor>#E1E1FA</BackColor>
+																	<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+																	<ContextMenu name="ТЗ_ПланФактСуммаКонтекстноеМеню" id="311"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактСуммаРасширеннаяПодсказка" id="312"/>
+																</InputField>
+																<InputField name="ТЗ_ПланФактСуммаДок" id="394">
+																	<DataPath>ТЗ_ПланФакт.СуммаДок</DataPath>
+																	<EditMode>Directly</EditMode>
+																	<FooterDataPath>ТЗ_ПланФактСуммаДокТекстПодвала</FooterDataPath>
+																	<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+																	<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+																	<ContextMenu name="ТЗ_ПланФактСуммаДокКонтекстноеМеню" id="395"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактСуммаДокРасширеннаяПодсказка" id="396"/>
+																	<Events>
+																		<Event name="OnChange">ТЗ_ПланФактСуммаДокПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ТЗ_ПланФактСуммаНДСДок" id="391">
+																	<DataPath>ТЗ_ПланФакт.СуммаНДСДок</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Сумма НДС
+в ТТН</v8:content>
+																		</v8:item>
+																	</Title>
+																	<EditMode>Directly</EditMode>
+																	<FooterDataPath>ТЗ_ПланФактСуммаНДСДокТекстПодвала</FooterDataPath>
+																	<FooterHorizontalAlign>Right</FooterHorizontalAlign>
+																	<ContextMenu name="ТЗ_ПланФактСуммаНДСДокКонтекстноеМеню" id="392"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактСуммаНДСДокРасширеннаяПодсказка" id="393"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
 													</ChildItems>
 												</Table>
 												<UsualGroup name="ГруппаПодПланФактом" id="308">
@@ -1471,7 +1447,6 @@
 													<ChildItems>
 														<RadioButtonField name="ПринятьПоЦене" id="313">
 															<DataPath>ПринятьПоЦене</DataPath>
-															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1480,6 +1455,7 @@
 															</Title>
 															<TitleLocation>None</TitleLocation>
 															<RadioButtonType>Tumbler</RadioButtonType>
+															<EqualColumnsWidth>true</EqualColumnsWidth>
 															<ChoiceList>
 																<xr:Item>
 																	<xr:Presentation/>
@@ -1869,67 +1845,11 @@
 									<Font ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 									<ExtendedTooltip name="Назад2РасширеннаяПодсказка" id="598"/>
 								</Button>
-								<Button name="СохранитьВЧерновик1" id="645">
-									<Type>UsualButton</Type>
-									<Representation>PictureAndText</Representation>
-									<CommandName>Form.Command.СохранитьВЧерновик</CommandName>
-									<Picture>
-										<xr:Ref>StdPicture.SaveFile</xr:Ref>
-										<xr:LoadTransparent>true</xr:LoadTransparent>
-									</Picture>
-									<ExtendedTooltip name="СохранитьВЧерновик1РасширеннаяПодсказка" id="646"/>
-								</Button>
 								<LabelField name="ОбрабатываемыйДокумент2" id="503">
 									<DataPath>ОбрабатываемыйДокумент</DataPath>
 									<Hiperlink>true</Hiperlink>
 									<ContextMenu name="ОбрабатываемыйДокумент2КонтекстноеМеню" id="504"/>
 									<ExtendedTooltip name="ОбрабатываемыйДокумент2РасширеннаяПодсказка" id="505"/>
-								</LabelField>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаСканПеремещение" id="626">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа скан перемещение</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа скан перемещение</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<BackColor>#FFF4CB</BackColor>
-							<ExtendedTooltip name="ГруппаСканПеремещениеРасширеннаяПодсказка" id="627"/>
-							<ChildItems>
-								<InputField name="Скан_перемещ_Штрихкод" id="628">
-									<DataPath>Скан_Штрихкод</DataPath>
-									<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-									<ContextMenu name="Скан_перемещ_ШтрихкодКонтекстноеМеню" id="629"/>
-									<ExtendedTooltip name="Скан_перемещ_ШтрихкодРасширеннаяПодсказка" id="630"/>
-									<Events>
-										<Event name="OnChange">Скан_перемещ_ШтрихкодПриИзменении</Event>
-									</Events>
-								</InputField>
-								<InputField name="Скан_перемещ_Количество" id="631">
-									<DataPath>Скан_Количество</DataPath>
-									<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-									<ContextMenu name="Скан_перемещ_КоличествоКонтекстноеМеню" id="632"/>
-									<ExtendedTooltip name="Скан_перемещ_КоличествоРасширеннаяПодсказка" id="633"/>
-									<Events>
-										<Event name="OnChange">Скан_перемещ_КоличествоПриИзменении</Event>
-									</Events>
-								</InputField>
-								<LabelField name="Скан_перемещ_Номенклатура" id="634">
-									<DataPath>Скан_Номенклатура</DataPath>
-									<Hiperlink>true</Hiperlink>
-									<ContextMenu name="Скан_перемещ_НоменклатураКонтекстноеМеню" id="635"/>
-									<ExtendedTooltip name="Скан_перемещ_НоменклатураРасширеннаяПодсказка" id="636"/>
 								</LabelField>
 							</ChildItems>
 						</UsualGroup>
@@ -1946,18 +1866,6 @@
 							<ContextMenu name="ТЗ_ПеремещениеКонтекстноеМеню" id="507"/>
 							<AutoCommandBar name="ТЗ_ПеремещениеКоманднаяПанель" id="508">
 								<Autofill>false</Autofill>
-								<ChildItems>
-									<Button name="ТЗ_ПеремещениеДобавитьСтрокуПеремещение" id="637">
-										<Type>CommandBarButton</Type>
-										<Representation>PictureAndText</Representation>
-										<CommandName>Form.Command.ДобавитьСтрокуПеремещение</CommandName>
-										<Picture>
-											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
-											<xr:LoadTransparent>true</xr:LoadTransparent>
-										</Picture>
-										<ExtendedTooltip name="ТЗ_ПеремещениеДобавитьСтрокуПеремещениеРасширеннаяПодсказка" id="638"/>
-									</Button>
-								</ChildItems>
 							</AutoCommandBar>
 							<ExtendedTooltip name="ТЗ_ПеремещениеРасширеннаяПодсказка" id="509"/>
 							<SearchStringAddition name="ТЗ_ПеремещениеСтрокаПоиска" id="510">
@@ -2169,7 +2077,7 @@
 	<Attributes>
 		<Attribute name="Объект" id="1">
 			<Type>
-				<v8:Type>cfg:DataProcessorObject.сабПриемкаПоЗаказам</v8:Type>
+				<v8:TypeId>d16578f1-62f4-4710-95d6-9239b7e08256</v8:TypeId>
 			</Type>
 			<MainAttribute>true</MainAttribute>
 		</Attribute>
@@ -2414,7 +2322,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Дата изготовления</v8:content>
+							<v8:content>Дата</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -2476,7 +2384,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Цена док без НДС</v8:content>
+							<v8:content>Пост. без НДС</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
@@ -2510,47 +2418,19 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
-				<Column name="НомерСтроки" id="23">
+				<Column name="ЗначениеШтрихкода" id="23">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Номер строки</v8:content>
+							<v8:content>Значение штрихкода</v8:content>
 						</v8:item>
 					</Title>
 					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>10</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
-					</Type>
-				</Column>
-				<Column name="Выделено" id="24">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Выделено</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-				</Column>
-				<Column name="КоличествоБонуснойПродукции" id="25">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Количество бонусной продукции</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:decimal</v8:Type>
-						<v8:NumberQualifiers>
-							<v8:Digits>15</v8:Digits>
-							<v8:FractionDigits>3</v8:FractionDigits>
-							<v8:AllowedSign>Any</v8:AllowedSign>
-						</v8:NumberQualifiers>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>200</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
 					</Type>
 				</Column>
 			</Columns>
@@ -2707,7 +2587,7 @@
 			</Type>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
 	ДокументЗаказПоставщику.Ссылка,
 	ДокументЗаказПоставщику.ПометкаУдаления,
@@ -2763,7 +2643,7 @@
 			И ВЫБОР
 					КОГДА &amp;ВсеЗаказы
 						ТОГДА ИСТИНА
-					ИНАЧЕ НЕ ЗаказПоставщику.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Закрыт) И НЕ ЗаказПоставщику.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Отменен)
+					ИНАЧЕ НЕ ЗаказПоставщику.Статус В (ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Закрыт), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Отменен), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Создан))
 				КОНЕЦ
 		
 		СГРУППИРОВАТЬ ПО
@@ -2845,7 +2725,7 @@
 			<Type>
 				<v8:Type>xs:string</v8:Type>
 				<v8:StringQualifiers>
-					<v8:Length>20</v8:Length>
+					<v8:Length>200</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
 			</Type>
@@ -2912,7 +2792,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Дата поступления с</v8:content>
+					<v8:content>Дата с</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -2946,6 +2826,7 @@
 			<Type>
 				<v8:Type>cfg:DocumentRef.УЧ_ВозвратТоваровПоставщику</v8:Type>
 				<v8:Type>cfg:DocumentRef.УЧ_ПеремещениеТоваров</v8:Type>
+				<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
 				<v8:Type>cfg:DocumentRef.УЧ_ПоступлениеТоваров</v8:Type>
 			</Type>
 		</Attribute>
@@ -3244,21 +3125,6 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
-				<Column name="ШтрихКод" id="16">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Штрих код</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>20</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ТЗ_Перемещение" id="28">
@@ -3385,32 +3251,6 @@
 						<v8:Type>cfg:ChartOfAccountsRef.Учетный</v8:Type>
 					</Type>
 				</Column>
-				<Column name="ДобавленоВручную" id="9">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Добавлено вручную</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:boolean</v8:Type>
-					</Type>
-				</Column>
-				<Column name="ШтрихКод" id="10">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Штрих код</v8:content>
-						</v8:item>
-					</Title>
-					<Type>
-						<v8:Type>xs:string</v8:Type>
-						<v8:StringQualifiers>
-							<v8:Length>20</v8:Length>
-							<v8:AllowedLength>Variable</v8:AllowedLength>
-						</v8:StringQualifiers>
-					</Type>
-				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="Контрагент" id="29">
@@ -3529,20 +3369,41 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="Скан_КоличествоБонуснойПродукции" id="37">
+		<Attribute name="ЭтоМобильныйКлиент" id="2">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Скан количество бонусной продукции</v8:content>
+					<v8:content>Это мобильный клиент</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
-				<v8:Type>xs:decimal</v8:Type>
-				<v8:NumberQualifiers>
-					<v8:Digits>15</v8:Digits>
-					<v8:FractionDigits>3</v8:FractionDigits>
-					<v8:AllowedSign>Any</v8:AllowedSign>
-				</v8:NumberQualifiers>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекущийЗаказ" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текущий заказ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Скан_ШтрихкодПервичный" id="37">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Штрихкод</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>200</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
@@ -3699,50 +3560,41 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>ТЗ_ПеремещениеНоменклатура</dcsset:field>
+						<dcsset:field>ТЗ_ПланФактЦенаЗаказ</dcsset:field>
 					</dcsset:item>
-				</dcsset:selection>
-				<dcsset:filter>
-					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">ТЗ_Перемещение.ДобавленоВручную</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
-					</dcsset:item>
-				</dcsset:filter>
-				<dcsset:appearance>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">style:FieldSelectedTextColor</dcscor:value>
-					</dcscor:item>
-					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
-						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
-					</dcscor:item>
-				</dcsset:appearance>
-				<dcsset:presentation xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>новая строка в перемещении</v8:content>
-					</v8:item>
-				</dcsset:presentation>
-			</dcsset:item>
-			<dcsset:item>
-				<dcsset:selection>
 					<dcsset:item>
-						<dcsset:field>ТЗ_ПланФакт</dcsset:field>
+						<dcsset:field>ТЗ_ПланФактЦенаДок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактЦенаДокБезНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактСуммаСНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактСумма</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактСуммаДок</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактСуммаНДСДок</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">ТЗ_ПланФакт.Выделено</dcsset:left>
+						<dcsset:left xsi:type="dcscor:Field">ПринятьПоЦене</dcsset:left>
 						<dcsset:comparisonType>Equal</dcsset:comparisonType>
-						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+						<dcsset:right xsi:type="xs:decimal">1</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-						<dcscor:parameter>ЦветФона</dcscor:parameter>
-						<dcscor:value xsi:type="v8ui:Color">#CCFFCC</dcscor:value>
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
@@ -3971,6 +3823,10 @@
 					<v8:content>Найти заказ по ШК</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.НовыйПоШтрихкоду</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>НайтиЗаказПоШК</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
@@ -4008,22 +3864,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаполнитьКолвоТТН</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ДобавитьСтрокуПеремещение" id="17">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Добавить строку перемещение</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ДобавитьСтрокуПеремещение</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>

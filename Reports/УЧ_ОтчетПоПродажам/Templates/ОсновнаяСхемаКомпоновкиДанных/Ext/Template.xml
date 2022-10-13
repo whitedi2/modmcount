@@ -200,6 +200,16 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеКонтрагента</dataPath>
+			<field>ПодразделениеКонтрагента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Точка доставки</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура) КАК Номенклатура,
@@ -219,7 +229,9 @@
 	УчетныйОбороты.Регистратор КАК Регистратор,
 	УчетныйОбороты.КорСубконто1 КАК Контрагент,
 	ОтветственныеСрезПоследних.Ответственный КАК Менеджер,
-	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес * -УчетныйОбороты.КоличествоОборот КАК Вес
+	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес * -УчетныйОбороты.КоличествоОборот КАК Вес,
+	УчетныйОбороты.Регистратор.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента
+
 ПОМЕСТИТЬ ВТ_Данные
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, Счет.Код = "90.01", , Подразделение В (&amp;ДоступныеПодразделения), , ) КАК УчетныйОбороты
@@ -291,7 +303,8 @@
 	ВТ_Скидка.АбсолютнаяСкидка КАК Скидка,
 	ВТ_Данные.Контрагент КАК Контрагент,
 	ВТ_Данные.Менеджер КАК Менеджер,
-	ВТ_Данные.Вес КАК Вес
+	ВТ_Данные.Вес КАК Вес,
+	ВТ_Данные.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента
 ИЗ
 	ВТ_Данные КАК ВТ_Данные
 		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Скидка КАК ВТ_Скидка
@@ -752,10 +765,6 @@
 		</valueType>
 	</calculatedField>
 	<totalField>
-		<dataPath>Количество</dataPath>
-		<expression>Сумма(Количество)</expression>
-	</totalField>
-	<totalField>
 		<dataPath>Цена</dataPath>
 		<expression>Выбор Когда Сумма(Количество) = 0 Тогда 0 Иначе Сумма(Выручка)/Сумма(Количество) Конец</expression>
 	</totalField>
@@ -776,16 +785,16 @@
 		<expression>Сумма(Выручка)</expression>
 	</totalField>
 	<totalField>
-		<dataPath>ДнейПродаж</dataPath>
-		<expression>Сумма(ДнейПродаж)</expression>
+		<dataPath>Вес</dataPath>
+		<expression>Сумма(Вес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
 	</totalField>
 	<totalField>
 		<dataPath>Скидка</dataPath>
 		<expression>Сумма(Скидка)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>Вес</dataPath>
-		<expression>Сумма(Вес)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -1068,14 +1077,7 @@
 				<dcsset:item xsi:type="dcsset:StructureItemGroup">
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Номенклатура</dcsset:field>
-							<dcsset:groupType>Items</dcsset:groupType>
-							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-						</dcsset:item>
-						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+							<dcsset:field>ПодразделениеКонтрагента</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1088,6 +1090,30 @@
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура.ЕдиницаИзмерения</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
 				</dcsset:item>
 			</dcsset:item>
 		</dcsset:settings>
