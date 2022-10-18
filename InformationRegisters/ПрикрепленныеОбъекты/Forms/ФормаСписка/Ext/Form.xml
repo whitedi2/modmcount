@@ -127,6 +127,11 @@
 				<DataPath>Items.Список.CurrentData.Объект</DataPath>
 				<ExtendedTooltip name="СкачатьФайлРасширеннаяПодсказка" id="51"/>
 			</Button>
+			<Button name="ФормаСкачатьФайл" id="94">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.СкачатьФайл</CommandName>
+				<ExtendedTooltip name="ФормаСкачатьФайлРасширеннаяПодсказка" id="95"/>
+			</Button>
 			<Button name="ФормаОтправить" id="89">
 				<Type>CommandBarButton</Type>
 				<CommandName>Form.Command.Отправить</CommandName>
@@ -392,7 +397,7 @@
 	РегистрСведений.ПрикрепленныеОбъекты КАК РегистрСведенийПрикрепленныеОбъекты
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КодировкиФайлов КАК КодировкиВерсийФайлов
 		ПО РегистрСведенийПрикрепленныеОбъекты.Объект = КодировкиВерсийФайлов.Файл</QueryText>
-				<MainTable>InformationRegister.КодировкиФайлов</MainTable>
+				<MainTable>InformationRegister.ПрикрепленныеОбъекты</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -644,6 +649,10 @@
 				</v8:item>
 			</ToolTip>
 			<Shortcut>F4</Shortcut>
+			<Picture>
+				<xr:Ref>CommonPicture.РедактироватьФайл</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Редактировать</Action>
 			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -661,6 +670,10 @@
 					<v8:content>Сохранить измененный файл в информационной базе</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ОпубликоватьФайл</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>СохранитьИзменения</Action>
 			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -678,6 +691,10 @@
 					<v8:content>Сохранить и освободить файл в информационной базе</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗакончитьРедактированиеФайла</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ЗакончитьРедактирование</Action>
 			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -695,6 +712,10 @@
 					<v8:content>Обновить из файла на диске</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ОбновитьФайлИзФайлаНаДиске</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>ОбновитьИзФайлаНаДиске</Action>
 			<Representation>Picture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
@@ -712,8 +733,31 @@
 					<v8:content>Отправить</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.Отправить</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
 			<Action>Отправить</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="СкачатьФайл" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скачать файл</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скачать файл</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MoveDown</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СкачатьФайл</Action>
 		</Command>
 	</Commands>
 </Form>
