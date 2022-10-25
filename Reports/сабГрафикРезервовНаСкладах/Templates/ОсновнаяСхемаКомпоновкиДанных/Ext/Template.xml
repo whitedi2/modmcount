@@ -168,6 +168,11 @@
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
 			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -199,6 +204,10 @@
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
 			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -219,6 +228,10 @@
 							<v8:content>ЧДЦ=3</v8:content>
 						</v8:item>
 					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
 				</dcscor:item>
 			</appearance>
 		</field>
@@ -358,7 +371,7 @@
 	Врем.Склад КАК Склад,
 	Врем.Предприятия КАК Предприятия,
 	1 КАК Порядок,
-	&amp;Период КАК Дата,
+	НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ) КАК Дата,
 	Врем.ОстатокНаНачало КАК ОстатокНаНачало,
 	0 КАК ОстатокНаКонец
 ИЗ
@@ -371,7 +384,7 @@
 	Врем.Склад,
 	Врем.Предприятия,
 	4,
-	&amp;Период,
+	НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ),
 	0,
 	Врем.ОстатокНаНачало
 ИЗ
@@ -403,10 +416,6 @@
 						<v8:content>Дата</v8:content>
 					</v8:item>
 				</title>
-				<role>
-					<dcscom:periodNumber>2</dcscom:periodNumber>
-					<dcscom:periodType>Main</dcscom:periodType>
-				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Счет</dataPath>
@@ -552,13 +561,21 @@
 	УчетныйОбороты.КоличествоОборот КАК Оборот,
 	УчетныйОбороты.КоличествоОборотДт КАК Приход,
 	УчетныйОбороты.КоличествоОборотКт КАК Расход,
-	НАЧАЛОПЕРИОДА(УчетныйОбороты.Период, ДЕНЬ) КАК Дата,
+	ВЫБОР
+		КОГДА УчетныйОбороты.Период &lt; НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ)
+			ТОГДА НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ)
+		ИНАЧЕ НАЧАЛОПЕРИОДА(УчетныйОбороты.Период, ДЕНЬ)
+	КОНЕЦ КАК Дата,
 	УчетныйОбороты.Регистратор КАК Заказ
 ПОМЕСТИТЬ Врем
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(, , Регистратор, Счет.Код = "0041", , , , ) КАК УчетныйОбороты
 ГДЕ
-	УчетныйОбороты.Период &gt;= &amp;Период
+	ВЫБОР
+			КОГДА &amp;ВсеНезакрытыеЗаказы
+				ТОГДА ИСТИНА
+			ИНАЧЕ УчетныйОбороты.Период &gt;= НачалоПериода(&amp;Период, День)
+		КОНЕЦ
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -659,6 +676,21 @@
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>false</useRestriction>
 	</parameter>
+	<parameter>
+		<name>ВсеНезакрытыеЗаказы</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Все незакрытые заказы</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>ГрафикРезервовНаСкладах</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -676,6 +708,14 @@
 			<dcsset:filter>
 				<dcsset:userSettingID>d5228e53-488e-428a-9af7-d5f3f16e2467</dcsset:userSettingID>
 			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВсеНезакрытыеЗаказы</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>ebc2b1c7-cc78-411a-90f0-aba3b3c87e91</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>МакетОформления</dcscor:parameter>
@@ -733,6 +773,27 @@
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>Сумма</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">Сумма</dcsset:left>
+									<dcsset:comparisonType>Filled</dcsset:comparisonType>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+									<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
@@ -749,6 +810,33 @@
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:item>
+								<dcsset:selection>
+									<dcsset:item>
+										<dcsset:field>Сумма</dcsset:field>
+									</dcsset:item>
+								</dcsset:selection>
+								<dcsset:filter>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Сумма</dcsset:left>
+										<dcsset:comparisonType>Less</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+									</dcsset:item>
+								</dcsset:filter>
+								<dcsset:appearance>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:parameter>ЦветТекста</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Color">#FF0000</dcscor:value>
+									</dcscor:item>
+									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+										<dcscor:use>false</dcscor:use>
+										<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+										<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+									</dcscor:item>
+								</dcsset:appearance>
+							</dcsset:item>
+						</dcsset:conditionalAppearance>
 						<dcsset:item>
 							<dcsset:groupItems>
 								<dcsset:item xsi:type="dcsset:GroupItemField">
