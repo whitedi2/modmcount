@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.14">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -177,7 +177,7 @@
 												<Button name="ОбщаяКомандаСтруктураПодчинения" id="604">
 													<Type>CommandBarButton</Type>
 													<CommandName>0:aa431018-ee02-4af1-b2c2-d02dcf713623</CommandName>
-													<DataPath>Items.СписокЗаказы.CurrentData.Ref</DataPath>
+													<DataPath>Items.СписокЗаказы.CurrentData.Ссылка</DataPath>
 													<ExtendedTooltip name="ОбщаяКомандаСтруктураПодчиненияРасширеннаяПодсказка" id="605"/>
 												</Button>
 											</ChildItems>
@@ -398,7 +398,7 @@
 									<ExtendedTooltip name="СписокЗаказыДатаПоступленияРасширеннаяПодсказка" id="285"/>
 								</InputField>
 								<InputField name="СписокЗаказыДата" id="244">
-									<DataPath>СписокЗаказы.Date</DataPath>
+									<DataPath>СписокЗаказы.Дата</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -422,7 +422,7 @@
 									<ExtendedTooltip name="СписокЗаказыДатаРасширеннаяПодсказка" id="246"/>
 								</InputField>
 								<LabelField name="СписокЗаказыНомер" id="247">
-									<DataPath>СписокЗаказы.Number</DataPath>
+									<DataPath>СписокЗаказы.Номер</DataPath>
 									<Width>14</Width>
 									<ContextMenu name="СписокЗаказыНомерКонтекстноеМеню" id="248"/>
 									<ExtendedTooltip name="СписокЗаказыНомерРасширеннаяПодсказка" id="249"/>
@@ -576,7 +576,7 @@
 									<ExtendedTooltip name="СписокЗаказыПоступлениеОднойДатойРасширеннаяПодсказка" id="297"/>
 								</CheckBoxField>
 								<LabelField name="СписокЗаказыСсылка" id="614">
-									<DataPath>СписокЗаказы.Ref</DataPath>
+									<DataPath>СписокЗаказы.Ссылка</DataPath>
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
@@ -760,6 +760,16 @@
 									<ShowTitle>false</ShowTitle>
 									<ExtendedTooltip name="Группа7РасширеннаяПодсказка" id="579"/>
 									<ChildItems>
+										<CheckBoxField name="РеквизитыСчФСовпадают" id="628">
+											<DataPath>РеквизитыСчФСовпадают</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="РеквизитыСчФСовпадаютКонтекстноеМеню" id="629"/>
+											<ExtendedTooltip name="РеквизитыСчФСовпадаютРасширеннаяПодсказка" id="630"/>
+											<Events>
+												<Event name="OnChange">РеквизитыСчФСовпадаютПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
 										<InputField name="НомерСчФ" id="397">
 											<DataPath>НомерСчФ</DataPath>
 											<Width>14</Width>
@@ -2589,32 +2599,32 @@
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	ДокументЗаказПоставщику.Ссылка,
-	ДокументЗаказПоставщику.ПометкаУдаления,
-	ДокументЗаказПоставщику.Номер,
-	ДокументЗаказПоставщику.Дата,
-	ДокументЗаказПоставщику.Проведен,
-	ДокументЗаказПоставщику.Предприятие,
-	ДокументЗаказПоставщику.Контрагент,
-	ДокументЗаказПоставщику.Договор,
-	ДокументЗаказПоставщику.Комментарий,
-	ДокументЗаказПоставщику.Подразделение,
-	ДокументЗаказПоставщику.ФлагВалюты,
-	ДокументЗаказПоставщику.Валюта,
-	ДокументЗаказПоставщику.Курс,
-	ДокументЗаказПоставщику.СуммаВключаетНДС,
-	ДокументЗаказПоставщику.УчитыватьНДС,
-	ДокументЗаказПоставщику.СуммаДокумента,
-	ДокументЗаказПоставщику.ДатаПоступления,
-	ДокументЗаказПоставщику.НомерПоДаннымКлиента,
-	ДокументЗаказПоставщику.Организация,
-	ДокументЗаказПоставщику.Доставка,
-	ДокументЗаказПоставщику.ПоступлениеОднойДатой,
-	ДокументЗаказПоставщику.ВидОперации,
-	ДокументЗаказПоставщику.Статус,
-	ДокументЗаказПоставщику.МоментВремени,
+	ДокументЗаказПоставщику.Ссылка КАК Ссылка,
+	ДокументЗаказПоставщику.ПометкаУдаления КАК ПометкаУдаления,
+	ДокументЗаказПоставщику.Номер КАК Номер,
+	ДокументЗаказПоставщику.Дата КАК Дата,
+	ДокументЗаказПоставщику.Проведен КАК Проведен,
+	ДокументЗаказПоставщику.Предприятие КАК Предприятие,
+	ДокументЗаказПоставщику.Контрагент КАК Контрагент,
+	ДокументЗаказПоставщику.Договор КАК Договор,
+	ДокументЗаказПоставщику.Комментарий КАК Комментарий,
+	ДокументЗаказПоставщику.Подразделение КАК Подразделение,
+	ДокументЗаказПоставщику.ФлагВалюты КАК ФлагВалюты,
+	ДокументЗаказПоставщику.Валюта КАК Валюта,
+	ДокументЗаказПоставщику.Курс КАК Курс,
+	ДокументЗаказПоставщику.СуммаВключаетНДС КАК СуммаВключаетНДС,
+	ДокументЗаказПоставщику.УчитыватьНДС КАК УчитыватьНДС,
+	ДокументЗаказПоставщику.СуммаДокумента КАК СуммаДокумента,
+	ДокументЗаказПоставщику.ДатаПоступления КАК ДатаПоступления,
+	ДокументЗаказПоставщику.НомерПоДаннымКлиента КАК НомерПоДаннымКлиента,
+	ДокументЗаказПоставщику.Организация КАК Организация,
+	ДокументЗаказПоставщику.Доставка КАК Доставка,
+	ДокументЗаказПоставщику.ПоступлениеОднойДатой КАК ПоступлениеОднойДатой,
+	ДокументЗаказПоставщику.ВидОперации КАК ВидОперации,
+	ДокументЗаказПоставщику.Статус КАК Статус,
+	ДокументЗаказПоставщику.МоментВремени КАК МоментВремени,
 	ВЫБОР
-		КОГДА ПоступившиеЗаказы.ПодчиненныйДокумент ЕСТЬ NULL 
+		КОГДА ПоступившиеЗаказы.ПодчиненныйДокумент ЕСТЬ NULL
 			ТОГДА ЛОЖЬ
 		ИНАЧЕ ИСТИНА
 	КОНЕЦ КАК ЕстьПодчиненныйДокумент,
@@ -2624,11 +2634,11 @@
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
 			ЗаказПоставщику.Ссылка КАК Ссылка,
 			МАКСИМУМ(ВЫБОР
-					КОГДА АвтосохранениеДанных.Объект ЕСТЬ NULL 
+					КОГДА АвтосохранениеДанных.Объект ЕСТЬ NULL
 						ТОГДА ЛОЖЬ
 					ИНАЧЕ ИСТИНА
 				КОНЕЦ) КАК Черновик,
-			МАКСИМУМ(УЧ_ПоступлениеТоваров.Ссылка) КАК ПодчиненныйДокумент
+			МАКСИМУМ(ЕСТЬNULL(УЧ_ПоступлениеТоваров.Ссылка, ПоступлениеТоваровУслуг.Ссылка)) КАК ПодчиненныйДокумент
 		ИЗ
 			Документ.ЗаказПоставщику КАК ЗаказПоставщику
 				ЛЕВОЕ СОЕДИНЕНИЕ Документ.УЧ_ПоступлениеТоваров КАК УЧ_ПоступлениеТоваров
@@ -2636,6 +2646,9 @@
 					И (НЕ УЧ_ПоступлениеТоваров.ПометкаУдаления)
 				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.АвтосохранениеДанных КАК АвтосохранениеДанных
 				ПО (АвтосохранениеДанных.Объект = ЗаказПоставщику.Ссылка)
+				ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступлениеТоваровУслуг
+				ПО ЗаказПоставщику.Ссылка = ПоступлениеТоваровУслуг.Заказ
+					И (ПоступлениеТоваровУслуг.ПометкаУдаления = ЛОЖЬ)
 		ГДЕ
 			ЗаказПоставщику.ДатаПоступления МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
 			И (&amp;ВсеКонтрагенты
@@ -3404,6 +3417,17 @@
 					<v8:Length>200</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="РеквизитыСчФСовпадают" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реквизиты сч/ф совпадают</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

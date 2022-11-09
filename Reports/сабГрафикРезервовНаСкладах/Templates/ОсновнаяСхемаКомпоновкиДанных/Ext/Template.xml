@@ -371,7 +371,7 @@
 	Врем.Склад КАК Склад,
 	Врем.Предприятия КАК Предприятия,
 	1 КАК Порядок,
-	НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ) КАК Дата,
+	НАЧАЛОПЕРИОДА(&amp;ПериодТекДата, ДЕНЬ) КАК Дата,
 	Врем.ОстатокНаНачало КАК ОстатокНаНачало,
 	0 КАК ОстатокНаКонец
 ИЗ
@@ -384,7 +384,7 @@
 	Врем.Склад,
 	Врем.Предприятия,
 	4,
-	НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ),
+	НАЧАЛОПЕРИОДА(&amp;ПериодТекДата, ДЕНЬ),
 	0,
 	Врем.ОстатокНаНачало
 ИЗ
@@ -562,8 +562,8 @@
 	УчетныйОбороты.КоличествоОборотДт КАК Приход,
 	УчетныйОбороты.КоличествоОборотКт КАК Расход,
 	ВЫБОР
-		КОГДА УчетныйОбороты.Период &lt; НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ)
-			ТОГДА НАЧАЛОПЕРИОДА(&amp;Период, ДЕНЬ)
+		КОГДА УчетныйОбороты.Период &lt; НАЧАЛОПЕРИОДА(&amp;ПериодТекДата, ДЕНЬ)
+			ТОГДА НАЧАЛОПЕРИОДА(&amp;ПериодТекДата, ДЕНЬ)
 		ИНАЧЕ НАЧАЛОПЕРИОДА(УчетныйОбороты.Период, ДЕНЬ)
 	КОНЕЦ КАК Дата,
 	УчетныйОбороты.Регистратор КАК Заказ
@@ -574,7 +574,7 @@
 	ВЫБОР
 			КОГДА &amp;ВсеНезакрытыеЗаказы
 				ТОГДА ИСТИНА
-			ИНАЧЕ УчетныйОбороты.Период &gt;= НачалоПериода(&amp;Период, День)
+			ИНАЧЕ УчетныйОбороты.Период &gt;= НачалоПериода(&amp;ПериодТекДата, День)
 		КОНЕЦ
 ;
 
@@ -624,6 +624,11 @@
 		<group>Склад</group>
 		<group>ОбщийИтог</group>
 	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+		<group>Заказ</group>
+	</totalField>
 	<parameter>
 		<name>Период</name>
 		<title xsi:type="v8:LocalStringType">
@@ -640,7 +645,6 @@
 		</valueType>
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 		<useRestriction>false</useRestriction>
-		<expression>ТекущаяДата()</expression>
 	</parameter>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -690,6 +694,24 @@
 		<value xsi:type="xs:boolean">false</value>
 		<useRestriction>false</useRestriction>
 		<use>Always</use>
+	</parameter>
+	<parameter>
+		<name>ПериодТекДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период тек дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ТекущаяДата()</expression>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>ГрафикРезервовНаСкладах</dcsset:name>
