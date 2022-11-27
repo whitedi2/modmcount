@@ -287,7 +287,11 @@
 			ТОГДА сабГрафикПлатежей.ПодразделениеЦФО
 		ИНАЧЕ сабГрафикПлатежей.Источник
 	КОНЕЦ КАК Источник,
-	сабГрафикПлатежей.СтатьяДДС КАК СтатьяДДС,
+	ВЫБОР
+		КОГДА &amp;СворачиватьСтатьиДДС
+			ТОГДА "Оплата"
+		ИНАЧЕ сабГрафикПлатежей.СтатьяДДС
+	КОНЕЦ КАК СтатьяДДС,
 	ВЫБОР
 		КОГДА &amp;ПоОбъектам = "Источники"
 				И ТИПЗНАЧЕНИЯ(сабГрафикПлатежей.Источник) = ТИП(Справочник.БанковскиеСчета)
@@ -537,6 +541,20 @@
 			</v8:StringQualifiers>
 		</valueType>
 		<value xsi:type="xs:string"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СворачиватьСтатьиДДС</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сворачивать статьи ДДС</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
 		<useRestriction>true</useRestriction>
 	</parameter>
 	<template>

@@ -314,6 +314,13 @@
 									<ContextMenu name="ТабличнаяЧастьУпаковкаКонтекстноеМеню" id="234"/>
 									<ExtendedTooltip name="ТабличнаяЧастьУпаковкаРасширеннаяПодсказка" id="235"/>
 								</InputField>
+								<InputField name="ТабличнаяЧастьСерияНоменклатуры" id="241">
+									<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатуры</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>12</Width>
+									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="242"/>
+									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="243"/>
+								</InputField>
 								<ColumnGroup name="ТабличнаяЧастьГруппа2" id="33">
 									<Group>Horizontal</Group>
 									<ExtendedTooltip name="ТабличнаяЧастьГруппа2РасширеннаяПодсказка" id="78"/>
@@ -695,6 +702,17 @@
 				</AdditionalColumns>
 			</Columns>
 		</Attribute>
+		<Attribute name="ИспользоватьСерии" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать серии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -866,6 +884,26 @@
 							<dcsset:comparisonType>Equal</dcsset:comparisonType>
 							<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыПеремещений.ПеремещениеНаПредприятиеБезВозмещения</dcsset:right>
 						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИспользоватьСерии</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>
