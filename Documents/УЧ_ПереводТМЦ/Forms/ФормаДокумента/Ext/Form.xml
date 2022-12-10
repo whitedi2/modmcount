@@ -225,6 +225,13 @@
 										<Event name="StartChoice">ТабличнаяЧастьТоварНачалоВыбора</Event>
 									</Events>
 								</InputField>
+								<InputField name="ТабличнаяЧастьСерияНоменклатуры" id="140">
+									<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатуры</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>12</Width>
+									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="141"/>
+									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="142"/>
+								</InputField>
 								<ColumnGroup name="ТабличнаяЧастьГруппа2" id="33">
 									<Group>Horizontal</Group>
 									<ExtendedTooltip name="ТабличнаяЧастьГруппа2РасширеннаяПодсказка" id="78"/>
@@ -265,6 +272,13 @@
 									<Events>
 										<Event name="OnChange">ТабличнаяЧастьНоменклатураНоваяПриИзменении</Event>
 									</Events>
+								</InputField>
+								<InputField name="ТабличнаяЧастьСерияНоменклатурыНовая" id="137">
+									<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатурыНовая</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>12</Width>
+									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыНоваяКонтекстноеМеню" id="138"/>
+									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыНоваяРасширеннаяПодсказка" id="139"/>
 								</InputField>
 								<InputField name="ТабличнаяЧастьКоличествоНовое" id="118">
 									<DataPath>Объект.ТабличнаяЧасть.КоличествоНовое</DataPath>
@@ -370,6 +384,17 @@
 				<Field>Объект.RegisterRecords</Field>
 			</UseAlways>
 		</Attribute>
+		<Attribute name="ИспользоватьСерии" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать серии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -452,6 +477,29 @@
 								<v8:content>&lt;Счет взаиморасчетов&gt;</v8:content>
 							</v8:item>
 						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСерияНоменклатурыНовая</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИспользоватьСерии</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

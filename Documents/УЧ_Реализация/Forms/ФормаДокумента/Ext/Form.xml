@@ -496,6 +496,7 @@
 							</SearchControlAddition>
 							<Events>
 								<Event name="OnActivateRow">РеализацияПриАктивизацииСтроки</Event>
+								<Event name="OnStartEdit">РеализацияПриНачалеРедактирования</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="РеализацияНомерСтроки" id="110">
@@ -525,6 +526,7 @@
 												</InputField>
 												<InputField name="РеализацияАртикул" id="653">
 													<DataPath>Объект.Товары.Артикул</DataPath>
+													<Visible>false</Visible>
 													<ReadOnly>true</ReadOnly>
 													<EditMode>EnterOnInput</EditMode>
 													<Width>17</Width>
@@ -549,6 +551,9 @@
 													<Width>12</Width>
 													<ContextMenu name="РеализацияСерияНоменклатурыКонтекстноеМеню" id="810"/>
 													<ExtendedTooltip name="РеализацияСерияНоменклатурыРасширеннаяПодсказка" id="811"/>
+													<Events>
+														<Event name="StartChoice">РеализацияСерияНоменклатурыНачалоВыбора</Event>
+													</Events>
 												</InputField>
 												<InputField name="РеализацияЕдиницаИзмерения" id="803">
 													<DataPath>Объект.Товары.ЕдиницаИзмерения</DataPath>
@@ -2412,6 +2417,17 @@
 							<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
 						</Type>
 					</Column>
+					<Column name="НесколькоСерий" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько серий</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
 				</AdditionalColumns>
 			</Columns>
 		</Attribute>
@@ -2635,6 +2651,61 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>Видимость</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РеализацияСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.НесколькоСерий</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько...</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РеализацияКоличество</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.НесколькоСерий</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько...</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

@@ -2,8 +2,8 @@
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
 		<ChildItems>
 			<Button name="ФормаЗаписать" id="32">
 				<Type>CommandBarButton</Type>
@@ -49,7 +49,6 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа2" id="20">
-			<ReadOnly>true</ReadOnly>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -63,7 +62,6 @@
 			<ChildItems>
 				<InputField name="Автор" id="35">
 					<DataPath>Объект.Автор</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<ContextMenu name="АвторКонтекстноеМеню" id="36"/>
 					<ExtendedTooltip name="АвторExtendedTooltip" id="54"/>
 				</InputField>
@@ -74,21 +72,26 @@
 					<ExtendedTooltip name="ЗаявкаExtendedTooltip" id="55"/>
 				</InputField>
 				<InputField name="БизнесПроцесс" id="7">
-					<DataPath>Объект.DeletionMark</DataPath>
+					<DataPath>Объект.БизнесПроцесс</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="БизнесПроцессКонтекстноеМеню" id="8"/>
 					<ExtendedTooltip name="БизнесПроцессExtendedTooltip" id="56"/>
 				</InputField>
 				<InputField name="ТочкаМаршрута" id="9">
-					<DataPath>Объект.Ref</DataPath>
+					<DataPath>Объект.ТочкаМаршрута</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ТочкаМаршрутаКонтекстноеМеню" id="10"/>
 					<ExtendedTooltip name="ТочкаМаршрутаExtendedTooltip" id="57"/>
 				</InputField>
+				<CheckBoxField name="Выполнена" id="77">
+					<DataPath>Объект.Выполнена</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВыполненаКонтекстноеМеню" id="78"/>
+					<ExtendedTooltip name="ВыполненаРасширеннаяПодсказка" id="79"/>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа3" id="21">
-			<ReadOnly>true</ReadOnly>
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -101,7 +104,7 @@
 			<ExtendedTooltip name="Группа3ExtendedTooltip" id="58"/>
 			<ChildItems>
 				<InputField name="Наименование1" id="45">
-					<DataPath>Объект.DataVersion</DataPath>
+					<DataPath>Объект.Description</DataPath>
 					<ContextMenu name="Наименование1КонтекстноеМеню" id="46"/>
 					<ExtendedTooltip name="Наименование1ExtendedTooltip" id="59"/>
 				</InputField>
@@ -112,6 +115,7 @@
 					<ExtendedTooltip name="ПредприятиеExtendedTooltip" id="60"/>
 				</InputField>
 				<InputField name="Исполнитель" id="15">
+					<DataPath>Объект.Исполнитель</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ИсполнительКонтекстноеМеню" id="16"/>
 					<ExtendedTooltip name="ИсполнительExtendedTooltip" id="61"/>
@@ -128,7 +132,6 @@
 				</InputField>
 				<InputField name="Пользователь" id="47">
 					<DataPath>Объект.Пользователь</DataPath>
-					<ReadOnly>true</ReadOnly>
 					<ContextMenu name="ПользовательКонтекстноеМеню" id="48"/>
 					<ExtendedTooltip name="ПользовательExtendedTooltip" id="64"/>
 				</InputField>
@@ -137,90 +140,6 @@
 					<ContextMenu name="ДатаИсполненияКонтекстноеМеню" id="29"/>
 					<ExtendedTooltip name="ДатаИсполненияExtendedTooltip" id="65"/>
 				</InputField>
-			</ChildItems>
-		</UsualGroup>
-		<UsualGroup name="Админские" id="43">
-			<UserVisible>
-				<xr:Common>false</xr:Common>
-				<xr:Value name="7d38c762-52d4-43a5-bb96-b91e8ab07b08">true</xr:Value>
-			</UserVisible>
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Админские</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Админские</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Group>Vertical</Group>
-			<Behavior>Usual</Behavior>
-			<ExtendedTooltip name="АдминскиеExtendedTooltip" id="66"/>
-			<ChildItems>
-				<InputField name="БизнесПроцесс1" id="22">
-					<DataPath>Объект.DeletionMark</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ContextMenu name="БизнесПроцесс1КонтекстноеМеню" id="23"/>
-					<ExtendedTooltip name="БизнесПроцесс1ExtendedTooltip" id="67"/>
-				</InputField>
-				<InputField name="Исполнитель1" id="24">
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ContextMenu name="Исполнитель1КонтекстноеМеню" id="25"/>
-					<ExtendedTooltip name="Исполнитель1ExtendedTooltip" id="68"/>
-				</InputField>
-				<InputField name="Наименование" id="33">
-					<DataPath>Объект.DataVersion</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ContextMenu name="НаименованиеКонтекстноеМеню" id="34"/>
-					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="69"/>
-				</InputField>
-				<InputField name="ТочкаМаршрута1" id="37">
-					<DataPath>Объект.Ref</DataPath>
-					<UserVisible>
-						<xr:Common>false</xr:Common>
-					</UserVisible>
-					<ContextMenu name="ТочкаМаршрута1КонтекстноеМеню" id="38"/>
-					<ExtendedTooltip name="ТочкаМаршрута1ExtendedTooltip" id="70"/>
-				</InputField>
-				<InputField name="Комментарии" id="39">
-					<DataPath>Объект.Комментарии</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<ContextMenu name="КомментарииКонтекстноеМеню" id="40"/>
-					<ExtendedTooltip name="КомментарииExtendedTooltip" id="71"/>
-				</InputField>
-				<UsualGroup name="Группа4" id="44">
-					<Group>Horizontal</Group>
-					<Behavior>Usual</Behavior>
-					<Representation>None</Representation>
-					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="Группа4ExtendedTooltip" id="72"/>
-					<ChildItems>
-						<InputField name="Дата1" id="41">
-							<DataPath>Объект.Description</DataPath>
-							<ContextMenu name="Дата1КонтекстноеМеню" id="42"/>
-							<ExtendedTooltip name="Дата1ExtendedTooltip" id="73"/>
-						</InputField>
-						<CheckBoxField name="Выполнена" id="30">
-							<DataPath>Объект.Predefined</DataPath>
-							<UserVisible>
-								<xr:Common>false</xr:Common>
-							</UserVisible>
-							<TitleLocation>Right</TitleLocation>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ВыполненаКонтекстноеМеню" id="31"/>
-							<ExtendedTooltip name="ВыполненаExtendedTooltip" id="74"/>
-						</CheckBoxField>
-					</ChildItems>
-				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>

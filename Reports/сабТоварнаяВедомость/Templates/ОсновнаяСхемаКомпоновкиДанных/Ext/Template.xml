@@ -240,6 +240,22 @@
 			<dataPath>ТипЦен</dataPath>
 			<field>ТипЦен</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Серия</dataPath>
+			<field>Серия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СерииНоменклатуры</v8:Type>
+			</valueType>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОстаткиИОбороты.Счет КАК Счет,
@@ -260,7 +276,8 @@
 	НоменклатураПоставщикаСрезПоследних.Контрагент.Код КАК КодКонтрагента,
 	ЦеныНоменклатурыСрезПоследних.Цена КАК Цена,
 	УчетныйОстаткиИОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
-	УчетныйОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток
+	УчетныйОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
+	УчетныйОстаткиИОбороты.Субконто3 КАК Серия
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
 			,
@@ -890,6 +907,22 @@
 				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Серия</dataPath>
+			<field>Серия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СерииНоменклатуры</v8:Type>
+			</valueType>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОбороты.КоличествоОборот КАК КоличествоОборот,
@@ -1039,7 +1072,8 @@
 			ТОГДА УчетныйОбороты.СуммаОборот
 		ИНАЧЕ 0
 	КОНЕЦ КАК СуммаВыпуск,
-	УчетныйОбороты.Регистратор КАК Регистратор
+	УчетныйОбороты.Регистратор КАК Регистратор,
+	УчетныйОбороты.Субконто3 КАК Серия
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(
 			,
@@ -1275,6 +1309,22 @@
 				</dcscor:item>
 			</appearance>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Серия</dataPath>
+			<field>Серия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СерииНоменклатуры</v8:Type>
+			</valueType>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОстаткиИОбороты.Счет КАК Счет,
@@ -1289,7 +1339,8 @@
 	ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).ЕдиницаИзмерения КАК ЕдИзмНоменклатуры,
 	УчетныйОстаткиИОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстатокРег,
 	УчетныйОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстатокРег,
-	УчетныйОстаткиИОбороты.Регистратор КАК Регистратор
+	УчетныйОстаткиИОбороты.Регистратор КАК Регистратор,
+	УчетныйОстаткиИОбороты.Субконто3 КАК Серия
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
 			,
@@ -1377,6 +1428,20 @@
 		<destinationDataSet>НаборДанных3</destinationDataSet>
 		<sourceExpression>Регистратор</sourceExpression>
 		<destinationExpression>Регистратор</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>Серия</sourceExpression>
+		<destinationExpression>Серия</destinationExpression>
+		<required>false</required>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>Серия</sourceExpression>
+		<destinationExpression>Серия</destinationExpression>
 		<required>false</required>
 	</dataSetLink>
 	<calculatedField>

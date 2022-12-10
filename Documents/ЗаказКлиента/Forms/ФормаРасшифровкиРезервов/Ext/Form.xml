@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
-	<Width>60</Width>
+	<Width>75</Width>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -54,6 +54,18 @@
 					<ContextMenu name="ВремТЧЗаказыЗаказКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="ВремТЧЗаказыЗаказРасширеннаяПодсказка" id="16"/>
 				</InputField>
+				<InputField name="ВремТЧЗаказыКонтрагент" id="26">
+					<DataPath>ВремТЧЗаказы.Контрагент</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВремТЧЗаказыКонтрагентКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ВремТЧЗаказыКонтрагентРасширеннаяПодсказка" id="28"/>
+				</InputField>
+				<InputField name="ВремТЧЗаказыДатаЗаказа" id="29">
+					<DataPath>ВремТЧЗаказы.ДатаЗаказа</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ВремТЧЗаказыДатаЗаказаКонтекстноеМеню" id="30"/>
+					<ExtendedTooltip name="ВремТЧЗаказыДатаЗаказаРасширеннаяПодсказка" id="31"/>
+				</InputField>
 				<InputField name="ВремТЧЗаказыНоменклатура" id="17">
 					<DataPath>ВремТЧЗаказы.Номенклатура</DataPath>
 					<EditMode>EnterOnInput</EditMode>
@@ -97,10 +109,13 @@
 						</v8:item>
 					</Title>
 					<Type>
+						<v8:Type>cfg:DocumentRef.УЧ_ВозвратТоваровПоставщику</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказНаПеремещение</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказНаПроизводство</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказНаВозвратОтКлиента</v8:Type>
+						<v8:Type>cfg:DocumentRef.УЧ_Реализация</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
+						<v8:Type>cfg:DocumentRef.УЧ_Возврат</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказКлиента</v8:Type>
 					</Type>
 				</Column>
@@ -140,6 +155,31 @@
 							<v8:FractionDigits>3</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаЗаказа" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата заказа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Контрагент" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 					</Type>
 				</Column>
 			</Columns>

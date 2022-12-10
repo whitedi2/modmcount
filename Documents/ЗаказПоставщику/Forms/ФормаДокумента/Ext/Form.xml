@@ -320,6 +320,9 @@
 								<ContextMenu name="ТабличнаяЧастьУправлениеПоискомКонтекстноеМеню" id="176"/>
 								<ExtendedTooltip name="ТабличнаяЧастьУправлениеПоискомРасширеннаяПодсказка" id="177"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="Selection">ТабличнаяЧастьВыбор</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="ТабличнаяЧастьНомерСтроки" id="16">
 									<DataPath>Объект.ТабличнаяЧасть.LineNumber</DataPath>
@@ -347,7 +350,6 @@
 								</InputField>
 								<InputField name="ТабличнаяЧастьЕдиницаИзмерения" id="357">
 									<DataPath>Объект.ТабличнаяЧасть.ЕдиницаИзмерения</DataPath>
-									<ReadOnly>true</ReadOnly>
 									<SkipOnInput>true</SkipOnInput>
 									<Title>
 										<v8:item>
@@ -356,14 +358,30 @@
 										</v8:item>
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
-									<Width>3</Width>
+									<Width>7</Width>
+									<ChoiceButton>false</ChoiceButton>
+									<OpenButton>false</OpenButton>
 									<CreateButton>false</CreateButton>
+									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 									<ContextMenu name="ТабличнаяЧастьЕдиницаИзмеренияКонтекстноеМеню" id="358"/>
 									<ExtendedTooltip name="ТабличнаяЧастьЕдиницаИзмеренияРасширеннаяПодсказка" id="359"/>
 									<Events>
 										<Event name="OnChange">ТабличнаяЧастьЕдиницаИзмеренияПриИзменении</Event>
-										<Event name="StartChoice">ТабличнаяЧастьЕдиницаИзмеренияНачалоВыбора</Event>
 									</Events>
+								</InputField>
+								<InputField name="ТабличнаяЧастьКоличествоВУпаковке" id="420">
+									<DataPath>Объект.ТабличнаяЧасть.КоличествоВУпаковке</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В уп.</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>3</Width>
+									<ContextMenu name="ТабличнаяЧастьКоличествоВУпаковкеКонтекстноеМеню" id="421"/>
+									<ExtendedTooltip name="ТабличнаяЧастьКоличествоВУпаковкеРасширеннаяПодсказка" id="422"/>
 								</InputField>
 								<InputField name="ТабличнаяЧастьСклад" id="22">
 									<DataPath>Объект.ТабличнаяЧасть.Склад</DataPath>
@@ -380,7 +398,6 @@
 									<ChildItems>
 										<InputField name="ТабличнаяЧастьКоличествоУпаковок" id="354">
 											<DataPath>Объект.ТабличнаяЧасть.КоличествоУпаковок</DataPath>
-											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -399,16 +416,16 @@
 										</InputField>
 										<InputField name="ТабличнаяЧастьКоличество" id="24">
 											<DataPath>Объект.ТабличнаяЧасть.Количество</DataPath>
+											<ReadOnly>true</ReadOnly>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Количество</v8:content>
+													<v8:content>Кол-во (в баз. ед.)</v8:content>
 												</v8:item>
 											</Title>
-											<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 											<EditMode>EnterOnInput</EditMode>
 											<FooterDataPath>Объект.ТабличнаяЧасть.TotalКоличество</FooterDataPath>
-											<Width>7</Width>
+											<Width>12</Width>
 											<MaxWidth>5</MaxWidth>
 											<ContextMenu name="ТабличнаяЧастьКоличествоКонтекстноеМеню" id="25"/>
 											<ExtendedTooltip name="ТабличнаяЧастьКоличествоExtendedTooltip" id="138"/>
@@ -882,7 +899,11 @@
 			<dcsset:item>
 				<dcsset:selection>
 					<dcsset:item>
+						<dcsset:use>false</dcsset:use>
 						<dcsset:field>ТабличнаяЧастьКоличество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьКоличествоУпаковок</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>
