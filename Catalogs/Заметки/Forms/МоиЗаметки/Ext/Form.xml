@@ -46,7 +46,7 @@
 				<Type>CommandBarButton</Type>
 				<Representation>Text</Representation>
 				<CommandName>0</CommandName>
-				<DataPath>~Items.Список.CurrentData.Ref</DataPath>
+				<DataPath>Items.Список.CurrentData.Ref</DataPath>
 				<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаОбщаяКомандаНапомнитьРасширеннаяПодсказка" id="16"/>
 			</Button>
@@ -65,7 +65,7 @@
 			<EnableStartDrag>true</EnableStartDrag>
 			<FileDragMode>AsFile</FileDragMode>
 			<DataPath>Список</DataPath>
-			<RowPictureDataPath>~Список.ИндексКартинки</RowPictureDataPath>
+			<RowPictureDataPath>Список.ИндексКартинки</RowPictureDataPath>
 			<CommandSet>
 				<ExcludedCommand>CancelSearch</ExcludedCommand>
 				<ExcludedCommand>Copy</ExcludedCommand>
@@ -103,7 +103,7 @@
 					<Button name="СписокКонтекстноеМенюОбщаяКомандаНапомнить" id="17">
 						<Type>CommandBarButton</Type>
 						<CommandName>0</CommandName>
-						<DataPath>~Items.Список.CurrentData.Ref</DataPath>
+						<DataPath>Items.Список.CurrentData.Ref</DataPath>
 						<ExtendedTooltip name="СписокКонтекстноеМенюОбщаяКомандаНапомнитьРасширеннаяПодсказка" id="18"/>
 					</Button>
 					<ButtonGroup name="СписокКонтекстноеМенюГруппаВывод" id="33">
@@ -201,7 +201,7 @@
 					<ExtendedTooltip name="СодержаниеExtendedTooltip" id="12"/>
 					<ChildItems>
 						<LabelField name="ПредставлениеЗаметки" id="4">
-							<DataPath>~Список.Description</DataPath>
+							<DataPath>Список.Description</DataPath>
 							<DefaultItem>true</DefaultItem>
 							<AutoCellHeight>true</AutoCellHeight>
 							<Width>5</Width>
@@ -209,7 +209,7 @@
 							<ExtendedTooltip name="ПредставлениеЗаметкиExtendedTooltip" id="13"/>
 						</LabelField>
 						<LabelField name="ПредставлениеПредмета" id="9">
-							<DataPath>~Список.ПредставлениеПредмета</DataPath>
+							<DataPath>Список.ПредставлениеПредмета</DataPath>
 							<Width>5</Width>
 							<ContextMenu name="ПредставлениеПредметаКонтекстноеМеню" id="10"/>
 							<ExtendedTooltip name="ПредставлениеПредметаExtendedTooltip" id="14"/>
@@ -217,7 +217,7 @@
 					</ChildItems>
 				</ColumnGroup>
 				<LabelField name="Ссылка" id="35">
-					<DataPath>~Список.Ref</DataPath>
+					<DataPath>Список.Ref</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -235,7 +235,7 @@
 			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
 	СправочникЗаметки.Ссылка,
 	СправочникЗаметки.ПометкаУдаления,
@@ -251,16 +251,14 @@
 			ТОГДА 0
 		КОГДА СправочникЗаметки.ЭтоГруппа
 			ТОГДА -1
-		КОГДА СправочникЗаметки.Пометка = ЗНАЧЕНИЕ(Перечисление.ЦветаЗаметок.ПустаяСсылка)
+		КОГДА СправочникЗаметки.Пометка = Неопределено
 			ТОГДА 4
-		ИНАЧЕ ЕСТЬNULL(ЦветаЗаметок.Порядок, 0) + 2
+		ИНАЧЕ ЕСТЬNULL(0, 0) + 2
 	КОНЕЦ КАК ИндексКартинки,
 	СправочникЗаметки.ПредставлениеПредмета,
 	СправочникЗаметки.ДатаИзменения
 ИЗ
 	Справочник.Заметки КАК СправочникЗаметки
-		ЛЕВОЕ СОЕДИНЕНИЕ Перечисление.ЦветаЗаметок КАК ЦветаЗаметок
-		ПО СправочникЗаметки.Пометка.Порядок = ЦветаЗаметок.Порядок
 ГДЕ
 	СправочникЗаметки.ПометкаУдаления = ЛОЖЬ
 	И СправочникЗаметки.Автор = &amp;Пользователь
