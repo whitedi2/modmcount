@@ -6,8 +6,11 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="ГруппаНомерДата" id="1">
@@ -171,6 +174,7 @@
 							<v8:content>Страница товары</v8:content>
 						</v8:item>
 					</ToolTip>
+					<TitleDataPath>Объект.Товары.RowsCount</TitleDataPath>
 					<ExtendedTooltip name="СтраницаТоварыРасширеннаяПодсказка" id="127"/>
 					<ChildItems>
 						<Table name="Товары" id="53">
@@ -344,6 +348,199 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="Группа6" id="247">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Услуги</v8:content>
+						</v8:item>
+					</Title>
+					<TitleDataPath>Объект.Услуги.RowsCount</TitleDataPath>
+					<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="248"/>
+					<ChildItems>
+						<Table name="Услуги" id="249">
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Объект.Услуги</DataPath>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="УслугиКонтекстноеМеню" id="250"/>
+							<AutoCommandBar name="УслугиКоманднаяПанель" id="251"/>
+							<ExtendedTooltip name="УслугиРасширеннаяПодсказка" id="252"/>
+							<SearchStringAddition name="УслугиСтрокаПоиска" id="253">
+								<AdditionSource>
+									<Item>Услуги</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УслугиСтрокаПоискаКонтекстноеМеню" id="254"/>
+								<ExtendedTooltip name="УслугиСтрокаПоискаРасширеннаяПодсказка" id="255"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="УслугиСостояниеПросмотра" id="256">
+								<AdditionSource>
+									<Item>Услуги</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="УслугиСостояниеПросмотраКонтекстноеМеню" id="257"/>
+								<ExtendedTooltip name="УслугиСостояниеПросмотраРасширеннаяПодсказка" id="258"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="УслугиУправлениеПоиском" id="259">
+								<AdditionSource>
+									<Item>Услуги</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="УслугиУправлениеПоискомКонтекстноеМеню" id="260"/>
+								<ExtendedTooltip name="УслугиУправлениеПоискомРасширеннаяПодсказка" id="261"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="УслугиНомерСтроки" id="262">
+									<DataPath>Объект.Услуги.LineNumber</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиНомерСтрокиКонтекстноеМеню" id="263"/>
+									<ExtendedTooltip name="УслугиНомерСтрокиРасширеннаяПодсказка" id="264"/>
+								</LabelField>
+								<InputField name="УслугиНоменклатура" id="265">
+									<DataPath>Объект.Услуги.Номенклатура</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиНоменклатураКонтекстноеМеню" id="266"/>
+									<ExtendedTooltip name="УслугиНоменклатураРасширеннаяПодсказка" id="267"/>
+								</InputField>
+								<InputField name="УслугиСодержаниеДоИзменения" id="268">
+									<DataPath>Объект.Услуги.СодержаниеДоИзменения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСодержаниеДоИзмененияКонтекстноеМеню" id="269"/>
+									<ExtendedTooltip name="УслугиСодержаниеДоИзмененияРасширеннаяПодсказка" id="270"/>
+								</InputField>
+								<InputField name="УслугиСодержание" id="271">
+									<DataPath>Объект.Услуги.Содержание</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСодержаниеКонтекстноеМеню" id="272"/>
+									<ExtendedTooltip name="УслугиСодержаниеРасширеннаяПодсказка" id="273"/>
+								</InputField>
+								<InputField name="УслугиКоличествоДоКорректировки" id="274">
+									<DataPath>Объект.Услуги.КоличествоДоКорректировки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиКоличествоДоКорректировкиКонтекстноеМеню" id="275"/>
+									<ExtendedTooltip name="УслугиКоличествоДоКорректировкиРасширеннаяПодсказка" id="276"/>
+								</InputField>
+								<InputField name="УслугиКоличествоДоИзменения" id="277">
+									<DataPath>Объект.Услуги.КоличествоДоИзменения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиКоличествоДоИзмененияКонтекстноеМеню" id="278"/>
+									<ExtendedTooltip name="УслугиКоличествоДоИзмененияРасширеннаяПодсказка" id="279"/>
+								</InputField>
+								<InputField name="УслугиКоличество" id="280">
+									<DataPath>Объект.Услуги.Количество</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиКоличествоКонтекстноеМеню" id="281"/>
+									<ExtendedTooltip name="УслугиКоличествоРасширеннаяПодсказка" id="282"/>
+								</InputField>
+								<InputField name="УслугиЦенаДоКорректировки" id="283">
+									<DataPath>Объект.Услуги.ЦенаДоКорректировки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиЦенаДоКорректировкиКонтекстноеМеню" id="284"/>
+									<ExtendedTooltip name="УслугиЦенаДоКорректировкиРасширеннаяПодсказка" id="285"/>
+								</InputField>
+								<InputField name="УслугиЦенаДоИзменения" id="286">
+									<DataPath>Объект.Услуги.ЦенаДоИзменения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиЦенаДоИзмененияКонтекстноеМеню" id="287"/>
+									<ExtendedTooltip name="УслугиЦенаДоИзмененияРасширеннаяПодсказка" id="288"/>
+								</InputField>
+								<InputField name="УслугиЦена" id="289">
+									<DataPath>Объект.Услуги.Цена</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиЦенаКонтекстноеМеню" id="290"/>
+									<ExtendedTooltip name="УслугиЦенаРасширеннаяПодсказка" id="291"/>
+								</InputField>
+								<InputField name="УслугиСуммаДоКорректировки" id="292">
+									<DataPath>Объект.Услуги.СуммаДоКорректировки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСуммаДоКорректировкиКонтекстноеМеню" id="293"/>
+									<ExtendedTooltip name="УслугиСуммаДоКорректировкиРасширеннаяПодсказка" id="294"/>
+								</InputField>
+								<InputField name="УслугиСуммаДоИзменения" id="295">
+									<DataPath>Объект.Услуги.СуммаДоИзменения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСуммаДоИзмененияКонтекстноеМеню" id="296"/>
+									<ExtendedTooltip name="УслугиСуммаДоИзмененияРасширеннаяПодсказка" id="297"/>
+								</InputField>
+								<InputField name="УслугиСумма" id="298">
+									<DataPath>Объект.Услуги.Сумма</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСуммаКонтекстноеМеню" id="299"/>
+									<ExtendedTooltip name="УслугиСуммаРасширеннаяПодсказка" id="300"/>
+								</InputField>
+								<InputField name="УслугиСтавкаНДСДоИзменения" id="301">
+									<DataPath>Объект.Услуги.СтавкаНДСДоИзменения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСтавкаНДСДоИзмененияКонтекстноеМеню" id="302"/>
+									<ExtendedTooltip name="УслугиСтавкаНДСДоИзмененияРасширеннаяПодсказка" id="303"/>
+								</InputField>
+								<InputField name="УслугиСтавкаНДС" id="304">
+									<DataPath>Объект.Услуги.СтавкаНДС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСтавкаНДСКонтекстноеМеню" id="305"/>
+									<ExtendedTooltip name="УслугиСтавкаНДСРасширеннаяПодсказка" id="306"/>
+								</InputField>
+								<InputField name="УслугиСуммаНДСДоКорректировки" id="307">
+									<DataPath>Объект.Услуги.СуммаНДСДоКорректировки</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСуммаНДСДоКорректировкиКонтекстноеМеню" id="308"/>
+									<ExtendedTooltip name="УслугиСуммаНДСДоКорректировкиРасширеннаяПодсказка" id="309"/>
+								</InputField>
+								<InputField name="УслугиСуммаНДСДоИзменения" id="310">
+									<DataPath>Объект.Услуги.СуммаНДСДоИзменения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСуммаНДСДоИзмененияКонтекстноеМеню" id="311"/>
+									<ExtendedTooltip name="УслугиСуммаНДСДоИзмененияРасширеннаяПодсказка" id="312"/>
+								</InputField>
+								<InputField name="УслугиСуммаНДС" id="313">
+									<DataPath>Объект.Услуги.СуммаНДС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСуммаНДСКонтекстноеМеню" id="314"/>
+									<ExtendedTooltip name="УслугиСуммаНДСРасширеннаяПодсказка" id="315"/>
+								</InputField>
+								<InputField name="УслугиСчетДоходов" id="316">
+									<DataPath>Объект.Услуги.СчетДоходов</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСчетДоходовКонтекстноеМеню" id="317"/>
+									<ExtendedTooltip name="УслугиСчетДоходовРасширеннаяПодсказка" id="318"/>
+								</InputField>
+								<InputField name="УслугиСубконто" id="319">
+									<DataPath>Объект.Услуги.Субконто</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСубконтоКонтекстноеМеню" id="320"/>
+									<ExtendedTooltip name="УслугиСубконтоРасширеннаяПодсказка" id="321"/>
+								</InputField>
+								<InputField name="УслугиСчетРасходов" id="322">
+									<DataPath>Объект.Услуги.СчетРасходов</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСчетРасходовКонтекстноеМеню" id="323"/>
+									<ExtendedTooltip name="УслугиСчетРасходовРасширеннаяПодсказка" id="324"/>
+								</InputField>
+								<InputField name="УслугиСчетУчетаНДСПоРеализации" id="325">
+									<DataPath>Объект.Услуги.СчетУчетаНДСПоРеализации</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиСчетУчетаНДСПоРеализацииКонтекстноеМеню" id="326"/>
+									<ExtendedTooltip name="УслугиСчетУчетаНДСПоРеализацииРасширеннаяПодсказка" id="327"/>
+								</InputField>
+								<CheckBoxField name="УслугиЕстьВДокументеРеализации" id="328">
+									<DataPath>Объект.Услуги.ЕстьВДокументеРеализации</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="УслугиЕстьВДокументеРеализацииКонтекстноеМеню" id="329"/>
+									<ExtendedTooltip name="УслугиЕстьВДокументеРеализацииРасширеннаяПодсказка" id="330"/>
+								</CheckBoxField>
+								<InputField name="УслугиИдентификаторСтрокиГосконтрактаЕИС" id="331">
+									<DataPath>Объект.Услуги.ИдентификаторСтрокиГосконтрактаЕИС</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="УслугиИдентификаторСтрокиГосконтрактаЕИСКонтекстноеМеню" id="332"/>
+									<ExtendedTooltip name="УслугиИдентификаторСтрокиГосконтрактаЕИСРасширеннаяПодсказка" id="333"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
 				<Page name="СтраницаУчетПартий" id="128">
 					<Visible>false</Visible>
 					<Title>
@@ -508,6 +705,12 @@
 										<Event name="OnChange">ЦенаВключаетНДСПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
+								<CheckBoxField name="СуммаВключаетНДС" id="244">
+									<DataPath>Объект.СуммаВключаетНДС</DataPath>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="245"/>
+									<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="246"/>
+								</CheckBoxField>
 							</ChildItems>
 						</UsualGroup>
 					</ChildItems>
@@ -575,6 +778,25 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыСклад</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Склад</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

@@ -319,7 +319,7 @@
 							<ViewStatusLocation>None</ViewStatusLocation>
 							<SearchControlLocation>None</SearchControlLocation>
 							<AutoRefresh>true</AutoRefresh>
-							<AutoRefreshPeriod>400</AutoRefreshPeriod>
+							<AutoRefreshPeriod>180</AutoRefreshPeriod>
 							<Period>
 								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
 								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
@@ -958,7 +958,7 @@
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ РАЗЛИЧНЫЕ
 	ВнутренниеДокументы.Дата КАК Дата,
 	ВнутренниеДокументы.Ссылка КАК Ссылка,
@@ -987,9 +987,9 @@
 			ВложенныйЗапрос.Документ КАК Документ
 		ИЗ
 			(ВЫБРАТЬ
-				ВнутренниеДокументы.Документ КАК Документ
+				ВнутренниеДокументы.Ссылка КАК Документ
 			ИЗ
-				РегистрСведений.ВнутренниеДокументы КАК ВнутренниеДокументы
+				Документ.Д_СлужебнаяЗаписка КАК ВнутренниеДокументы
 			ГДЕ
 				(ВЫБОР
 							КОГДА &amp;Авторство
