@@ -3,10 +3,11 @@
 	<Title>
 		<v8:item>
 			<v8:lang>ru</v8:lang>
-			<v8:content>Доступ и настройки пользователей</v8:content>
+			<v8:content>Настройки текущей поставки</v8:content>
 		</v8:item>
 	</Title>
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
 			<Button name="ФормаЗаписать" id="26">
@@ -21,96 +22,164 @@
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
-		<InputField name="КонтрольМинимальнойЦеныПоТипуЦен" id="34">
-			<DataPath>КонтрольМинимальнойЦеныПоТипуЦен</DataPath>
-			<ContextMenu name="КонтрольМинимальнойЦеныПоТипуЦенКонтекстноеМеню" id="35"/>
-			<ExtendedTooltip name="КонтрольМинимальнойЦеныПоТипуЦенРасширеннаяПодсказка" id="36"/>
-		</InputField>
-		<InputField name="СпособДоставкиПоУмолчанию" id="28">
-			<DataPath>СпособДоставкиПоУмолчанию</DataPath>
-			<ContextMenu name="СпособДоставкиПоУмолчаниюКонтекстноеМеню" id="29"/>
-			<ExtendedTooltip name="СпособДоставкиПоУмолчаниюРасширеннаяПодсказка" id="30"/>
-		</InputField>
-		<CheckBoxField name="ОграничениеПравРедактированияКлючевыхСправочников" id="31">
-			<DataPath>ОграничениеПравРедактированияКлючевыхСправочников</DataPath>
-			<TitleLocation>Right</TitleLocation>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ОграничениеПравРедактированияКлючевыхСправочниковКонтекстноеМеню" id="32"/>
-			<ExtendedTooltip name="ОграничениеПравРедактированияКлючевыхСправочниковРасширеннаяПодсказка" id="33"/>
-		</CheckBoxField>
-		<CheckBoxField name="ФоноваяОбработкаБУДокументов" id="37">
-			<DataPath>ФоноваяОбработкаБУДокументов</DataPath>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>При установке галочки программа будет пытаться автоматически обработаьь БУ документы, в случае неудачи, документ остается в списке Неопбаботанных</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ФоноваяОбработкаБУДокументовКонтекстноеМеню" id="38"/>
-			<ExtendedTooltip name="ФоноваяОбработкаБУДокументовРасширеннаяПодсказка" id="39"/>
-			<Events>
-				<Event name="OnChange">ФоноваяОбработкаБУДокументовПриИзменении</Event>
-			</Events>
-		</CheckBoxField>
-		<CheckBoxField name="ФоноваяПроверкаБУДокументов" id="40">
-			<DataPath>ФоноваяПроверкаБУДокументов</DataPath>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>При установке галочки будет автоматически проверять документы по списку Измененные и перезаполнять их по изменениям БУ документа</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ФоноваяПроверкаБУДокументовКонтекстноеМеню" id="41"/>
-			<ExtendedTooltip name="ФоноваяПроверкаБУДокументовРасширеннаяПодсказка" id="42"/>
-		</CheckBoxField>
-		<CheckBoxField name="ПроверятьЗаполнениеДоговоровВДокументах" id="46">
-			<DataPath>ПроверятьЗаполнениеДоговоровВДокументах</DataPath>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Проверка на пустой договор в Заказах клиента и заказах поставщику</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ПроверятьЗаполнениеДоговоровВДокументахКонтекстноеМеню" id="47"/>
-			<ExtendedTooltip name="ПроверятьЗаполнениеДоговоровВДокументахРасширеннаяПодсказка" id="48"/>
-		</CheckBoxField>
-		<CheckBoxField name="ИспользоватьБизнесПроцессы" id="43">
-			<DataPath>ИспользоватьБизнесПроцессы</DataPath>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>При установки галочки добавляется функционал согласования, текущих задач пользователя и бизнес-процессов</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ИспользоватьБизнесПроцессыКонтекстноеМеню" id="44"/>
-			<ExtendedTooltip name="ИспользоватьБизнесПроцессыРасширеннаяПодсказка" id="45"/>
-		</CheckBoxField>
-		<CheckBoxField name="ВключитьСправочникПодразделения" id="49">
-			<DataPath>ВключитьСправочникПодразделения</DataPath>
-			<TitleLocation>Right</TitleLocation>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>При установки галочки в интерфейсе программы включается справочник СтруктураПредприятия. Данный справочник используется как подразделения в модуле вместо бухгалтерского справочника ПодразделенияОрганизаций, с которым возможно настроить связь</v8:content>
-				</v8:item>
-			</ToolTip>
-			<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-			<CheckBoxType>Auto</CheckBoxType>
-			<ContextMenu name="ВключитьСправочникПодразделенияКонтекстноеМеню" id="50"/>
-			<ExtendedTooltip name="ВключитьСправочникПодразделенияРасширеннаяПодсказка" id="51"/>
-		</CheckBoxField>
+		<Pages name="Группа1" id="52">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<Page name="Общее" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общее</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общее</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОбщееРасширеннаяПодсказка" id="57"/>
+					<ChildItems>
+						<CheckBoxField name="ФоноваяОбработкаБУДокументов" id="37">
+							<DataPath>ФоноваяОбработкаБУДокументов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При установке галочки программа будет пытаться автоматически обработаьь БУ документы, в случае неудачи, документ остается в списке Неопбаботанных</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФоноваяОбработкаБУДокументовКонтекстноеМеню" id="38"/>
+							<ExtendedTooltip name="ФоноваяОбработкаБУДокументовРасширеннаяПодсказка" id="39"/>
+							<Events>
+								<Event name="OnChange">ФоноваяОбработкаБУДокументовПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<CheckBoxField name="ФоноваяПроверкаБУДокументов" id="40">
+							<DataPath>ФоноваяПроверкаБУДокументов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При установке галочки будет автоматически проверять документы по списку Измененные и перезаполнять их по изменениям БУ документа</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ФоноваяПроверкаБУДокументовКонтекстноеМеню" id="41"/>
+							<ExtendedTooltip name="ФоноваяПроверкаБУДокументовРасширеннаяПодсказка" id="42"/>
+						</CheckBoxField>
+						<CheckBoxField name="ПроверятьЗаполнениеДоговоровВДокументах" id="46">
+							<DataPath>ПроверятьЗаполнениеДоговоровВДокументах</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Проверка на пустой договор в Заказах клиента и заказах поставщику</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПроверятьЗаполнениеДоговоровВДокументахКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ПроверятьЗаполнениеДоговоровВДокументахРасширеннаяПодсказка" id="48"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+				<Page name="БизнесПроцессы" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Бизнес процессы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Бизнес процессы</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="БизнесПроцессыРасширеннаяПодсказка" id="59"/>
+					<ChildItems>
+						<LabelDecoration name="Декорация1" id="60">
+							<TextColor>#FF0000</TextColor>
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Доступно только для корпоративной поставки</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="Декорация1КонтекстноеМеню" id="61"/>
+							<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="62"/>
+						</LabelDecoration>
+						<CheckBoxField name="ИспользоватьБизнесПроцессы" id="43">
+							<DataPath>ИспользоватьБизнесПроцессы</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При установки галочки добавляется функционал согласования, текущих задач пользователя и бизнес-процессов</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ИспользоватьБизнесПроцессыКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ИспользоватьБизнесПроцессыРасширеннаяПодсказка" id="45"/>
+						</CheckBoxField>
+						<CheckBoxField name="ВключитьСправочникПодразделения" id="49">
+							<DataPath>ВключитьСправочникПодразделения</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>При установки галочки в интерфейсе программы включается справочник СтруктураПредприятия. Данный справочник используется как подразделения в модуле вместо бухгалтерского справочника ПодразделенияОрганизаций, с которым возможно настроить связь</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВключитьСправочникПодразделенияКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ВключитьСправочникПодразделенияРасширеннаяПодсказка" id="51"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+				<Page name="ОперативныйУчет" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оперативный учет</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оперативный учет</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОперативныйУчетРасширеннаяПодсказка" id="55"/>
+					<ChildItems>
+						<InputField name="КонтрольМинимальнойЦеныПоТипуЦен" id="34">
+							<DataPath>КонтрольМинимальнойЦеныПоТипуЦен</DataPath>
+							<ContextMenu name="КонтрольМинимальнойЦеныПоТипуЦенКонтекстноеМеню" id="35"/>
+							<ExtendedTooltip name="КонтрольМинимальнойЦеныПоТипуЦенРасширеннаяПодсказка" id="36"/>
+						</InputField>
+						<InputField name="СпособДоставкиПоУмолчанию" id="28">
+							<DataPath>СпособДоставкиПоУмолчанию</DataPath>
+							<ContextMenu name="СпособДоставкиПоУмолчаниюКонтекстноеМеню" id="29"/>
+							<ExtendedTooltip name="СпособДоставкиПоУмолчаниюРасширеннаяПодсказка" id="30"/>
+						</InputField>
+						<CheckBoxField name="ОграничениеПравРедактированияКлючевыхСправочников" id="31">
+							<DataPath>ОграничениеПравРедактированияКлючевыхСправочников</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ОграничениеПравРедактированияКлючевыхСправочниковКонтекстноеМеню" id="32"/>
+							<ExtendedTooltip name="ОграничениеПравРедактированияКлючевыхСправочниковРасширеннаяПодсказка" id="33"/>
+						</CheckBoxField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="СпособДоставкиПоУмолчанию" id="1">
