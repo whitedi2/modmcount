@@ -9,6 +9,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Ссылка</dataPath>
 			<field>Ссылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ВидДеятельности</dataPath>
@@ -27,6 +33,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Ссылка</dataPath>
 			<field>Ссылка</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
@@ -39,6 +51,14 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ИсточникСпр</dataPath>
 			<field>ИсточникСпр</field>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</attributeUseRestriction>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
@@ -226,6 +246,10 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СтатьяДоход</dataPath>
 			<field>СтатьяДоход</field>
+			<useRestriction>
+				<condition>true</condition>
+				<group>true</group>
+			</useRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаОборот</dataPath>
@@ -253,6 +277,14 @@
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.БанковскиеСчета</v8:Type>
 			</valueType>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	УчетныйОбороты.Субконто1 КАК Статья,
@@ -265,17 +297,10 @@
 		ИНАЧЕ -УчетныйОбороты.СуммаОборот
 	КОНЕЦ КАК СуммаОборот,
 	УчетныйОбороты.Предприятия КАК Предприятия,
-	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств).ВидДеятельности КАК ВидДеятельности
+	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств).ВидДеятельности КАК ВидДеятельности,
+	УчетныйОбороты.Регистратор КАК Регистратор
 ИЗ
-	РегистрБухгалтерии.Учетный.Обороты(
-			&amp;ДатаНач,
-			&amp;ДатаКон,
-			,
-			Счет.ДенежныйСчет,
-			,
-			,
-			,
-			) КАК УчетныйОбороты
+	РегистрБухгалтерии.Учетный.Обороты(&amp;ДатаНач, &amp;ДатаКон, Регистратор, Счет.ДенежныйСчет, , , , ) КАК УчетныйОбороты
 ГДЕ
 	ВЫБОР
 			КОГДА УчетныйОбороты.Счет.Код = "51.09"

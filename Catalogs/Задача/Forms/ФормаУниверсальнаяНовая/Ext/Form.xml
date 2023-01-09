@@ -246,7 +246,7 @@
 													<ExtendedTooltip name="Дата1РасширеннаяПодсказка" id="1455"/>
 												</LabelField>
 												<LabelField name="Наименование" id="1456">
-													<DataPath>Объект.Description</DataPath>
+													<DataPath>Объект.DataVersion</DataPath>
 													<Visible>false</Visible>
 													<AutoMaxWidth>false</AutoMaxWidth>
 													<MaxWidth>50</MaxWidth>
@@ -665,6 +665,11 @@
 														<Visible>false</Visible>
 														<CommandName>Form.Command.СоздатьДвиженияДС</CommandName>
 														<ExtendedTooltip name="ПодчиненныеДокументыПодборExtendedTooltip" id="1551"/>
+													</Button>
+													<Button name="ПодчиненныеДокументыПодборДоговора" id="1645">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ПодборДоговора</CommandName>
+														<ExtendedTooltip name="ПодчиненныеДокументыПодборДоговораРасширеннаяПодсказка" id="1646"/>
 													</Button>
 													<ButtonGroup name="ПодчиненныеДокументыГруппа1" id="1552">
 														<CommandSource>Item.ПодчиненныеДокументы</CommandSource>
@@ -1486,6 +1491,28 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
@@ -2776,6 +2803,23 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОткрытьПлатежныйКалендарь</Action>
+		</Command>
+		<Command name="ПодборДоговора" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подбор договора</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодборДоговора</Action>
+			<CurrentRowUse>Use</CurrentRowUse>
+			<AssociatedTableElementId xsi:type="xs:string">ПодчиненныеДокументы</AssociatedTableElementId>
 		</Command>
 	</Commands>
 	<CommandInterface>

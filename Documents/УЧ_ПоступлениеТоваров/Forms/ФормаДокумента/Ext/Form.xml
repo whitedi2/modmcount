@@ -332,6 +332,9 @@
 								<ContextMenu name="ТабличнаяЧастьУправлениеПоискомКонтекстноеМеню" id="176"/>
 								<ExtendedTooltip name="ТабличнаяЧастьУправлениеПоискомРасширеннаяПодсказка" id="177"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ТабличнаяЧастьПриНачалеРедактирования</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="ТабличнаяЧастьНомерСтроки" id="16">
 									<DataPath>Объект.ТабличнаяЧасть.LineNumber</DataPath>
@@ -390,6 +393,9 @@
 									<Width>12</Width>
 									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="515"/>
 									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="516"/>
+									<Events>
+										<Event name="StartChoice">ТабличнаяЧастьСерияНоменклатурыНачалоВыбора</Event>
+									</Events>
 								</InputField>
 								<InputField name="ТабличнаяЧастьЕдиницаИзмерения" id="511">
 									<DataPath>Объект.ТабличнаяЧасть.ЕдиницаИзмерения</DataPath>
@@ -1644,6 +1650,17 @@
 							<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
 						</Type>
 					</Column>
+					<Column name="НесколькоСерий" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько серий</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
 				</AdditionalColumns>
 				<AdditionalColumns table="Объект.Услуги">
 					<Column name="ПодразделениеДоступность" id="1">
@@ -1825,6 +1842,31 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>Видимость</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТабличнаяЧасть.НесколькоСерий</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;Несколько&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

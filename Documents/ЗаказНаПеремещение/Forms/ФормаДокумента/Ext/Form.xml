@@ -172,6 +172,7 @@
 						</InputField>
 						<InputField name="Организация" id="322">
 							<DataPath>Объект.Организация</DataPath>
+							<ClearButton>true</ClearButton>
 							<InputHint>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -389,6 +390,7 @@
 									</Title>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>3</Width>
+									<ChoiceButton>false</ChoiceButton>
 									<CreateButton>false</CreateButton>
 									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 									<ContextMenu name="ТабличнаяЧастьЕдиницаИзмеренияКонтекстноеМеню" id="358"/>
@@ -426,12 +428,6 @@
 									<ChildItems>
 										<InputField name="ТабличнаяЧастьКоличествоУпаковок" id="354">
 											<DataPath>Объект.ТабличнаяЧасть.КоличествоУпаковок</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Количество</v8:content>
-												</v8:item>
-											</Title>
 											<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 											<EditMode>EnterOnInput</EditMode>
 											<FooterDataPath>Объект.ТабличнаяЧасть.TotalКоличествоУпаковок</FooterDataPath>
@@ -444,14 +440,7 @@
 										</InputField>
 										<InputField name="ТабличнаяЧастьКоличество" id="24">
 											<DataPath>Объект.ТабличнаяЧасть.Количество</DataPath>
-											<Visible>false</Visible>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Количество</v8:content>
-												</v8:item>
-											</Title>
-											<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+											<ReadOnly>true</ReadOnly>
 											<EditMode>EnterOnInput</EditMode>
 											<FooterDataPath>Объект.ТабличнаяЧасть.TotalКоличество</FooterDataPath>
 											<Width>7</Width>
@@ -579,6 +568,49 @@
 								</InputField>
 							</ChildItems>
 						</Table>
+					</ChildItems>
+				</Page>
+				<Page name="Доставка" id="438">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доставка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доставка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ДоставкаРасширеннаяПодсказка" id="439"/>
+					<ChildItems>
+						<UsualGroup name="Группа6" id="446">
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ReportGroup1BackColor</BackColor>
+							<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="447"/>
+							<ChildItems>
+								<InputField name="ЗаданиеВодителю" id="440">
+									<DataPath>Объект.ЗаданиеВодителю</DataPath>
+									<Height>2</Height>
+									<VerticalStretch>false</VerticalStretch>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="ЗаданиеВодителюКонтекстноеМеню" id="441"/>
+									<ExtendedTooltip name="ЗаданиеВодителюРасширеннаяПодсказка" id="442"/>
+								</InputField>
+								<InputField name="ЗаданиеСкладу" id="443">
+									<DataPath>Объект.ЗаданиеСкладу</DataPath>
+									<Height>2</Height>
+									<VerticalStretch>false</VerticalStretch>
+									<MultiLine>true</MultiLine>
+									<ContextMenu name="ЗаданиеСкладуКонтекстноеМеню" id="444"/>
+									<ExtendedTooltip name="ЗаданиеСкладуРасширеннаяПодсказка" id="445"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</Page>
 				<Page name="ГруппаДополнительно" id="332">

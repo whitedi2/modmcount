@@ -458,6 +458,9 @@
 											</ChoiceParameterLinks>
 											<ContextMenu name="ДоговорКонтекстноеМеню" id="447"/>
 											<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="448"/>
+											<Events>
+												<Event name="OnChange">СчетКонтрагентаПриИзменении</Event>
+											</Events>
 										</InputField>
 										<UsualGroup name="Группа17" id="416">
 											<Group>Vertical</Group>
@@ -1022,8 +1025,17 @@
 						<Event name="OnChange">ВалютнаяСуммаКонтрагентаПриИзменении</Event>
 					</Events>
 				</InputField>
+				<InputField name="КурсКонтрагента" id="663">
+					<DataPath>Объект.КурсКонтрагента</DataPath>
+					<Width>8</Width>
+					<ContextMenu name="КурсКонтрагентаКонтекстноеМеню" id="664"/>
+					<ExtendedTooltip name="КурсКонтрагентаРасширеннаяПодсказка" id="665"/>
+					<Events>
+						<Event name="OnChange">ВалютнаяСуммаПриИзменении</Event>
+					</Events>
+				</InputField>
 				<LabelField name="ВалютаКонтрагента" id="614">
-					<DataPath>ВалютаКонтрагента</DataPath>
+					<DataPath>Объект.ВалютаКонтрагента</DataPath>
 					<TitleLocation>None</TitleLocation>
 					<Width>4</Width>
 					<HorizontalStretch>false</HorizontalStretch>
@@ -1035,6 +1047,15 @@
 					<DataPath>Объект.ВалютнаяСумма</DataPath>
 					<ContextMenu name="ВалютнаяСуммаКонтекстноеМеню" id="532"/>
 					<ExtendedTooltip name="ВалютнаяСуммаРасширеннаяПодсказка" id="533"/>
+					<Events>
+						<Event name="OnChange">ВалютнаяСуммаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="Курс" id="660">
+					<DataPath>Объект.Курс</DataPath>
+					<Width>8</Width>
+					<ContextMenu name="КурсКонтекстноеМеню" id="661"/>
+					<ExtendedTooltip name="КурсРасширеннаяПодсказка" id="662"/>
 					<Events>
 						<Event name="OnChange">ВалютнаяСуммаПриИзменении</Event>
 					</Events>
@@ -1072,7 +1093,7 @@
 					<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="273"/>
 					<ExtendedTooltip name="СтавкаНДСExtendedTooltip" id="378"/>
 					<Events>
-						<Event name="OnChange">СуммаПриИзменении</Event>
+						<Event name="OnChange">СтавкаНДСПриИзменении</Event>
 					</Events>
 				</InputField>
 				<InputField name="СуммаНДС" id="483">

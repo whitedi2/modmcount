@@ -13,9 +13,20 @@
 		<ChildItems>
 			<Button name="ФормаДокументД_ЗаявкаНаАвансовыйОтчетСогласовать" id="170">
 				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
 				<DefaultButton>true</DefaultButton>
-				<CommandName>0</CommandName>
+				<CommandName>Catalog.СогласованиеОбщее.StandardCommand.CreateBasedOn</CommandName>
 				<DataPath>Объект.Ref</DataPath>
+				<Picture>
+					<xr:Ref>StdPicture.BusinessProcessStart</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отправить на согласование</v8:content>
+					</v8:item>
+				</Title>
 				<ExtendedTooltip name="ФормаДокументД_ЗаявкаНаАвансовыйОтчетСогласоватьРасширеннаяПодсказка" id="171"/>
 			</Button>
 			<ButtonGroup name="ФормаГруппа1" id="172">
@@ -77,7 +88,7 @@
 				<UsualGroup name="Группа3" id="174">
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
-					<Representation>StrongSeparation</Representation>
+					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="175"/>
 					<ChildItems>
@@ -92,8 +103,6 @@
 						</InputField>
 						<InputField name="Кассир" id="107">
 							<DataPath>Объект.Кассир</DataPath>
-							<DropListButton>false</DropListButton>
-							<ChoiceButton>true</ChoiceButton>
 							<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
 							<ContextMenu name="КассирКонтекстноеМеню" id="108"/>
 							<ExtendedTooltip name="КассирExtendedTooltip" id="144"/>
@@ -112,7 +121,7 @@
 				<UsualGroup name="Группа4" id="176">
 					<Group>Vertical</Group>
 					<Behavior>Usual</Behavior>
-					<Representation>StrongSeparation</Representation>
+					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="177"/>
 					<ChildItems>
@@ -237,6 +246,7 @@
 				</InputField>
 				<InputField name="ЗатратыИнвПроект" id="114">
 					<DataPath>Объект.Затраты.ИнвПроект</DataPath>
+					<Visible>false</Visible>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ЗатратыИнвПроектКонтекстноеМеню" id="115"/>
 					<ExtendedTooltip name="ЗатратыИнвПроектExtendedTooltip" id="154"/>
@@ -365,6 +375,7 @@
 			<ChildItems>
 				<InputField name="Комментарии" id="77">
 					<DataPath>Объект.Комментарий</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="КомментарииКонтекстноеМеню" id="78"/>
 					<ExtendedTooltip name="КомментарииExtendedTooltip" id="163"/>
 				</InputField>
@@ -377,7 +388,7 @@
 					<v8:content>Заявка на оплату</v8:content>
 				</v8:item>
 			</Title>
-			<Group>Vertical</Group>
+			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
@@ -385,7 +396,8 @@
 			<ChildItems>
 				<CheckBoxField name="БезЗаявкиНаОплату" id="190">
 					<DataPath>Объект.БезЗаявкиНаОплату</DataPath>
-					<CheckBoxType>Auto</CheckBoxType>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Switcher</CheckBoxType>
 					<ContextMenu name="БезЗаявкиНаОплатуКонтекстноеМеню" id="191"/>
 					<ExtendedTooltip name="БезЗаявкиНаОплатуРасширеннаяПодсказка" id="192"/>
 					<Events>
@@ -530,7 +542,9 @@
 			<Type>
 				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
-			<Settings xsi:type="v8:TypeDescription"/>
+			<Settings xsi:type="v8:TypeDescription">
+				<v8:Type>cfg:DocumentRef.Д_ЗаявкаНаФинансирование</v8:Type>
+			</Settings>
 		</Attribute>
 		<Attribute name="ИзрасходованоУУ" id="5">
 			<Title>

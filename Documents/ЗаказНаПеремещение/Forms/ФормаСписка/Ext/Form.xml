@@ -82,6 +82,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -178,6 +179,7 @@
 				</LabelField>
 				<LabelField name="ВидЗаказа" id="31">
 					<DataPath>Список.ВидОперации</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="ВидЗаказаКонтекстноеМеню" id="32"/>
 					<ExtendedTooltip name="ВидЗаказаРасширеннаяПодсказка" id="33"/>
 				</LabelField>
@@ -198,18 +200,26 @@
 				</LabelField>
 				<LabelField name="Контрагент" id="34">
 					<DataPath>Список.Контрагент</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="КонтрагентКонтекстноеМеню" id="35"/>
 					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<LabelField name="Договор" id="37">
 					<DataPath>Список.Договор</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="ДоговорКонтекстноеМеню" id="38"/>
 					<ExtendedTooltip name="ДоговорРасширеннаяПодсказка" id="39"/>
 				</LabelField>
 				<LabelField name="СуммаДокумента" id="40">
 					<DataPath>Список.СуммаДокумента</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="41"/>
 					<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="42"/>
+				</LabelField>
+				<LabelField name="ВесТовара" id="85">
+					<DataPath>Список.ВесТовара</DataPath>
+					<ContextMenu name="ВесТовараКонтекстноеМеню" id="86"/>
+					<ExtendedTooltip name="ВесТовараРасширеннаяПодсказка" id="87"/>
 				</LabelField>
 				<LabelField name="Комментарий" id="43">
 					<DataPath>Список.Комментарий</DataPath>
@@ -321,7 +331,8 @@
 		СтатусПодтвержденияПозиции КАК СтатусПодтвержденияПозиции,
 		КоличествоВЗапайках КАК КоличествоВЗапайках
 	) КАК ТабличнаяЧасть,
-	ЗаказНаПеремещение.МоментВремени КАК МоментВремени
+	ЗаказНаПеремещение.МоментВремени КАК МоментВремени,
+	ЗаказНаПеремещение.ВесТовара КАК ВесТовара
 ИЗ
 	Документ.ЗаказНаПеремещение КАК ЗаказНаПеремещение
 ГДЕ

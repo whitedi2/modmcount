@@ -75,7 +75,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Количество дней просрочки</v8:content>
+					<v8:content>Дней просрочки</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -246,6 +246,10 @@
 					<v8:content>Статус контрагента</v8:content>
 				</v8:item>
 			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СписаннаяДЗ</dataPath>
@@ -316,7 +320,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Количество дней просрочки КЗ</v8:content>
+					<v8:content>Дней просрочки КЗ</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -627,7 +631,7 @@
 	ВТ_ИтоговыеДанные.ПДЗЗаВычетомКЗ КАК ПДЗЗаВычетомКЗ,
 	ВТ_ИтоговыеДанные.СписаннаяДЗ КАК СписаннаяДЗ,
 	ВТ_ИтоговыеДанные.Верхи КАК Верхи,
-	НЕОПРЕДЕЛЕНО КАК СтатусКонтрагента,
+	ВЫРАЗИТЬ(ВТ_ИтоговыеДанные.Контрагент КАК Справочник.Контрагенты).СтатусКлиента КАК СтатусКонтрагента,
 	ОтветственныеСрезПоследних.Ответственный КАК ОтветственныйМенеджер,
 	ВТ_ИтоговыеДанные.ПКЗ КАК ПКЗ,
 	ВТ_ИтоговыеДанные.Счет КАК Счет,
@@ -1088,10 +1092,14 @@
 					<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>СписаннаяДЗ</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>КЗ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПКЗ</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Отсрочка</dcsset:field>
@@ -1100,10 +1108,10 @@
 					<dcsset:field>ТекущаяОтсрочкаДЗ</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>ТекущаяОтсрочкаКЗ</dcsset:field>
+					<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>КоличествоДнейПросрочки</dcsset:field>
+					<dcsset:field>ТекущаяОтсрочкаКЗ</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>КоличествоДнейПросрочкиКЗ</dcsset:field>
