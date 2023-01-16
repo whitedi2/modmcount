@@ -1964,15 +1964,18 @@
 													<Group>InCell</Group>
 													<ExtendedTooltip name="ТекЗадачиГруппаСрокРасширеннаяПодсказка" id="1167"/>
 													<ChildItems>
-														<CheckBoxField name="ТекЗадачиВРаботе" id="1502">
+														<PictureField name="ТекЗадачиВРаботе" id="1502">
 															<DataPath>ТекЗадачи.ВРаботе</DataPath>
 															<EditMode>EnterOnInput</EditMode>
 															<ShowInHeader>false</ShowInHeader>
 															<ShowInFooter>false</ShowInFooter>
-															<CheckBoxType>Auto</CheckBoxType>
+															<ValuesPicture>
+																<xr:Ref>CommonPicture.ЗаполнитьФорму</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</ValuesPicture>
 															<ContextMenu name="ТекЗадачиВРаботеКонтекстноеМеню" id="1503"/>
 															<ExtendedTooltip name="ТекЗадачиВРаботеРасширеннаяПодсказка" id="1504"/>
-														</CheckBoxField>
+														</PictureField>
 														<PictureField name="ТекЗадачиСтатусЗадачи" id="392">
 															<DataPath>ТекЗадачи.СтатусЗадачи</DataPath>
 															<Visible>false</Visible>
@@ -5518,8 +5521,8 @@
 				</dcsset:selection>
 				<dcsset:filter>
 					<dcsset:item xsi:type="dcsset:FilterItemComparison">
-						<dcsset:left xsi:type="dcscor:Field">ТекЗадачи.СтатусЗадачи</dcsset:left>
-						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:left xsi:type="dcscor:Field">ТекЗадачи.ОсталосьДней</dcsset:left>
+						<dcsset:comparisonType>Less</dcsset:comparisonType>
 						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>

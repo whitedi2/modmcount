@@ -10,6 +10,7 @@
 			</Button>
 			<Button name="ФормаОтправитьПоЭДО" id="37">
 				<Type>CommandBarButton</Type>
+				<Enabled>false</Enabled>
 				<CommandName>Form.Command.ОтправитьПоЭДО</CommandName>
 				<ExtendedTooltip name="ФормаОтправитьПоЭДОРасширеннаяПодсказка" id="38"/>
 			</Button>
@@ -25,60 +26,75 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Организация" id="54">
 			<DataPath>Организация</DataPath>
 			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="55"/>
 			<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="56"/>
 		</InputField>
-		<UsualGroup name="ГруппаПериодСверки" id="41">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа период сверки</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Группа период сверки</v8:content>
-				</v8:item>
-			</ToolTip>
+		<UsualGroup name="Группа1" id="57">
 			<Behavior>Usual</Behavior>
-			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
-			<ExtendedTooltip name="ГруппаПериодСверкиРасширеннаяПодсказка" id="42"/>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="58"/>
 			<ChildItems>
-				<InputField name="ДатаНачала" id="43">
-					<DataPath>ДатаНачала</DataPath>
-					<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="45"/>
-				</InputField>
-				<LabelDecoration name="ДекорацияНадписьПо" id="49">
-					<Title formatted="false">
+				<UsualGroup name="ГруппаПериодСверки" id="41">
+					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>—</v8:content>
+							<v8:content>Группа период сверки</v8:content>
 						</v8:item>
 					</Title>
-					<ContextMenu name="ДекорацияНадписьПоКонтекстноеМеню" id="50"/>
-					<ExtendedTooltip name="ДекорацияНадписьПоРасширеннаяПодсказка" id="51"/>
-				</LabelDecoration>
-				<InputField name="ДатаОкончания" id="46">
-					<DataPath>ДатаОкончания</DataPath>
-					<TitleLocation>None</TitleLocation>
-					<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="47"/>
-					<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="48"/>
-				</InputField>
-				<Button name="ВыбратьПериод" id="52">
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа период сверки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаПериодСверкиРасширеннаяПодсказка" id="42"/>
+					<ChildItems>
+						<InputField name="ДатаНачала" id="43">
+							<DataPath>ДатаНачала</DataPath>
+							<ContextMenu name="ДатаНачалаКонтекстноеМеню" id="44"/>
+							<ExtendedTooltip name="ДатаНачалаРасширеннаяПодсказка" id="45"/>
+						</InputField>
+						<LabelDecoration name="ДекорацияНадписьПо" id="49">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>—</v8:content>
+								</v8:item>
+							</Title>
+							<ContextMenu name="ДекорацияНадписьПоКонтекстноеМеню" id="50"/>
+							<ExtendedTooltip name="ДекорацияНадписьПоРасширеннаяПодсказка" id="51"/>
+						</LabelDecoration>
+						<InputField name="ДатаОкончания" id="46">
+							<DataPath>ДатаОкончания</DataPath>
+							<TitleLocation>None</TitleLocation>
+							<ContextMenu name="ДатаОкончанияКонтекстноеМеню" id="47"/>
+							<ExtendedTooltip name="ДатаОкончанияРасширеннаяПодсказка" id="48"/>
+						</InputField>
+						<Button name="ВыбратьПериод" id="52">
+							<Type>UsualButton</Type>
+							<Representation>Picture</Representation>
+							<CommandName>Form.Command.ВыбратьПериод</CommandName>
+							<Picture>
+								<xr:Ref>StdPicture.InputFieldSelect</xr:Ref>
+								<xr:LoadTransparent>true</xr:LoadTransparent>
+							</Picture>
+							<ExtendedTooltip name="ВыбратьПериодРасширеннаяПодсказка" id="53"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<Button name="СоздатьАктыСверок" id="59">
 					<Type>UsualButton</Type>
-					<Representation>Picture</Representation>
-					<CommandName>Form.Command.ВыбратьПериод</CommandName>
-					<Picture>
-						<xr:Ref>StdPicture.InputFieldSelect</xr:Ref>
-						<xr:LoadTransparent>true</xr:LoadTransparent>
-					</Picture>
-					<ExtendedTooltip name="ВыбратьПериодРасширеннаяПодсказка" id="53"/>
+					<CommandName>Form.Command.СоздатьАктыСверок</CommandName>
+					<ExtendedTooltip name="СоздатьАктыСверокРасширеннаяПодсказка" id="60"/>
 				</Button>
 			</ChildItems>
 		</UsualGroup>
@@ -99,6 +115,7 @@
 					</Button>
 					<Button name="СписокЗаполнить" id="31">
 						<Type>CommandBarButton</Type>
+						<Visible>false</Visible>
 						<CommandName>Form.Command.Заполнить</CommandName>
 						<ExtendedTooltip name="СписокЗаполнитьРасширеннаяПодсказка" id="32"/>
 					</Button>
@@ -129,18 +146,27 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="12"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="13"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="ChoiceProcessing">СписокОбработкаВыбора</Event>
+			</Events>
 			<ChildItems>
 				<InputField name="СписокКонтрагент" id="14">
 					<DataPath>Список.Контрагент</DataPath>
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="СписокКонтрагентКонтекстноеМеню" id="15"/>
 					<ExtendedTooltip name="СписокКонтрагентРасширеннаяПодсказка" id="16"/>
+					<Events>
+						<Event name="OnChange">СписокКонтрагентПриИзменении</Event>
+					</Events>
 				</InputField>
 				<CheckBoxField name="СписокЭДО" id="17">
 					<DataPath>Список.ЭДО</DataPath>
 					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="СписокЭДОКонтекстноеМеню" id="18"/>
 					<ExtendedTooltip name="СписокЭДОРасширеннаяПодсказка" id="19"/>
+					<Events>
+						<Event name="OnChange">СписокЭДОПриИзменении</Event>
+					</Events>
 				</CheckBoxField>
 				<CheckBoxField name="СписокПочта" id="20">
 					<DataPath>Список.Почта</DataPath>
@@ -154,6 +180,9 @@
 					<CheckBoxType>Auto</CheckBoxType>
 					<ContextMenu name="СписокПечатьКонтекстноеМеню" id="24"/>
 					<ExtendedTooltip name="СписокПечатьРасширеннаяПодсказка" id="25"/>
+					<Events>
+						<Event name="OnChange">СписокПечатьПриИзменении</Event>
+					</Events>
 				</CheckBoxField>
 				<InputField name="СписокАктСверки" id="26">
 					<DataPath>Список.АктСверки</DataPath>
@@ -281,6 +310,7 @@
 					<v8:content>Подобрать</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Action>Подобрать</Action>
 		</Command>
 		<Command name="Заполнить" id="2">
 			<Title>
@@ -309,6 +339,7 @@
 					<v8:content>Создать акты сверок</v8:content>
 				</v8:item>
 			</ToolTip>
+			<Action>СоздатьАктыСверок</Action>
 		</Command>
 		<Command name="ОтправитьПоЭДО" id="4">
 			<Title>
@@ -346,6 +377,7 @@
 				<xr:Ref>CommonPicture.ОтправитьЭлектронноеПисьмо</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
+			<Action>ОтправитьПоПочте</Action>
 			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="Печать" id="6">
@@ -365,6 +397,7 @@
 				<xr:Ref>StdPicture.Print</xr:Ref>
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
+			<Action>Печать</Action>
 			<Representation>TextPicture</Representation>
 		</Command>
 		<Command name="Закрыть" id="7">

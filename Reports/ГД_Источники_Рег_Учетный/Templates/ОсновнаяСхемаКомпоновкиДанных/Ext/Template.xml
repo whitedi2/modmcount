@@ -146,21 +146,29 @@
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.БанковскиеСчета</v8:Type>
 			</valueType>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	УчетныйОстаткиИОбороты.Субконто2 КАК Источник,
 	УчетныйОстаткиИОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
 	УчетныйОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
-	УчетныйОстаткиИОбороты.Предприятия КАК Предприятия
+	УчетныйОстаткиИОбороты.Предприятия КАК Предприятия,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(УчетныйОстаткиИОбороты.Субконто2) = ТИП(Справочник.Кассы)
+			ТОГДА ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто2 КАК Справочник.Кассы).Предприятие
+		ИНАЧЕ УчетныйОстаткиИОбороты.Субконто2.Владелец
+	КОНЕЦ КАК Организация
 ИЗ
-	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
-			&amp;ДатаНач,
-			&amp;ДатаКон,
-			,
-			,
-			Счет.ДенежныйСчет,
-			,
-			) КАК УчетныйОстаткиИОбороты</query>
+	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(&amp;ДатаНач, &amp;ДатаКон, , , Счет.ДенежныйСчет, , ) КАК УчетныйОстаткиИОбороты</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>Обороты</name>
@@ -285,6 +293,30 @@
 				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	УчетныйОбороты.Субконто1 КАК Статья,
@@ -298,7 +330,13 @@
 	КОНЕЦ КАК СуммаОборот,
 	УчетныйОбороты.Предприятия КАК Предприятия,
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств).ВидДеятельности КАК ВидДеятельности,
-	УчетныйОбороты.Регистратор КАК Регистратор
+	УчетныйОбороты.Регистратор КАК Регистратор,
+	ВЫБОР
+		КОГДА ТИПЗНАЧЕНИЯ(УчетныйОбороты.Субконто2) = ТИП(Справочник.Кассы)
+			ТОГДА ВЫРАЗИТЬ(УчетныйОбороты.Субконто2 КАК Справочник.Кассы).Предприятие
+		ИНАЧЕ УчетныйОбороты.Субконто2.Владелец
+	КОНЕЦ КАК Организация,
+	УчетныйОбороты.КорСубконто1 КАК Контрагент
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(&amp;ДатаНач, &amp;ДатаКон, Регистратор, Счет.ДенежныйСчет, , , , ) КАК УчетныйОбороты
 ГДЕ
@@ -766,7 +804,7 @@
 		<dcsset:presentation xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Основной</v8:content>
+				<v8:content>Отчет по источникам ДДС</v8:content>
 			</v8:item>
 		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
@@ -823,10 +861,9 @@
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemTable">
 				<dcsset:column>
-					<dcsset:name>Источники</dcsset:name>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>Источник</dcsset:field>
+							<dcsset:field>Организация</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -839,12 +876,30 @@
 					<dcsset:selection>
 						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 					</dcsset:selection>
-					<dcsset:outputParameters>
-						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-							<dcscor:parameter>РасположениеРесурсов</dcscor:parameter>
-							<dcscor:value xsi:type="dcsset:DataCompositionResourcesPlacement">Horizontally</dcscor:value>
-						</dcscor:item>
-					</dcsset:outputParameters>
+					<dcsset:item>
+						<dcsset:name>Источники</dcsset:name>
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Источник</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>РасположениеРесурсов</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionResourcesPlacement">Horizontally</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+					</dcsset:item>
 				</dcsset:column>
 				<dcsset:row>
 					<dcsset:name>Виды</dcsset:name>
