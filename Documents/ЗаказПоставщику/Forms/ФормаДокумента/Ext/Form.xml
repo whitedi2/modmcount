@@ -50,6 +50,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
@@ -709,6 +710,11 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<InputField name="ДокОснование" id="423">
+			<DataPath>Объект.ДокОснование</DataPath>
+			<ContextMenu name="ДокОснованиеКонтекстноеМеню" id="424"/>
+			<ExtendedTooltip name="ДокОснованиеРасширеннаяПодсказка" id="425"/>
+		</InputField>
 		<InputField name="Комментарий" id="73">
 			<DataPath>Объект.Комментарий</DataPath>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="74"/>
@@ -1006,4 +1012,16 @@
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
+	<CommandInterface>
+		<CommandBar>
+			<Item>
+				<Command>CommonCommand.УУ_ОтправитьПоЭлектроннойПочте</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</CommandBar>
+	</CommandInterface>
 </Form>

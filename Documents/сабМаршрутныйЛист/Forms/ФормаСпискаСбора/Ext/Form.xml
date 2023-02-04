@@ -983,6 +983,16 @@
 										<CommandName>Form.Command.СвернутьКоличествоПоСерии</CommandName>
 										<ExtendedTooltip name="ТЧСтрокиЗаказовСвернутьКоличествоПоСерииРасширеннаяПодсказка" id="409"/>
 									</Button>
+									<Button name="ТЧСтрокиЗаказовЗаполнитьСериюДляВыбраннойНоменклатуры" id="590">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьСериюДляВыбраннойНоменклатуры</CommandName>
+										<ExtendedTooltip name="ТЧСтрокиЗаказовЗаполнитьСериюДляВыбраннойНоменклатурыРасширеннаяПодсказка" id="591"/>
+									</Button>
+									<Button name="ТЧСтрокиЗаказовЗаполнитьСерииДляВсейНоменклатуры" id="592">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ЗаполнитьСерииДляВсейНоменклатуры</CommandName>
+										<ExtendedTooltip name="ТЧСтрокиЗаказовЗаполнитьСерииДляВсейНоменклатурыРасширеннаяПодсказка" id="593"/>
+									</Button>
 								</ChildItems>
 							</Popup>
 							<Popup name="Сортировка" id="581">
@@ -1080,7 +1090,6 @@
 						</InputField>
 						<InputField name="ТЧСтрокиЗаказовРеализация" id="124">
 							<DataPath>ТЧСтрокиЗаказов.Реализация</DataPath>
-							<Visible>false</Visible>
 							<EditMode>EnterOnInput</EditMode>
 							<ContextMenu name="ТЧСтрокиЗаказовРеализацияКонтекстноеМеню" id="125"/>
 							<ExtendedTooltip name="ТЧСтрокиЗаказовРеализацияРасширеннаяПодсказка" id="126"/>
@@ -1116,6 +1125,16 @@
 							<Width>12</Width>
 							<ChoiceParameterLinks>
 								<xr:Link>
+									<xr:Name>ДатаОтгрузки</xr:Name>
+									<xr:DataPath xsi:type="xs:string">ДатаОтгрузки</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
+									<xr:Name>ЗаказКлиента</xr:Name>
+									<xr:DataPath xsi:type="xs:string">Items.ТЧСтрокиЗаказов.CurrentData.ЗаказКлиента</xr:DataPath>
+									<xr:ValueChange>Clear</xr:ValueChange>
+								</xr:Link>
+								<xr:Link>
 									<xr:Name>Отбор.Владелец</xr:Name>
 									<xr:DataPath xsi:type="xs:string">Items.ТЧСтрокиЗаказов.CurrentData.Номенклатура</xr:DataPath>
 									<xr:ValueChange>Clear</xr:ValueChange>
@@ -1129,7 +1148,6 @@
 						</InputField>
 						<InputField name="ТЧСтрокиЗаказовКоличествоЗаказ" id="331">
 							<DataPath>ТЧСтрокиЗаказов.КоличествоЗаказ</DataPath>
-							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<Width>7</Width>
 							<ContextMenu name="ТЧСтрокиЗаказовКоличествоЗаказКонтекстноеМеню" id="332"/>
@@ -2651,6 +2669,48 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СортировкаНомерСтроки</Action>
+		</Command>
+		<Command name="ЗаполнитьСериюДляВыбраннойНоменклатуры" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить серию для выбранной номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заолняет поле "серия" для выбранной в строке номенклатуры, при необходимости разбивается строка по количеству для заполнения серий.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполениеСерии</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьСериюДляВыбраннойНоменклатуры</Action>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ЗаполнитьСерииДляВсейНоменклатуры" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить серии для всей номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заолняет поле "серия" для выбранной в строке номенклатуры, при необходимости разбивается строка по количеству для заполнения серий.</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.ЗаполениеСерий</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗаполнитьСерииДляВсейНоменклатуры</Action>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
 		</Command>
 	</Commands>
 </Form>

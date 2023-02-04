@@ -175,6 +175,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Предприятие</dataPath>
 			<field>Предприятие</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Регистратор</dataPath>
@@ -225,6 +231,16 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НДС</dataPath>
+			<field>НДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>НДС</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура) КАК Номенклатура,
@@ -251,7 +267,7 @@
 	УчетныйОбороты.ПериодНеделя КАК ПериодНеделя,
 	УчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
 	УчетныйОбороты.Регистратор КАК Регистратор,
-	ВЫРАЗИТЬ(УчетныйОбороты.КорСубконто1 КАК Справочник.Контрагенты) КАК Контрагент,
+	УчетныйОбороты.Субконто3 КАК Контрагент,
 	ЕСТЬNULL(ОтветственныеСрезПоследних.Ответственный, ЗНАЧЕНИЕ(Справочник.Сотрудники.ПустаяСсылка)) КАК Менеджер,
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес * -УчетныйОбороты.КоличествоОборот КАК Вес
 ПОМЕСТИТЬ ВремВыр
@@ -271,6 +287,22 @@
 			И УчетныйОбороты.Подразделение = НоменклатураПоставщикаСрезПоследних.Подразделение
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Ответственные.СрезПоследних(&amp;КонецПериода, ) КАК ОтветственныеСрезПоследних
 		ПО УчетныйОбороты.КорСубконто1 = ОтветственныеСрезПоследних.Контрагент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура) КАК Номенклатура,
+	-УчетныйОбороты.СуммаОборот КАК СуммаНДС,
+	УчетныйОбороты.Подразделение КАК Подразделение,
+	УчетныйОбороты.ПериодДень КАК ПериодДень,
+	УчетныйОбороты.Предприятия КАК Предприятия,
+	УчетныйОбороты.ПериодНеделя КАК ПериодНеделя,
+	УчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
+	УчетныйОбороты.Регистратор КАК Регистратор,
+	ВЫРАЗИТЬ(УчетныйОбороты.Субконто3 КАК Справочник.Контрагенты) КАК Контрагент
+ПОМЕСТИТЬ ВремНДС
+ИЗ
+	РегистрБухгалтерии.Учетный.Обороты(, , Авто, Счет.Код = "90.03", , Подразделение В (&amp;ДоступныеПодразделения), КорСчет.Код = "68.01", ) КАК УчетныйОбороты
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -325,6 +357,7 @@
 					ВремВыр.Регистратор КАК Регистратор
 				ИЗ
 					ВремВыр КАК ВремВыр)
+	И ЛОЖЬ
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -343,9 +376,19 @@
 	ВремВыр.Регистратор КАК Регистратор,
 	ВремВыр.Контрагент КАК Контрагент,
 	ВремВыр.Менеджер КАК Менеджер,
-	ВремВыр.Вес КАК Вес
+	ВремВыр.Вес КАК Вес,
+	СУММА(ВремНДС.СуммаНДС) КАК НДС
 ИЗ
 	ВремВыр КАК ВремВыр
+		ЛЕВОЕ СОЕДИНЕНИЕ ВремНДС КАК ВремНДС
+		ПО ВремВыр.Номенклатура = ВремНДС.Номенклатура
+			И ВремВыр.Подразделение = ВремНДС.Подразделение
+			И ВремВыр.ПериодДень = ВремНДС.ПериодДень
+			И ВремВыр.Предприятия = ВремНДС.Предприятия
+			И ВремВыр.ПериодНеделя = ВремНДС.ПериодНеделя
+			И ВремВыр.ПериодМесяц = ВремНДС.ПериодМесяц
+			И ВремВыр.Регистратор = ВремНДС.Регистратор
+			И ВремВыр.Контрагент = ВремНДС.Контрагент
 ГДЕ
 	(ВЫБОР
 				КОГДА &amp;ОграничениеКонтрагентов
@@ -389,7 +432,8 @@
 	ВремСеб.Регистратор,
 	ВремСеб.Контрагент,
 	ВремСеб.Менеджер,
-	ВремСеб.Вес
+	ВремСеб.Вес,
+	СУММА(0)
 ИЗ
 	ВремСеб КАК ВремСеб
 ГДЕ
@@ -571,6 +615,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Предприятие</dataPath>
 			<field>Предприятие</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Регистратор</dataPath>
@@ -589,6 +639,10 @@
 					<v8:content>Контрагент</v8:content>
 				</v8:item>
 			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
 			<valueType>
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
 			</valueType>
@@ -811,6 +865,12 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Предприятие</dataPath>
 			<field>Предприятие</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Регистратор</dataPath>
@@ -829,6 +889,10 @@
 					<v8:content>Контрагент</v8:content>
 				</v8:item>
 			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
 			<valueType>
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
 			</valueType>
@@ -1497,6 +1561,67 @@
 			</v8:StringQualifiers>
 		</valueType>
 	</calculatedField>
+	<calculatedField>
+		<dataPath>ВыручкаБезНДС</dataPath>
+		<expression>ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Выручка без НДС</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>НДС</dataPath>
+		<expression>ЕСТЬNULL(НДС, 0)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>НДС</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВНХКонтрагент</dataPath>
+		<expression>Выбор Когда Контрагент.ЭтоОрганизация = Значение(Справочник.Организации.ПустаяСсылка) Тогда Ложь Иначе Истина Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ВНХ Контрагент</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
 	<totalField>
 		<dataPath>Количество</dataPath>
 		<expression>Сумма(Количество)</expression>
@@ -1545,6 +1670,14 @@
 	<totalField>
 		<dataPath>Вес</dataPath>
 		<expression>Сумма(Вес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НДС</dataPath>
+		<expression>Сумма(НДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВыручкаБезНДС</dataPath>
+		<expression>Сумма(ВыручкаБезНДС)</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -1725,6 +1858,12 @@
 					<dcsset:field>Выручка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыручкаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СебестоимостьЕд</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1794,6 +1933,10 @@
 				</dcsset:item>
 			</dcsset:order>
 			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
@@ -1895,6 +2038,12 @@
 					<dcsset:field>Выручка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыручкаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СебестоимостьЕд</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1955,6 +2104,10 @@
 				</dcsset:item>
 			</dcsset:order>
 			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
@@ -2077,6 +2230,12 @@
 					<dcsset:field>Выручка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыручкаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СебестоимостьЕд</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -2137,6 +2296,10 @@
 				</dcsset:item>
 			</dcsset:order>
 			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>

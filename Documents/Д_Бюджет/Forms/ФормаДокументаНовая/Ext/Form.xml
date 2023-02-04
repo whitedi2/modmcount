@@ -1969,20 +1969,6 @@
 														<Event name="StartChoice">ЗатратыМесяцНачалоВыбора</Event>
 													</Events>
 												</InputField>
-												<ColumnGroup name="ЗатратыГруппа4" id="1093">
-													<ExtendedTooltip name="ЗатратыГруппа4РасширеннаяПодсказка" id="2851"/>
-													<ChildItems>
-														<InputField name="ЗатратыПодразделение" id="612">
-															<DataPath>Объект.Затраты.Подразделение</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ЗатратыПодразделениеКонтекстноеМеню" id="613"/>
-															<ExtendedTooltip name="ЗатратыПодразделениеРасширеннаяПодсказка" id="2853"/>
-															<Events>
-																<Event name="StartChoice">ЗатратыПодразделениеНачалоВыбора</Event>
-															</Events>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
 												<ColumnGroup name="ЗатратыГруппа3" id="620">
 													<ExtendedTooltip name="ЗатратыГруппа3РасширеннаяПодсказка" id="2848"/>
 													<ChildItems>
@@ -2006,46 +1992,68 @@
 													<ContextMenu name="ЗатратыНаЕдиницуКонтекстноеМеню" id="3407"/>
 													<ExtendedTooltip name="ЗатратыНаЕдиницуРасширеннаяПодсказка" id="3408"/>
 												</CheckBoxField>
+												<InputField name="ЗатратыСтатьяБДДС" id="608">
+													<DataPath>Объект.Затраты.СтатьяБДДС</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗатратыСтатьяБДДСКонтекстноеМеню" id="609"/>
+													<ExtendedTooltip name="ЗатратыСтатьяБДДСРасширеннаяПодсказка" id="2858"/>
+												</InputField>
+												<InputField name="ЗатратыСтатьяЗатрат" id="602">
+													<DataPath>Объект.Затраты.СтатьяЗатрат</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ChoiceButton>true</ChoiceButton>
+													<ChooseType>false</ChooseType>
+													<ContextMenu name="ЗатратыСтатьяЗатратКонтекстноеМеню" id="603"/>
+													<ExtendedTooltip name="ЗатратыСтатьяЗатратРасширеннаяПодсказка" id="2852"/>
+													<Events>
+														<Event name="OnChange">ЗатратыСтатьяЗатратПриИзменении</Event>
+													</Events>
+												</InputField>
 												<ColumnGroup name="ЗатратыГруппа2" id="619">
 													<ExtendedTooltip name="ЗатратыГруппа2РасширеннаяПодсказка" id="2857"/>
-													<ChildItems>
-														<InputField name="ЗатратыСтатьяЗатрат" id="602">
-															<DataPath>Объект.Затраты.СтатьяЗатрат</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ChoiceButton>true</ChoiceButton>
-															<ChooseType>false</ChooseType>
-															<ContextMenu name="ЗатратыСтатьяЗатратКонтекстноеМеню" id="603"/>
-															<ExtendedTooltip name="ЗатратыСтатьяЗатратРасширеннаяПодсказка" id="2852"/>
-															<Events>
-																<Event name="OnChange">ЗатратыСтатьяЗатратПриИзменении</Event>
-															</Events>
-														</InputField>
-														<InputField name="ЗатратыСтатьяБДДС" id="608">
-															<DataPath>Объект.Затраты.СтатьяБДДС</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ЗатратыСтатьяБДДСКонтекстноеМеню" id="609"/>
-															<ExtendedTooltip name="ЗатратыСтатьяБДДСРасширеннаяПодсказка" id="2858"/>
-														</InputField>
-													</ChildItems>
 												</ColumnGroup>
 												<ColumnGroup name="ЗатратыГруппа1" id="618">
+													<Group>Horizontal</Group>
 													<ExtendedTooltip name="ЗатратыГруппа1РасширеннаяПодсказка" id="2854"/>
 													<ChildItems>
-														<InputField name="ЗатратыСуммаСеб" id="604">
-															<DataPath>Объект.Затраты.СуммаСеб</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ЗатратыСуммаСебКонтекстноеМеню" id="605"/>
-															<ExtendedTooltip name="ЗатратыСуммаСебРасширеннаяПодсказка" id="2855"/>
-														</InputField>
 														<InputField name="ЗатратыСуммаБДДС" id="606">
 															<DataPath>Объект.Затраты.СуммаБДДС</DataPath>
 															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
 															<ContextMenu name="ЗатратыСуммаБДДСКонтекстноеМеню" id="607"/>
 															<ExtendedTooltip name="ЗатратыСуммаБДДСРасширеннаяПодсказка" id="2856"/>
 														</InputField>
+														<InputField name="ЗатратыСуммаСеб" id="604">
+															<DataPath>Объект.Затраты.СуммаСеб</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>10</Width>
+															<ContextMenu name="ЗатратыСуммаСебКонтекстноеМеню" id="605"/>
+															<ExtendedTooltip name="ЗатратыСуммаСебРасширеннаяПодсказка" id="2855"/>
+														</InputField>
 													</ChildItems>
 												</ColumnGroup>
+												<ColumnGroup name="ЗатратыГруппа4" id="1093">
+													<ExtendedTooltip name="ЗатратыГруппа4РасширеннаяПодсказка" id="2851"/>
+													<ChildItems>
+														<InputField name="ЗатратыПодразделение" id="612">
+															<DataPath>Объект.Затраты.Подразделение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ЗатратыПодразделениеКонтекстноеМеню" id="613"/>
+															<ExtendedTooltip name="ЗатратыПодразделениеРасширеннаяПодсказка" id="2853"/>
+															<Events>
+																<Event name="StartChoice">ЗатратыПодразделениеНачалоВыбора</Event>
+															</Events>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ЗатратыОснование" id="614">
+													<DataPath>Объект.Затраты.Основание</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗатратыОснованиеКонтекстноеМеню" id="615"/>
+													<ExtendedTooltip name="ЗатратыОснованиеРасширеннаяПодсказка" id="2861"/>
+												</InputField>
 												<ColumnGroup name="ЗатратыГруппа6" id="3415">
+													<Group>Horizontal</Group>
 													<ExtendedTooltip name="ЗатратыГруппа6РасширеннаяПодсказка" id="3416"/>
 													<ChildItems>
 														<CheckBoxField name="ЗатратыВНХ" id="3394">
@@ -2102,12 +2110,6 @@
 													<Events>
 														<Event name="StartChoice">ЗатратыНоменклатураНачалоВыбора</Event>
 													</Events>
-												</InputField>
-												<InputField name="ЗатратыОснование" id="614">
-													<DataPath>Объект.Затраты.Основание</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ЗатратыОснованиеКонтекстноеМеню" id="615"/>
-													<ExtendedTooltip name="ЗатратыОснованиеРасширеннаяПодсказка" id="2861"/>
 												</InputField>
 												<ColumnGroup name="ЗатратыГруппа7" id="3831">
 													<Visible>false</Visible>
@@ -2262,6 +2264,18 @@
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="ЗатратыУтверждениеКонтекстноеМеню" id="3437"/>
 													<ExtendedTooltip name="ЗатратыУтверждениеРасширеннаяПодсказка" id="3438"/>
+												</InputField>
+												<InputField name="ЗатратыКонтрагент" id="3885">
+													<DataPath>Объект.Затраты.Контрагент</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗатратыКонтрагентКонтекстноеМеню" id="3886"/>
+													<ExtendedTooltip name="ЗатратыКонтрагентРасширеннаяПодсказка" id="3887"/>
+												</InputField>
+												<InputField name="ЗатратыДоговор" id="3888">
+													<DataPath>Объект.Затраты.Договор</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ЗатратыДоговорКонтекстноеМеню" id="3889"/>
+													<ExtendedTooltip name="ЗатратыДоговорРасширеннаяПодсказка" id="3890"/>
 												</InputField>
 											</ChildItems>
 										</Table>

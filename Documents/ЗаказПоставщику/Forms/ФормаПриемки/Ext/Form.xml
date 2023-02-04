@@ -726,7 +726,7 @@
 										<CheckBoxField name="РеквизитыСчФСовпадают" id="628">
 											<DataPath>РеквизитыСчФСовпадают</DataPath>
 											<TitleLocation>Right</TitleLocation>
-											<CheckBoxType>Auto</CheckBoxType>
+											<CheckBoxType>Switcher</CheckBoxType>
 											<ContextMenu name="РеквизитыСчФСовпадаютКонтекстноеМеню" id="629"/>
 											<ExtendedTooltip name="РеквизитыСчФСовпадаютРасширеннаяПодсказка" id="630"/>
 											<Events>
@@ -812,16 +812,6 @@
 											<ShowTitle>false</ShowTitle>
 											<ExtendedTooltip name="ГруппаСканРасширеннаяПодсказка" id="317"/>
 											<ChildItems>
-												<CheckBoxField name="Скан_ВводКоличества" id="342">
-													<DataPath>Скан_РежимРучногоВводаКоличества</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="Скан_ВводКоличестваКонтекстноеМеню" id="343"/>
-													<ExtendedTooltip name="Скан_ВводКоличестваРасширеннаяПодсказка" id="344"/>
-													<Events>
-														<Event name="OnChange">Скан_ВводКоличестваПриИзменении</Event>
-													</Events>
-												</CheckBoxField>
 												<UsualGroup name="ГруппаНадШтрихкодом" id="410">
 													<Title>
 														<v8:item>
@@ -860,10 +850,20 @@
 													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="ГруппаСканНоменклатураРасширеннаяПодсказка" id="401"/>
 													<ChildItems>
+														<CheckBoxField name="Скан_ВводКоличества" id="342">
+															<DataPath>Скан_РежимРучногоВводаКоличества</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Switcher</CheckBoxType>
+															<ContextMenu name="Скан_ВводКоличестваКонтекстноеМеню" id="343"/>
+															<ExtendedTooltip name="Скан_ВводКоличестваРасширеннаяПодсказка" id="344"/>
+															<Events>
+																<Event name="OnChange">Скан_ВводКоличестваПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
 														<InputField name="Скан_Штрихкод" id="345">
 															<DataPath>Скан_Штрихкод</DataPath>
 															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<Width>40</Width>
+															<Width>15</Width>
 															<HorizontalStretch>false</HorizontalStretch>
 															<BackColor>#DEDEDE</BackColor>
 															<ContextMenu name="Скан_ШтрихкодКонтекстноеМеню" id="346"/>
@@ -877,7 +877,6 @@
 															<ReadOnly>true</ReadOnly>
 															<TitleLocation>None</TitleLocation>
 															<Width>30</Width>
-															<Font ref="style:NormalTextFont" kind="StyleItem" scale="70"/>
 															<InputHint>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -890,11 +889,49 @@
 																<Event name="OnChange">Скан_НоменклатураПриИзменении</Event>
 															</Events>
 														</InputField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаСерии" id="354">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа серии</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа серии</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаСерииРасширеннаяПодсказка" id="355"/>
+													<ChildItems>
 														<InputField name="ДатаСерии" id="631">
 															<DataPath>ДатаСерии</DataPath>
 															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
 															<ContextMenu name="ДатаСерииКонтекстноеМеню" id="632"/>
 															<ExtendedTooltip name="ДатаСерииРасширеннаяПодсказка" id="633"/>
+														</InputField>
+														<InputField name="СрокГодности" id="642">
+															<DataPath>СрокГодности</DataPath>
+															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+															<ContextMenu name="СрокГодностиКонтекстноеМеню" id="643"/>
+															<ExtendedTooltip name="СрокГодностиРасширеннаяПодсказка" id="644"/>
+															<Events>
+																<Event name="OnChange">СрокГодностиПриИзменении</Event>
+															</Events>
+														</InputField>
+														<InputField name="ГоденДо" id="645">
+															<DataPath>ГоденДо</DataPath>
+															<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+															<ContextMenu name="ГоденДоКонтекстноеМеню" id="646"/>
+															<ExtendedTooltip name="ГоденДоРасширеннаяПодсказка" id="647"/>
+															<Events>
+																<Event name="OnChange">ГоденДоПриИзменении</Event>
+															</Events>
 														</InputField>
 														<InputField name="Скан_Количество" id="351">
 															<DataPath>Скан_Количество</DataPath>
@@ -907,24 +944,6 @@
 															</Events>
 														</InputField>
 													</ChildItems>
-												</UsualGroup>
-												<UsualGroup name="ГруппаСканКоличество" id="354">
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа скан количество</v8:content>
-														</v8:item>
-													</Title>
-													<ToolTip>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Группа скан количество</v8:content>
-														</v8:item>
-													</ToolTip>
-													<Behavior>Usual</Behavior>
-													<Representation>None</Representation>
-													<ShowTitle>false</ShowTitle>
-													<ExtendedTooltip name="ГруппаСканКоличествоРасширеннаяПодсказка" id="355"/>
 												</UsualGroup>
 												<Table name="ТоварыСкан" id="320">
 													<Representation>List</Representation>
@@ -1152,6 +1171,36 @@
 																<Event name="StartChoice">ТЗ_ПланФактСрокГодностиНачалоВыбора</Event>
 															</Events>
 														</InputField>
+														<ColumnGroup name="ТЗ_ПланФактГруппа1" id="640">
+															<ExtendedTooltip name="ТЗ_ПланФактГруппа1РасширеннаяПодсказка" id="641"/>
+															<ChildItems>
+																<InputField name="ТЗ_ПланФактСрокГодности2" id="634">
+																	<DataPath>ТЗ_ПланФакт.СрокГодности2</DataPath>
+																	<Visible>false</Visible>
+																	<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>8</Width>
+																	<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+																	<ContextMenu name="ТЗ_ПланФактСрокГодности2КонтекстноеМеню" id="635"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактСрокГодности2РасширеннаяПодсказка" id="636"/>
+																	<Events>
+																		<Event name="OnChange">ТЗ_ПланФактСрокГодности2ПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ТЗ_ПланФактГоденДо" id="637">
+																	<DataPath>ТЗ_ПланФакт.ГоденДо</DataPath>
+																	<TitleFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem" scale="100"/>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>8</Width>
+																	<ContextMenu name="ТЗ_ПланФактГоденДоКонтекстноеМеню" id="638"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактГоденДоРасширеннаяПодсказка" id="639"/>
+																	<Events>
+																		<Event name="OnChange">ТЗ_ПланФактГоденДоПриИзменении</Event>
+																		<Event name="StartChoice">ТЗ_ПланФактСрокГодностиНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
 														<ColumnGroup name="ТЗ_ПланФактГруппаКолво" id="214">
 															<Title>
 																<v8:item>
@@ -2386,6 +2435,36 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
+				<Column name="СрокГодности2" id="25">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок годности</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ГоденДо" id="26">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Годен до</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ОбрабатываемыйДокумент" id="5">
@@ -3507,7 +3586,67 @@
 						</v8:DateQualifiers>
 					</Type>
 				</Column>
+				<Column name="СрокГодности2" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Срок годности</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>10</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ГоденДо" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Годен до</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
 			</Columns>
+		</Attribute>
+		<Attribute name="ГоденДо" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Годен до</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СрокГодности" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок годности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
 		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
@@ -3705,6 +3844,12 @@
 				<dcsset:selection>
 					<dcsset:item>
 						<dcsset:field>ТЗ_ПланФактСрокГодности</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактСрокГодности2</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактГоденДо</dcsset:field>
 					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:filter>

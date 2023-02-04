@@ -32,6 +32,12 @@
 			<role>
 				<dcscom:dimension>true</dcscom:dimension>
 			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">120</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Субконто1</dataPath>
@@ -98,6 +104,12 @@
 					<v8:content>Ответственный менеджер</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">120</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>НетОтсрочкиПоДоговору</dataPath>
@@ -113,11 +125,21 @@
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="xs:string">БЛ=; БИ=Отсутствует</dcscor:value>
 				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
 			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Отсрочка</dataPath>
 			<field>Отсрочка</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Документ</dataPath>
@@ -128,6 +150,12 @@
 					<v8:content>Документ</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">65</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СтатусКонтрагента</dataPath>
@@ -138,6 +166,12 @@
 					<v8:content>Статус контрагента</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПериодТекущий</dataPath>
@@ -347,6 +381,19 @@
 					<v8:content>Плановая оплата</v8:content>
 				</v8:item>
 			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументБУ</dataPath>
+			<field>ДокументБУ</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">60</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<item xsi:type="DataSetQuery">
 			<name>ОсновныеДанныеНач</name>
@@ -563,6 +610,13 @@
 					</v8:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументБУ</dataPath>
+				<field>ДокументБУ</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	УчетныйОстатки.Предприятия КАК Предприятия,
@@ -707,6 +761,43 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
+	сабОбработкаДокументов.ДокументУУ КАК ДокументУУ,
+	сабОбработкаДокументов.ДатаОбработки КАК ДатаОбработки
+ПОМЕСТИТЬ ВТ_Группировка
+ИЗ
+	РегистрСведений.сабОбработкаДокументов КАК сабОбработкаДокументов
+ГДЕ
+	сабОбработкаДокументов.ДокументУУ.Дата ЕСТЬ НЕ NULL 
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(сабОбработкаДокументов.ДокументБУ) КАК ДокументБУ,
+	сабОбработкаДокументов.ДокументУУ КАК ДокументУУ,
+	сабОбработкаДокументов.ДатаОбработки КАК ДатаОбработки
+ПОМЕСТИТЬ ВТГруппировкаУУ_Дата
+ИЗ
+	РегистрСведений.сабОбработкаДокументов КАК сабОбработкаДокументов
+
+СГРУППИРОВАТЬ ПО
+	сабОбработкаДокументов.ДокументУУ,
+	сабОбработкаДокументов.ДатаОбработки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Группировка.ДокументУУ КАК ДокументУУ,
+	ВТГруппировкаУУ_Дата.ДокументБУ КАК ДокументБУ
+ПОМЕСТИТЬ ВТИтоговыеДанныеБУОснования
+ИЗ
+	ВТ_Группировка КАК ВТ_Группировка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТГруппировкаУУ_Дата КАК ВТГруппировкаУУ_Дата
+		ПО ВТ_Группировка.ДокументУУ = ВТГруппировкаУУ_Дата.ДокументУУ
+			И ВТ_Группировка.ДатаОбработки = ВТГруппировкаУУ_Дата.ДатаОбработки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
 	ВТ_ИтоговыеДанные.Предприятия КАК Предприятия,
 	ВТ_ИтоговыеДанные.Контрагент КАК Контрагент,
 	ВТ_ИтоговыеДанные.Договор КАК Договор,
@@ -728,11 +819,14 @@
 		КОГДА (ВЫРАЗИТЬ(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ВТ_ИтоговыеДанные.Документ КАК Документ.УЧ_Реализация).Дата, ДЕНЬ, ВТ_ИтоговыеДанные.Отсрочка) КАК ДАТА)) &lt;= &amp;ПериодДатаКон
 			ТОГДА ВТ_ИтоговыеДанные.ДЗНач
 		ИНАЧЕ 0
-	КОНЕЦ КАК ПлановаяОплата
+	КОНЕЦ КАК ПлановаяОплата,
+	ВТИтоговыеДанныеБУОснования.ДокументБУ КАК ДокументБУ
 ИЗ
 	ВТ_ИтоговыеДанные КАК ВТ_ИтоговыеДанные
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Ответственные.СрезПоследних(&amp;ПериодКон, ) КАК ОтветственныеСрезПоследних
 		ПО ВТ_ИтоговыеДанные.Контрагент = ОтветственныеСрезПоследних.Контрагент
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТИтоговыеДанныеБУОснования КАК ВТИтоговыеДанныеБУОснования
+		ПО ВТ_ИтоговыеДанные.Документ = ВТИтоговыеДанныеБУОснования.ДокументУУ
 ГДЕ
 	(ВЫБОР
 				КОГДА &amp;ОграничениеКонтрагентов
@@ -1004,6 +1098,13 @@
 					</v8:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументБУ</dataPath>
+				<field>ДокументБУ</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	УчетныйОбороты.Субконто1 КАК Контрагент,
@@ -1070,6 +1171,43 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
+	сабОбработкаДокументов.ДокументУУ КАК ДокументУУ,
+	сабОбработкаДокументов.ДатаОбработки КАК ДатаОбработки
+ПОМЕСТИТЬ ВТ_Группировка
+ИЗ
+	РегистрСведений.сабОбработкаДокументов КАК сабОбработкаДокументов
+ГДЕ
+	сабОбработкаДокументов.ДокументУУ.Дата ЕСТЬ НЕ NULL 
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	МАКСИМУМ(сабОбработкаДокументов.ДокументБУ) КАК ДокументБУ,
+	сабОбработкаДокументов.ДокументУУ КАК ДокументУУ,
+	сабОбработкаДокументов.ДатаОбработки КАК ДатаОбработки
+ПОМЕСТИТЬ ВТГруппировкаУУ_Дата
+ИЗ
+	РегистрСведений.сабОбработкаДокументов КАК сабОбработкаДокументов
+
+СГРУППИРОВАТЬ ПО
+	сабОбработкаДокументов.ДокументУУ,
+	сабОбработкаДокументов.ДатаОбработки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Группировка.ДокументУУ КАК ДокументУУ,
+	ВТГруппировкаУУ_Дата.ДокументБУ КАК ДокументБУ
+ПОМЕСТИТЬ ВТИтоговаяОснованиеБУ
+ИЗ
+	ВТ_Группировка КАК ВТ_Группировка
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТГруппировкаУУ_Дата КАК ВТГруппировкаУУ_Дата
+		ПО ВТ_Группировка.ДокументУУ = ВТГруппировкаУУ_Дата.ДокументУУ
+			И ВТ_Группировка.ДатаОбработки = ВТГруппировкаУУ_Дата.ДатаОбработки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
 	ВТ_Обороты.ОтгрузкаЛВИ КАК ОтгрузкаЛВИ,
 	ВТ_Обороты.ВозвратКорректировка КАК ВозвратКорректировка,
 	ОтветственныеСрезПоследних.Ответственный КАК ОтветственныйМенеджер,
@@ -1092,13 +1230,16 @@
 		КОГДА (ВЫРАЗИТЬ(ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ВТ_Обороты.Документ КАК Документ.УЧ_Реализация).Дата, ДЕНЬ, ЕСТЬNULL(ОтсрочкаПоДоговорамСрезПоследних.Отсрочка, 0)) КАК ДАТА)) &lt;= &amp;ПериодДатаКон
 			ТОГДА ВТ_Обороты.ОтгрузкаЛВИ
 		ИНАЧЕ 0
-	КОНЕЦ КАК ПлановаяОплата
+	КОНЕЦ КАК ПлановаяОплата,
+	ВТИтоговаяОснованиеБУ.ДокументБУ КАК ДокументБУ
 ИЗ
 	ВТ_Обороты КАК ВТ_Обороты
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Ответственные.СрезПоследних(&amp;ПериодНач, ) КАК ОтветственныеСрезПоследних
 		ПО ВТ_Обороты.Контрагент = ОтветственныеСрезПоследних.Контрагент
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ОтсрочкаПоДоговорам.СрезПоследних(&amp;ТекДата, ) КАК ОтсрочкаПоДоговорамСрезПоследних
 		ПО ВТ_Обороты.Договор = ОтсрочкаПоДоговорамСрезПоследних.Договор
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТИтоговаяОснованиеБУ КАК ВТИтоговаяОснованиеБУ
+		ПО ВТ_Обороты.Документ = ВТИтоговаяОснованиеБУ.ДокументУУ
 ГДЕ
 	(ВЫБОР
 				КОГДА &amp;ОграничениеКонтрагентов
@@ -1121,6 +1262,12 @@
 				<v8:content>ИНН</v8:content>
 			</v8:item>
 		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+			</dcscor:item>
+		</appearance>
 	</calculatedField>
 	<calculatedField>
 		<dataPath>КПП</dataPath>
@@ -1659,6 +1806,13 @@
 										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>ДокументБУ</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
 								</dcsset:groupItems>
 								<dcsset:order>
 									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
@@ -1676,7 +1830,57 @@
 									<dcsset:item xsi:type="dcsset:SelectedItemField">
 										<dcsset:field>ПользовательскиеПоля.Поле4</dcsset:field>
 									</dcsset:item>
-									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Документ</dcsset:field>
+										<dcsset:lwsTitle>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Документ УУ</v8:content>
+											</v8:item>
+										</dcsset:lwsTitle>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>ДокументБУ</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:lwsTitle>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Данные на начало</v8:content>
+											</v8:item>
+										</dcsset:lwsTitle>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>ДЗНач</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>ПДЗНач</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>КЗНач</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+										<dcsset:lwsTitle>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Движения</v8:content>
+											</v8:item>
+										</dcsset:lwsTitle>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>ОтгрузкаЛВИ</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>ПлановаяОплата</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Оплата</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>ПрочиеДвижения</dcsset:field>
+										</dcsset:item>
+										<dcsset:placement>Auto</dcsset:placement>
+									</dcsset:item>
 								</dcsset:selection>
 							</dcsset:item>
 						</dcsset:item>

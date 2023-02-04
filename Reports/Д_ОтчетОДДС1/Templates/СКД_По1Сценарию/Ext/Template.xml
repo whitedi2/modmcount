@@ -1029,12 +1029,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ РАЗРЕШЕННЫЕ
-	ВТ_Данные.НачСальдо КАК НачСальдо,
-	ВТ_Данные.НачСальдо1 КАК НачСальдо1,
+	СУММА(ВТ_Данные.НачСальдо) КАК НачСальдо,
+	СУММА(ВТ_Данные.НачСальдо1) КАК НачСальдо1,
 	ВТ_Данные.Предприятие КАК Предприятие,
 	ВТ_Данные.Предприятия КАК Предприятия,
-	ВТ_Данные.КонСальдо КАК КонСальдо,
-	ВТ_Данные.КонСальдо1 КАК КонСальдо1,
+	СУММА(ВТ_Данные.КонСальдо) КАК КонСальдо,
+	СУММА(ВТ_Данные.КонСальдо1) КАК КонСальдо1,
 	ВТ_Данные.Подразделение КАК Подразделение,
 	ВТ_Данные.Подразделения КАК Подразделения
 ИЗ
@@ -1062,7 +1062,13 @@
 				&amp;ДатаКурсаБюджСц2 {(&amp;ДатаКурсаБюджСц2)},
 				Сценарий = &amp;Сценарий2
 					И Валюта1 = &amp;ЭквивалентнаяВалюта) КАК ПлановыйКурсЭквивалентнойВалюты2
-		ПО ВТ_Данные.Предприятия.ОсновнаяВалютаУчета = ПлановыйКурсЭквивалентнойВалюты2.Валюта2</query>
+		ПО ВТ_Данные.Предприятия.ОсновнаяВалютаУчета = ПлановыйКурсЭквивалентнойВалюты2.Валюта2
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Данные.Предприятие,
+	ВТ_Данные.Предприятия,
+	ВТ_Данные.Подразделение,
+	ВТ_Данные.Подразделения</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetUnion">
 		<name>ДетЗаписи</name>
@@ -5791,7 +5797,7 @@
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>МакетОформления</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">МакетБДДС</dcscor:value>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
@@ -6191,7 +6197,7 @@
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>МакетОформления</dcscor:parameter>
-					<dcscor:value xsi:type="xs:string">МакетБДДС</dcscor:value>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>

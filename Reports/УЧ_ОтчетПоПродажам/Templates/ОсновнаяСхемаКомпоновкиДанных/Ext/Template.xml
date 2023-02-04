@@ -67,6 +67,17 @@
 					<v8:content>Выручка</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ДнейПродаж</dataPath>
@@ -91,6 +102,17 @@
 					<v8:content>Количество</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=3</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПериодДень</dataPath>
@@ -175,6 +197,17 @@
 					<v8:content>Скидка</v8:content>
 				</v8:item>
 			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Контрагент</dataPath>
@@ -217,6 +250,48 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НДС</dataPath>
+			<field>НДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>НДС</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыручкаБезНДС</dataPath>
+			<field>ВыручкаБезНДС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выручка без НДС</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура) КАК Номенклатура,
@@ -242,6 +317,23 @@
 ГДЕ
 	(ТИПЗНАЧЕНИЯ(УчетныйОбороты.Регистратор) = ТИП(Документ.УЧ_Реализация)
 			ИЛИ ТИПЗНАЧЕНИЯ(УчетныйОбороты.Регистратор) = ТИП(Документ.УЧ_Возврат))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура) КАК Номенклатура,
+	УчетныйОбороты.СуммаОборот КАК СуммаНДС,
+	УчетныйОбороты.Подразделение КАК Подразделение,
+	УчетныйОбороты.ПериодДень КАК ПериодДень,
+	УчетныйОбороты.Предприятия КАК Предприятия,
+	УчетныйОбороты.ПериодНеделя КАК ПериодНеделя,
+	УчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
+	УчетныйОбороты.Регистратор КАК Регистратор,
+	ВЫРАЗИТЬ(УчетныйОбороты.Субконто3 КАК Справочник.Контрагенты) КАК Контрагент,
+	УчетныйОбороты.Регистратор.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента
+ПОМЕСТИТЬ ВремНДС
+ИЗ
+	РегистрБухгалтерии.Учетный.Обороты(, , Авто, Счет.Код = "90.03", , Подразделение В (&amp;ДоступныеПодразделения), КорСчет.Код = "68.01", ) КАК УчетныйОбороты
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -306,12 +398,24 @@
 	ВТ_Данные.Контрагент КАК Контрагент,
 	ВТ_Данные.Менеджер КАК Менеджер,
 	ВТ_Данные.Вес КАК Вес,
-	ВТ_Данные.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента
+	ВТ_Данные.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента,
+	ЕСТЬNULL(ВремНДС.СуммаНДС, 0) КАК НДС,
+	ВТ_Данные.Выручка - ЕСТЬNULL(ВремНДС.СуммаНДС, 0) КАК ВыручкаБезНДС
 ИЗ
 	ВТ_Данные КАК ВТ_Данные
 		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_Скидка КАК ВТ_Скидка
 		ПО ВТ_Данные.Регистратор = ВТ_Скидка.Ссылка
 			И ВТ_Данные.Номенклатура = ВТ_Скидка.Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ ВремНДС КАК ВремНДС
+		ПО ВТ_Данные.Номенклатура = ВремНДС.Номенклатура
+			И ВТ_Данные.Подразделение = ВремНДС.Подразделение
+			И ВТ_Данные.ПериодДень = ВремНДС.ПериодДень
+			И ВТ_Данные.Предприятия = ВремНДС.Предприятия
+			И ВТ_Данные.ПериодНеделя = ВремНДС.ПериодНеделя
+			И ВТ_Данные.ПериодМесяц = ВремНДС.ПериодМесяц
+			И ВТ_Данные.Регистратор = ВремНДС.Регистратор
+			И ВТ_Данные.Контрагент = ВремНДС.Контрагент
+			И ВТ_Данные.ПодразделениеКонтрагента = ВремНДС.ПодразделениеКонтрагента
 ГДЕ
 	(ВЫБОР
 				КОГДА &amp;ОграничениеКонтрагентов
@@ -766,6 +870,38 @@
 			</v8:StringQualifiers>
 		</valueType>
 	</calculatedField>
+	<calculatedField>
+		<dataPath>ЦенаБезНДС</dataPath>
+		<expression>Выбор Когда ЕСТЬNULL(Количество, 0) = 0 Тогда 0 Иначе ЕСТЬNULL(ВыручкаБезНДС, 0)/ЕСТЬNULL(Количество, 0) Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Цена без НДС</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ВНХКонтрагент</dataPath>
+		<expression>Выбор Когда Контрагент.ЭтоОрганизация = Значение(Справочник.Организации.ПустаяСсылка) Тогда Ложь Иначе Истина Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ВНХ Контрагент</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+	</calculatedField>
 	<totalField>
 		<dataPath>Цена</dataPath>
 		<expression>Выбор Когда Сумма(Количество) = 0 Тогда 0 Иначе Сумма(Выручка)/Сумма(Количество) Конец</expression>
@@ -797,6 +933,18 @@
 	<totalField>
 		<dataPath>Скидка</dataPath>
 		<expression>Сумма(Скидка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НДС</dataPath>
+		<expression>Сумма(НДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВыручкаБезНДС</dataPath>
+		<expression>Сумма(ВыручкаБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЦенаБезНДС</dataPath>
+		<expression>Выбор Когда Сумма(Количество) = 0 Тогда 0 Иначе Сумма(ВыручкаБезНДС)/Сумма(Количество) Конец</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -981,6 +1129,15 @@
 					<dcsset:field>Выручка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыручкаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Прибыль</dcsset:field>
 				</dcsset:item>
@@ -1010,6 +1167,10 @@
 				</dcsset:item>
 			</dcsset:order>
 			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
@@ -1147,6 +1308,15 @@
 					<dcsset:field>Выручка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыручкаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Прибыль</dcsset:field>
 				</dcsset:item>
@@ -1176,6 +1346,10 @@
 				</dcsset:item>
 			</dcsset:order>
 			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
@@ -1281,6 +1455,15 @@
 					<dcsset:field>Выручка</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыручкаБезНДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Прибыль</dcsset:field>
 				</dcsset:item>
@@ -1311,6 +1494,10 @@
 				</dcsset:item>
 			</dcsset:order>
 			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
