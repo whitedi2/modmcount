@@ -155,6 +155,35 @@
 										</Button>
 									</ChildItems>
 								</Popup>
+								<Popup name="Печать" id="596">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Печать</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Печать</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ПечатьРасширеннаяПодсказка" id="597"/>
+									<ChildItems>
+										<Button name="ДокументсабМаршрутныйЛистМаршрутныйЛистНовый" id="594">
+											<Type>CommandBarButton</Type>
+											<CommandName>Document.сабМаршрутныйЛист.Command.МаршрутныйЛистНовый</CommandName>
+											<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+											<ExtendedTooltip name="ДокументсабМаршрутныйЛистМаршрутныйЛистНовыйРасширеннаяПодсказка" id="595"/>
+										</Button>
+										<Button name="ДокументсабМаршрутныйЛистМаршрутныйЛистНаборЗаказаВесовой" id="598">
+											<Type>CommandBarButton</Type>
+											<CommandName>Document.сабМаршрутныйЛист.Command.МаршрутныйЛистНаборЗаказаВесовой</CommandName>
+											<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+											<ExtendedTooltip name="ДокументсабМаршрутныйЛистМаршрутныйЛистНаборЗаказаВесовойРасширеннаяПодсказка" id="599"/>
+										</Button>
+									</ChildItems>
+								</Popup>
 							</ChildItems>
 						</CommandBar>
 						<Table name="Список" id="1">
@@ -215,6 +244,7 @@
 							<Events>
 								<Event name="Selection">СписокВыбор</Event>
 								<Event name="OnActivateRow">СписокПриАктивизацииСтроки</Event>
+								<Event name="RefreshRequestProcessing">СписокОбработкаЗапросаОбновления</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="Дата" id="4">
@@ -360,6 +390,29 @@
 											<Type>CommandBarButton</Type>
 											<CommandName>Form.Command.СтатусОтменено</CommandName>
 											<ExtendedTooltip name="ФормаСтатусОтмененоРасширеннаяПодсказка" id="305"/>
+										</Button>
+									</ChildItems>
+								</Popup>
+								<Popup name="ПечатьСамовывоз" id="608">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Печать</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Печать самовывоз</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ПечатьСамовывозРасширеннаяПодсказка" id="609"/>
+									<ChildItems>
+										<Button name="ДокументЗаказКлиентаПечатьЗаказКлиента" id="610">
+											<Type>CommandBarButton</Type>
+											<CommandName>Document.ЗаказКлиента.Command.ПечатьЗаказКлиента</CommandName>
+											<DataPath>Items.СписокЗаказов.CurrentData.Ссылка</DataPath>
+											<ExtendedTooltip name="ДокументЗаказКлиентаПечатьЗаказКлиентаРасширеннаяПодсказка" id="611"/>
 										</Button>
 									</ChildItems>
 								</Popup>
@@ -574,6 +627,29 @@
 												<Visible>false</Visible>
 												<CommandName>Form.Command.СтатусОтменено</CommandName>
 												<ExtendedTooltip name="ФормаСтатусОтменено1РасширеннаяПодсказка" id="578"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Popup name="ПечатьПеремещение" id="602">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Печать</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Печать перемещение</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ПечатьПеремещениеРасширеннаяПодсказка" id="603"/>
+										<ChildItems>
+											<Button name="СписокЗаказовПеремещениеДокументЗаказНаПеремещениеПечатьЗаказНаПеремещение" id="604">
+												<Type>CommandBarButton</Type>
+												<CommandName>Document.ЗаказНаПеремещение.Command.ПечатьЗаказНаПеремещение</CommandName>
+												<DataPath>Items.СписокЗаказовПеремещение.CurrentData.Ссылка</DataPath>
+												<ExtendedTooltip name="СписокЗаказовПеремещениеДокументЗаказНаПеремещениеПечатьЗаказНаПеремещениеРасширеннаяПодсказка" id="605"/>
 											</Button>
 										</ChildItems>
 									</Popup>
@@ -1022,6 +1098,13 @@
 									</Button>
 								</ChildItems>
 							</Popup>
+							<Button name="ТЧСтрокиЗаказовОбновитьСтрокиТЧЗаказов" id="612" DisplayImportance="High">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Command.ОбновитьСтрокиТЧЗаказов</CommandName>
+								<RepresentationInContextMenu>AdditionalInContextMenu</RepresentationInContextMenu>
+								<LocationInCommandBar>InCommandBarAndInAdditionalSubmenu</LocationInCommandBar>
+								<ExtendedTooltip name="ТЧСтрокиЗаказовОбновитьСтрокиТЧЗаказовРасширеннаяПодсказка" id="613"/>
+							</Button>
 						</ChildItems>
 					</AutoCommandBar>
 					<ExtendedTooltip name="ТЧСтрокиЗаказовРасширеннаяПодсказка" id="108"/>
@@ -2711,6 +2794,26 @@
 			<Action>ЗаполнитьСерииДляВсейНоменклатуры</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ОбновитьСтрокиТЧЗаказов" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьСтрокиТЧЗаказов</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 </Form>

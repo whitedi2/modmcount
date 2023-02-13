@@ -266,13 +266,23 @@
 				</dcscor:item>
 			</appearance>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипКонтрагента</dataPath>
+			<field>ТипКонтрагента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип контрагента</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	УчетныйОстатки.Предприятия КАК Предприятия,
 	УчетныйОстатки.Субконто1 КАК Субконто1,
 	УчетныйОстатки.Субконто2 КАК Субконто2,
 	УчетныйОстатки.Субконто3 КАК Субконто3,
-	УчетныйОстатки.СуммаОстатокДт КАК СуммаОстатокДт,
+	УчетныйОстатки.СуммаОстаток КАК СуммаОстатокДт,
 	УчетныйОстатки.Подразделение КАК Подразделение,
 	ВЫБОР
 		КОГДА УчетныйОстатки.Субконто3 ССЫЛКА Документ.УЧ_Реализация
@@ -286,9 +296,18 @@
 	УчетныйОстатки.Счет КАК Счет
 ПОМЕСТИТЬ ВТ_НачДанные
 ИЗ
-	РегистрБухгалтерии.Учетный.Остатки(, Счет.Код = "62.01", , ) КАК УчетныйОстатки
+	РегистрБухгалтерии.Учетный.Остатки(
+			,
+			Счет.Код = "62.01"
+				ИЛИ Счет.Код = "60.01",
+			,
+			) КАК УчетныйОстатки
 ГДЕ
-	УчетныйОстатки.СуммаОстатокДт &lt;&gt; 0
+	ВЫБОР
+			КОГДА УчетныйОстатки.Счет.Код = "62.01"
+				ТОГДА УчетныйОстатки.СуммаОстатокДт &lt;&gt; 0
+			ИНАЧЕ УчетныйОстатки.СуммаОстатокКт &lt;&gt; 0
+		КОНЕЦ
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -552,7 +571,12 @@
 			ТОГДА &amp;ПериодПользовательский
 		ИНАЧЕ ДОБАВИТЬКДАТЕ(ВЫРАЗИТЬ(ВТ_ИтоговыеДанные.Документ КАК Документ.УЧ_Реализация).Дата, ДЕНЬ, ВТ_ИтоговыеДанные.Отсрочка)
 	КОНЕЦ КАК ПлановаяДатаОплаты,
-	ВТ_ИтоговыеДанные.ДЗ КАК Сумма
+	ВТ_ИтоговыеДанные.ДЗ КАК Сумма,
+	ВЫБОР
+		КОГДА ВТ_ИтоговыеДанные.Счет.Код = "62.01"
+			ТОГДА ЗНАЧЕНИЕ(Перечисление.ВидыКонтрагентовВМонитореРуководителя.Покупатели)
+		ИНАЧЕ ЗНАЧЕНИЕ(Перечисление.ВидыКонтрагентовВМонитореРуководителя.Поставщики)
+	КОНЕЦ КАК ТипКонтрагента
 ИЗ
 	ВТ_ИтоговыеДанные КАК ВТ_ИтоговыеДанные
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Ответственные.СрезПоследних(&amp;ПериодПользовательский, ) КАК ОтветственныеСрезПоследних
@@ -619,7 +643,7 @@
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Период</v8:content>
+				<v8:content>На дату</v8:content>
 			</v8:item>
 		</title>
 		<valueType>
@@ -651,7 +675,7 @@
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Период</v8:content>
+				<v8:content>На дату</v8:content>
 			</v8:item>
 		</title>
 		<valueType>
@@ -701,7 +725,7 @@
 		<dcsset:presentation xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>График поступления задолженности</v8:content>
+				<v8:content>График погашения задолженности</v8:content>
 			</v8:item>
 		</dcsset:presentation>
 		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
@@ -902,21 +926,15 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
 					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ТипКонтрагента</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6aaa9d6a-2eea-450d-b7df-9f69d7eb9e21</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:left xsi:type="dcscor:Field">Контрагент</dcsset:left>
 					<dcsset:comparisonType>Equal</dcsset:comparisonType>
 					<dcsset:userSettingID>b482f59a-3b59-4383-83c9-45e2ec60ebe3</dcsset:userSettingID>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Договор</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:userSettingID>7459dcad-7b17-496e-a292-17b4d90e1685</dcsset:userSettingID>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:FilterItemComparison">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:left xsi:type="dcscor:Field">Подразделение</dcsset:left>
-					<dcsset:comparisonType>Equal</dcsset:comparisonType>
-					<dcsset:userSettingID>e0269f3d-7bd7-4cb0-95b2-c9e2ab6b6697</dcsset:userSettingID>
 				</dcsset:item>
 			</dcsset:filter>
 			<dcsset:dataParameters>
@@ -939,6 +957,10 @@
 			</dcsset:dataParameters>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетКрасивый</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
 					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
 				</dcscor:item>
@@ -947,7 +969,7 @@
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>График поступления задолженности</v8:content>
+							<v8:content>График погашения задолженности</v8:content>
 						</v8:item>
 					</dcscor:value>
 				</dcscor:item>
@@ -973,7 +995,7 @@
 				<dcsset:row>
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
-							<dcsset:field>ОтветственныйМенеджер</dcsset:field>
+							<dcsset:field>ТипКонтрагента</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -989,7 +1011,7 @@
 					<dcsset:item>
 						<dcsset:groupItems>
 							<dcsset:item xsi:type="dcsset:GroupItemField">
-								<dcsset:field>Предприятия</dcsset:field>
+								<dcsset:field>ОтветственныйМенеджер</dcsset:field>
 								<dcsset:groupType>Items</dcsset:groupType>
 								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1002,44 +1024,10 @@
 						<dcsset:selection>
 							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 						</dcsset:selection>
-						<dcsset:conditionalAppearance>
-							<dcsset:item>
-								<dcsset:selection/>
-								<dcsset:filter/>
-								<dcsset:appearance>
-									<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-										<dcscor:parameter>Шрифт</dcscor:parameter>
-										<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
-									</dcscor:item>
-								</dcsset:appearance>
-							</dcsset:item>
-						</dcsset:conditionalAppearance>
 						<dcsset:item>
 							<dcsset:groupItems>
 								<dcsset:item xsi:type="dcsset:GroupItemField">
-									<dcsset:field>Контрагент</dcsset:field>
-									<dcsset:groupType>Items</dcsset:groupType>
-									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-								</dcsset:item>
-								<dcsset:item xsi:type="dcsset:GroupItemField">
-									<dcsset:field>ИНН</dcsset:field>
-									<dcsset:groupType>Items</dcsset:groupType>
-									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-								</dcsset:item>
-								<dcsset:item xsi:type="dcsset:GroupItemField">
-									<dcsset:use>false</dcsset:use>
-									<dcsset:field>ОтветственныйМенеджер</dcsset:field>
-									<dcsset:groupType>Items</dcsset:groupType>
-									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-								</dcsset:item>
-								<dcsset:item xsi:type="dcsset:GroupItemField">
-									<dcsset:field>СтатусКонтрагента</dcsset:field>
+									<dcsset:field>Предприятия</dcsset:field>
 									<dcsset:groupType>Items</dcsset:groupType>
 									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1052,24 +1040,44 @@
 							<dcsset:selection>
 								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 							</dcsset:selection>
+							<dcsset:conditionalAppearance>
+								<dcsset:item>
+									<dcsset:selection/>
+									<dcsset:filter/>
+									<dcsset:appearance>
+										<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+											<dcscor:parameter>Шрифт</dcscor:parameter>
+											<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+										</dcscor:item>
+									</dcsset:appearance>
+								</dcsset:item>
+							</dcsset:conditionalAppearance>
 							<dcsset:item>
 								<dcsset:groupItems>
 									<dcsset:item xsi:type="dcsset:GroupItemField">
-										<dcsset:field>Договор</dcsset:field>
+										<dcsset:field>Контрагент</dcsset:field>
 										<dcsset:groupType>Items</dcsset:groupType>
 										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 									</dcsset:item>
 									<dcsset:item xsi:type="dcsset:GroupItemField">
-										<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+										<dcsset:field>ИНН</dcsset:field>
 										<dcsset:groupType>Items</dcsset:groupType>
 										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 									</dcsset:item>
 									<dcsset:item xsi:type="dcsset:GroupItemField">
-										<dcsset:field>Отсрочка</dcsset:field>
+										<dcsset:use>false</dcsset:use>
+										<dcsset:field>ОтветственныйМенеджер</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>СтатусКонтрагента</dcsset:field>
 										<dcsset:groupType>Items</dcsset:groupType>
 										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1085,14 +1093,13 @@
 								<dcsset:item>
 									<dcsset:groupItems>
 										<dcsset:item xsi:type="dcsset:GroupItemField">
-											<dcsset:field>Документ</dcsset:field>
+											<dcsset:field>Договор</dcsset:field>
 											<dcsset:groupType>Items</dcsset:groupType>
 											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 										</dcsset:item>
 										<dcsset:item xsi:type="dcsset:GroupItemField">
-											<dcsset:use>false</dcsset:use>
 											<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
 											<dcsset:groupType>Items</dcsset:groupType>
 											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
@@ -1100,15 +1107,7 @@
 											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 										</dcsset:item>
 										<dcsset:item xsi:type="dcsset:GroupItemField">
-											<dcsset:use>false</dcsset:use>
 											<dcsset:field>Отсрочка</dcsset:field>
-											<dcsset:groupType>Items</dcsset:groupType>
-											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
-											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
-											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
-										</dcsset:item>
-										<dcsset:item xsi:type="dcsset:GroupItemField">
-											<dcsset:field>ДЗ</dcsset:field>
 											<dcsset:groupType>Items</dcsset:groupType>
 											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -1121,6 +1120,46 @@
 									<dcsset:selection>
 										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 									</dcsset:selection>
+									<dcsset:item>
+										<dcsset:groupItems>
+											<dcsset:item xsi:type="dcsset:GroupItemField">
+												<dcsset:field>Документ</dcsset:field>
+												<dcsset:groupType>Items</dcsset:groupType>
+												<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+												<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+												<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:GroupItemField">
+												<dcsset:use>false</dcsset:use>
+												<dcsset:field>НетОтсрочкиПоДоговору</dcsset:field>
+												<dcsset:groupType>Items</dcsset:groupType>
+												<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+												<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+												<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:GroupItemField">
+												<dcsset:use>false</dcsset:use>
+												<dcsset:field>Отсрочка</dcsset:field>
+												<dcsset:groupType>Items</dcsset:groupType>
+												<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+												<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+												<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+											</dcsset:item>
+											<dcsset:item xsi:type="dcsset:GroupItemField">
+												<dcsset:field>ДЗ</dcsset:field>
+												<dcsset:groupType>Items</dcsset:groupType>
+												<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+												<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+												<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+											</dcsset:item>
+										</dcsset:groupItems>
+										<dcsset:order>
+											<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+										</dcsset:order>
+										<dcsset:selection>
+											<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+										</dcsset:selection>
+									</dcsset:item>
 								</dcsset:item>
 							</dcsset:item>
 						</dcsset:item>
