@@ -225,6 +225,7 @@
 			</SearchControlAddition>
 			<Events>
 				<Event name="OnEditEnd">ТабличнаяЧастьПриОкончанииРедактирования</Event>
+				<Event name="OnActivateCell">ТабличнаяЧастьПриАктивизацииЯчейки</Event>
 			</Events>
 			<ChildItems>
 				<LabelField name="ТабличнаяЧастьНомерСтроки" id="169">
@@ -245,7 +246,9 @@
 					<ContextMenu name="ТабличнаяЧастьЗаказКлиентаКонтекстноеМеню" id="173"/>
 					<ExtendedTooltip name="ТабличнаяЧастьЗаказКлиентаРасширеннаяПодсказка" id="174"/>
 					<Events>
+						<Event name="OnChange">ТабличнаяЧастьЗаказКлиентаПриИзменении</Event>
 						<Event name="StartChoice">ТабличнаяЧастьЗаказКлиентаНачалоВыбора</Event>
+						<Event name="ChoiceProcessing">ТабличнаяЧастьЗаказКлиентаОбработкаВыбора</Event>
 					</Events>
 				</InputField>
 				<LabelField name="ТабличнаяЧастьЗаказКлиентаКонтрагент" id="206">
@@ -292,6 +295,7 @@
 				<InputField name="ТабличнаяЧастьСтатус" id="194">
 					<DataPath>Объект.ТабличнаяЧасть.Статус</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<ChooseType>false</ChooseType>
 					<ContextMenu name="ТабличнаяЧастьСтатусКонтекстноеМеню" id="195"/>
 					<ExtendedTooltip name="ТабличнаяЧастьСтатусРасширеннаяПодсказка" id="196"/>
 				</InputField>

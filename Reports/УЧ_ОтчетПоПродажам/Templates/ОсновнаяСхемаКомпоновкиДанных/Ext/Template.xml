@@ -311,7 +311,16 @@
 	УчетныйОбороты.Регистратор.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента
 ПОМЕСТИТЬ ВТ_Данные
 ИЗ
-	РегистрБухгалтерии.Учетный.Обороты(&amp;ДатаНачала, &amp;ДатаОкончания, Авто, Счет.Код = "90.01", , Подразделение В (&amp;ДоступныеПодразделения), , ) КАК УчетныйОбороты
+	РегистрБухгалтерии.Учетный.Обороты(
+			&amp;ДатаНачала,
+			&amp;ДатаОкончания,
+			Авто,
+			Счет.Код = "90.01",
+			,
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
+			,
+			) КАК УчетныйОбороты
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Ответственные.СрезПоследних(&amp;КонецПериода, ) КАК ОтветственныеСрезПоследних
 		ПО УчетныйОбороты.КорСубконто1 = ОтветственныеСрезПоследних.Контрагент
 ГДЕ
@@ -333,7 +342,16 @@
 	УчетныйОбороты.Регистратор.ПодразделениеКонтрагента КАК ПодразделениеКонтрагента
 ПОМЕСТИТЬ ВремНДС
 ИЗ
-	РегистрБухгалтерии.Учетный.Обороты(, , Авто, Счет.Код = "90.03", , Подразделение В (&amp;ДоступныеПодразделения), КорСчет.Код = "68.01", ) КАК УчетныйОбороты
+	РегистрБухгалтерии.Учетный.Обороты(
+			,
+			,
+			Авто,
+			Счет.Код = "90.03",
+			,
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
+			КорСчет.Код = "68.01",
+			) КАК УчетныйОбороты
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -1102,6 +1120,22 @@
 		<valueListAllowed>true</valueListAllowed>
 		<denyIncompleteValues>true</denyIncompleteValues>
 	</parameter>
+	<parameter>
+		<name>Сценарий</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарий</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -1158,6 +1192,12 @@
 						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>32cbfef2-b3da-4bfe-ac64-c02127cbd3ed</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>ffc9c70c-b1a7-44d7-b28d-a714cc4bf277</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
@@ -1338,6 +1378,12 @@
 					</dcscor:value>
 					<dcsset:userSettingID>32cbfef2-b3da-4bfe-ac64-c02127cbd3ed</dcsset:userSettingID>
 				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>bc2aded8-913d-4d9f-90a5-cee1f91e09d1</dcsset:userSettingID>
+				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
 				<dcsset:item xsi:type="dcsset:OrderItemField">
@@ -1485,6 +1531,12 @@
 						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>32cbfef2-b3da-4bfe-ac64-c02127cbd3ed</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>2283fdca-c055-45cf-8e70-3c8c8cc1821c</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>

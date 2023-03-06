@@ -288,7 +288,8 @@
 				ИЛИ Счет.Код = "43"
 				ИЛИ Счет.Родитель.Код = "10",
 			,
-			Предприятия В (&amp;ДоступныеПредприятия)) КАК УчетныйОстаткиИОбороты
+			Предприятия В (&amp;ДоступныеПредприятия)
+				И СценарийПлана = &amp;Сценарий) КАК УчетныйОстаткиИОбороты
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НоменклатураПоставщика.СрезПоследних КАК НоменклатураПоставщикаСрезПоследних
 			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЦеныНоменклатуры.СрезПоследних КАК ЦеныНоменклатурыСрезПоследних
 			ПО НоменклатураПоставщикаСрезПоследних.Номенклатура = ЦеныНоменклатурыСрезПоследних.Номенклатура
@@ -1083,7 +1084,8 @@
 				ИЛИ Счет.Код = "43"
 				ИЛИ Счет.Родитель.Код = "10",
 			,
-			Предприятия В (&amp;ДоступныеПредприятия),
+			Предприятия В (&amp;ДоступныеПредприятия)
+				И СценарийПлана = &amp;Сценарий,
 			,
 			) КАК УчетныйОбороты</query>
 	</dataSet>
@@ -1351,7 +1353,8 @@
 				ИЛИ Счет.Код = "43"
 				ИЛИ Счет.Родитель.Код = "10",
 			,
-			Предприятия В (&amp;ДоступныеПредприятия)) КАК УчетныйОстаткиИОбороты</query>
+			Предприятия В (&amp;ДоступныеПредприятия)
+				И СценарийПлана = &amp;Сценарий) КАК УчетныйОстаткиИОбороты</query>
 	</dataSet>
 	<dataSetLink>
 		<sourceDataSet>НаборДанных1</sourceDataSet>
@@ -1729,6 +1732,22 @@
 		<useRestriction>true</useRestriction>
 		<expression>БюджетныйНаСервере.ПолучитьПредприятия()</expression>
 	</parameter>
+	<parameter>
+		<name>Сценарий</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарий</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Отчет по товарной ведомости</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -1840,6 +1859,12 @@
 						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 					</dcscor:value>
 					<dcsset:userSettingID>e438e045-2df2-41f9-b769-612aba0b3d04</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>2c3ae489-a80a-4d41-91b9-40042e64646e</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>

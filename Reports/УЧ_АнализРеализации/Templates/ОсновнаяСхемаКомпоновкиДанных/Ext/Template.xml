@@ -278,7 +278,8 @@
 			Авто,
 			Счет.Код = "90.01",
 			,
-			Подразделение В (&amp;ДоступныеПодразделения),
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
 			НЕ КорСчет.Код = "99"
 				И НЕ КорСчет.Код = "90.09",
 			) КАК УчетныйОбороты
@@ -302,7 +303,16 @@
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто3 КАК Справочник.Контрагенты) КАК Контрагент
 ПОМЕСТИТЬ ВремНДС
 ИЗ
-	РегистрБухгалтерии.Учетный.Обороты(, , Авто, Счет.Код = "90.03", , Подразделение В (&amp;ДоступныеПодразделения), КорСчет.Код = "68.01", ) КАК УчетныйОбороты
+	РегистрБухгалтерии.Учетный.Обороты(
+			,
+			,
+			Авто,
+			Счет.Код = "90.03",
+			,
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
+			КорСчет.Код = "68.01",
+			) КАК УчетныйОбороты
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -342,7 +352,8 @@
 			Авто,
 			Счет.Код = "90.02",
 			,
-			Подразделение В (&amp;ДоступныеПодразделения),
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
 			НЕ КорСчет.Код = "99"
 				И НЕ КорСчет.Код = "90.09",
 			) КАК УчетныйОбороты
@@ -680,9 +691,11 @@
 			Авто,
 			Счет.Код = "90.03",
 			,
-			Подразделение В (&amp;ДоступныеПодразделения),
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
 			НЕ КорСчет.Код = "99"
-				И НЕ КорСчет.Код = "90.09",
+				И НЕ КорСчет.Код = "90.09"
+				И НЕ КорСчет.Код = "68.01",
 			) КАК УчетныйОбороты
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НоменклатураПоставщика.СрезПоследних(, ) КАК НоменклатураПоставщикаСрезПоследних
 		ПО ((ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура)) = НоменклатураПоставщикаСрезПоследних.Номенклатура)
@@ -930,7 +943,8 @@
 			Авто,
 			Счет.Код = "90.02",
 			,
-			Подразделение В (&amp;ДоступныеПодразделения),
+			Подразделение В (&amp;ДоступныеПодразделения)
+				И СценарийПлана = &amp;Сценарий,
 			НЕ КорСчет.Код = "99"
 				И НЕ КорСчет.Код = "90.09",
 			) КАК УчетныйОбороты
@@ -1043,7 +1057,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>ПрибыльЕд</dataPath>
-		<expression>Выбор Когда ЕСТЬNULL(Количество, 0) = 0 Тогда 0 Иначе (ЕСТЬNULL(Выручка, 0) + ЕСТЬNULL(КомРасходы, 0) + ЕСТЬNULL(Себестоимость, 0))/ЕСТЬNULL(Количество, 0) Конец</expression>
+		<expression>Выбор Когда ЕСТЬNULL(Количество, 0) = 0 Тогда 0 Иначе (ЕСТЬNULL(ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0), 0) + ЕСТЬNULL(КомРасходы, 0) + ЕСТЬNULL(Себестоимость, 0))/ЕСТЬNULL(Количество, 0) Конец</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -1062,7 +1076,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>Прибыль</dataPath>
-		<expression>ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(Комрасходы, 0)+ЕСТЬNULL(Себестоимость, 0)</expression>
+		<expression>ЕСТЬNULL(ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0), 0)+ЕСТЬNULL(Комрасходы, 0)+ЕСТЬNULL(Себестоимость, 0)</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -1075,7 +1089,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>Рентабельность</dataPath>
-		<expression>Выбор Когда ЕСТЬNULL(Выручка, 0) = 0 Тогда 0 Иначе (ЕСТЬNULL(Выручка, 0) + ЕСТЬNULL(КомРасходы, 0) + ЕСТЬNULL(Себестоимость,0))/ЕСТЬNULL(Выручка, 0) Конец * 100</expression>
+		<expression>Выбор Когда ЕСТЬNULL(ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0), 0) = 0 Тогда 0 Иначе (ЕСТЬNULL(ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0), 0) + ЕСТЬNULL(КомРасходы, 0) + ЕСТЬNULL(Себестоимость,0))/(ЕСТЬNULL(ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0), 0)) Конец * 100</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -1622,6 +1636,25 @@
 			<v8:Type>xs:boolean</v8:Type>
 		</valueType>
 	</calculatedField>
+	<calculatedField>
+		<dataPath>ЦенаБезНДС</dataPath>
+		<expression>Выбор Когда ЕСТЬNULL(Количество, 0) = 0 Тогда 0 Иначе ЕСТЬNULL(ЕСТЬNULL(Выручка, 0)+ЕСТЬNULL(НДС, 0), 0)/ЕСТЬNULL(Количество, 0) Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Цена без НДС</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+		</useRestriction>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
 	<totalField>
 		<dataPath>Количество</dataPath>
 		<expression>Сумма(Количество)</expression>
@@ -1632,15 +1665,15 @@
 	</totalField>
 	<totalField>
 		<dataPath>Прибыль</dataPath>
-		<expression>Сумма(Выручка)+Сумма(Комрасходы)+Сумма(Себестоимость)</expression>
+		<expression>Сумма(ВыручкаБезНДС)+Сумма(Комрасходы)+Сумма(Себестоимость)</expression>
 	</totalField>
 	<totalField>
 		<dataPath>ПрибыльЕд</dataPath>
-		<expression>Выбор Когда Сумма(Количество) = 0 Тогда 0 Иначе (Сумма(Выручка)+Сумма(Комрасходы)+Сумма(Себестоимость))/Сумма(Количество) Конец</expression>
+		<expression>Выбор Когда Сумма(Количество) = 0 Тогда 0 Иначе (Сумма(ВыручкаБезНДС)+Сумма(Комрасходы)+Сумма(Себестоимость))/Сумма(Количество) Конец</expression>
 	</totalField>
 	<totalField>
 		<dataPath>Рентабельность</dataPath>
-		<expression>Выбор Когда Сумма(Выручка) = 0 Тогда 0 Иначе (Сумма(Выручка) + Сумма(КомРасходы) + Сумма(Себестоимость))/Сумма(Выручка) Конец * 100</expression>
+		<expression>Выбор Когда Сумма(ВыручкаБезНДС) = 0 Тогда 0 Иначе (Сумма(ВыручкаБезНДС) + Сумма(КомРасходы) + Сумма(Себестоимость))/Сумма(ВыручкаБезНДС) Конец * 100</expression>
 	</totalField>
 	<totalField>
 		<dataPath>Себестоимость</dataPath>
@@ -1678,6 +1711,10 @@
 	<totalField>
 		<dataPath>ВыручкаБезНДС</dataPath>
 		<expression>Сумма(ВыручкаБезНДС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЦенаБезНДС</dataPath>
+		<expression>Выбор Когда Сумма(Количество) = 0 Тогда 0 Иначе Сумма(ВыручкаБезНДС)/Сумма(Количество) Конец</expression>
 	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
@@ -1831,6 +1868,22 @@
 		<valueListAllowed>true</valueListAllowed>
 		<denyIncompleteValues>true</denyIncompleteValues>
 	</parameter>
+	<parameter>
+		<name>Сценарий</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарий</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -1853,6 +1906,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Цена</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЦенаБезНДС</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Выручка</dcsset:field>
@@ -1883,10 +1939,6 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Прибыль</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:use>false</dcsset:use>
-					<dcsset:field>ОбъемВЛитрах</dcsset:field>
 				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
@@ -1920,6 +1972,12 @@
 					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>ДоступныеПодразделения</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>8fb99b27-72bf-40f0-ab97-e7bc8115d3f8</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
@@ -2091,6 +2149,12 @@
 					<dcscor:parameter>СчитатьПо05</dcscor:parameter>
 					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 					<dcsset:userSettingID>b23032e2-7b21-4efc-a73c-87875eea3d66</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>7b824484-a30c-41d9-8ed1-6bd6c0eb0ea4</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>
@@ -2283,6 +2347,12 @@
 					<dcscor:parameter>СчитатьПо05</dcscor:parameter>
 					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 					<dcsset:userSettingID>b23032e2-7b21-4efc-a73c-87875eea3d66</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>e540be08-8ddd-4c3e-81c0-6c723f734e6a</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:order>

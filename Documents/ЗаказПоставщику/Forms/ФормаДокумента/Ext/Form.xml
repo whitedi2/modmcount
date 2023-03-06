@@ -168,6 +168,9 @@
 							</InputHint>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="323"/>
 							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="324"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -554,6 +557,156 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ГруппаДоставка" id="429">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доставка</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа доставка</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаДоставкаРасширеннаяПодсказка" id="430"/>
+					<ChildItems>
+						<InputField name="Доставщик" id="434">
+							<DataPath>Объект.Доставщик</DataPath>
+							<ContextMenu name="ДоставщикКонтекстноеМеню" id="435"/>
+							<ExtendedTooltip name="ДоставщикРасширеннаяПодсказка" id="436"/>
+						</InputField>
+						<InputField name="ГрафикДоставки" id="437">
+							<DataPath>Объект.ГрафикДоставки</DataPath>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>В любое время</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ГрафикДоставкиКонтекстноеМеню" id="438"/>
+							<ExtendedTooltip name="ГрафикДоставкиРасширеннаяПодсказка" id="439"/>
+						</InputField>
+						<UsualGroup name="Группа6" id="440">
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ReportGroup1BackColor</BackColor>
+							<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="441"/>
+							<ChildItems>
+								<InputField name="АдресДоставки" id="442">
+									<DataPath>Объект.АдресДоставки</DataPath>
+									<ChoiceButton>true</ChoiceButton>
+									<ListChoiceMode>true</ListChoiceMode>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выберите из списка или введите вручную</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="АдресДоставкиКонтекстноеМеню" id="443"/>
+									<ExtendedTooltip name="АдресДоставкиРасширеннаяПодсказка" id="444"/>
+								</InputField>
+								<InputField name="МаршрутДоставки" id="445">
+									<DataPath>Объект.МаршрутДоставки</DataPath>
+									<ContextMenu name="МаршрутДоставкиКонтекстноеМеню" id="446"/>
+									<ExtendedTooltip name="МаршрутДоставкиРасширеннаяПодсказка" id="447"/>
+								</InputField>
+								<UsualGroup name="Группа8" id="448">
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="449"/>
+									<ChildItems>
+										<InputField name="ДатаДоставки" id="450">
+											<DataPath>Объект.ДатаДоставки</DataPath>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ДФ=dd.MM.yyyy</v8:content>
+												</v8:item>
+											</EditFormat>
+											<ContextMenu name="ДатаДоставкиКонтекстноеМеню" id="451"/>
+											<ExtendedTooltip name="ДатаДоставкиРасширеннаяПодсказка" id="452"/>
+											<Events>
+												<Event name="OnChange">ДатаДоставкиПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ДатаДоставки1" id="453">
+											<DataPath>Объект.ДатаДоставки</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>С</v8:content>
+												</v8:item>
+											</Title>
+											<Width>5</Width>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ДФ=ЧЧ:мм</v8:content>
+												</v8:item>
+											</EditFormat>
+											<ContextMenu name="ДатаДоставки1КонтекстноеМеню" id="454"/>
+											<ExtendedTooltip name="ДатаДоставки1РасширеннаяПодсказка" id="455"/>
+										</InputField>
+										<InputField name="ДатаДоставкиДо" id="456">
+											<DataPath>Объект.ДатаДоставкиДо</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>По</v8:content>
+												</v8:item>
+											</Title>
+											<Width>5</Width>
+											<EditFormat>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>ДФ=ЧЧ:мм</v8:content>
+												</v8:item>
+											</EditFormat>
+											<ContextMenu name="ДатаДоставкиДоКонтекстноеМеню" id="457"/>
+											<ExtendedTooltip name="ДатаДоставкиДоРасширеннаяПодсказка" id="458"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="МенеджерКонтрагента" id="459">
+									<DataPath>Объект.МенеджерКонтрагента</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Менеджер</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="МенеджерКонтрагентаКонтекстноеМеню" id="460"/>
+									<ExtendedTooltip name="МенеджерКонтрагентаРасширеннаяПодсказка" id="461"/>
+								</InputField>
+								<InputField name="Телефон" id="462">
+									<DataPath>Объект.Телефон</DataPath>
+									<ContextMenu name="ТелефонКонтекстноеМеню" id="463"/>
+									<ExtendedTooltip name="ТелефонРасширеннаяПодсказка" id="464"/>
+								</InputField>
+								<InputField name="ЗаданиеВодителю" id="465">
+									<DataPath>Объект.ЗаданиеВодителю</DataPath>
+									<TitleLocation>Left</TitleLocation>
+									<Height>2</Height>
+									<ContextMenu name="ЗаданиеВодителюКонтекстноеМеню" id="466"/>
+									<ExtendedTooltip name="ЗаданиеВодителюРасширеннаяПодсказка" id="467"/>
+								</InputField>
+								<InputField name="ЗаданиеСкладу" id="468">
+									<DataPath>Объект.ЗаданиеСкладу</DataPath>
+									<TitleLocation>Left</TitleLocation>
+									<Height>2</Height>
+									<ContextMenu name="ЗаданиеСкладуКонтекстноеМеню" id="469"/>
+									<ExtendedTooltip name="ЗаданиеСкладуРасширеннаяПодсказка" id="470"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
 				<Page name="ГруппаДополнительно" id="332">
 					<Title>
 						<v8:item>
@@ -710,6 +863,12 @@
 				</Page>
 			</ChildItems>
 		</Pages>
+		<LabelField name="МаршрутныйЛист" id="431">
+			<DataPath>МаршрутныйЛист</DataPath>
+			<Hiperlink>true</Hiperlink>
+			<ContextMenu name="МаршрутныйЛистКонтекстноеМеню" id="432"/>
+			<ExtendedTooltip name="МаршрутныйЛистРасширеннаяПодсказка" id="433"/>
+		</LabelField>
 		<InputField name="ДокОснование" id="423">
 			<DataPath>Объект.ДокОснование</DataPath>
 			<ContextMenu name="ДокОснованиеКонтекстноеМеню" id="424"/>
@@ -776,6 +935,17 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:EnumRef.СтатусыЗаказовПоставщикам</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="МаршрутныйЛист" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Маршрутный лист</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.сабМаршрутныйЛист</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
