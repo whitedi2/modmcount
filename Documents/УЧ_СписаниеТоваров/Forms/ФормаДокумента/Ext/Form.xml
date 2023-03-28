@@ -335,12 +335,28 @@
 									<ContextMenu name="ТабличнаяЧастьУпаковкаКонтекстноеМеню" id="179"/>
 									<ExtendedTooltip name="ТабличнаяЧастьУпаковкаРасширеннаяПодсказка" id="180"/>
 								</InputField>
+								<CheckBoxField name="ТабличнаяЧастьНесколькоСерий" id="198">
+									<DataPath>Объект.ТабличнаяЧасть.НесколькоСерий</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.GrayedAll</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ТабличнаяЧастьНесколькоСерийКонтекстноеМеню" id="199"/>
+									<ExtendedTooltip name="ТабличнаяЧастьНесколькоСерийРасширеннаяПодсказка" id="200"/>
+								</CheckBoxField>
 								<InputField name="ТабличнаяЧастьСерияНоменклатуры" id="195">
 									<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатуры</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
 									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="196"/>
 									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="197"/>
+									<Events>
+										<Event name="OnChange">ТабличнаяЧастьСерияНоменклатурыПриИзменении</Event>
+										<Event name="StartChoice">ТабличнаяЧастьСерияНоменклатурыНачалоВыбора</Event>
+									</Events>
 								</InputField>
 								<ColumnGroup name="ТабличнаяЧастьГруппа2" id="33">
 									<ExtendedTooltip name="ТабличнаяЧастьГруппа2РасширеннаяПодсказка" id="74"/>
@@ -685,6 +701,17 @@
 							<v8:Type>xs:boolean</v8:Type>
 						</Type>
 					</Column>
+					<Column name="НесколькоСерий" id="5">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько серий</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
 				</AdditionalColumns>
 			</Columns>
 		</Attribute>
@@ -826,6 +853,31 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>Видимость</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ТабличнаяЧасть.НесколькоСерий</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько...</v8:content>
+							</v8:item>
+						</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

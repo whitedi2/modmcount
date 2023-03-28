@@ -8,6 +8,7 @@
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
+		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -247,6 +248,9 @@
 								<ContextMenu name="ТоварыУправлениеПоискомКонтекстноеМеню" id="176"/>
 								<ExtendedTooltip name="ТоварыУправлениеПоискомРасширеннаяПодсказка" id="177"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="OnStartEdit">ТоварыПриНачалеРедактирования</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="ТабличнаяЧастьНомерСтроки" id="16">
 									<DataPath>Объект.Товары.LineNumber</DataPath>
@@ -281,12 +285,28 @@
 												<Event name="OnChange">ТабличнаяЧастьНоменклатураПриИзменении</Event>
 											</Events>
 										</InputField>
+										<CheckBoxField name="ТоварыНесколькоСерий" id="465">
+											<DataPath>Объект.Товары.НесколькоСерий</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<EditMode>EnterOnInput</EditMode>
+											<HeaderPicture>
+												<xr:Ref>StdPicture.GrayedAll</xr:Ref>
+												<xr:LoadTransparent>true</xr:LoadTransparent>
+											</HeaderPicture>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ТоварыНесколькоСерийКонтекстноеМеню" id="466"/>
+											<ExtendedTooltip name="ТоварыНесколькоСерийРасширеннаяПодсказка" id="467"/>
+										</CheckBoxField>
 										<InputField name="ТоварыСерияНоменклатуры" id="462">
 											<DataPath>Объект.Товары.СерияНоменклатуры</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<Width>12</Width>
 											<ContextMenu name="ТоварыСерияНоменклатурыКонтекстноеМеню" id="463"/>
 											<ExtendedTooltip name="ТоварыСерияНоменклатурыРасширеннаяПодсказка" id="464"/>
+											<Events>
+												<Event name="OnChange">ТоварыСерияНоменклатурыПриИзменении</Event>
+												<Event name="StartChoice">ТоварыСерияНоменклатурыНачалоВыбора</Event>
+											</Events>
 										</InputField>
 										<InputField name="ТабличнаяЧастьСклад" id="22">
 											<DataPath>Объект.Товары.Склад</DataPath>
@@ -1322,6 +1342,21 @@
 			<UseAlways>
 				<Field>Объект.RegisterRecords</Field>
 			</UseAlways>
+			<Columns>
+				<AdditionalColumns table="Объект.Товары">
+					<Column name="НесколькоСерий" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько серий</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:boolean</v8:Type>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
 		</Attribute>
 		<Attribute name="РежимСканирования" id="2">
 			<Title>
@@ -1422,6 +1457,31 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>Видимость</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТоварыСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.НесколькоСерий</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько...</v8:content>
+							</v8:item>
+						</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

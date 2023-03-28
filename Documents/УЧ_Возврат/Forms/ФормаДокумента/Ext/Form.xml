@@ -414,12 +414,28 @@
 										<Event name="OnChange">РеализацияНаименованиеПриИзменении</Event>
 									</Events>
 								</InputField>
+								<CheckBoxField name="РеализацияНесколькоСерий" id="380">
+									<DataPath>Объект.Товары.НесколькоСерий</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<HeaderPicture>
+										<xr:Ref>StdPicture.GrayedAll</xr:Ref>
+										<xr:LoadTransparent>true</xr:LoadTransparent>
+									</HeaderPicture>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="РеализацияНесколькоСерийКонтекстноеМеню" id="381"/>
+									<ExtendedTooltip name="РеализацияНесколькоСерийРасширеннаяПодсказка" id="382"/>
+								</CheckBoxField>
 								<InputField name="РеализацияСерияНоменклатуры" id="374">
 									<DataPath>Объект.Товары.СерияНоменклатуры</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
 									<ContextMenu name="РеализацияСерияНоменклатурыКонтекстноеМеню" id="375"/>
 									<ExtendedTooltip name="РеализацияСерияНоменклатурыРасширеннаяПодсказка" id="376"/>
+									<Events>
+										<Event name="OnChange">РеализацияСерияНоменклатурыПриИзменении</Event>
+										<Event name="StartChoice">РеализацияСерияНоменклатурыНачалоВыбора</Event>
+									</Events>
 								</InputField>
 								<InputField name="РеализацияЕдиницаИзмерения" id="377">
 									<DataPath>Объект.Товары.ЕдиницаИзмерения</DataPath>
@@ -1151,6 +1167,31 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>Видимость</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>РеализацияСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Товары.НесколькоСерий</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Несколько...</v8:content>
+							</v8:item>
+						</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

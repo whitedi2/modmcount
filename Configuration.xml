@@ -123,6 +123,13 @@
 			<CommonPicture>ЭмблемаСервиса1СЭДО</CommonPicture>
 			<CommonPicture>ЗаполениеСерии</CommonPicture>
 			<CommonPicture>ЗаполениеСерий</CommonPicture>
+			<CommonPicture>Архив</CommonPicture>
+			<CommonPicture>Очистка</CommonPicture>
+			<CommonPicture>КоллекцияНастройкиОтправкиЭДО</CommonPicture>
+			<CommonPicture>СостоянияПользователей</CommonPicture>
+			<CommonPicture>ПиктограммыПользователей</CommonPicture>
+			<CommonPicture>ДокументЗагруженИзБанка</CommonPicture>
+			<CommonPicture>ЧекиНПДОжиданиеОтправки</CommonPicture>
 			<SessionParameter>ДопПараметры</SessionParameter>
 			<SessionParameter>ДоступныеИсточники</SessionParameter>
 			<SessionParameter>ДоступныеНаправления</SessionParameter>
@@ -176,6 +183,8 @@
 			<Role>сабМенеджерПоЗакупкам</Role>
 			<Role>сабРуководительПоПродажам</Role>
 			<Role>сабМенеждерПоПроизводству</Role>
+			<Role>сабРассылка</Role>
+			<Role>допИзменениеСтатусаЗаказаКлиента</Role>
 			<CommonTemplate>МакетКрасивый</CommonTemplate>
 			<CommonTemplate>РезультатыСогласования</CommonTemplate>
 			<CommonTemplate>МакетБДДС</CommonTemplate>
@@ -254,6 +263,7 @@
 			<DefinedType>ПрисоединенныйФайл</DefinedType>
 			<DefinedType>Номенклатура</DefinedType>
 			<DefinedType>СерияНоменклатурыВЕТИС</DefinedType>
+			<DefinedType>УчастникЭДО</DefinedType>
 			<CommonCommand>СтруктураПодчинения</CommonCommand>
 			<CommonCommand>УЧ_Проводки</CommonCommand>
 			<CommonCommand>ДополнительныеОтчетыУчет</CommonCommand>
@@ -302,6 +312,7 @@
 			<CommonForm>ФормаПечатиФорматируемогоДокумента</CommonForm>
 			<CommonForm>ФормаЗагрузкиИзExcel</CommonForm>
 			<CommonForm>ФормаВыбораДатыИВремени</CommonForm>
+			<CommonForm>Рассылка</CommonForm>
 			<Catalog>Банки</Catalog>
 			<Catalog>БанковскиеСчета</Catalog>
 			<Catalog>Валюты</Catalog>
@@ -392,6 +403,10 @@
 			<Catalog>СерииНоменклатуры</Catalog>
 			<Catalog>НематериальныеАктивы</Catalog>
 			<Catalog>ВидыНоменклатуры</Catalog>
+			<Catalog>УчетныеЗаписиЭлектроннойПочты</Catalog>
+			<Catalog>ЭлектронныеПисьма</Catalog>
+			<Catalog>НомераГТД</Catalog>
+			<Catalog>ЗарплатныеПроекты</Catalog>
 			<Document>ПлатежноеПоручение</Document>
 			<Document>БП_Оповещение</Document>
 			<Document>БП_Поручение</Document>
@@ -521,7 +536,10 @@
 			<Document>НачислениеОценочныхОбязательствПоОтпускам</Document>
 			<Document>ОперацияПоЕдиномуНалоговомуСчету</Document>
 			<Document>УведомлениеОбИсчисленныхСуммахНалогов</Document>
+			<Document>ЭлектронныйДокументВходящийЭДО</Document>
+			<Document>ПринятиеКУчетуОС</Document>
 			<DocumentJournal>ЖурналОпераций</DocumentJournal>
+			<DocumentJournal>Деньги</DocumentJournal>
 			<Enum>Б_ВидыДеятельностиПредприятия</Enum>
 			<Enum>БП_ВажностьПроцесса</Enum>
 			<Enum>БП_СрочностьПроцесса</Enum>
@@ -662,6 +680,9 @@
 			<Enum>ВидыОперацийПередачаТоваров</Enum>
 			<Enum>ОтражениеВУСН</Enum>
 			<Enum>ВидыКонтрагентовВМонитореРуководителя</Enum>
+			<Enum>сабПорядокОплатПоДоговору</Enum>
+			<Enum>ВидыОперацийПоступлениеТоваровУслуг</Enum>
+			<Enum>ВидыДоходовИсполнительногоПроизводства</Enum>
 			<Report>БП_ЗаданияПодчиненным</Report>
 			<Report>ГД_Источники_Рег_Учетный</Report>
 			<Report>ГД_ПланФактИзм</Report>
@@ -704,6 +725,7 @@
 			<Report>сабГрафикПоступленияЗадолженности</Report>
 			<Report>сабКонтрольПогашенияЗадолженности</Report>
 			<Report>сабАнализЗаказов</Report>
+			<Report>сабРасшифровкаФР</Report>
 			<DataProcessor>УЧ_Полный</DataProcessor>
 			<DataProcessor>GDriveМенеджер</DataProcessor>
 			<DataProcessor>АвтоФормированиеЗаказовПоПотребностям</DataProcessor>
@@ -722,6 +744,7 @@
 			<DataProcessor>ПечатьСчетаНаОплату</DataProcessor>
 			<DataProcessor>СопоставлениеОбъектовИнформационныхБаз</DataProcessor>
 			<DataProcessor>ГрупповоеПерепроведениеДокументов</DataProcessor>
+			<DataProcessor>сабЗагрузкаВыписокИзКлиентБанка</DataProcessor>
 			<InformationRegister>PushПользователиID</InformationRegister>
 			<InformationRegister>АвтосохранениеДанных</InformationRegister>
 			<InformationRegister>АдресныеСокращения</InformationRegister>
@@ -817,6 +840,9 @@
 			<InformationRegister>сабДанныеПоставок</InformationRegister>
 			<InformationRegister>СоответствиеНоменклатурыВЕТИС</InformationRegister>
 			<InformationRegister>КоэффициентыЕдиницИзмеренияВЕТИС</InformationRegister>
+			<InformationRegister>Рассылка</InformationRegister>
+			<InformationRegister>СоставыГруппПользователей</InformationRegister>
+			<InformationRegister>ЛицевыеСчетаСотрудниковПоЗарплатнымПроектам</InformationRegister>
 			<ChartOfCharacteristicTypes>ВидыСубконто</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>ВидыСубконтоХозрасчетные</ChartOfCharacteristicTypes>
 			<ChartOfAccounts>Учетный</ChartOfAccounts>

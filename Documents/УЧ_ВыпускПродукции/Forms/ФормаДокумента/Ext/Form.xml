@@ -205,6 +205,7 @@
 														<LabelField name="ТабличнаяЧастьНомерСтроки" id="12">
 															<DataPath>Объект.ТабличнаяЧасть.LineNumber</DataPath>
 															<EditMode>EnterOnInput</EditMode>
+															<Width>2</Width>
 															<ContextMenu name="ТабличнаяЧастьНомерСтрокиКонтекстноеМеню" id="13"/>
 															<ExtendedTooltip name="ТабличнаяЧастьНомерСтрокиРасширеннаяПодсказка" id="40"/>
 														</LabelField>
@@ -228,6 +229,13 @@
 																<Event name="TextEditEnd">ТабличнаяЧастьНоменклатураОкончаниеВводаТекста</Event>
 																<Event name="ChoiceProcessing">ТабличнаяЧастьНоменклатураОбработкаВыбора</Event>
 															</Events>
+														</InputField>
+														<InputField name="ТабличнаяЧастьСерияНоменклатуры" id="261">
+															<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатуры</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>12</Width>
+															<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="262"/>
+															<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="263"/>
 														</InputField>
 														<InputField name="ТабличнаяЧастьСпецификация" id="49">
 															<DataPath>Объект.ТабличнаяЧасть.Спецификация</DataPath>
@@ -376,8 +384,8 @@
 																			<ChildItems>
 																				<LabelField name="МатериалыНомерСтроки" id="78">
 																					<DataPath>Объект.Материалы.LineNumber</DataPath>
-																					<Visible>false</Visible>
 																					<EditMode>EnterOnInput</EditMode>
+																					<Width>2</Width>
 																					<ContextMenu name="МатериалыНомерСтрокиКонтекстноеМеню" id="79"/>
 																					<ExtendedTooltip name="МатериалыНомерСтрокиРасширеннаяПодсказка" id="80"/>
 																				</LabelField>
@@ -758,6 +766,33 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="ИспользоватьСерии" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать серии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КоличествоДо" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество до</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>3</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -871,6 +906,26 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСерияНоменклатуры</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИспользоватьСерии</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -923,4 +978,16 @@
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>InformationRegister.сабГрафикПлатежей.StandardCommand.OpenByValue.Документ</Command>
+				<Type>Auto</Type>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 </Form>

@@ -1510,7 +1510,7 @@
 													<ChildItems>
 														<InputField name="ЗатратыПризнак" id="600">
 															<DataPath>Объект.Затраты.Признак</DataPath>
-															<ReadOnly>true</ReadOnly>
+															<SkipOnInput>true</SkipOnInput>
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
@@ -1556,6 +1556,7 @@
 														</InputField>
 														<InputField name="ЗатратыСчетСписания" id="3833">
 															<DataPath>Объект.Затраты.СчетСписания</DataPath>
+															<SkipOnInput>true</SkipOnInput>
 															<EditMode>EnterOnInput</EditMode>
 															<ContextMenu name="ЗатратыСчетСписанияКонтекстноеМеню" id="3834"/>
 															<ExtendedTooltip name="ЗатратыСчетСписанияРасширеннаяПодсказка" id="3835"/>
@@ -1564,6 +1565,7 @@
 												</ColumnGroup>
 												<InputField name="ЗатратыНоменклатура" id="3409">
 													<DataPath>Объект.Затраты.Номенклатура</DataPath>
+													<SkipOnInput>true</SkipOnInput>
 													<EditMode>EnterOnInput</EditMode>
 													<Width>12</Width>
 													<DropListButton>false</DropListButton>
@@ -2246,7 +2248,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Реализация</v8:content>
+							<v8:content>Продажи</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -2265,7 +2267,7 @@
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Продажи</v8:content>
+											<v8:content>Реализация</v8:content>
 										</v8:item>
 									</Title>
 									<ToolTip>
@@ -2565,12 +2567,6 @@
 														</InputField>
 														<InputField name="БюджетПродажЦена" id="544">
 															<DataPath>Объект.БюджетПродаж.Цена</DataPath>
-															<Title>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Чистая цена</v8:content>
-																</v8:item>
-															</Title>
 															<EditMode>EnterOnInput</EditMode>
 															<Width>12</Width>
 															<ContextMenu name="БюджетПродажЦенаКонтекстноеМеню" id="545"/>
@@ -3638,6 +3634,870 @@
 						</Table>
 					</ChildItems>
 				</Page>
+				<Page name="ОперативныеБюджеты1" id="3891">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оперативные бюджеты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оперативные бюджеты1</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОперативныеБюджеты1РасширеннаяПодсказка" id="3892"/>
+					<ChildItems>
+						<Pages name="Группа37" id="3893">
+							<PagesRepresentation>TabsOnTop</PagesRepresentation>
+							<ExtendedTooltip name="Группа37РасширеннаяПодсказка" id="3894"/>
+							<ChildItems>
+								<Page name="СтраницаИнвестиции" id="429">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Бюджет инвестиций</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница инвестиции</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаИнвестицииРасширеннаяПодсказка" id="3033"/>
+									<ChildItems>
+										<Table name="Инвестиции" id="430">
+											<Footer>true</Footer>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.Инвестиции</DataPath>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ИнвестицииКонтекстноеМеню" id="431"/>
+											<AutoCommandBar name="ИнвестицииКоманднаяПанель" id="432">
+												<ChildItems>
+													<Button name="ИнвестицииКопироватьСтрокиИнвестиции" id="1215">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КопироватьСтрокиИнвестиции</CommandName>
+														<ExtendedTooltip name="ИнвестицииКопироватьСтрокиИнвестицииРасширеннаяПодсказка" id="3034"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ИнвестицииРасширеннаяПодсказка" id="3035"/>
+											<SearchStringAddition name="ИнвестицииСтрокаПоиска" id="3036">
+												<AdditionSource>
+													<Item>Инвестиции</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ИнвестицииСтрокаПоискаКонтекстноеМеню" id="3037"/>
+												<ExtendedTooltip name="ИнвестицииСтрокаПоискаРасширеннаяПодсказка" id="3038"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ИнвестицииСостояниеПросмотра" id="3039">
+												<AdditionSource>
+													<Item>Инвестиции</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ИнвестицииСостояниеПросмотраКонтекстноеМеню" id="3040"/>
+												<ExtendedTooltip name="ИнвестицииСостояниеПросмотраРасширеннаяПодсказка" id="3041"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ИнвестицииУправлениеПоиском" id="3042">
+												<AdditionSource>
+													<Item>Инвестиции</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ИнвестицииУправлениеПоискомКонтекстноеМеню" id="3043"/>
+												<ExtendedTooltip name="ИнвестицииУправлениеПоискомРасширеннаяПодсказка" id="3044"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnEditEnd">ИнвестицииПриОкончанииРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ИнвестицииНомерСтроки" id="433">
+													<DataPath>Объект.Инвестиции.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ИнвестицииНомерСтрокиКонтекстноеМеню" id="434"/>
+													<ExtendedTooltip name="ИнвестицииНомерСтрокиРасширеннаяПодсказка" id="3045"/>
+												</LabelField>
+												<InputField name="ИнвестицииМесяц" id="459">
+													<DataPath>Объект.Инвестиции.Месяц</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ListChoiceMode>true</ListChoiceMode>
+													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+													<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
+													<ContextMenu name="ИнвестицииМесяцКонтекстноеМеню" id="460"/>
+													<ExtendedTooltip name="ИнвестицииМесяцРасширеннаяПодсказка" id="3046"/>
+													<Events>
+														<Event name="StartChoice">ИнвестицииМесяцНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="ИнвестицииГруппа5" id="1085">
+													<ExtendedTooltip name="ИнвестицииГруппа5РасширеннаяПодсказка" id="3047"/>
+													<ChildItems>
+														<InputField name="ИнвестицииСтатьяЗатрат" id="3768">
+															<DataPath>Объект.Инвестиции.СтатьяЗатрат</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ИнвестицииСтатьяЗатратКонтекстноеМеню" id="3769"/>
+															<ExtendedTooltip name="ИнвестицииСтатьяЗатратРасширеннаяПодсказка" id="3770"/>
+														</InputField>
+														<InputField name="ИнвестицииИнвестиционныйПроект" id="435">
+															<DataPath>Объект.Инвестиции.ИнвестиционныйПроект</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ИнвестицииИнвестиционныйПроектКонтекстноеМеню" id="436"/>
+															<ExtendedTooltip name="ИнвестицииИнвестиционныйПроектРасширеннаяПодсказка" id="3048"/>
+														</InputField>
+														<InputField name="ИнвестицииПодразделение" id="1083">
+															<DataPath>Объект.Инвестиции.Подразделение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииПодразделениеКонтекстноеМеню" id="1084"/>
+															<ExtendedTooltip name="ИнвестицииПодразделениеРасширеннаяПодсказка" id="3049"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ИнвестицииГруппа4" id="464">
+													<ExtendedTooltip name="ИнвестицииГруппа4РасширеннаяПодсказка" id="3050"/>
+													<ChildItems>
+														<InputField name="ИнвестицииНеобходимость" id="437">
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ИнвестицииНеобходимостьКонтекстноеМеню" id="438"/>
+															<ExtendedTooltip name="ИнвестицииНеобходимостьРасширеннаяПодсказка" id="3051"/>
+														</InputField>
+														<InputField name="ИнвестицииЭкономическийЭффект" id="453">
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииЭкономическийЭффектКонтекстноеМеню" id="454"/>
+															<ExtendedTooltip name="ИнвестицииЭкономическийЭффектРасширеннаяПодсказка" id="3052"/>
+														</InputField>
+														<InputField name="ИнвестицииПризнакПлана" id="455">
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииПризнакПланаКонтекстноеМеню" id="456"/>
+															<ExtendedTooltip name="ИнвестицииПризнакПланаРасширеннаяПодсказка" id="3053"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ИнвестицииГруппа2" id="462">
+													<ExtendedTooltip name="ИнвестицииГруппа2РасширеннаяПодсказка" id="3054"/>
+													<ChildItems>
+														<InputField name="ИнвестицииСуммаБДДС" id="443">
+															<DataPath>Объект.Инвестиции.СуммаБДДС</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<FooterDataPath>Объект.Инвестиции.TotalСуммаБДДС</FooterDataPath>
+															<ContextMenu name="ИнвестицииСуммаБДДСКонтекстноеМеню" id="444"/>
+															<ExtendedTooltip name="ИнвестицииСуммаБДДСРасширеннаяПодсказка" id="3055"/>
+														</InputField>
+														<InputField name="ИнвестицииСтатьяБДДС" id="447">
+															<DataPath>Объект.Инвестиции.СтатьяБДДС</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииСтатьяБДДСКонтекстноеМеню" id="448"/>
+															<ExtendedTooltip name="ИнвестицииСтатьяБДДСРасширеннаяПодсказка" id="3056"/>
+														</InputField>
+														<InputField name="ИнвестицииИсточник" id="445">
+															<DataPath>Объект.Инвестиции.Источник</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииИсточникКонтекстноеМеню" id="446"/>
+															<ExtendedTooltip name="ИнвестицииИсточникРасширеннаяПодсказка" id="3057"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ИнвестицииГруппа1" id="461">
+													<ExtendedTooltip name="ИнвестицииГруппа1РасширеннаяПодсказка" id="3058"/>
+													<ChildItems>
+														<InputField name="ИнвестицииСуммаФР" id="439">
+															<DataPath>Объект.Инвестиции.СуммаФР</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<FooterDataPath>Объект.Инвестиции.TotalСуммаФР</FooterDataPath>
+															<ContextMenu name="ИнвестицииСуммаФРКонтекстноеМеню" id="440"/>
+															<ExtendedTooltip name="ИнвестицииСуммаФРРасширеннаяПодсказка" id="3059"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="ИнвестицииГруппа3" id="463">
+													<ExtendedTooltip name="ИнвестицииГруппа3РасширеннаяПодсказка" id="3060"/>
+													<ChildItems>
+														<CheckBoxField name="ИнвестицииСписатьНаОс" id="441">
+															<DataPath>Объект.Инвестиции.СписатьНаОс</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ИнвестицииСписатьНаОсКонтекстноеМеню" id="442"/>
+															<ExtendedTooltip name="ИнвестицииСписатьНаОсРасширеннаяПодсказка" id="3061"/>
+														</CheckBoxField>
+														<InputField name="ИнвестицииУчредитель1" id="449">
+															<DataPath>Объект.Инвестиции.Учредитель1</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииУчредитель1КонтекстноеМеню" id="450"/>
+															<ExtendedTooltip name="ИнвестицииУчредитель1РасширеннаяПодсказка" id="3062"/>
+														</InputField>
+														<InputField name="ИнвестицииУчредитель2" id="451">
+															<DataPath>Объект.Инвестиции.Учредитель2</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ShowInFooter>false</ShowInFooter>
+															<ContextMenu name="ИнвестицииУчредитель2КонтекстноеМеню" id="452"/>
+															<ExtendedTooltip name="ИнвестицииУчредитель2РасширеннаяПодсказка" id="3063"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ИнвестицииНоменклатура" id="457">
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ИнвестицииНоменклатураКонтекстноеМеню" id="458"/>
+													<ExtendedTooltip name="ИнвестицииНоменклатураРасширеннаяПодсказка" id="3064"/>
+													<Events>
+														<Event name="StartChoice">ИнвестицииНоменклатураНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<InputField name="ИнвестицииОснование" id="1010">
+													<DataPath>Объект.Инвестиции.Основание</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ИнвестицииОснованиеКонтекстноеМеню" id="1011"/>
+													<ExtendedTooltip name="ИнвестицииОснованиеРасширеннаяПодсказка" id="3065"/>
+												</InputField>
+												<CheckBoxField name="ИнвестицииВключатьВПротокол" id="1187">
+													<DataPath>Объект.Инвестиции.ВключатьВПротокол</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ИнвестицииВключатьВПротоколКонтекстноеМеню" id="1188"/>
+													<ExtendedTooltip name="ИнвестицииВключатьВПротоколРасширеннаяПодсказка" id="3066"/>
+												</CheckBoxField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаПрочиеРасходы" id="465">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Бюджет ПР</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Бюджет коммерческих и прочих расходов и доходов</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаПрочиеРасходыРасширеннаяПодсказка" id="2940"/>
+									<ChildItems>
+										<Table name="ПР" id="667">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.ПР</DataPath>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Фин</v8:content>
+												</v8:item>
+											</Title>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="ПРКонтекстноеМеню" id="668"/>
+											<AutoCommandBar name="ПРКоманднаяПанель" id="669">
+												<ChildItems>
+													<Button name="ПРКопироватьСтрокиПР" id="1074">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КопироватьСтрокиПР</CommandName>
+														<ExtendedTooltip name="ПРКопироватьСтрокиПРРасширеннаяПодсказка" id="3010"/>
+													</Button>
+													<Button name="ПРЗагрузитьПР" id="3854">
+														<Type>CommandBarButton</Type>
+														<Representation>Picture</Representation>
+														<CommandName>Form.Command.ЗагрузитьПР</CommandName>
+														<ExtendedTooltip name="ПРЗагрузитьПРРасширеннаяПодсказка" id="3855"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="ПРРасширеннаяПодсказка" id="3011"/>
+											<SearchStringAddition name="ПРСтрокаПоиска" id="3012">
+												<AdditionSource>
+													<Item>ПР</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ПРСтрокаПоискаКонтекстноеМеню" id="3013"/>
+												<ExtendedTooltip name="ПРСтрокаПоискаРасширеннаяПодсказка" id="3014"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="ПРСостояниеПросмотра" id="3015">
+												<AdditionSource>
+													<Item>ПР</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="ПРСостояниеПросмотраКонтекстноеМеню" id="3016"/>
+												<ExtendedTooltip name="ПРСостояниеПросмотраРасширеннаяПодсказка" id="3017"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="ПРУправлениеПоиском" id="3018">
+												<AdditionSource>
+													<Item>ПР</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="ПРУправлениеПоискомКонтекстноеМеню" id="3019"/>
+												<ExtendedTooltip name="ПРУправлениеПоискомРасширеннаяПодсказка" id="3020"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnEditEnd">ПРПриОкончанииРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="ПРНомерСтроки" id="670">
+													<DataPath>Объект.ПР.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПРНомерСтрокиКонтекстноеМеню" id="671"/>
+													<ExtendedTooltip name="ПРНомерСтрокиРасширеннаяПодсказка" id="3021"/>
+												</LabelField>
+												<InputField name="ПРМесяц" id="684">
+													<DataPath>Объект.ПР.Месяц</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ContextMenu name="ПРМесяцКонтекстноеМеню" id="685"/>
+													<ExtendedTooltip name="ПРМесяцРасширеннаяПодсказка" id="3022"/>
+													<Events>
+														<Event name="StartChoice">ПРМесяцНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="ПРГруппа2" id="1090">
+													<ExtendedTooltip name="ПРГруппа2РасширеннаяПодсказка" id="3023"/>
+													<ChildItems>
+														<InputField name="ПРСтатьяПР" id="672">
+															<DataPath>Объект.ПР.СтатьяПР</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПРСтатьяПРКонтекстноеМеню" id="673"/>
+															<ExtendedTooltip name="ПРСтатьяПРРасширеннаяПодсказка" id="3024"/>
+														</InputField>
+														<InputField name="ПРПодразделение" id="1091">
+															<DataPath>Объект.ПР.Подразделение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПРПодразделениеКонтекстноеМеню" id="1092"/>
+															<ExtendedTooltip name="ПРПодразделениеРасширеннаяПодсказка" id="3025"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ПРНаименование" id="3427">
+													<DataPath>Объект.ПР.Наименование</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПРНаименованиеКонтекстноеМеню" id="3428"/>
+													<ExtendedTooltip name="ПРНаименованиеРасширеннаяПодсказка" id="3429"/>
+												</InputField>
+												<ColumnGroup name="ПРГруппа1" id="686">
+													<ExtendedTooltip name="ПРГруппа1РасширеннаяПодсказка" id="3026"/>
+													<ChildItems>
+														<InputField name="ПРСуммаФР" id="674">
+															<DataPath>Объект.ПР.СуммаФР</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПРСуммаФРКонтекстноеМеню" id="675"/>
+															<ExtendedTooltip name="ПРСуммаФРРасширеннаяПодсказка" id="3027"/>
+														</InputField>
+														<InputField name="ПРСуммаБДДС" id="676">
+															<DataPath>Объект.ПР.СуммаБДДС</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ПРСуммаБДДСКонтекстноеМеню" id="677"/>
+															<ExtendedTooltip name="ПРСуммаБДДСРасширеннаяПодсказка" id="3028"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="ПРОснование" id="678">
+													<DataPath>Объект.ПР.Основание</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Примечание</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>20</Width>
+													<ContextMenu name="ПРОснованиеКонтекстноеМеню" id="679"/>
+													<ExtendedTooltip name="ПРОснованиеРасширеннаяПодсказка" id="3029"/>
+												</InputField>
+												<CheckBoxField name="ПРВключатьВПротокол" id="1185">
+													<DataPath>Объект.ПР.ВключатьВПротокол</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="ПРВключатьВПротоколКонтекстноеМеню" id="1186"/>
+													<ExtendedTooltip name="ПРВключатьВПротоколРасширеннаяПодсказка" id="3030"/>
+												</CheckBoxField>
+												<InputField name="ПРЧЗ" id="680">
+													<DataPath>Объект.ПР.ЧЗ</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПРЧЗКонтекстноеМеню" id="681"/>
+													<ExtendedTooltip name="ПРЧЗРасширеннаяПодсказка" id="3031"/>
+												</InputField>
+												<InputField name="ПРНоменклатура" id="687">
+													<DataPath>Объект.ПР.Номенклатура</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="ПРНоменклатураКонтекстноеМеню" id="688"/>
+													<ExtendedTooltip name="ПРНоменклатураРасширеннаяПодсказка" id="3032"/>
+													<Events>
+														<Event name="StartChoice">ПРНоменклатураНачалоВыбора</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="СтраницаКредиты" id="627">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Бюджет кредитов</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Страница кредиты</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="СтраницаКредитыРасширеннаяПодсказка" id="3067"/>
+									<ChildItems>
+										<Table name="Кредиты" id="628">
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>Объект.Кредиты</DataPath>
+											<SearchStringLocation>None</SearchStringLocation>
+											<ViewStatusLocation>None</ViewStatusLocation>
+											<SearchControlLocation>None</SearchControlLocation>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="КредитыКонтекстноеМеню" id="629"/>
+											<AutoCommandBar name="КредитыКоманднаяПанель" id="630">
+												<ChildItems>
+													<Button name="КредитыКопироватьСтрокиКредиты" id="1216">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.КопироватьСтрокиКредиты</CommandName>
+														<ExtendedTooltip name="КредитыКопироватьСтрокиКредитыРасширеннаяПодсказка" id="3068"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="КредитыРасширеннаяПодсказка" id="3069"/>
+											<SearchStringAddition name="КредитыСтрокаПоиска" id="3070">
+												<AdditionSource>
+													<Item>Кредиты</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="КредитыСтрокаПоискаКонтекстноеМеню" id="3071"/>
+												<ExtendedTooltip name="КредитыСтрокаПоискаРасширеннаяПодсказка" id="3072"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="КредитыСостояниеПросмотра" id="3073">
+												<AdditionSource>
+													<Item>Кредиты</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="КредитыСостояниеПросмотраКонтекстноеМеню" id="3074"/>
+												<ExtendedTooltip name="КредитыСостояниеПросмотраРасширеннаяПодсказка" id="3075"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="КредитыУправлениеПоиском" id="3076">
+												<AdditionSource>
+													<Item>Кредиты</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="КредитыУправлениеПоискомКонтекстноеМеню" id="3077"/>
+												<ExtendedTooltip name="КредитыУправлениеПоискомРасширеннаяПодсказка" id="3078"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnEditEnd">КредитыПриОкончанииРедактирования</Event>
+											</Events>
+											<ChildItems>
+												<LabelField name="КредитыНомерСтроки" id="631">
+													<DataPath>Объект.Кредиты.LineNumber</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="КредитыНомерСтрокиКонтекстноеМеню" id="632"/>
+													<ExtendedTooltip name="КредитыНомерСтрокиРасширеннаяПодсказка" id="3079"/>
+												</LabelField>
+												<InputField name="КредитыМесяц" id="664">
+													<DataPath>Объект.Кредиты.Месяц</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ListChoiceMode>true</ListChoiceMode>
+													<ContextMenu name="КредитыМесяцКонтекстноеМеню" id="665"/>
+													<ExtendedTooltip name="КредитыМесяцРасширеннаяПодсказка" id="3080"/>
+													<Events>
+														<Event name="StartChoice">КредитыМесяцНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<ColumnGroup name="КредитыГруппа1" id="659">
+													<ExtendedTooltip name="КредитыГруппа1РасширеннаяПодсказка" id="3081"/>
+													<ChildItems>
+														<InputField name="КредитыКредит" id="633">
+															<DataPath>Объект.Кредиты.Кредит</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыКредитКонтекстноеМеню" id="634"/>
+															<ExtendedTooltip name="КредитыКредитРасширеннаяПодсказка" id="3082"/>
+														</InputField>
+														<InputField name="КредитыПодразделение" id="1116">
+															<DataPath>Объект.Кредиты.Подразделение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыПодразделениеКонтекстноеМеню" id="1117"/>
+															<ExtendedTooltip name="КредитыПодразделениеРасширеннаяПодсказка" id="3083"/>
+														</InputField>
+														<InputField name="КредитыПроцент" id="635">
+															<DataPath>Объект.Кредиты.Процент</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыПроцентКонтекстноеМеню" id="636"/>
+															<ExtendedTooltip name="КредитыПроцентРасширеннаяПодсказка" id="3084"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="КредитыНаНачало" id="637">
+													<DataPath>Объект.Кредиты.НаНачало</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="КредитыНаНачалоКонтекстноеМеню" id="638"/>
+													<ExtendedTooltip name="КредитыНаНачалоРасширеннаяПодсказка" id="3085"/>
+												</InputField>
+												<ColumnGroup name="КредитыГруппа2" id="660">
+													<ExtendedTooltip name="КредитыГруппа2РасширеннаяПодсказка" id="3086"/>
+													<ChildItems>
+														<InputField name="КредитыПоступление" id="639">
+															<DataPath>Объект.Кредиты.Поступление</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыПоступлениеКонтекстноеМеню" id="640"/>
+															<ExtendedTooltip name="КредитыПоступлениеРасширеннаяПодсказка" id="3087"/>
+														</InputField>
+														<InputField name="КредитыГашение" id="641">
+															<DataPath>Объект.Кредиты.Гашение</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыГашениеКонтекстноеМеню" id="642"/>
+															<ExtendedTooltip name="КредитыГашениеРасширеннаяПодсказка" id="3088"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="КредитыГруппа5" id="663">
+													<Visible>false</Visible>
+													<ExtendedTooltip name="КредитыГруппа5РасширеннаяПодсказка" id="3089"/>
+													<ChildItems>
+														<InputField name="КредитыДеньПолучения" id="653">
+															<DataPath>Объект.Кредиты.ДеньПолучения</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыДеньПолученияКонтекстноеМеню" id="654"/>
+															<ExtendedTooltip name="КредитыДеньПолученияРасширеннаяПодсказка" id="3090"/>
+														</InputField>
+														<InputField name="КредитыДеньГашения" id="655">
+															<DataPath>Объект.Кредиты.ДеньГашения</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыДеньГашенияКонтекстноеМеню" id="656"/>
+															<ExtendedTooltip name="КредитыДеньГашенияРасширеннаяПодсказка" id="3091"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="КредитыГруппа3" id="661">
+													<ExtendedTooltip name="КредитыГруппа3РасширеннаяПодсказка" id="3092"/>
+													<ChildItems>
+														<InputField name="КредитыПроцНачислено" id="643">
+															<DataPath>Объект.Кредиты.ПроцНачислено</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыПроцНачисленоКонтекстноеМеню" id="644"/>
+															<ExtendedTooltip name="КредитыПроцНачисленоРасширеннаяПодсказка" id="3093"/>
+														</InputField>
+														<InputField name="КредитыПроцОплачено" id="645">
+															<DataPath>Объект.Кредиты.ПроцОплачено</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыПроцОплаченоКонтекстноеМеню" id="646"/>
+															<ExtendedTooltip name="КредитыПроцОплаченоРасширеннаяПодсказка" id="3094"/>
+														</InputField>
+														<InputField name="КредитыСтатья" id="1114">
+															<DataPath>Объект.Кредиты.Статья</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыСтатьяКонтекстноеМеню" id="1115"/>
+															<ExtendedTooltip name="КредитыСтатьяРасширеннаяПодсказка" id="3095"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="КредитыОснование" id="647">
+													<DataPath>Объект.Кредиты.Основание</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="КредитыОснованиеКонтекстноеМеню" id="648"/>
+													<ExtendedTooltip name="КредитыОснованиеРасширеннаяПодсказка" id="3096"/>
+												</InputField>
+												<ColumnGroup name="КредитыГруппа4" id="662">
+													<ExtendedTooltip name="КредитыГруппа4РасширеннаяПодсказка" id="3097"/>
+													<ChildItems>
+														<InputField name="КредитыЗатратыПоОформлению" id="649">
+															<DataPath>Объект.Кредиты.ЗатратыПоОформлению</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыЗатратыПоОформлениюКонтекстноеМеню" id="650"/>
+															<ExtendedTooltip name="КредитыЗатратыПоОформлениюРасширеннаяПодсказка" id="3098"/>
+														</InputField>
+														<InputField name="КредитыПредставительские" id="651">
+															<DataPath>Объект.Кредиты.Представительские</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="КредитыПредставительскиеКонтекстноеМеню" id="652"/>
+															<ExtendedTooltip name="КредитыПредставительскиеРасширеннаяПодсказка" id="3099"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="КредитыНоменклатура" id="657">
+													<DataPath>Объект.Кредиты.Номенклатура</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="КредитыНоменклатураКонтекстноеМеню" id="658"/>
+													<ExtendedTooltip name="КредитыНоменклатураРасширеннаяПодсказка" id="3100"/>
+													<Events>
+														<Event name="StartChoice">КредитыНоменклатураНачалоВыбора</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+								<Page name="ОперативныеБюджеты" id="3448">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Оперативные бюджеты</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Оперативные бюджеты</v8:content>
+										</v8:item>
+									</ToolTip>
+									<TitleDataPath>КоличНепринятыхСтрок</TitleDataPath>
+									<ExtendedTooltip name="ОперативныеБюджетыРасширеннаяПодсказка" id="3449"/>
+									<ChildItems>
+										<Table name="НепринятыеСтроки" id="3450">
+											<Representation>List</Representation>
+											<ChangeRowSet>false</ChangeRowSet>
+											<ChangeRowOrder>false</ChangeRowOrder>
+											<AutoInsertNewRow>true</AutoInsertNewRow>
+											<EnableStartDrag>true</EnableStartDrag>
+											<EnableDrag>true</EnableDrag>
+											<FileDragMode>AsFile</FileDragMode>
+											<DataPath>НепринятыеСтроки</DataPath>
+											<CommandSet>
+												<ExcludedCommand>Add</ExcludedCommand>
+												<ExcludedCommand>Change</ExcludedCommand>
+												<ExcludedCommand>Copy</ExcludedCommand>
+												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+												<ExcludedCommand>Delete</ExcludedCommand>
+												<ExcludedCommand>EndEdit</ExcludedCommand>
+												<ExcludedCommand>MoveDown</ExcludedCommand>
+												<ExcludedCommand>MoveUp</ExcludedCommand>
+											</CommandSet>
+											<RowFilter xsi:nil="true"/>
+											<ContextMenu name="НепринятыеСтрокиКонтекстноеМеню" id="3451"/>
+											<AutoCommandBar name="НепринятыеСтрокиКоманднаяПанель" id="3452">
+												<ChildItems>
+													<Button name="НепринятыеСтрокиОбновитьДанныеОперативныхБюджетов" id="3577">
+														<Type>CommandBarButton</Type>
+														<CommandName>Form.Command.ОбновитьДанныеОперативныхБюджетов</CommandName>
+														<ToolTipRepresentation>Button</ToolTipRepresentation>
+														<ExtendedTooltip name="НепринятыеСтрокиОбновитьДанныеОперативныхБюджетовРасширеннаяПодсказка" id="3578"/>
+													</Button>
+												</ChildItems>
+											</AutoCommandBar>
+											<ExtendedTooltip name="НепринятыеСтрокиРасширеннаяПодсказка" id="3453"/>
+											<SearchStringAddition name="НепринятыеСтрокиСтрокаПоиска" id="3454">
+												<AdditionSource>
+													<Item>НепринятыеСтроки</Item>
+													<Type>SearchStringRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="НепринятыеСтрокиСтрокаПоискаКонтекстноеМеню" id="3457"/>
+												<ExtendedTooltip name="НепринятыеСтрокиСтрокаПоискаРасширеннаяПодсказка" id="3458"/>
+											</SearchStringAddition>
+											<ViewStatusAddition name="НепринятыеСтрокиСостояниеПросмотра" id="3459">
+												<AdditionSource>
+													<Item>НепринятыеСтроки</Item>
+													<Type>ViewStatusRepresentation</Type>
+												</AdditionSource>
+												<ContextMenu name="НепринятыеСтрокиСостояниеПросмотраКонтекстноеМеню" id="3462"/>
+												<ExtendedTooltip name="НепринятыеСтрокиСостояниеПросмотраРасширеннаяПодсказка" id="3463"/>
+											</ViewStatusAddition>
+											<SearchControlAddition name="НепринятыеСтрокиУправлениеПоиском" id="3464">
+												<AdditionSource>
+													<Item>НепринятыеСтроки</Item>
+													<Type>SearchControl</Type>
+												</AdditionSource>
+												<ContextMenu name="НепринятыеСтрокиУправлениеПоискомКонтекстноеМеню" id="3467"/>
+												<ExtendedTooltip name="НепринятыеСтрокиУправлениеПоискомРасширеннаяПодсказка" id="3468"/>
+											</SearchControlAddition>
+											<Events>
+												<Event name="OnEditEnd">НепринятыеСтрокиПриОкончанииРедактирования</Event>
+												<Event name="Selection">НепринятыеСтрокиВыбор</Event>
+											</Events>
+											<ChildItems>
+												<InputField name="НепринятыеСтрокиНомерСтроки" id="3589">
+													<DataPath>НепринятыеСтроки.НомерСтроки</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="НепринятыеСтрокиНомерСтрокиКонтекстноеМеню" id="3590"/>
+													<ExtendedTooltip name="НепринятыеСтрокиНомерСтрокиРасширеннаяПодсказка" id="3591"/>
+												</InputField>
+												<CheckBoxField name="НепринятыеСтрокиПринять" id="3526">
+													<DataPath>НепринятыеСтроки.Принять</DataPath>
+													<TitleHeight>1</TitleHeight>
+													<HorizontalAlign>Center</HorizontalAlign>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="НепринятыеСтрокиПринятьКонтекстноеМеню" id="3527"/>
+													<ExtendedTooltip name="НепринятыеСтрокиПринятьРасширеннаяПодсказка" id="3528"/>
+													<Events>
+														<Event name="OnChange">НепринятыеСтрокиПринятьПриИзменении</Event>
+													</Events>
+												</CheckBoxField>
+												<ColumnGroup name="НепринятыеСтрокиГруппа4" id="3582">
+													<ExtendedTooltip name="НепринятыеСтрокиГруппа4РасширеннаяПодсказка" id="3583"/>
+													<ChildItems>
+														<ColumnGroup name="НепринятыеСтрокиГруппа5" id="3587">
+															<Group>Horizontal</Group>
+															<ExtendedTooltip name="НепринятыеСтрокиГруппа5РасширеннаяПодсказка" id="3588"/>
+														</ColumnGroup>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="НепринятыеСтрокиМесяц" id="3538">
+													<DataPath>НепринятыеСтроки.Месяц</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>2</Width>
+													<ContextMenu name="НепринятыеСтрокиМесяцКонтекстноеМеню" id="3539"/>
+													<ExtendedTooltip name="НепринятыеСтрокиМесяцРасширеннаяПодсказка" id="3540"/>
+												</InputField>
+												<InputField name="НепринятыеСтрокиПодразделение" id="3520">
+													<DataPath>НепринятыеСтроки.Подразделение</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>12</Width>
+													<ContextMenu name="НепринятыеСтрокиПодразделениеКонтекстноеМеню" id="3521"/>
+													<ExtendedTooltip name="НепринятыеСтрокиПодразделениеРасширеннаяПодсказка" id="3522"/>
+												</InputField>
+												<ColumnGroup name="НепринятыеСтрокиГруппа1" id="3478">
+													<ReadOnly>true</ReadOnly>
+													<ExtendedTooltip name="НепринятыеСтрокиГруппа1РасширеннаяПодсказка" id="3479"/>
+													<ChildItems>
+														<InputField name="НепринятыеСтрокиСтатьяЗатрат" id="3502">
+															<DataPath>НепринятыеСтроки.СтатьяЗатрат</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиСтатьяЗатратКонтекстноеМеню" id="3503"/>
+															<ExtendedTooltip name="НепринятыеСтрокиСтатьяЗатратРасширеннаяПодсказка" id="3504"/>
+														</InputField>
+														<InputField name="НепринятыеСтрокиСтатьяБДДС" id="3511">
+															<DataPath>НепринятыеСтроки.СтатьяБДДС</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиСтатьяБДДСКонтекстноеМеню" id="3512"/>
+															<ExtendedTooltip name="НепринятыеСтрокиСтатьяБДДСРасширеннаяПодсказка" id="3513"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НепринятыеСтрокиГруппа7" id="3756">
+													<ExtendedTooltip name="НепринятыеСтрокиГруппа7РасширеннаяПодсказка" id="3757"/>
+													<ChildItems>
+														<InputField name="НепринятыеСтрокиИнвПроект" id="3758">
+															<DataPath>НепринятыеСтроки.ИнвПроект</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиИнвПроектКонтекстноеМеню" id="3759"/>
+															<ExtendedTooltip name="НепринятыеСтрокиИнвПроектРасширеннаяПодсказка" id="3760"/>
+														</InputField>
+														<CheckBoxField name="НепринятыеСтрокиВНХ" id="3599">
+															<DataPath>НепринятыеСтроки.ВНХ</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="НепринятыеСтрокиВНХКонтекстноеМеню" id="3600"/>
+															<ExtendedTooltip name="НепринятыеСтрокиВНХРасширеннаяПодсказка" id="3601"/>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<ColumnGroup name="НепринятыеСтрокиГруппа2" id="3486">
+													<ReadOnly>true</ReadOnly>
+													<ExtendedTooltip name="НепринятыеСтрокиГруппа2РасширеннаяПодсказка" id="3487"/>
+													<ChildItems>
+														<InputField name="НепринятыеСтрокиСуммаСеб" id="3508">
+															<DataPath>НепринятыеСтроки.СуммаСеб</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиСуммаСебКонтекстноеМеню" id="3509"/>
+															<ExtendedTooltip name="НепринятыеСтрокиСуммаСебРасширеннаяПодсказка" id="3510"/>
+														</InputField>
+														<InputField name="НепринятыеСтрокиСуммаБДДС" id="3514">
+															<DataPath>НепринятыеСтроки.СуммаБДДС</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиСуммаБДДСКонтекстноеМеню" id="3515"/>
+															<ExtendedTooltip name="НепринятыеСтрокиСуммаБДДСРасширеннаяПодсказка" id="3516"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="НепринятыеСтрокиПризнак" id="3554">
+													<DataPath>НепринятыеСтроки.Признак</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>8</Width>
+													<ContextMenu name="НепринятыеСтрокиПризнакКонтекстноеМеню" id="3555"/>
+													<ExtendedTooltip name="НепринятыеСтрокиПризнакРасширеннаяПодсказка" id="3556"/>
+												</InputField>
+												<ColumnGroup name="НепринятыеСтрокиГруппа6" id="3602">
+													<ExtendedTooltip name="НепринятыеСтрокиГруппа6РасширеннаяПодсказка" id="3603"/>
+													<ChildItems>
+														<InputField name="НепринятыеСтрокиНоменклатура" id="3523">
+															<DataPath>НепринятыеСтроки.Номенклатура</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<Width>12</Width>
+															<ContextMenu name="НепринятыеСтрокиНоменклатураКонтекстноеМеню" id="3524"/>
+															<ExtendedTooltip name="НепринятыеСтрокиНоменклатураРасширеннаяПодсказка" id="3525"/>
+															<Events>
+																<Event name="OnChange">НепринятыеСтрокиНоменклатураПриИзменении</Event>
+																<Event name="StartChoice">НепринятыеСтрокиНоменклатураНачалоВыбора</Event>
+															</Events>
+														</InputField>
+														<CheckBoxField name="НепринятыеСтрокиНаЕдиницу" id="3604">
+															<DataPath>НепринятыеСтроки.НаЕдиницу</DataPath>
+															<ReadOnly>true</ReadOnly>
+															<EditMode>EnterOnInput</EditMode>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="НепринятыеСтрокиНаЕдиницуКонтекстноеМеню" id="3605"/>
+															<ExtendedTooltip name="НепринятыеСтрокиНаЕдиницуРасширеннаяПодсказка" id="3606"/>
+														</CheckBoxField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="НепринятыеСтрокиОснование" id="3517">
+													<DataPath>НепринятыеСтроки.Основание</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="НепринятыеСтрокиОснованиеКонтекстноеМеню" id="3518"/>
+													<ExtendedTooltip name="НепринятыеСтрокиОснованиеРасширеннаяПодсказка" id="3519"/>
+												</InputField>
+												<ColumnGroup name="НепринятыеСтрокиГруппа3" id="3500">
+													<ReadOnly>true</ReadOnly>
+													<ExtendedTooltip name="НепринятыеСтрокиГруппа3РасширеннаяПодсказка" id="3501"/>
+													<ChildItems>
+														<InputField name="НепринятыеСтрокиЦФОЗаявителя" id="3532">
+															<DataPath>НепринятыеСтроки.ЦФОЗаявителя</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиЦФОЗаявителяКонтекстноеМеню" id="3533"/>
+															<ExtendedTooltip name="НепринятыеСтрокиЦФОЗаявителяРасширеннаяПодсказка" id="3534"/>
+														</InputField>
+														<InputField name="НепринятыеСтрокиПодразделениеЗаявителя" id="3535">
+															<DataPath>НепринятыеСтроки.ПодразделениеЗаявителя</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="НепринятыеСтрокиПодразделениеЗаявителяКонтекстноеМеню" id="3536"/>
+															<ExtendedTooltip name="НепринятыеСтрокиПодразделениеЗаявителяРасширеннаяПодсказка" id="3537"/>
+														</InputField>
+													</ChildItems>
+												</ColumnGroup>
+												<InputField name="НепринятыеСтрокиАвторЗаписи" id="3529">
+													<DataPath>НепринятыеСтроки.АвторЗаписи</DataPath>
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="НепринятыеСтрокиАвторЗаписиКонтекстноеМеню" id="3530"/>
+													<ExtendedTooltip name="НепринятыеСтрокиАвторЗаписиРасширеннаяПодсказка" id="3531"/>
+												</InputField>
+												<CheckBoxField name="НепринятыеСтрокиЗаблокирован" id="3579">
+													<DataPath>НепринятыеСтроки.Заблокирован</DataPath>
+													<Visible>false</Visible>
+													<EditMode>EnterOnInput</EditMode>
+													<CheckBoxType>Auto</CheckBoxType>
+													<ContextMenu name="НепринятыеСтрокиЗаблокированКонтекстноеМеню" id="3580"/>
+													<ExtendedTooltip name="НепринятыеСтрокиЗаблокированРасширеннаяПодсказка" id="3581"/>
+												</CheckBoxField>
+											</ChildItems>
+										</Table>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
 				<Page name="СтраницаБюджетПрибыли" id="763">
 					<Title>
 						<v8:item>
@@ -4568,870 +5428,6 @@
 													<ContextMenu name="ВводОстатковПрочееСодержаниеКонтекстноеМеню" id="369"/>
 													<ExtendedTooltip name="ВводОстатковПрочееСодержаниеРасширеннаяПодсказка" id="3262"/>
 												</InputField>
-											</ChildItems>
-										</Table>
-									</ChildItems>
-								</Page>
-							</ChildItems>
-						</Pages>
-					</ChildItems>
-				</Page>
-				<Page name="ОперативныеБюджеты1" id="3891">
-					<Title>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Оперативные бюджеты1</v8:content>
-						</v8:item>
-					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Оперативные бюджеты1</v8:content>
-						</v8:item>
-					</ToolTip>
-					<ExtendedTooltip name="ОперативныеБюджеты1РасширеннаяПодсказка" id="3892"/>
-					<ChildItems>
-						<Pages name="Группа37" id="3893">
-							<PagesRepresentation>TabsOnTop</PagesRepresentation>
-							<ExtendedTooltip name="Группа37РасширеннаяПодсказка" id="3894"/>
-							<ChildItems>
-								<Page name="СтраницаИнвестиции" id="429">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Бюджет инвестиций</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница инвестиции</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="СтраницаИнвестицииРасширеннаяПодсказка" id="3033"/>
-									<ChildItems>
-										<Table name="Инвестиции" id="430">
-											<Footer>true</Footer>
-											<AutoInsertNewRow>true</AutoInsertNewRow>
-											<EnableStartDrag>true</EnableStartDrag>
-											<EnableDrag>true</EnableDrag>
-											<FileDragMode>AsFile</FileDragMode>
-											<DataPath>Объект.Инвестиции</DataPath>
-											<SearchStringLocation>None</SearchStringLocation>
-											<ViewStatusLocation>None</ViewStatusLocation>
-											<SearchControlLocation>None</SearchControlLocation>
-											<RowFilter xsi:nil="true"/>
-											<ContextMenu name="ИнвестицииКонтекстноеМеню" id="431"/>
-											<AutoCommandBar name="ИнвестицииКоманднаяПанель" id="432">
-												<ChildItems>
-													<Button name="ИнвестицииКопироватьСтрокиИнвестиции" id="1215">
-														<Type>CommandBarButton</Type>
-														<CommandName>Form.Command.КопироватьСтрокиИнвестиции</CommandName>
-														<ExtendedTooltip name="ИнвестицииКопироватьСтрокиИнвестицииРасширеннаяПодсказка" id="3034"/>
-													</Button>
-												</ChildItems>
-											</AutoCommandBar>
-											<ExtendedTooltip name="ИнвестицииРасширеннаяПодсказка" id="3035"/>
-											<SearchStringAddition name="ИнвестицииСтрокаПоиска" id="3036">
-												<AdditionSource>
-													<Item>Инвестиции</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="ИнвестицииСтрокаПоискаКонтекстноеМеню" id="3037"/>
-												<ExtendedTooltip name="ИнвестицииСтрокаПоискаРасширеннаяПодсказка" id="3038"/>
-											</SearchStringAddition>
-											<ViewStatusAddition name="ИнвестицииСостояниеПросмотра" id="3039">
-												<AdditionSource>
-													<Item>Инвестиции</Item>
-													<Type>ViewStatusRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="ИнвестицииСостояниеПросмотраКонтекстноеМеню" id="3040"/>
-												<ExtendedTooltip name="ИнвестицииСостояниеПросмотраРасширеннаяПодсказка" id="3041"/>
-											</ViewStatusAddition>
-											<SearchControlAddition name="ИнвестицииУправлениеПоиском" id="3042">
-												<AdditionSource>
-													<Item>Инвестиции</Item>
-													<Type>SearchControl</Type>
-												</AdditionSource>
-												<ContextMenu name="ИнвестицииУправлениеПоискомКонтекстноеМеню" id="3043"/>
-												<ExtendedTooltip name="ИнвестицииУправлениеПоискомРасширеннаяПодсказка" id="3044"/>
-											</SearchControlAddition>
-											<Events>
-												<Event name="OnEditEnd">ИнвестицииПриОкончанииРедактирования</Event>
-											</Events>
-											<ChildItems>
-												<LabelField name="ИнвестицииНомерСтроки" id="433">
-													<DataPath>Объект.Инвестиции.LineNumber</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ИнвестицииНомерСтрокиКонтекстноеМеню" id="434"/>
-													<ExtendedTooltip name="ИнвестицииНомерСтрокиРасширеннаяПодсказка" id="3045"/>
-												</LabelField>
-												<InputField name="ИнвестицииМесяц" id="459">
-													<DataPath>Объект.Инвестиции.Месяц</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ListChoiceMode>true</ListChoiceMode>
-													<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
-													<IncompleteChoiceMode>OnActivate</IncompleteChoiceMode>
-													<ContextMenu name="ИнвестицииМесяцКонтекстноеМеню" id="460"/>
-													<ExtendedTooltip name="ИнвестицииМесяцРасширеннаяПодсказка" id="3046"/>
-													<Events>
-														<Event name="StartChoice">ИнвестицииМесяцНачалоВыбора</Event>
-													</Events>
-												</InputField>
-												<ColumnGroup name="ИнвестицииГруппа5" id="1085">
-													<ExtendedTooltip name="ИнвестицииГруппа5РасширеннаяПодсказка" id="3047"/>
-													<ChildItems>
-														<InputField name="ИнвестицииСтатьяЗатрат" id="3768">
-															<DataPath>Объект.Инвестиции.СтатьяЗатрат</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ИнвестицииСтатьяЗатратКонтекстноеМеню" id="3769"/>
-															<ExtendedTooltip name="ИнвестицииСтатьяЗатратРасширеннаяПодсказка" id="3770"/>
-														</InputField>
-														<InputField name="ИнвестицииИнвестиционныйПроект" id="435">
-															<DataPath>Объект.Инвестиции.ИнвестиционныйПроект</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ИнвестицииИнвестиционныйПроектКонтекстноеМеню" id="436"/>
-															<ExtendedTooltip name="ИнвестицииИнвестиционныйПроектРасширеннаяПодсказка" id="3048"/>
-														</InputField>
-														<InputField name="ИнвестицииПодразделение" id="1083">
-															<DataPath>Объект.Инвестиции.Подразделение</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииПодразделениеКонтекстноеМеню" id="1084"/>
-															<ExtendedTooltip name="ИнвестицииПодразделениеРасширеннаяПодсказка" id="3049"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="ИнвестицииГруппа4" id="464">
-													<ExtendedTooltip name="ИнвестицииГруппа4РасширеннаяПодсказка" id="3050"/>
-													<ChildItems>
-														<InputField name="ИнвестицииНеобходимость" id="437">
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ИнвестицииНеобходимостьКонтекстноеМеню" id="438"/>
-															<ExtendedTooltip name="ИнвестицииНеобходимостьРасширеннаяПодсказка" id="3051"/>
-														</InputField>
-														<InputField name="ИнвестицииЭкономическийЭффект" id="453">
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииЭкономическийЭффектКонтекстноеМеню" id="454"/>
-															<ExtendedTooltip name="ИнвестицииЭкономическийЭффектРасширеннаяПодсказка" id="3052"/>
-														</InputField>
-														<InputField name="ИнвестицииПризнакПлана" id="455">
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииПризнакПланаКонтекстноеМеню" id="456"/>
-															<ExtendedTooltip name="ИнвестицииПризнакПланаРасширеннаяПодсказка" id="3053"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="ИнвестицииГруппа2" id="462">
-													<ExtendedTooltip name="ИнвестицииГруппа2РасширеннаяПодсказка" id="3054"/>
-													<ChildItems>
-														<InputField name="ИнвестицииСуммаБДДС" id="443">
-															<DataPath>Объект.Инвестиции.СуммаБДДС</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<FooterDataPath>Объект.Инвестиции.TotalСуммаБДДС</FooterDataPath>
-															<ContextMenu name="ИнвестицииСуммаБДДСКонтекстноеМеню" id="444"/>
-															<ExtendedTooltip name="ИнвестицииСуммаБДДСРасширеннаяПодсказка" id="3055"/>
-														</InputField>
-														<InputField name="ИнвестицииСтатьяБДДС" id="447">
-															<DataPath>Объект.Инвестиции.СтатьяБДДС</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииСтатьяБДДСКонтекстноеМеню" id="448"/>
-															<ExtendedTooltip name="ИнвестицииСтатьяБДДСРасширеннаяПодсказка" id="3056"/>
-														</InputField>
-														<InputField name="ИнвестицииИсточник" id="445">
-															<DataPath>Объект.Инвестиции.Источник</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииИсточникКонтекстноеМеню" id="446"/>
-															<ExtendedTooltip name="ИнвестицииИсточникРасширеннаяПодсказка" id="3057"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="ИнвестицииГруппа1" id="461">
-													<ExtendedTooltip name="ИнвестицииГруппа1РасширеннаяПодсказка" id="3058"/>
-													<ChildItems>
-														<InputField name="ИнвестицииСуммаФР" id="439">
-															<DataPath>Объект.Инвестиции.СуммаФР</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<FooterDataPath>Объект.Инвестиции.TotalСуммаФР</FooterDataPath>
-															<ContextMenu name="ИнвестицииСуммаФРКонтекстноеМеню" id="440"/>
-															<ExtendedTooltip name="ИнвестицииСуммаФРРасширеннаяПодсказка" id="3059"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="ИнвестицииГруппа3" id="463">
-													<ExtendedTooltip name="ИнвестицииГруппа3РасширеннаяПодсказка" id="3060"/>
-													<ChildItems>
-														<CheckBoxField name="ИнвестицииСписатьНаОс" id="441">
-															<DataPath>Объект.Инвестиции.СписатьНаОс</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<CheckBoxType>Auto</CheckBoxType>
-															<ContextMenu name="ИнвестицииСписатьНаОсКонтекстноеМеню" id="442"/>
-															<ExtendedTooltip name="ИнвестицииСписатьНаОсРасширеннаяПодсказка" id="3061"/>
-														</CheckBoxField>
-														<InputField name="ИнвестицииУчредитель1" id="449">
-															<DataPath>Объект.Инвестиции.Учредитель1</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииУчредитель1КонтекстноеМеню" id="450"/>
-															<ExtendedTooltip name="ИнвестицииУчредитель1РасширеннаяПодсказка" id="3062"/>
-														</InputField>
-														<InputField name="ИнвестицииУчредитель2" id="451">
-															<DataPath>Объект.Инвестиции.Учредитель2</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ShowInFooter>false</ShowInFooter>
-															<ContextMenu name="ИнвестицииУчредитель2КонтекстноеМеню" id="452"/>
-															<ExtendedTooltip name="ИнвестицииУчредитель2РасширеннаяПодсказка" id="3063"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="ИнвестицииНоменклатура" id="457">
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ИнвестицииНоменклатураКонтекстноеМеню" id="458"/>
-													<ExtendedTooltip name="ИнвестицииНоменклатураРасширеннаяПодсказка" id="3064"/>
-													<Events>
-														<Event name="StartChoice">ИнвестицииНоменклатураНачалоВыбора</Event>
-													</Events>
-												</InputField>
-												<InputField name="ИнвестицииОснование" id="1010">
-													<DataPath>Объект.Инвестиции.Основание</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ИнвестицииОснованиеКонтекстноеМеню" id="1011"/>
-													<ExtendedTooltip name="ИнвестицииОснованиеРасширеннаяПодсказка" id="3065"/>
-												</InputField>
-												<CheckBoxField name="ИнвестицииВключатьВПротокол" id="1187">
-													<DataPath>Объект.Инвестиции.ВключатьВПротокол</DataPath>
-													<Visible>false</Visible>
-													<EditMode>EnterOnInput</EditMode>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ИнвестицииВключатьВПротоколКонтекстноеМеню" id="1188"/>
-													<ExtendedTooltip name="ИнвестицииВключатьВПротоколРасширеннаяПодсказка" id="3066"/>
-												</CheckBoxField>
-											</ChildItems>
-										</Table>
-									</ChildItems>
-								</Page>
-								<Page name="СтраницаПрочиеРасходы" id="465">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Бюджет ПР</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Бюджет коммерческих и прочих расходов и доходов</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="СтраницаПрочиеРасходыРасширеннаяПодсказка" id="2940"/>
-									<ChildItems>
-										<Table name="ПР" id="667">
-											<AutoInsertNewRow>true</AutoInsertNewRow>
-											<EnableStartDrag>true</EnableStartDrag>
-											<EnableDrag>true</EnableDrag>
-											<FileDragMode>AsFile</FileDragMode>
-											<DataPath>Объект.ПР</DataPath>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Фин</v8:content>
-												</v8:item>
-											</Title>
-											<SearchStringLocation>None</SearchStringLocation>
-											<ViewStatusLocation>None</ViewStatusLocation>
-											<SearchControlLocation>None</SearchControlLocation>
-											<RowFilter xsi:nil="true"/>
-											<ContextMenu name="ПРКонтекстноеМеню" id="668"/>
-											<AutoCommandBar name="ПРКоманднаяПанель" id="669">
-												<ChildItems>
-													<Button name="ПРКопироватьСтрокиПР" id="1074">
-														<Type>CommandBarButton</Type>
-														<CommandName>Form.Command.КопироватьСтрокиПР</CommandName>
-														<ExtendedTooltip name="ПРКопироватьСтрокиПРРасширеннаяПодсказка" id="3010"/>
-													</Button>
-													<Button name="ПРЗагрузитьПР" id="3854">
-														<Type>CommandBarButton</Type>
-														<Representation>Picture</Representation>
-														<CommandName>Form.Command.ЗагрузитьПР</CommandName>
-														<ExtendedTooltip name="ПРЗагрузитьПРРасширеннаяПодсказка" id="3855"/>
-													</Button>
-												</ChildItems>
-											</AutoCommandBar>
-											<ExtendedTooltip name="ПРРасширеннаяПодсказка" id="3011"/>
-											<SearchStringAddition name="ПРСтрокаПоиска" id="3012">
-												<AdditionSource>
-													<Item>ПР</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="ПРСтрокаПоискаКонтекстноеМеню" id="3013"/>
-												<ExtendedTooltip name="ПРСтрокаПоискаРасширеннаяПодсказка" id="3014"/>
-											</SearchStringAddition>
-											<ViewStatusAddition name="ПРСостояниеПросмотра" id="3015">
-												<AdditionSource>
-													<Item>ПР</Item>
-													<Type>ViewStatusRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="ПРСостояниеПросмотраКонтекстноеМеню" id="3016"/>
-												<ExtendedTooltip name="ПРСостояниеПросмотраРасширеннаяПодсказка" id="3017"/>
-											</ViewStatusAddition>
-											<SearchControlAddition name="ПРУправлениеПоиском" id="3018">
-												<AdditionSource>
-													<Item>ПР</Item>
-													<Type>SearchControl</Type>
-												</AdditionSource>
-												<ContextMenu name="ПРУправлениеПоискомКонтекстноеМеню" id="3019"/>
-												<ExtendedTooltip name="ПРУправлениеПоискомРасширеннаяПодсказка" id="3020"/>
-											</SearchControlAddition>
-											<Events>
-												<Event name="OnEditEnd">ПРПриОкончанииРедактирования</Event>
-											</Events>
-											<ChildItems>
-												<LabelField name="ПРНомерСтроки" id="670">
-													<DataPath>Объект.ПР.LineNumber</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ПРНомерСтрокиКонтекстноеМеню" id="671"/>
-													<ExtendedTooltip name="ПРНомерСтрокиРасширеннаяПодсказка" id="3021"/>
-												</LabelField>
-												<InputField name="ПРМесяц" id="684">
-													<DataPath>Объект.ПР.Месяц</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ContextMenu name="ПРМесяцКонтекстноеМеню" id="685"/>
-													<ExtendedTooltip name="ПРМесяцРасширеннаяПодсказка" id="3022"/>
-													<Events>
-														<Event name="StartChoice">ПРМесяцНачалоВыбора</Event>
-													</Events>
-												</InputField>
-												<ColumnGroup name="ПРГруппа2" id="1090">
-													<ExtendedTooltip name="ПРГруппа2РасширеннаяПодсказка" id="3023"/>
-													<ChildItems>
-														<InputField name="ПРСтатьяПР" id="672">
-															<DataPath>Объект.ПР.СтатьяПР</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ПРСтатьяПРКонтекстноеМеню" id="673"/>
-															<ExtendedTooltip name="ПРСтатьяПРРасширеннаяПодсказка" id="3024"/>
-														</InputField>
-														<InputField name="ПРПодразделение" id="1091">
-															<DataPath>Объект.ПР.Подразделение</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ПРПодразделениеКонтекстноеМеню" id="1092"/>
-															<ExtendedTooltip name="ПРПодразделениеРасширеннаяПодсказка" id="3025"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="ПРНаименование" id="3427">
-													<DataPath>Объект.ПР.Наименование</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ПРНаименованиеКонтекстноеМеню" id="3428"/>
-													<ExtendedTooltip name="ПРНаименованиеРасширеннаяПодсказка" id="3429"/>
-												</InputField>
-												<ColumnGroup name="ПРГруппа1" id="686">
-													<ExtendedTooltip name="ПРГруппа1РасширеннаяПодсказка" id="3026"/>
-													<ChildItems>
-														<InputField name="ПРСуммаФР" id="674">
-															<DataPath>Объект.ПР.СуммаФР</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ПРСуммаФРКонтекстноеМеню" id="675"/>
-															<ExtendedTooltip name="ПРСуммаФРРасширеннаяПодсказка" id="3027"/>
-														</InputField>
-														<InputField name="ПРСуммаБДДС" id="676">
-															<DataPath>Объект.ПР.СуммаБДДС</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="ПРСуммаБДДСКонтекстноеМеню" id="677"/>
-															<ExtendedTooltip name="ПРСуммаБДДСРасширеннаяПодсказка" id="3028"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="ПРОснование" id="678">
-													<DataPath>Объект.ПР.Основание</DataPath>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Примечание</v8:content>
-														</v8:item>
-													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<Width>20</Width>
-													<ContextMenu name="ПРОснованиеКонтекстноеМеню" id="679"/>
-													<ExtendedTooltip name="ПРОснованиеРасширеннаяПодсказка" id="3029"/>
-												</InputField>
-												<CheckBoxField name="ПРВключатьВПротокол" id="1185">
-													<DataPath>Объект.ПР.ВключатьВПротокол</DataPath>
-													<Visible>false</Visible>
-													<EditMode>EnterOnInput</EditMode>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ПРВключатьВПротоколКонтекстноеМеню" id="1186"/>
-													<ExtendedTooltip name="ПРВключатьВПротоколРасширеннаяПодсказка" id="3030"/>
-												</CheckBoxField>
-												<InputField name="ПРЧЗ" id="680">
-													<DataPath>Объект.ПР.ЧЗ</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ПРЧЗКонтекстноеМеню" id="681"/>
-													<ExtendedTooltip name="ПРЧЗРасширеннаяПодсказка" id="3031"/>
-												</InputField>
-												<InputField name="ПРНоменклатура" id="687">
-													<DataPath>Объект.ПР.Номенклатура</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="ПРНоменклатураКонтекстноеМеню" id="688"/>
-													<ExtendedTooltip name="ПРНоменклатураРасширеннаяПодсказка" id="3032"/>
-													<Events>
-														<Event name="StartChoice">ПРНоменклатураНачалоВыбора</Event>
-													</Events>
-												</InputField>
-											</ChildItems>
-										</Table>
-									</ChildItems>
-								</Page>
-								<Page name="СтраницаКредиты" id="627">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Бюджет кредитов</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Страница кредиты</v8:content>
-										</v8:item>
-									</ToolTip>
-									<ExtendedTooltip name="СтраницаКредитыРасширеннаяПодсказка" id="3067"/>
-									<ChildItems>
-										<Table name="Кредиты" id="628">
-											<AutoInsertNewRow>true</AutoInsertNewRow>
-											<EnableStartDrag>true</EnableStartDrag>
-											<EnableDrag>true</EnableDrag>
-											<FileDragMode>AsFile</FileDragMode>
-											<DataPath>Объект.Кредиты</DataPath>
-											<SearchStringLocation>None</SearchStringLocation>
-											<ViewStatusLocation>None</ViewStatusLocation>
-											<SearchControlLocation>None</SearchControlLocation>
-											<RowFilter xsi:nil="true"/>
-											<ContextMenu name="КредитыКонтекстноеМеню" id="629"/>
-											<AutoCommandBar name="КредитыКоманднаяПанель" id="630">
-												<ChildItems>
-													<Button name="КредитыКопироватьСтрокиКредиты" id="1216">
-														<Type>CommandBarButton</Type>
-														<CommandName>Form.Command.КопироватьСтрокиКредиты</CommandName>
-														<ExtendedTooltip name="КредитыКопироватьСтрокиКредитыРасширеннаяПодсказка" id="3068"/>
-													</Button>
-												</ChildItems>
-											</AutoCommandBar>
-											<ExtendedTooltip name="КредитыРасширеннаяПодсказка" id="3069"/>
-											<SearchStringAddition name="КредитыСтрокаПоиска" id="3070">
-												<AdditionSource>
-													<Item>Кредиты</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="КредитыСтрокаПоискаКонтекстноеМеню" id="3071"/>
-												<ExtendedTooltip name="КредитыСтрокаПоискаРасширеннаяПодсказка" id="3072"/>
-											</SearchStringAddition>
-											<ViewStatusAddition name="КредитыСостояниеПросмотра" id="3073">
-												<AdditionSource>
-													<Item>Кредиты</Item>
-													<Type>ViewStatusRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="КредитыСостояниеПросмотраКонтекстноеМеню" id="3074"/>
-												<ExtendedTooltip name="КредитыСостояниеПросмотраРасширеннаяПодсказка" id="3075"/>
-											</ViewStatusAddition>
-											<SearchControlAddition name="КредитыУправлениеПоиском" id="3076">
-												<AdditionSource>
-													<Item>Кредиты</Item>
-													<Type>SearchControl</Type>
-												</AdditionSource>
-												<ContextMenu name="КредитыУправлениеПоискомКонтекстноеМеню" id="3077"/>
-												<ExtendedTooltip name="КредитыУправлениеПоискомРасширеннаяПодсказка" id="3078"/>
-											</SearchControlAddition>
-											<Events>
-												<Event name="OnEditEnd">КредитыПриОкончанииРедактирования</Event>
-											</Events>
-											<ChildItems>
-												<LabelField name="КредитыНомерСтроки" id="631">
-													<DataPath>Объект.Кредиты.LineNumber</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="КредитыНомерСтрокиКонтекстноеМеню" id="632"/>
-													<ExtendedTooltip name="КредитыНомерСтрокиРасширеннаяПодсказка" id="3079"/>
-												</LabelField>
-												<InputField name="КредитыМесяц" id="664">
-													<DataPath>Объект.Кредиты.Месяц</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ListChoiceMode>true</ListChoiceMode>
-													<ContextMenu name="КредитыМесяцКонтекстноеМеню" id="665"/>
-													<ExtendedTooltip name="КредитыМесяцРасширеннаяПодсказка" id="3080"/>
-													<Events>
-														<Event name="StartChoice">КредитыМесяцНачалоВыбора</Event>
-													</Events>
-												</InputField>
-												<ColumnGroup name="КредитыГруппа1" id="659">
-													<ExtendedTooltip name="КредитыГруппа1РасширеннаяПодсказка" id="3081"/>
-													<ChildItems>
-														<InputField name="КредитыКредит" id="633">
-															<DataPath>Объект.Кредиты.Кредит</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыКредитКонтекстноеМеню" id="634"/>
-															<ExtendedTooltip name="КредитыКредитРасширеннаяПодсказка" id="3082"/>
-														</InputField>
-														<InputField name="КредитыПодразделение" id="1116">
-															<DataPath>Объект.Кредиты.Подразделение</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыПодразделениеКонтекстноеМеню" id="1117"/>
-															<ExtendedTooltip name="КредитыПодразделениеРасширеннаяПодсказка" id="3083"/>
-														</InputField>
-														<InputField name="КредитыПроцент" id="635">
-															<DataPath>Объект.Кредиты.Процент</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыПроцентКонтекстноеМеню" id="636"/>
-															<ExtendedTooltip name="КредитыПроцентРасширеннаяПодсказка" id="3084"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="КредитыНаНачало" id="637">
-													<DataPath>Объект.Кредиты.НаНачало</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="КредитыНаНачалоКонтекстноеМеню" id="638"/>
-													<ExtendedTooltip name="КредитыНаНачалоРасширеннаяПодсказка" id="3085"/>
-												</InputField>
-												<ColumnGroup name="КредитыГруппа2" id="660">
-													<ExtendedTooltip name="КредитыГруппа2РасширеннаяПодсказка" id="3086"/>
-													<ChildItems>
-														<InputField name="КредитыПоступление" id="639">
-															<DataPath>Объект.Кредиты.Поступление</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыПоступлениеКонтекстноеМеню" id="640"/>
-															<ExtendedTooltip name="КредитыПоступлениеРасширеннаяПодсказка" id="3087"/>
-														</InputField>
-														<InputField name="КредитыГашение" id="641">
-															<DataPath>Объект.Кредиты.Гашение</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыГашениеКонтекстноеМеню" id="642"/>
-															<ExtendedTooltip name="КредитыГашениеРасширеннаяПодсказка" id="3088"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="КредитыГруппа5" id="663">
-													<Visible>false</Visible>
-													<ExtendedTooltip name="КредитыГруппа5РасширеннаяПодсказка" id="3089"/>
-													<ChildItems>
-														<InputField name="КредитыДеньПолучения" id="653">
-															<DataPath>Объект.Кредиты.ДеньПолучения</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыДеньПолученияКонтекстноеМеню" id="654"/>
-															<ExtendedTooltip name="КредитыДеньПолученияРасширеннаяПодсказка" id="3090"/>
-														</InputField>
-														<InputField name="КредитыДеньГашения" id="655">
-															<DataPath>Объект.Кредиты.ДеньГашения</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыДеньГашенияКонтекстноеМеню" id="656"/>
-															<ExtendedTooltip name="КредитыДеньГашенияРасширеннаяПодсказка" id="3091"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="КредитыГруппа3" id="661">
-													<ExtendedTooltip name="КредитыГруппа3РасширеннаяПодсказка" id="3092"/>
-													<ChildItems>
-														<InputField name="КредитыПроцНачислено" id="643">
-															<DataPath>Объект.Кредиты.ПроцНачислено</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыПроцНачисленоКонтекстноеМеню" id="644"/>
-															<ExtendedTooltip name="КредитыПроцНачисленоРасширеннаяПодсказка" id="3093"/>
-														</InputField>
-														<InputField name="КредитыПроцОплачено" id="645">
-															<DataPath>Объект.Кредиты.ПроцОплачено</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыПроцОплаченоКонтекстноеМеню" id="646"/>
-															<ExtendedTooltip name="КредитыПроцОплаченоРасширеннаяПодсказка" id="3094"/>
-														</InputField>
-														<InputField name="КредитыСтатья" id="1114">
-															<DataPath>Объект.Кредиты.Статья</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыСтатьяКонтекстноеМеню" id="1115"/>
-															<ExtendedTooltip name="КредитыСтатьяРасширеннаяПодсказка" id="3095"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="КредитыОснование" id="647">
-													<DataPath>Объект.Кредиты.Основание</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="КредитыОснованиеКонтекстноеМеню" id="648"/>
-													<ExtendedTooltip name="КредитыОснованиеРасширеннаяПодсказка" id="3096"/>
-												</InputField>
-												<ColumnGroup name="КредитыГруппа4" id="662">
-													<ExtendedTooltip name="КредитыГруппа4РасширеннаяПодсказка" id="3097"/>
-													<ChildItems>
-														<InputField name="КредитыЗатратыПоОформлению" id="649">
-															<DataPath>Объект.Кредиты.ЗатратыПоОформлению</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыЗатратыПоОформлениюКонтекстноеМеню" id="650"/>
-															<ExtendedTooltip name="КредитыЗатратыПоОформлениюРасширеннаяПодсказка" id="3098"/>
-														</InputField>
-														<InputField name="КредитыПредставительские" id="651">
-															<DataPath>Объект.Кредиты.Представительские</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="КредитыПредставительскиеКонтекстноеМеню" id="652"/>
-															<ExtendedTooltip name="КредитыПредставительскиеРасширеннаяПодсказка" id="3099"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="КредитыНоменклатура" id="657">
-													<DataPath>Объект.Кредиты.Номенклатура</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="КредитыНоменклатураКонтекстноеМеню" id="658"/>
-													<ExtendedTooltip name="КредитыНоменклатураРасширеннаяПодсказка" id="3100"/>
-													<Events>
-														<Event name="StartChoice">КредитыНоменклатураНачалоВыбора</Event>
-													</Events>
-												</InputField>
-											</ChildItems>
-										</Table>
-									</ChildItems>
-								</Page>
-								<Page name="ОперативныеБюджеты" id="3448">
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Оперативные бюджеты</v8:content>
-										</v8:item>
-									</Title>
-									<ToolTip>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Оперативные бюджеты</v8:content>
-										</v8:item>
-									</ToolTip>
-									<TitleDataPath>КоличНепринятыхСтрок</TitleDataPath>
-									<ExtendedTooltip name="ОперативныеБюджетыРасширеннаяПодсказка" id="3449"/>
-									<ChildItems>
-										<Table name="НепринятыеСтроки" id="3450">
-											<Representation>List</Representation>
-											<ChangeRowSet>false</ChangeRowSet>
-											<ChangeRowOrder>false</ChangeRowOrder>
-											<AutoInsertNewRow>true</AutoInsertNewRow>
-											<EnableStartDrag>true</EnableStartDrag>
-											<EnableDrag>true</EnableDrag>
-											<FileDragMode>AsFile</FileDragMode>
-											<DataPath>НепринятыеСтроки</DataPath>
-											<CommandSet>
-												<ExcludedCommand>Add</ExcludedCommand>
-												<ExcludedCommand>Change</ExcludedCommand>
-												<ExcludedCommand>Copy</ExcludedCommand>
-												<ExcludedCommand>CopyToClipboard</ExcludedCommand>
-												<ExcludedCommand>Delete</ExcludedCommand>
-												<ExcludedCommand>EndEdit</ExcludedCommand>
-												<ExcludedCommand>MoveDown</ExcludedCommand>
-												<ExcludedCommand>MoveUp</ExcludedCommand>
-											</CommandSet>
-											<RowFilter xsi:nil="true"/>
-											<ContextMenu name="НепринятыеСтрокиКонтекстноеМеню" id="3451"/>
-											<AutoCommandBar name="НепринятыеСтрокиКоманднаяПанель" id="3452">
-												<ChildItems>
-													<Button name="НепринятыеСтрокиОбновитьДанныеОперативныхБюджетов" id="3577">
-														<Type>CommandBarButton</Type>
-														<CommandName>Form.Command.ОбновитьДанныеОперативныхБюджетов</CommandName>
-														<ToolTipRepresentation>Button</ToolTipRepresentation>
-														<ExtendedTooltip name="НепринятыеСтрокиОбновитьДанныеОперативныхБюджетовРасширеннаяПодсказка" id="3578"/>
-													</Button>
-												</ChildItems>
-											</AutoCommandBar>
-											<ExtendedTooltip name="НепринятыеСтрокиРасширеннаяПодсказка" id="3453"/>
-											<SearchStringAddition name="НепринятыеСтрокиСтрокаПоиска" id="3454">
-												<AdditionSource>
-													<Item>НепринятыеСтроки</Item>
-													<Type>SearchStringRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="НепринятыеСтрокиСтрокаПоискаКонтекстноеМеню" id="3457"/>
-												<ExtendedTooltip name="НепринятыеСтрокиСтрокаПоискаРасширеннаяПодсказка" id="3458"/>
-											</SearchStringAddition>
-											<ViewStatusAddition name="НепринятыеСтрокиСостояниеПросмотра" id="3459">
-												<AdditionSource>
-													<Item>НепринятыеСтроки</Item>
-													<Type>ViewStatusRepresentation</Type>
-												</AdditionSource>
-												<ContextMenu name="НепринятыеСтрокиСостояниеПросмотраКонтекстноеМеню" id="3462"/>
-												<ExtendedTooltip name="НепринятыеСтрокиСостояниеПросмотраРасширеннаяПодсказка" id="3463"/>
-											</ViewStatusAddition>
-											<SearchControlAddition name="НепринятыеСтрокиУправлениеПоиском" id="3464">
-												<AdditionSource>
-													<Item>НепринятыеСтроки</Item>
-													<Type>SearchControl</Type>
-												</AdditionSource>
-												<ContextMenu name="НепринятыеСтрокиУправлениеПоискомКонтекстноеМеню" id="3467"/>
-												<ExtendedTooltip name="НепринятыеСтрокиУправлениеПоискомРасширеннаяПодсказка" id="3468"/>
-											</SearchControlAddition>
-											<Events>
-												<Event name="OnEditEnd">НепринятыеСтрокиПриОкончанииРедактирования</Event>
-												<Event name="Selection">НепринятыеСтрокиВыбор</Event>
-											</Events>
-											<ChildItems>
-												<InputField name="НепринятыеСтрокиНомерСтроки" id="3589">
-													<DataPath>НепринятыеСтроки.НомерСтроки</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="НепринятыеСтрокиНомерСтрокиКонтекстноеМеню" id="3590"/>
-													<ExtendedTooltip name="НепринятыеСтрокиНомерСтрокиРасширеннаяПодсказка" id="3591"/>
-												</InputField>
-												<CheckBoxField name="НепринятыеСтрокиПринять" id="3526">
-													<DataPath>НепринятыеСтроки.Принять</DataPath>
-													<TitleHeight>1</TitleHeight>
-													<HorizontalAlign>Center</HorizontalAlign>
-													<EditMode>EnterOnInput</EditMode>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="НепринятыеСтрокиПринятьКонтекстноеМеню" id="3527"/>
-													<ExtendedTooltip name="НепринятыеСтрокиПринятьРасширеннаяПодсказка" id="3528"/>
-													<Events>
-														<Event name="OnChange">НепринятыеСтрокиПринятьПриИзменении</Event>
-													</Events>
-												</CheckBoxField>
-												<ColumnGroup name="НепринятыеСтрокиГруппа4" id="3582">
-													<ExtendedTooltip name="НепринятыеСтрокиГруппа4РасширеннаяПодсказка" id="3583"/>
-													<ChildItems>
-														<ColumnGroup name="НепринятыеСтрокиГруппа5" id="3587">
-															<Group>Horizontal</Group>
-															<ExtendedTooltip name="НепринятыеСтрокиГруппа5РасширеннаяПодсказка" id="3588"/>
-														</ColumnGroup>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="НепринятыеСтрокиМесяц" id="3538">
-													<DataPath>НепринятыеСтроки.Месяц</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<Width>2</Width>
-													<ContextMenu name="НепринятыеСтрокиМесяцКонтекстноеМеню" id="3539"/>
-													<ExtendedTooltip name="НепринятыеСтрокиМесяцРасширеннаяПодсказка" id="3540"/>
-												</InputField>
-												<InputField name="НепринятыеСтрокиПодразделение" id="3520">
-													<DataPath>НепринятыеСтроки.Подразделение</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<Width>12</Width>
-													<ContextMenu name="НепринятыеСтрокиПодразделениеКонтекстноеМеню" id="3521"/>
-													<ExtendedTooltip name="НепринятыеСтрокиПодразделениеРасширеннаяПодсказка" id="3522"/>
-												</InputField>
-												<ColumnGroup name="НепринятыеСтрокиГруппа1" id="3478">
-													<ReadOnly>true</ReadOnly>
-													<ExtendedTooltip name="НепринятыеСтрокиГруппа1РасширеннаяПодсказка" id="3479"/>
-													<ChildItems>
-														<InputField name="НепринятыеСтрокиСтатьяЗатрат" id="3502">
-															<DataPath>НепринятыеСтроки.СтатьяЗатрат</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиСтатьяЗатратКонтекстноеМеню" id="3503"/>
-															<ExtendedTooltip name="НепринятыеСтрокиСтатьяЗатратРасширеннаяПодсказка" id="3504"/>
-														</InputField>
-														<InputField name="НепринятыеСтрокиСтатьяБДДС" id="3511">
-															<DataPath>НепринятыеСтроки.СтатьяБДДС</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиСтатьяБДДСКонтекстноеМеню" id="3512"/>
-															<ExtendedTooltip name="НепринятыеСтрокиСтатьяБДДСРасширеннаяПодсказка" id="3513"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="НепринятыеСтрокиГруппа7" id="3756">
-													<ExtendedTooltip name="НепринятыеСтрокиГруппа7РасширеннаяПодсказка" id="3757"/>
-													<ChildItems>
-														<InputField name="НепринятыеСтрокиИнвПроект" id="3758">
-															<DataPath>НепринятыеСтроки.ИнвПроект</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиИнвПроектКонтекстноеМеню" id="3759"/>
-															<ExtendedTooltip name="НепринятыеСтрокиИнвПроектРасширеннаяПодсказка" id="3760"/>
-														</InputField>
-														<CheckBoxField name="НепринятыеСтрокиВНХ" id="3599">
-															<DataPath>НепринятыеСтроки.ВНХ</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<CheckBoxType>Auto</CheckBoxType>
-															<ContextMenu name="НепринятыеСтрокиВНХКонтекстноеМеню" id="3600"/>
-															<ExtendedTooltip name="НепринятыеСтрокиВНХРасширеннаяПодсказка" id="3601"/>
-														</CheckBoxField>
-													</ChildItems>
-												</ColumnGroup>
-												<ColumnGroup name="НепринятыеСтрокиГруппа2" id="3486">
-													<ReadOnly>true</ReadOnly>
-													<ExtendedTooltip name="НепринятыеСтрокиГруппа2РасширеннаяПодсказка" id="3487"/>
-													<ChildItems>
-														<InputField name="НепринятыеСтрокиСуммаСеб" id="3508">
-															<DataPath>НепринятыеСтроки.СуммаСеб</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиСуммаСебКонтекстноеМеню" id="3509"/>
-															<ExtendedTooltip name="НепринятыеСтрокиСуммаСебРасширеннаяПодсказка" id="3510"/>
-														</InputField>
-														<InputField name="НепринятыеСтрокиСуммаБДДС" id="3514">
-															<DataPath>НепринятыеСтроки.СуммаБДДС</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиСуммаБДДСКонтекстноеМеню" id="3515"/>
-															<ExtendedTooltip name="НепринятыеСтрокиСуммаБДДСРасширеннаяПодсказка" id="3516"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="НепринятыеСтрокиПризнак" id="3554">
-													<DataPath>НепринятыеСтроки.Признак</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<EditMode>EnterOnInput</EditMode>
-													<Width>8</Width>
-													<ContextMenu name="НепринятыеСтрокиПризнакКонтекстноеМеню" id="3555"/>
-													<ExtendedTooltip name="НепринятыеСтрокиПризнакРасширеннаяПодсказка" id="3556"/>
-												</InputField>
-												<ColumnGroup name="НепринятыеСтрокиГруппа6" id="3602">
-													<ExtendedTooltip name="НепринятыеСтрокиГруппа6РасширеннаяПодсказка" id="3603"/>
-													<ChildItems>
-														<InputField name="НепринятыеСтрокиНоменклатура" id="3523">
-															<DataPath>НепринятыеСтроки.Номенклатура</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<EditMode>EnterOnInput</EditMode>
-															<Width>12</Width>
-															<ContextMenu name="НепринятыеСтрокиНоменклатураКонтекстноеМеню" id="3524"/>
-															<ExtendedTooltip name="НепринятыеСтрокиНоменклатураРасширеннаяПодсказка" id="3525"/>
-															<Events>
-																<Event name="OnChange">НепринятыеСтрокиНоменклатураПриИзменении</Event>
-																<Event name="StartChoice">НепринятыеСтрокиНоменклатураНачалоВыбора</Event>
-															</Events>
-														</InputField>
-														<CheckBoxField name="НепринятыеСтрокиНаЕдиницу" id="3604">
-															<DataPath>НепринятыеСтроки.НаЕдиницу</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<EditMode>EnterOnInput</EditMode>
-															<CheckBoxType>Auto</CheckBoxType>
-															<ContextMenu name="НепринятыеСтрокиНаЕдиницуКонтекстноеМеню" id="3605"/>
-															<ExtendedTooltip name="НепринятыеСтрокиНаЕдиницуРасширеннаяПодсказка" id="3606"/>
-														</CheckBoxField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="НепринятыеСтрокиОснование" id="3517">
-													<DataPath>НепринятыеСтроки.Основание</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="НепринятыеСтрокиОснованиеКонтекстноеМеню" id="3518"/>
-													<ExtendedTooltip name="НепринятыеСтрокиОснованиеРасширеннаяПодсказка" id="3519"/>
-												</InputField>
-												<ColumnGroup name="НепринятыеСтрокиГруппа3" id="3500">
-													<ReadOnly>true</ReadOnly>
-													<ExtendedTooltip name="НепринятыеСтрокиГруппа3РасширеннаяПодсказка" id="3501"/>
-													<ChildItems>
-														<InputField name="НепринятыеСтрокиЦФОЗаявителя" id="3532">
-															<DataPath>НепринятыеСтроки.ЦФОЗаявителя</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиЦФОЗаявителяКонтекстноеМеню" id="3533"/>
-															<ExtendedTooltip name="НепринятыеСтрокиЦФОЗаявителяРасширеннаяПодсказка" id="3534"/>
-														</InputField>
-														<InputField name="НепринятыеСтрокиПодразделениеЗаявителя" id="3535">
-															<DataPath>НепринятыеСтроки.ПодразделениеЗаявителя</DataPath>
-															<EditMode>EnterOnInput</EditMode>
-															<ContextMenu name="НепринятыеСтрокиПодразделениеЗаявителяКонтекстноеМеню" id="3536"/>
-															<ExtendedTooltip name="НепринятыеСтрокиПодразделениеЗаявителяРасширеннаяПодсказка" id="3537"/>
-														</InputField>
-													</ChildItems>
-												</ColumnGroup>
-												<InputField name="НепринятыеСтрокиАвторЗаписи" id="3529">
-													<DataPath>НепринятыеСтроки.АвторЗаписи</DataPath>
-													<EditMode>EnterOnInput</EditMode>
-													<ContextMenu name="НепринятыеСтрокиАвторЗаписиКонтекстноеМеню" id="3530"/>
-													<ExtendedTooltip name="НепринятыеСтрокиАвторЗаписиРасширеннаяПодсказка" id="3531"/>
-												</InputField>
-												<CheckBoxField name="НепринятыеСтрокиЗаблокирован" id="3579">
-													<DataPath>НепринятыеСтроки.Заблокирован</DataPath>
-													<Visible>false</Visible>
-													<EditMode>EnterOnInput</EditMode>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="НепринятыеСтрокиЗаблокированКонтекстноеМеню" id="3580"/>
-													<ExtendedTooltip name="НепринятыеСтрокиЗаблокированРасширеннаяПодсказка" id="3581"/>
-												</CheckBoxField>
 											</ChildItems>
 										</Table>
 									</ChildItems>
