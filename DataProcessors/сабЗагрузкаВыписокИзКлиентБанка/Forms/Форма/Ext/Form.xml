@@ -61,6 +61,28 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="Группа5" id="32">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="33"/>
+			<ChildItems>
+				<CheckBoxField name="ЗапускПоРасписанию" id="24">
+					<DataPath>ЗапускПоРасписанию</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗапускПоРасписаниюКонтекстноеМеню" id="25"/>
+					<ExtendedTooltip name="ЗапускПоРасписаниюРасширеннаяПодсказка" id="26"/>
+					<Events>
+						<Event name="OnChange">ЗапускПоРасписаниюПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
+				<Button name="КнопкаРасписаниеСинхронизации" id="20">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.РасписаниеСинхронизации</CommandName>
+					<ExtendedTooltip name="КнопкаРасписаниеСинхронизацииРасширеннаяПодсказка" id="21"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -111,6 +133,26 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="ЗапускПоРасписанию" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запуск по расписанию</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Расписание" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="Загрузить" id="1">
@@ -142,6 +184,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Сохранить</Action>
+		</Command>
+		<Command name="РасписаниеСинхронизации" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание синхронизации</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расписание синхронизации</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РасписаниеСинхронизации</Action>
 		</Command>
 	</Commands>
 </Form>

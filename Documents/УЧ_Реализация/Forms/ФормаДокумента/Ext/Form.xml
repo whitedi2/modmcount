@@ -495,6 +495,7 @@
 								<ExtendedTooltip name="РеализацияУправлениеПоискомРасширеннаяПодсказка" id="406"/>
 							</SearchControlAddition>
 							<Events>
+								<Event name="BeforeDeleteRow">РеализацияПередУдалением</Event>
 								<Event name="OnActivateRow">РеализацияПриАктивизацииСтроки</Event>
 								<Event name="OnStartEdit">РеализацияПриНачалеРедактирования</Event>
 							</Events>
@@ -561,6 +562,33 @@
 													<DataPath>Объект.Товары.СерияНоменклатуры</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<Width>12</Width>
+													<ChoiceParameterLinks>
+														<xr:Link>
+															<xr:Name>ДатаОтгрузки</xr:Name>
+															<xr:DataPath xsi:type="xs:string">Объект.Date</xr:DataPath>
+															<xr:ValueChange>Clear</xr:ValueChange>
+														</xr:Link>
+														<xr:Link>
+															<xr:Name>Предприятие</xr:Name>
+															<xr:DataPath xsi:type="xs:string">Объект.Предприятие</xr:DataPath>
+															<xr:ValueChange>Clear</xr:ValueChange>
+														</xr:Link>
+														<xr:Link>
+															<xr:Name>Склад</xr:Name>
+															<xr:DataPath xsi:type="xs:string">Объект.Склад</xr:DataPath>
+															<xr:ValueChange>Clear</xr:ValueChange>
+														</xr:Link>
+														<xr:Link>
+															<xr:Name>Отбор.Владелец</xr:Name>
+															<xr:DataPath xsi:type="xs:string">Items.Реализация.CurrentData.Номенклатура</xr:DataPath>
+															<xr:ValueChange>Clear</xr:ValueChange>
+														</xr:Link>
+														<xr:Link>
+															<xr:Name>Счет</xr:Name>
+															<xr:DataPath xsi:type="xs:string">Items.Реализация.CurrentData.Счет</xr:DataPath>
+															<xr:ValueChange>Clear</xr:ValueChange>
+														</xr:Link>
+													</ChoiceParameterLinks>
 													<ContextMenu name="РеализацияСерияНоменклатурыКонтекстноеМеню" id="810"/>
 													<ExtendedTooltip name="РеализацияСерияНоменклатурыРасширеннаяПодсказка" id="811"/>
 													<Events>

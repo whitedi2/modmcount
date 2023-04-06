@@ -1,35 +1,73 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<ChildItems>
-			<Button name="ФормаЗакрыть" id="39">
-				<Type>CommandBarButton</Type>
-				<DefaultButton>true</DefaultButton>
-				<CommandName>Form.Command.Закрыть</CommandName>
-				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="40"/>
-			</Button>
-			<Button name="ФормаОтправитьПоЭДО" id="37">
-				<Type>CommandBarButton</Type>
-				<Enabled>false</Enabled>
-				<CommandName>Form.Command.ОтправитьПоЭДО</CommandName>
-				<ExtendedTooltip name="ФормаОтправитьПоЭДОРасширеннаяПодсказка" id="38"/>
-			</Button>
-			<Button name="ФормаОтправитьПоПочте" id="35">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.ОтправитьПоПочте</CommandName>
-				<ExtendedTooltip name="ФормаОтправитьПоПочтеРасширеннаяПодсказка" id="36"/>
-			</Button>
-			<Button name="ФормаПечать" id="33">
-				<Type>CommandBarButton</Type>
-				<CommandName>Form.Command.Печать</CommandName>
-				<ExtendedTooltip name="ФормаПечатьРасширеннаяПодсказка" id="34"/>
-			</Button>
-		</ChildItems>
+		<Autofill>false</Autofill>
 	</AutoCommandBar>
 	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
+		<UsualGroup name="Группа2" id="75">
+			<Group>AlwaysHorizontal</Group>
+			<ChildrenAlign>None</ChildrenAlign>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="76"/>
+			<ChildItems>
+				<UsualGroup name="Группа3" id="77">
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<Button name="ФормаЗакрыть" id="39">
+							<Type>UsualButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.Закрыть</CommandName>
+							<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="40"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<Button name="ФормаОтправитьПоЭДО" id="37">
+					<Type>UsualButton</Type>
+					<Enabled>false</Enabled>
+					<CommandName>Form.Command.ОтправитьПоЭДО</CommandName>
+					<ExtendedTooltip name="ФормаОтправитьПоЭДОРасширеннаяПодсказка" id="38"/>
+				</Button>
+				<Button name="ФормаОтправитьПоПочте" id="35">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.ОтправитьПоПочте</CommandName>
+					<ExtendedTooltip name="ФормаОтправитьПоПочтеРасширеннаяПодсказка" id="36"/>
+				</Button>
+				<UsualGroup name="Группа5" id="84">
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="85"/>
+					<ChildItems>
+						<Button name="ФормаПечать" id="33">
+							<Type>UsualButton</Type>
+							<CommandName>Form.Command.Печать</CommandName>
+							<ExtendedTooltip name="ФормаПечатьРасширеннаяПодсказка" id="34"/>
+						</Button>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа4" id="82">
+					<Behavior>Usual</Behavior>
+					<ShowTitle>false</ShowTitle>
+					<BackColor>style:ImportantColor</BackColor>
+					<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="83"/>
+					<ChildItems>
+						<CheckBoxField name="ПодписьИПечать" id="79">
+							<DataPath>ПодписьИПечать</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ПодписьИПечатьКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ПодписьИПечатьРасширеннаяПодсказка" id="81"/>
+						</CheckBoxField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="Организация" id="54">
 			<DataPath>Организация</DataPath>
 			<ContextMenu name="ОрганизацияКонтекстноеМеню" id="55"/>
@@ -159,6 +197,27 @@
 						<Event name="OnChange">СписокКонтрагентПриИзменении</Event>
 					</Events>
 				</InputField>
+				<InputField name="СписокОборотДт" id="61">
+					<DataPath>Список.ОборотДт</DataPath>
+					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокОборотДтКонтекстноеМеню" id="62"/>
+					<ExtendedTooltip name="СписокОборотДтРасширеннаяПодсказка" id="63"/>
+				</InputField>
+				<InputField name="СписокОборотКт" id="64">
+					<DataPath>Список.ОборотКт</DataPath>
+					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокОборотКтКонтекстноеМеню" id="65"/>
+					<ExtendedTooltip name="СписокОборотКтРасширеннаяПодсказка" id="66"/>
+				</InputField>
+				<InputField name="СписокСальдоНаКонец" id="67">
+					<DataPath>Список.СальдоНаКонец</DataPath>
+					<Enabled>false</Enabled>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокСальдоНаКонецКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="СписокСальдоНаКонецРасширеннаяПодсказка" id="69"/>
+				</InputField>
 				<CheckBoxField name="СписокЭДО" id="17">
 					<DataPath>Список.ЭДО</DataPath>
 					<CheckBoxType>Auto</CheckBoxType>
@@ -260,6 +319,54 @@
 						<v8:Type>cfg:DocumentRef.АктСверкиВзаиморасчетов</v8:Type>
 					</Type>
 				</Column>
+				<Column name="ОборотДт" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оборот Дт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ОборотКт" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оборот Кт</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="СальдоНаКонец" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сальдо на конец</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>15</v8:Digits>
+							<v8:FractionDigits>2</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ДатаНачала" id="2">
@@ -293,6 +400,17 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПодписьИПечать" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подпись и печать</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 	</Attributes>

@@ -13,6 +13,7 @@
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
 		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 		<Event name="OnWriteAtServer">ПриЗаписиНаСервере</Event>
 	</Events>
@@ -290,6 +291,9 @@
 								<ContextMenu name="ТабличнаяЧастьУправлениеПоискомКонтекстноеМеню" id="65"/>
 								<ExtendedTooltip name="ТабличнаяЧастьУправлениеПоискомРасширеннаяПодсказка" id="66"/>
 							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeDeleteRow">ТабличнаяЧастьПередУдалением</Event>
+							</Events>
 							<ChildItems>
 								<LabelField name="ТабличнаяЧастьНомерСтроки" id="12">
 									<DataPath>Объект.ТабличнаяЧасть.LineNumber</DataPath>
@@ -351,6 +355,33 @@
 									<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатуры</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>ДатаОтгрузки</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Date</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Предприятие</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Предприятие</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Склад</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Склад</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Счет</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Items.ТабличнаяЧасть.CurrentData.СчетУчета</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Отбор.Владелец</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Items.ТабличнаяЧасть.CurrentData.Товар</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
 									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="196"/>
 									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="197"/>
 									<Events>

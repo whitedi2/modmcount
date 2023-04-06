@@ -274,6 +274,7 @@
 								<ExtendedTooltip name="ТабличнаяЧастьУправлениеПоискомРасширеннаяПодсказка" id="70"/>
 							</SearchControlAddition>
 							<Events>
+								<Event name="BeforeDeleteRow">ТабличнаяЧастьПередУдалением</Event>
 								<Event name="OnStartEdit">ТабличнаяЧастьПриНачалеРедактирования</Event>
 							</Events>
 							<ChildItems>
@@ -334,6 +335,33 @@
 									<DataPath>Объект.ТабличнаяЧасть.СерияНоменклатуры</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
+									<ChoiceParameterLinks>
+										<xr:Link>
+											<xr:Name>ДатаОтгрузки</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Date</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Предприятие</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Предприятие</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Склад</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Объект.Склад</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Отбор.Владелец</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Items.ТабличнаяЧасть.CurrentData.Номенклатура</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+										<xr:Link>
+											<xr:Name>Счет</xr:Name>
+											<xr:DataPath xsi:type="xs:string">Items.ТабличнаяЧасть.CurrentData.СчетУчетаБУ</xr:DataPath>
+											<xr:ValueChange>Clear</xr:ValueChange>
+										</xr:Link>
+									</ChoiceParameterLinks>
 									<ContextMenu name="ТабличнаяЧастьСерияНоменклатурыКонтекстноеМеню" id="242"/>
 									<ExtendedTooltip name="ТабличнаяЧастьСерияНоменклатурыРасширеннаяПодсказка" id="243"/>
 									<Events>

@@ -392,6 +392,16 @@
 									<ContextMenu name="СписокЗаказыДатаКонтекстноеМеню" id="245"/>
 									<ExtendedTooltip name="СписокЗаказыДатаРасширеннаяПодсказка" id="246"/>
 								</InputField>
+								<InputField name="СписокЗаказыОрганизация" id="289">
+									<DataPath>СписокЗаказы.Организация</DataPath>
+									<ContextMenu name="СписокЗаказыОрганизацияКонтекстноеМеню" id="290"/>
+									<ExtendedTooltip name="СписокЗаказыОрганизацияРасширеннаяПодсказка" id="291"/>
+								</InputField>
+								<LabelField name="СписокЗаказыСклад" id="704">
+									<DataPath>СписокЗаказы.Склад</DataPath>
+									<ContextMenu name="СписокЗаказыСкладКонтекстноеМеню" id="705"/>
+									<ExtendedTooltip name="СписокЗаказыСкладРасширеннаяПодсказка" id="706"/>
+								</LabelField>
 								<InputField name="СписокЗаказыПодразделение" id="262">
 									<DataPath>СписокЗаказы.Подразделение</DataPath>
 									<ContextMenu name="СписокЗаказыПодразделениеКонтекстноеМеню" id="263"/>
@@ -515,12 +525,6 @@
 									<Width>6</Width>
 									<ContextMenu name="СписокЗаказыНомерПоДаннымКлиентаКонтекстноеМеню" id="287"/>
 									<ExtendedTooltip name="СписокЗаказыНомерПоДаннымКлиентаРасширеннаяПодсказка" id="288"/>
-								</InputField>
-								<InputField name="СписокЗаказыОрганизация" id="289">
-									<DataPath>СписокЗаказы.Организация</DataPath>
-									<Visible>false</Visible>
-									<ContextMenu name="СписокЗаказыОрганизацияКонтекстноеМеню" id="290"/>
-									<ExtendedTooltip name="СписокЗаказыОрганизацияРасширеннаяПодсказка" id="291"/>
 								</InputField>
 								<CheckBoxField name="СписокЗаказыДоставка" id="292">
 									<DataPath>СписокЗаказы.Доставка</DataPath>
@@ -689,6 +693,9 @@
 													<DataPath>НакладнаяВЕТИС</DataPath>
 													<ContextMenu name="НакладнаяВЕТИСКонтекстноеМеню" id="674"/>
 													<ExtendedTooltip name="НакладнаяВЕТИСРасширеннаяПодсказка" id="675"/>
+													<Events>
+														<Event name="StartChoice">НакладнаяВЕТИСНачалоВыбора</Event>
+													</Events>
 												</InputField>
 												<CheckBoxField name="ПодтвердитьВЕТИС" id="680">
 													<DataPath>ПодтвердитьВЕТИС</DataPath>
@@ -709,6 +716,9 @@
 													<DataPath>ВходящаяУПДЭДО</DataPath>
 													<ContextMenu name="ВходящаяУПДЭДОКонтекстноеМеню" id="684"/>
 													<ExtendedTooltip name="ВходящаяУПДЭДОРасширеннаяПодсказка" id="685"/>
+													<Events>
+														<Event name="OnChange">ВходящаяУПДЭДОПриИзменении</Event>
+													</Events>
 												</InputField>
 												<CheckBoxField name="ПодтвердитьЭДО" id="688">
 													<DataPath>ПодтвердитьЭДО</DataPath>
@@ -751,6 +761,37 @@
 										</Button>
 									</ChildItems>
 								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСкладОрганизация" id="707">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа склад организация</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа склад организация</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСкладОрганизацияРасширеннаяПодсказка" id="708"/>
+							<ChildItems>
+								<InputField name="Организация" id="709">
+									<DataPath>Организация</DataPath>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="710"/>
+									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="711"/>
+								</InputField>
+								<InputField name="Склад" id="712">
+									<DataPath>Склад</DataPath>
+									<ContextMenu name="СкладКонтекстноеМеню" id="713"/>
+									<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="714"/>
+								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаШапкаТНН" id="206">
@@ -1255,11 +1296,16 @@
 															<ContextMenu name="ТЗ_ПланФактАртикулКонтекстноеМеню" id="92"/>
 															<ExtendedTooltip name="ТЗ_ПланФактАртикулРасширеннаяПодсказка" id="93"/>
 														</InputField>
+														<InputField name="ТЗ_ПланФактНомерСтроки" id="718">
+															<DataPath>ТЗ_ПланФакт.НомерСтроки</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТЗ_ПланФактНомерСтрокиКонтекстноеМеню" id="719"/>
+															<ExtendedTooltip name="ТЗ_ПланФактНомерСтрокиРасширеннаяПодсказка" id="720"/>
+														</InputField>
 														<InputField name="ТЗ_ПланФактНоменклатура" id="216">
 															<DataPath>ТЗ_ПланФакт.Номенклатура</DataPath>
 															<ReadOnly>true</ReadOnly>
 															<EditMode>EnterOnInput</EditMode>
-															<FixingInTable>Left</FixingInTable>
 															<FooterDataPath>ТЗ_ПланФактНоменклатураТекстПодвала</FooterDataPath>
 															<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
 															<ContextMenu name="ТЗ_ПланФактНоменклатураКонтекстноеМеню" id="217"/>
@@ -1342,6 +1388,12 @@
 															<Events>
 																<Event name="StartChoice">ТЗ_ПланФактСерияНоменклатурыНачалоВыбора</Event>
 															</Events>
+														</InputField>
+														<InputField name="ТЗ_ПланФактСтранаПроисхождения" id="715">
+															<DataPath>ТЗ_ПланФакт.СтранаПроисхождения</DataPath>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТЗ_ПланФактСтранаПроисхожденияКонтекстноеМеню" id="716"/>
+															<ExtendedTooltip name="ТЗ_ПланФактСтранаПроисхожденияРасширеннаяПодсказка" id="717"/>
 														</InputField>
 														<InputField name="ТЗ_ПланФактГТД" id="698">
 															<DataPath>ТЗ_ПланФакт.ГТД</DataPath>
@@ -2701,6 +2753,33 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
+				<Column name="СтранаПроисхождения" id="30">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страна происхождения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СтраныМира</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НомерСтроки" id="31">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>5</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ОбрабатываемыйДокумент" id="5">
@@ -2897,7 +2976,8 @@
 			ТОГДА ЛОЖЬ
 		ИНАЧЕ ИСТИНА
 	КОНЕЦ КАК ЕстьПодчиненныйДокумент,
-	ЕСТЬNULL(ПоступившиеЗаказы.Черновик, ЛОЖЬ) КАК Черновик
+	ЕСТЬNULL(ПоступившиеЗаказы.Черновик, ЛОЖЬ) КАК Черновик,
+	ДокументЗаказПоставщику.Склад КАК Склад
 ИЗ
 	Документ.ЗаказПоставщику КАК ДокументЗаказПоставщику
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ (ВЫБРАТЬ РАЗЛИЧНЫЕ
@@ -3405,6 +3485,17 @@
 							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="Организация" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -3948,6 +4039,28 @@
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация получателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Склад" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад получателя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Склады</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
