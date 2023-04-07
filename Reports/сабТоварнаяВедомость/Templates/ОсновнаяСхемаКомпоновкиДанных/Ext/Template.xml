@@ -1008,6 +1008,26 @@
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СерииНоменклатуры</v8:Type>
 			</valueType>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВПроизводство</dataPath>
+			<field>СуммаВПроизводство</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма в производство</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВПроизводство</dataPath>
+			<field>ВПроизводство</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В производство</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОбороты.КоличествоОборот КАК КоличествоОборот,
@@ -1083,7 +1103,7 @@
 	КОНЕЦ КАК ПеремещенияМеждуОП,
 	ВЫБОР
 		КОГДА УчетныйОбороты.КорСчет.Код = "20"
-			ТОГДА УчетныйОбороты.КоличествоОборот
+			ТОГДА УчетныйОбороты.КоличествоОборотДт
 		ИНАЧЕ 0
 	КОНЕЦ КАК Выпуск,
 	УчетныйОбороты.СуммаОборот КАК СуммаОборот,
@@ -1154,11 +1174,21 @@
 	КОНЕЦ КАК СуммаПеремещенияМеждуОП,
 	ВЫБОР
 		КОГДА УчетныйОбороты.КорСчет.Код = "20"
-			ТОГДА УчетныйОбороты.СуммаОборот
+			ТОГДА УчетныйОбороты.СуммаОборотДт
 		ИНАЧЕ 0
 	КОНЕЦ КАК СуммаВыпуск,
 	УчетныйОбороты.Регистратор КАК Регистратор,
-	УчетныйОбороты.Субконто3 КАК Серия
+	УчетныйОбороты.Субконто3 КАК Серия,
+	ВЫБОР
+		КОГДА УчетныйОбороты.КорСчет.Код = "20"
+			ТОГДА -УчетныйОбороты.КоличествоОборотКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВПроизводство,
+	ВЫБОР
+		КОГДА УчетныйОбороты.КорСчет.Код = "20"
+			ТОГДА -УчетныйОбороты.СуммаОборотКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаВПроизводство
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(
 			,
@@ -1553,7 +1583,7 @@
 	</dataSetLink>
 	<calculatedField>
 		<dataPath>ПрочиеДвижения</dataPath>
-		<expression>ПрочиеДвижения - Поступления - Возвраты - Реализации - ВнутренниеПеремещения - ПереводВИнгредиенты - Списания -ПеремещенияМеждуОП - ПереводНоменклатуры - Выпуск</expression>
+		<expression>ПрочиеДвижения - Поступления - Возвраты - Реализации - ВнутренниеПеремещения - ПереводВИнгредиенты - Списания -ПеремещенияМеждуОП - ПереводНоменклатуры - Выпуск - ВПроизводство</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -1574,7 +1604,7 @@
 	</calculatedField>
 	<calculatedField>
 		<dataPath>СуммаПрочиеДвижения</dataPath>
-		<expression>СуммаПрочиеДвижения - СуммаПоступления - СуммаВозвраты - СуммаРеализации - СуммаВнутренниеПеремещения - СуммаПереводВИнгредиенты - СуммаСписания - СуммаПеремещенияМеждуОП - СуммаПереводНоменклатуры - СуммаВыпуск</expression>
+		<expression>СуммаПрочиеДвижения - СуммаПоступления - СуммаВозвраты - СуммаРеализации - СуммаВнутренниеПеремещения - СуммаПереводВИнгредиенты - СуммаСписания - СуммаПеремещенияМеждуОП - СуммаПереводНоменклатуры - СуммаВыпуск - СуммаВПроизводство</expression>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
@@ -1749,6 +1779,14 @@
 		<expression>КоличествоНачальныйОстатокРег</expression>
 		<group>Регистратор</group>
 	</totalField>
+	<totalField>
+		<dataPath>ВПроизводство</dataPath>
+		<expression>Сумма(ВПроизводство)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаВПроизводство</dataPath>
+		<expression>Сумма(СуммаВПроизводство)</expression>
+	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
 		<title xsi:type="v8:LocalStringType">
@@ -1893,6 +1931,9 @@
 					<dcsset:field>Выпуск</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВПроизводство</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Списания</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1930,6 +1971,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаВыпуск</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаВПроизводство</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаСписания</dcsset:field>

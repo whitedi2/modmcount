@@ -651,7 +651,7 @@
 			Счет.Код = "62.01"
 				ИЛИ Счет.Код = "60.01",
 			,
-			) КАК УчетныйОстатки
+			СценарийПлана = &amp;Сценарий) КАК УчетныйОстатки
 ГДЕ
 	ВЫБОР
 			КОГДА УчетныйОстатки.Счет.Код = "62.01"
@@ -1187,7 +1187,7 @@
 	УчетныйОбороты.Счет КАК Счет
 ПОМЕСТИТЬ ВТ_Обороты
 ИЗ
-	РегистрБухгалтерии.Учетный.Обороты(&amp;ПериодНач {(&amp;ПериодНач)}, &amp;ПериодКон {(&amp;ПериодКон)}, Регистратор, Счет.Код = "62.01", , , КорСчет.Код = "90.01", ) КАК УчетныйОбороты
+	РегистрБухгалтерии.Учетный.Обороты(&amp;ПериодНач {(&amp;ПериодНач)}, &amp;ПериодКон {(&amp;ПериодКон)}, Регистратор, Счет.Код = "62.01", , СценарийПлана = &amp;Сценарий, КорСчет.Код = "90.01", ) КАК УчетныйОбороты
 ГДЕ
 	(ТИПЗНАЧЕНИЯ(УчетныйОбороты.Регистратор) = ТИП(Документ.Уч_Реализация)
 			ИЛИ ТИПЗНАЧЕНИЯ(УчетныйОбороты.Регистратор) = ТИП(Документ.УЧ_Возврат))
@@ -1233,7 +1233,7 @@
 			Счет.Код = "62.01"
 				ИЛИ Счет.Код = "60.01",
 			,
-			,
+			СценарийПлана = &amp;Сценарий,
 			НЕ КорСчет.Код = "90.01",
 			) КАК УчетныйОбороты
 ;
@@ -1599,6 +1599,22 @@
 		<useRestriction>true</useRestriction>
 		<expression>ТекущаяДата()</expression>
 	</parameter>
+	<parameter>
+		<name>Сценарий</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарий</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+		<use>Always</use>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -1725,6 +1741,12 @@
 					<dcscor:parameter>СтдПериод</dcscor:parameter>
 					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
 					<dcsset:userSettingID>f0066ed9-4f89-4318-8f4c-73aaa3079aad</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Сценарий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+					<dcsset:userSettingID>9ebabdba-5802-4276-b400-6274bdc81c25</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:conditionalAppearance>
