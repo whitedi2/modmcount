@@ -691,6 +691,12 @@
 											<ChildItems>
 												<InputField name="НакладнаяВЕТИС" id="673">
 													<DataPath>НакладнаяВЕТИС</DataPath>
+													<InputHint>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Указано в табличной части</v8:content>
+														</v8:item>
+													</InputHint>
 													<ContextMenu name="НакладнаяВЕТИСКонтекстноеМеню" id="674"/>
 													<ExtendedTooltip name="НакладнаяВЕТИСРасширеннаяПодсказка" id="675"/>
 													<Events>
@@ -718,6 +724,7 @@
 													<ExtendedTooltip name="ВходящаяУПДЭДОРасширеннаяПодсказка" id="685"/>
 													<Events>
 														<Event name="OnChange">ВходящаяУПДЭДОПриИзменении</Event>
+														<Event name="StartChoice">ВходящаяУПДЭДОНачалоВыбора</Event>
 													</Events>
 												</InputField>
 												<CheckBoxField name="ПодтвердитьЭДО" id="688">
@@ -743,11 +750,37 @@
 											<CommandName>Form.Command.ЗаполнитьПоЗаказу</CommandName>
 											<ExtendedTooltip name="ЗаполнитьПоЗаказуРасширеннаяПодсказка" id="672"/>
 										</Button>
-										<Button name="ЗаполнитьПоВЕТИС" id="676">
-											<Type>Hyperlink</Type>
-											<CommandName>Form.Command.ЗаполнитьПоВЕТИС</CommandName>
-											<ExtendedTooltip name="ЗаполнитьПоВЕТИСРасширеннаяПодсказка" id="677"/>
-										</Button>
+										<UsualGroup name="ГруппаВетисКоманды" id="726">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ветис команды</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа ветис команды</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>AlwaysHorizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВетисКомандыРасширеннаяПодсказка" id="727"/>
+											<ChildItems>
+												<Button name="ЗаполнитьПоВЕТИС" id="676">
+													<Type>Hyperlink</Type>
+													<CommandName>Form.Command.ЗаполнитьПоВЕТИС</CommandName>
+													<ExtendedTooltip name="ЗаполнитьПоВЕТИСРасширеннаяПодсказка" id="677"/>
+												</Button>
+												<Button name="ПодобратьВЕТИСДляСтрок" id="724">
+													<Type>Hyperlink</Type>
+													<CommandName>Form.Command.ПодобратьВЕТИСДляСтрок</CommandName>
+													<ExtendedTooltip name="ПодобратьВЕТИСДляСтрокРасширеннаяПодсказка" id="725"/>
+												</Button>
+											</ChildItems>
+										</UsualGroup>
 										<Button name="ЗаполнитьПоУПДЭДО" id="691">
 											<Type>Hyperlink</Type>
 											<CommandName>Form.Command.ЗаполнитьПоУПДЭДО</CommandName>
@@ -791,6 +824,11 @@
 									<DataPath>Склад</DataPath>
 									<ContextMenu name="СкладКонтекстноеМеню" id="713"/>
 									<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="714"/>
+								</InputField>
+								<InputField name="ДатаФактическогоПоступления" id="728">
+									<DataPath>ДатаФактическогоПоступления</DataPath>
+									<ContextMenu name="ДатаФактическогоПоступленияКонтекстноеМеню" id="729"/>
+									<ExtendedTooltip name="ДатаФактическогоПоступленияРасширеннаяПодсказка" id="730"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -1277,8 +1315,6 @@
 														<ExtendedTooltip name="ТЗ_ПланФактУправлениеПоискомРасширеннаяПодсказка" id="90"/>
 													</SearchControlAddition>
 													<Events>
-														<Event name="OnEditEnd">ТЗ_ПланФактПриОкончанииРедактирования</Event>
-														<Event name="BeforeEditEnd">ТЗ_ПланФактПередОкончаниемРедактирования</Event>
 														<Event name="OnChange">ТЗ_ПланФактПриИзменении</Event>
 													</Events>
 													<ChildItems>
@@ -1298,6 +1334,7 @@
 														</InputField>
 														<InputField name="ТЗ_ПланФактНомерСтроки" id="718">
 															<DataPath>ТЗ_ПланФакт.НомерСтроки</DataPath>
+															<ReadOnly>true</ReadOnly>
 															<EditMode>EnterOnInput</EditMode>
 															<ContextMenu name="ТЗ_ПланФактНомерСтрокиКонтекстноеМеню" id="719"/>
 															<ExtendedTooltip name="ТЗ_ПланФактНомерСтрокиРасширеннаяПодсказка" id="720"/>
@@ -1386,6 +1423,7 @@
 															<ContextMenu name="ТЗ_ПланФактСерияНоменклатурыКонтекстноеМеню" id="655"/>
 															<ExtendedTooltip name="ТЗ_ПланФактСерияНоменклатурыРасширеннаяПодсказка" id="656"/>
 															<Events>
+																<Event name="OnChange">ТЗ_ПланФактСерияНоменклатурыПриИзменении</Event>
 																<Event name="StartChoice">ТЗ_ПланФактСерияНоменклатурыНачалоВыбора</Event>
 															</Events>
 														</InputField>
@@ -1675,6 +1713,23 @@
 															<MaxWidth>12</MaxWidth>
 															<ContextMenu name="ТЗ_ПланФактСтавкаНДСКонтекстноеМеню" id="119"/>
 															<ExtendedTooltip name="ТЗ_ПланФактСтавкаНДСРасширеннаяПодсказка" id="120"/>
+														</InputField>
+														<InputField name="ТЗ_ПланФактНакладныеВетИС" id="721">
+															<DataPath>ТЗ_ПланФакт.НакладныеВетИС</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ВСД</v8:content>
+																</v8:item>
+															</Title>
+															<EditMode>EnterOnInput</EditMode>
+															<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+															<ChooseType>false</ChooseType>
+															<ContextMenu name="ТЗ_ПланФактНакладныеВетИСКонтекстноеМеню" id="722"/>
+															<ExtendedTooltip name="ТЗ_ПланФактНакладныеВетИСРасширеннаяПодсказка" id="723"/>
+															<Events>
+																<Event name="StartChoice">ТЗ_ПланФактНакладныеВетИСНачалоВыбора</Event>
+															</Events>
 														</InputField>
 													</ChildItems>
 												</Table>
@@ -2778,6 +2833,17 @@
 							<v8:FractionDigits>0</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="НакладныеВетИС" id="32">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Накладные ВетИС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
 					</Type>
 				</Column>
 			</Columns>
@@ -4063,6 +4129,20 @@
 				<v8:Type>cfg:CatalogRef.Склады</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="ДатаФактическогоПоступления" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата фактического поступления</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -4373,6 +4453,94 @@
 							<v8:item>
 								<v8:lang>ru</v8:lang>
 								<v8:content>Необходимо заполнить ГТД</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НакладнаяВЕТИС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НакладнаяВЕТИСРасширеннаяПодсказка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">НакладнаяВЕТИС</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Указано в табличной части</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактНакладныеВетИС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">НакладнаяВЕТИС</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#C0C0C0</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Указано в шапке</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:use>false</dcsset:use>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФактНакладныеВетИС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТЗ_ПланФакт.НакладныеВетИС.Представление</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">НакладнаяВЕТИС</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Не заполнено</v8:content>
 							</v8:item>
 						</dcscor:value>
 					</dcscor:item>
@@ -4690,6 +4858,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаполнитьПоУПДЭДО</Action>
+		</Command>
+		<Command name="ПодобратьВЕТИСДляСтрок" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать ВЕТИС для строк</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать ВЕТИСДля строк</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодобратьВЕТИСДляСтрок</Action>
 		</Command>
 	</Commands>
 </Form>
