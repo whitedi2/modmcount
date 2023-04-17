@@ -164,6 +164,42 @@
 										<Event name="OnChange">КонтрагентПриИзменении</Event>
 									</Events>
 								</InputField>
+								<CheckBoxField name="ОтборСтатус" id="734">
+									<DataPath>ОтборСтатус</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ОтборСтатусКонтекстноеМеню" id="735"/>
+									<ExtendedTooltip name="ОтборСтатусРасширеннаяПодсказка" id="736"/>
+									<Events>
+										<Event name="OnChange">ОтборСтатусПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<InputField name="Статус" id="731">
+									<DataPath>Статус</DataPath>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ChoiceParameters>
+										<app:item name="Отбор.Ссылка">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="v8:FixedArray">
+													<v8:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.СтатусыЗаказовПоставщикам.EnumValue.КПоступлению</Value>
+													</v8:Value>
+													<v8:Value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.СтатусыЗаказовПоставщикам.EnumValue.Закрыт</Value>
+													</v8:Value>
+												</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<ContextMenu name="СтатусКонтекстноеМеню" id="732"/>
+									<ExtendedTooltip name="СтатусРасширеннаяПодсказка" id="733"/>
+									<Events>
+										<Event name="OnChange">СтатусПриИзменении</Event>
+									</Events>
+								</InputField>
 								<Button name="Далее" id="68">
 									<Type>UsualButton</Type>
 									<DefaultButton>true</DefaultButton>
@@ -421,7 +457,6 @@
 								</InputField>
 								<InputField name="СписокЗаказыСтатус" id="382">
 									<DataPath>СписокЗаказы.Статус</DataPath>
-									<Visible>false</Visible>
 									<Width>8</Width>
 									<ContextMenu name="СписокЗаказыСтатусКонтекстноеМеню" id="383"/>
 									<ExtendedTooltip name="СписокЗаказыСтатусРасширеннаяПодсказка" id="384"/>
@@ -652,6 +687,31 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа14РасширеннаяПодсказка" id="666"/>
 							<ChildItems>
+								<UsualGroup name="Группа15" id="667">
+									<Group>Vertical</Group>
+									<VerticalSpacing>Double</VerticalSpacing>
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="668"/>
+									<ChildItems>
+										<Button name="ЗаполнитьПоЗаказу" id="671">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ЗаполнитьПоЗаказу</CommandName>
+											<ExtendedTooltip name="ЗаполнитьПоЗаказуРасширеннаяПодсказка" id="672"/>
+										</Button>
+										<Button name="ЗаполнитьПоУПДЭДО" id="691">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ЗаполнитьПоУПДЭДО</CommandName>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Подобрать входящую УПД ЭДО</v8:content>
+												</v8:item>
+											</Title>
+											<ExtendedTooltip name="ЗаполнитьПоУПДЭДОРасширеннаяПодсказка" id="692"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
 								<UsualGroup name="Группа16" id="669">
 									<Group>Vertical</Group>
 									<Behavior>Usual</Behavior>
@@ -682,36 +742,6 @@
 												</CheckBoxField>
 											</ChildItems>
 										</UsualGroup>
-										<UsualGroup name="Группа17" id="678">
-											<Group>AlwaysHorizontal</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="Группа17РасширеннаяПодсказка" id="679"/>
-											<ChildItems>
-												<InputField name="НакладнаяВЕТИС" id="673">
-													<DataPath>НакладнаяВЕТИС</DataPath>
-													<InputHint>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Указано в табличной части</v8:content>
-														</v8:item>
-													</InputHint>
-													<ContextMenu name="НакладнаяВЕТИСКонтекстноеМеню" id="674"/>
-													<ExtendedTooltip name="НакладнаяВЕТИСРасширеннаяПодсказка" id="675"/>
-													<Events>
-														<Event name="StartChoice">НакладнаяВЕТИСНачалоВыбора</Event>
-													</Events>
-												</InputField>
-												<CheckBoxField name="ПодтвердитьВЕТИС" id="680">
-													<DataPath>ПодтвердитьВЕТИС</DataPath>
-													<TitleLocation>Right</TitleLocation>
-													<CheckBoxType>Auto</CheckBoxType>
-													<ContextMenu name="ПодтвердитьВЕТИСКонтекстноеМеню" id="681"/>
-													<ExtendedTooltip name="ПодтвердитьВЕТИСРасширеннаяПодсказка" id="682"/>
-												</CheckBoxField>
-											</ChildItems>
-										</UsualGroup>
 										<UsualGroup name="Группа18" id="686">
 											<Behavior>Usual</Behavior>
 											<Representation>None</Representation>
@@ -738,98 +768,6 @@
 										</UsualGroup>
 									</ChildItems>
 								</UsualGroup>
-								<UsualGroup name="Группа15" id="667">
-									<Group>Vertical</Group>
-									<VerticalSpacing>Double</VerticalSpacing>
-									<Behavior>Usual</Behavior>
-									<ShowTitle>false</ShowTitle>
-									<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="668"/>
-									<ChildItems>
-										<Button name="ЗаполнитьПоЗаказу" id="671">
-											<Type>Hyperlink</Type>
-											<CommandName>Form.Command.ЗаполнитьПоЗаказу</CommandName>
-											<ExtendedTooltip name="ЗаполнитьПоЗаказуРасширеннаяПодсказка" id="672"/>
-										</Button>
-										<UsualGroup name="ГруппаВетисКоманды" id="726">
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа ветис команды</v8:content>
-												</v8:item>
-											</Title>
-											<ToolTip>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Группа ветис команды</v8:content>
-												</v8:item>
-											</ToolTip>
-											<Group>AlwaysHorizontal</Group>
-											<Behavior>Usual</Behavior>
-											<Representation>None</Representation>
-											<ShowTitle>false</ShowTitle>
-											<ExtendedTooltip name="ГруппаВетисКомандыРасширеннаяПодсказка" id="727"/>
-											<ChildItems>
-												<Button name="ЗаполнитьПоВЕТИС" id="676">
-													<Type>Hyperlink</Type>
-													<CommandName>Form.Command.ЗаполнитьПоВЕТИС</CommandName>
-													<ExtendedTooltip name="ЗаполнитьПоВЕТИСРасширеннаяПодсказка" id="677"/>
-												</Button>
-												<Button name="ПодобратьВЕТИСДляСтрок" id="724">
-													<Type>Hyperlink</Type>
-													<CommandName>Form.Command.ПодобратьВЕТИСДляСтрок</CommandName>
-													<ExtendedTooltip name="ПодобратьВЕТИСДляСтрокРасширеннаяПодсказка" id="725"/>
-												</Button>
-											</ChildItems>
-										</UsualGroup>
-										<Button name="ЗаполнитьПоУПДЭДО" id="691">
-											<Type>Hyperlink</Type>
-											<CommandName>Form.Command.ЗаполнитьПоУПДЭДО</CommandName>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Подобрать входящую УПД ЭДО</v8:content>
-												</v8:item>
-											</Title>
-											<ExtendedTooltip name="ЗаполнитьПоУПДЭДОРасширеннаяПодсказка" id="692"/>
-										</Button>
-									</ChildItems>
-								</UsualGroup>
-							</ChildItems>
-						</UsualGroup>
-						<UsualGroup name="ГруппаСкладОрганизация" id="707">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа склад организация</v8:content>
-								</v8:item>
-							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа склад организация</v8:content>
-								</v8:item>
-							</ToolTip>
-							<Group>AlwaysHorizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаСкладОрганизацияРасширеннаяПодсказка" id="708"/>
-							<ChildItems>
-								<InputField name="Организация" id="709">
-									<DataPath>Организация</DataPath>
-									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="710"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="711"/>
-								</InputField>
-								<InputField name="Склад" id="712">
-									<DataPath>Склад</DataPath>
-									<ContextMenu name="СкладКонтекстноеМеню" id="713"/>
-									<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="714"/>
-								</InputField>
-								<InputField name="ДатаФактическогоПоступления" id="728">
-									<DataPath>ДатаФактическогоПоступления</DataPath>
-									<ContextMenu name="ДатаФактическогоПоступленияКонтекстноеМеню" id="729"/>
-									<ExtendedTooltip name="ДатаФактическогоПоступленияРасширеннаяПодсказка" id="730"/>
-								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаШапкаТНН" id="206">
@@ -934,6 +872,104 @@
 										</InputField>
 									</ChildItems>
 								</UsualGroup>
+								<InputField name="ДатаФактическогоПоступления" id="728">
+									<DataPath>ДатаФактическогоПоступления</DataPath>
+									<ContextMenu name="ДатаФактическогоПоступленияКонтекстноеМеню" id="729"/>
+									<ExtendedTooltip name="ДатаФактическогоПоступленияРасширеннаяПодсказка" id="730"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="Группа17" id="678">
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа17РасширеннаяПодсказка" id="679"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаВетисКоманды" id="726">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ветис команды</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа ветис команды</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>AlwaysHorizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаВетисКомандыРасширеннаяПодсказка" id="727"/>
+									<ChildItems>
+										<Button name="ПодобратьВЕТИСДляСтрок" id="724">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ПодобратьВЕТИСДляСтрок</CommandName>
+											<ExtendedTooltip name="ПодобратьВЕТИСДляСтрокРасширеннаяПодсказка" id="725"/>
+										</Button>
+										<Button name="ЗаполнитьПоВЕТИС" id="676">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ЗаполнитьПоВЕТИС</CommandName>
+											<ExtendedTooltip name="ЗаполнитьПоВЕТИСРасширеннаяПодсказка" id="677"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<InputField name="НакладнаяВЕТИС" id="673">
+									<DataPath>НакладнаяВЕТИС</DataPath>
+									<ReadOnly>true</ReadOnly>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Указано в табличной части</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="НакладнаяВЕТИСКонтекстноеМеню" id="674"/>
+									<ExtendedTooltip name="НакладнаяВЕТИСРасширеннаяПодсказка" id="675"/>
+									<Events>
+										<Event name="StartChoice">НакладнаяВЕТИСНачалоВыбора</Event>
+									</Events>
+								</InputField>
+								<CheckBoxField name="ПодтвердитьВЕТИС" id="680">
+									<DataPath>ПодтвердитьВЕТИС</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПодтвердитьВЕТИСКонтекстноеМеню" id="681"/>
+									<ExtendedTooltip name="ПодтвердитьВЕТИСРасширеннаяПодсказка" id="682"/>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаСкладОрганизация" id="707">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа склад организация</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа склад организация</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСкладОрганизацияРасширеннаяПодсказка" id="708"/>
+							<ChildItems>
+								<InputField name="Организация" id="709">
+									<DataPath>Организация</DataPath>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="710"/>
+									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="711"/>
+								</InputField>
+								<InputField name="Склад" id="712">
+									<DataPath>Склад</DataPath>
+									<ContextMenu name="СкладКонтекстноеМеню" id="713"/>
+									<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="714"/>
+								</InputField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="ГруппаСозданиеПоступления" id="72">
@@ -3071,12 +3107,16 @@
 			И ВЫБОР
 					КОГДА &amp;ВсеЗаказы
 						ТОГДА ИСТИНА
-					ИНАЧЕ НЕ ЗаказПоставщику.Статус В (ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Закрыт), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Отменен), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Создан))
+					//ИНАЧЕ НЕ ЗаказПоставщику.Статус В (ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Закрыт), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Отменен), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Создан)) 
+					ИНАЧЕ НЕ ЗаказПоставщику.Статус В (ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Отменен), ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.Создан))
 				КОНЕЦ
-		
-		СГРУППИРОВАТЬ ПО
+		//И  ВЫБОР КОГДА &amp;Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаказовПоставщикам.ПустаяСсылка) Тогда Истина Иначе ЗаказПоставщику.Статус = &amp;Статус Конец  
+				//И  ЗаказПоставщику.Статус = &amp;Статус
+		   		СГРУППИРОВАТЬ ПО
 			ЗаказПоставщику.Ссылка) КАК ПоступившиеЗаказы
-		ПО ДокументЗаказПоставщику.Ссылка = ПоступившиеЗаказы.Ссылка</QueryText>
+		ПО ДокументЗаказПоставщику.Ссылка = ПоступившиеЗаказы.Ссылка    
+	ГДЕ ДокументЗаказПоставщику.Статус = &amp;Статус ИЛИ Не &amp;ОтборСтатус
+</QueryText>
 				<MainTable>Document.ЗаказПоставщику</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -4141,6 +4181,28 @@
 				<v8:DateQualifiers>
 					<v8:DateFractions>Date</v8:DateFractions>
 				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Статус" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СтатусыЗаказовПоставщикам</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОтборСтатус" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор статус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
