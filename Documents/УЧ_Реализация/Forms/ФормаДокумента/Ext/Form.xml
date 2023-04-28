@@ -1611,6 +1611,11 @@
 					</Title>
 					<ExtendedTooltip name="Группа30РасширеннаяПодсказка" id="603"/>
 					<ChildItems>
+						<InputField name="ДатаПоступления" id="815">
+							<DataPath>Объект.ДатаПоступления</DataPath>
+							<ContextMenu name="ДатаПоступленияКонтекстноеМеню" id="816"/>
+							<ExtendedTooltip name="ДатаПоступленияРасширеннаяПодсказка" id="817"/>
+						</InputField>
 						<InputField name="АдресДоставки" id="604">
 							<DataPath>Объект.АдресДоставки</DataPath>
 							<ContextMenu name="АдресДоставкиКонтекстноеМеню" id="605"/>
@@ -1854,6 +1859,11 @@
 					</Title>
 					<ExtendedTooltip name="Группа25РасширеннаяПодсказка" id="464"/>
 					<ChildItems>
+						<InputField name="ДатаПоступления1" id="818">
+							<DataPath>Объект.ДатаПоступления</DataPath>
+							<ContextMenu name="ДатаПоступления1КонтекстноеМеню" id="819"/>
+							<ExtendedTooltip name="ДатаПоступления1РасширеннаяПодсказка" id="820"/>
+						</InputField>
 						<InputField name="Организация" id="701">
 							<DataPath>Объект.Организация</DataPath>
 							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="702"/>
@@ -2097,6 +2107,7 @@
 							<ExtendedTooltip name="Группа28РасширеннаяПодсказка" id="568"/>
 							<ChildItems>
 								<UsualGroup name="Группа29" id="600">
+									<HorizontalStretch>false</HorizontalStretch>
 									<Group>Horizontal</Group>
 									<Behavior>Usual</Behavior>
 									<Representation>None</Representation>
@@ -2113,17 +2124,18 @@
 											<ContextMenu name="НомерСчетФактурыКонтекстноеМеню" id="595"/>
 											<ExtendedTooltip name="НомерСчетФактурыРасширеннаяПодсказка" id="596"/>
 										</InputField>
+										<CheckBoxField name="ИсправлениеСФ" id="591">
+											<DataPath>Объект.ИсправлениеСФ</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Auto</CheckBoxType>
+											<ContextMenu name="ИсправлениеСФКонтекстноеМеню" id="592"/>
+											<ExtendedTooltip name="ИсправлениеСФРасширеннаяПодсказка" id="593"/>
+											<Events>
+												<Event name="OnChange">ИсправлениеСФПриИзменении</Event>
+											</Events>
+										</CheckBoxField>
 									</ChildItems>
 								</UsualGroup>
-								<CheckBoxField name="ИсправлениеСФ" id="591">
-									<DataPath>Объект.ИсправлениеСФ</DataPath>
-									<CheckBoxType>Auto</CheckBoxType>
-									<ContextMenu name="ИсправлениеСФКонтекстноеМеню" id="592"/>
-									<ExtendedTooltip name="ИсправлениеСФРасширеннаяПодсказка" id="593"/>
-									<Events>
-										<Event name="OnChange">ИсправлениеСФПриИзменении</Event>
-									</Events>
-								</CheckBoxField>
 								<Table name="ИсправленныеСФ" id="569">
 									<AutoInsertNewRow>true</AutoInsertNewRow>
 									<EnableStartDrag>true</EnableStartDrag>
