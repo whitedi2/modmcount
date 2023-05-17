@@ -963,12 +963,52 @@
 			<ContextMenu name="ТабличнаяЧастьИтогСуммаКонтекстноеМеню" id="579"/>
 			<ExtendedTooltip name="ТабличнаяЧастьИтогСуммаРасширеннаяПодсказка" id="580"/>
 		</LabelField>
-		<LabelField name="МаршрутныйЛист" id="575">
-			<DataPath>МаршрутныйЛист</DataPath>
-			<Hiperlink>true</Hiperlink>
-			<ContextMenu name="МаршрутныйЛистКонтекстноеМеню" id="576"/>
-			<ExtendedTooltip name="МаршрутныйЛистРасширеннаяПодсказка" id="577"/>
-		</LabelField>
+		<UsualGroup name="ГруппаКомментарийОснование" id="583">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа комментарий основание</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа комментарий основание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКомментарийОснованиеРасширеннаяПодсказка" id="584"/>
+			<ChildItems>
+				<LabelField name="ОснованиеДляДокумента" id="585">
+					<DataPath>ОснованиеДляДокумента</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основание для документа(ов)</v8:content>
+						</v8:item>
+					</Title>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="ОснованиеДляДокументаКонтекстноеМеню" id="586"/>
+					<ExtendedTooltip name="ОснованиеДляДокументаРасширеннаяПодсказка" id="587"/>
+					<Events>
+						<Event name="Click">ОснованиеДляДокументаНажатие</Event>
+					</Events>
+				</LabelField>
+				<LabelDecoration name="Декорация1" id="588">
+					<ContextMenu name="Декорация1КонтекстноеМеню" id="589"/>
+					<ExtendedTooltip name="Декорация1РасширеннаяПодсказка" id="590"/>
+				</LabelDecoration>
+				<LabelField name="МаршрутныйЛист" id="575">
+					<DataPath>МаршрутныйЛист</DataPath>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="МаршрутныйЛистКонтекстноеМеню" id="576"/>
+					<ExtendedTooltip name="МаршрутныйЛистРасширеннаяПодсказка" id="577"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="Комментарий" id="73">
 			<DataPath>Объект.Комментарий</DataPath>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="74"/>
@@ -1408,6 +1448,44 @@
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОснованиеДляДокумента" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание для документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказНаПеремещение</v8:Type>
+				<v8:Type>cfg:DocumentRef.РозничнаяПродажа</v8:Type>
+				<v8:Type>cfg:DocumentRef.ЗаказНаПроизводство</v8:Type>
+				<v8:Type>cfg:DocumentRef.сабМаршрутныйЛист</v8:Type>
+				<v8:Type>cfg:DocumentRef.ЗаказНаВозвратОтКлиента</v8:Type>
+				<v8:Type>cfg:DocumentRef.ПередачаТоваров</v8:Type>
+				<v8:Type>cfg:DocumentRef.УЧ_Реализация</v8:Type>
+				<v8:Type>cfg:DocumentRef.РеализацияТоваровУслуг</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
+				<v8:Type>cfg:DocumentRef.СчетНаОплатуПокупателю</v8:Type>
+				<v8:Type>cfg:DocumentRef.ТребованиеНакладная</v8:Type>
+				<v8:Type>cfg:DocumentRef.ПеремещениеТоваров</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОснованиеДляДокументаСписок" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание для документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

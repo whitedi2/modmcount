@@ -869,11 +869,29 @@
 			<ContextMenu name="МаршрутныйЛистКонтекстноеМеню" id="432"/>
 			<ExtendedTooltip name="МаршрутныйЛистРасширеннаяПодсказка" id="433"/>
 		</LabelField>
-		<InputField name="ДокОснование" id="423">
-			<DataPath>Объект.ДокОснование</DataPath>
-			<ContextMenu name="ДокОснованиеКонтекстноеМеню" id="424"/>
-			<ExtendedTooltip name="ДокОснованиеРасширеннаяПодсказка" id="425"/>
-		</InputField>
+		<UsualGroup name="Группа9" id="471">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа9РасширеннаяПодсказка" id="472"/>
+			<ChildItems>
+				<InputField name="ДокОснование" id="423">
+					<DataPath>Объект.ДокОснование</DataPath>
+					<ContextMenu name="ДокОснованиеКонтекстноеМеню" id="424"/>
+					<ExtendedTooltip name="ДокОснованиеРасширеннаяПодсказка" id="425"/>
+				</InputField>
+				<LabelField name="ОснованиеДляДокумента" id="473">
+					<DataPath>ОснованиеДляДокумента</DataPath>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="ОснованиеДляДокументаКонтекстноеМеню" id="474"/>
+					<ExtendedTooltip name="ОснованиеДляДокументаРасширеннаяПодсказка" id="475"/>
+					<Events>
+						<Event name="Click">ОснованиеДляДокументаНажатие</Event>
+					</Events>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="Комментарий" id="73">
 			<DataPath>Объект.Комментарий</DataPath>
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="74"/>
@@ -946,6 +964,36 @@
 			</Title>
 			<Type>
 				<v8:Type>cfg:DocumentRef.сабМаршрутныйЛист</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОснованиеДляДокументаСписок" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание для документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ОснованиеДляДокумента" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Основание для документа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказНаПеремещение</v8:Type>
+				<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:Type>cfg:DocumentRef.Д_ЗаявкаНаФинансирование</v8:Type>
+				<v8:Type>cfg:DocumentRef.УЧ_ПоступлениеТоваров</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

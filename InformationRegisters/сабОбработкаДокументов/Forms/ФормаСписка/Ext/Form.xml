@@ -45,6 +45,18 @@
 					<TitleDataPath>КоличествоНеобработанных</TitleDataPath>
 					<ExtendedTooltip name="НеобработанныеРасширеннаяПодсказка" id="28"/>
 					<ChildItems>
+						<UsualGroup name="Группа2" id="299">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Настройки</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Collapsible</Behavior>
+							<ControlRepresentation>Picture</ControlRepresentation>
+							<AssociatedTableElementId xsi:type="xs:string">СписокНеобработанных</AssociatedTableElementId>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="300"/>
+						</UsualGroup>
 						<Table name="СписокНеобработанных" id="29">
 							<ChangeRowSet>false</ChangeRowSet>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
@@ -66,6 +78,7 @@
 							<ShowRoot>true</ShowRoot>
 							<AllowRootChoice>false</AllowRootChoice>
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<UserSettingsGroup>Группа2</UserSettingsGroup>
 							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
 							<ContextMenu name="СписокНеобработанныхКонтекстноеМеню" id="30"/>
 							<AutoCommandBar name="СписокНеобработанныхКоманднаяПанель" id="31">
@@ -146,42 +159,42 @@
 							</SearchControlAddition>
 							<ChildItems>
 								<LabelField name="СписокНеобработанныхДата" id="45">
-									<DataPath>~СписокНеобработанных.Дата</DataPath>
+									<DataPath>СписокНеобработанных.Дата</DataPath>
 									<ContextMenu name="СписокНеобработанныхДатаКонтекстноеМеню" id="46"/>
 									<ExtendedTooltip name="СписокНеобработанныхДатаРасширеннаяПодсказка" id="47"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхНомер" id="57">
-									<DataPath>~СписокНеобработанных.Номер</DataPath>
+									<DataPath>СписокНеобработанных.Номер</DataPath>
 									<ContextMenu name="СписокНеобработанныхНомерКонтекстноеМеню" id="58"/>
 									<ExtendedTooltip name="СписокНеобработанныхНомерРасширеннаяПодсказка" id="59"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхТип" id="69">
-									<DataPath>~СписокНеобработанных.Тип</DataPath>
+									<DataPath>СписокНеобработанных.Тип</DataPath>
 									<ContextMenu name="СписокНеобработанныхТипКонтекстноеМеню" id="70"/>
 									<ExtendedTooltip name="СписокНеобработанныхТипРасширеннаяПодсказка" id="71"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхВидОперации" id="42">
-									<DataPath>~СписокНеобработанных.ВидОперации</DataPath>
+									<DataPath>СписокНеобработанных.ВидОперации</DataPath>
 									<ContextMenu name="СписокНеобработанныхВидОперацииКонтекстноеМеню" id="43"/>
 									<ExtendedTooltip name="СписокНеобработанныхВидОперацииРасширеннаяПодсказка" id="44"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхОрганизация" id="60">
-									<DataPath>~СписокНеобработанных.Организация</DataPath>
+									<DataPath>СписокНеобработанных.Организация</DataPath>
 									<ContextMenu name="СписокНеобработанныхОрганизацияКонтекстноеМеню" id="61"/>
 									<ExtendedTooltip name="СписокНеобработанныхОрганизацияРасширеннаяПодсказка" id="62"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхСуммаДокумента" id="66">
-									<DataPath>~СписокНеобработанных.СуммаДокумента</DataPath>
+									<DataPath>СписокНеобработанных.СуммаДокумента</DataPath>
 									<ContextMenu name="СписокНеобработанныхСуммаДокументаКонтекстноеМеню" id="67"/>
 									<ExtendedTooltip name="СписокНеобработанныхСуммаДокументаРасширеннаяПодсказка" id="68"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхКомментарий" id="54">
-									<DataPath>~СписокНеобработанных.Комментарий</DataPath>
+									<DataPath>СписокНеобработанных.Комментарий</DataPath>
 									<ContextMenu name="СписокНеобработанныхКомментарийКонтекстноеМеню" id="55"/>
 									<ExtendedTooltip name="СписокНеобработанныхКомментарийРасширеннаяПодсказка" id="56"/>
 								</LabelField>
 								<LabelField name="СписокНеобработанныхСсылка" id="63">
-									<DataPath>~СписокНеобработанных.Ссылка</DataPath>
+									<DataPath>СписокНеобработанных.Ссылка</DataPath>
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
@@ -812,17 +825,20 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
+			<UseAlways>
+				<Field>СписокНеобработанных.Ссылка</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
 	ЖурналДокументовЖурналОпераций.Дата КАК Дата,
-	ЖурналДокументовЖурналОпераций.Номер КАК Номер,
+	Неопределено КАК Номер,
 	ЖурналДокументовЖурналОпераций.Организация КАК Организация,
-	ЖурналДокументовЖурналОпераций.Информация КАК Информация,
-	ЖурналДокументовЖурналОпераций.СуммаДокумента КАК СуммаДокумента,
-	ЖурналДокументовЖурналОпераций.ВидОперации КАК ВидОперации,
-	ЖурналДокументовЖурналОпераций.Комментарий КАК Комментарий,
+	Неопределено КАК Информация,
+	0 КАК СуммаДокумента,
+	Неопределено КАК ВидОперации,
+	Неопределено КАК Комментарий,
 	ЖурналДокументовЖурналОпераций.Тип КАК Тип,
 	сабСоответствиеДокументов.ДокументУУ КАК ДокументУУ,
 	ЖурналДокументовЖурналОпераций.Ссылка КАК Ссылка,
