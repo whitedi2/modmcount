@@ -286,7 +286,11 @@
 	УчетныйОстатки.Подразделение КАК Подразделение,
 	ВЫБОР
 		КОГДА УчетныйОстатки.Субконто3 ССЫЛКА Документ.УЧ_Реализация
-			ТОГДА ВЫРАЗИТЬ(УчетныйОстатки.Субконто3 КАК Документ.УЧ_Реализация).Дата
+			ТОГДА ВЫБОР
+					КОГДА &amp;ПоДатеОтгрузки
+						ТОГДА ВЫРАЗИТЬ(УчетныйОстатки.Субконто3 КАК Документ.УЧ_Реализация).ДатаПоступления
+					ИНАЧЕ ВЫРАЗИТЬ(УчетныйОстатки.Субконто3 КАК Документ.УЧ_Реализация).Дата
+				КОНЕЦ
 		КОГДА УчетныйОстатки.Субконто3 ССЫЛКА Документ.УЧ_ПоступлениеТоваров
 			ТОГДА ВЫРАЗИТЬ(УчетныйОстатки.Субконто3 КАК Документ.УЧ_ПоступлениеТоваров).Дата
 		КОГДА УчетныйОстатки.Субконто3 ССЫЛКА Документ.УЧ_ВыпускПродукции
@@ -745,6 +749,21 @@
 		<denyIncompleteValues>true</denyIncompleteValues>
 		<use>Always</use>
 	</parameter>
+	<parameter>
+		<name>ПоДатеОтгрузки</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>По дате отгрузки</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="v8:LocalStringType">
@@ -984,6 +1003,12 @@
 					<dcscor:parameter>Сценарий</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 					<dcsset:userSettingID>8847ea56-fa50-4479-8f29-f2dde1e323df</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПоДатеОтгрузки</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>86e46a0f-5620-40b4-845c-5762d2e0c496</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:outputParameters>
@@ -1438,6 +1463,12 @@
 					<dcscor:parameter>Сценарий</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 					<dcsset:userSettingID>30c16d2c-5099-476f-857c-e0bb5746c4c9</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПоДатеОтгрузки</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>a919727c-ee35-4159-b830-421cf689a9d0</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:outputParameters>

@@ -54,7 +54,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.УУ_ОсновнаяРоль</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
-			<Version>2.4.9</Version>
+			<Version>2.5.1</Version>
 			<DefaultLanguage>Language.Русский</DefaultLanguage>
 			<BriefInformation/>
 			<DetailedInformation/>
@@ -138,6 +138,12 @@
 			<CommonPicture>НекорректныйКонтрагент</CommonPicture>
 			<CommonPicture>ОчиститьЗначение</CommonPicture>
 			<CommonPicture>Предупреждение</CommonPicture>
+			<CommonPicture>СостояниеЗаказа</CommonPicture>
+			<CommonPicture>КОтгрузке</CommonPicture>
+			<CommonPicture>КОплате</CommonPicture>
+			<CommonPicture>СкопироватьВБуферОбмена</CommonPicture>
+			<CommonPicture>ВставитьИзБуфераОбмена</CommonPicture>
+			<CommonPicture>УУ_ПодборТоваров</CommonPicture>
 			<SessionParameter>ДопПараметры</SessionParameter>
 			<SessionParameter>ДоступныеИсточники</SessionParameter>
 			<SessionParameter>ДоступныеНаправления</SessionParameter>
@@ -267,11 +273,9 @@
 			<CommonModule>ПодключаемыеКоманды</CommonModule>
 			<CommonModule>ПодключаемыеКомандыКлиент</CommonModule>
 			<CommonModule>ОбменСКонтрагентамиБП</CommonModule>
-			<CommonModule>РеализацияТоваровУслугФормы</CommonModule>
-			<CommonModule>ПоступлениеТоваровУслугФормы</CommonModule>
-			<CommonModule>ВерсионированиеОбъектов</CommonModule>
 			<CommonModule>УправлениеПечатьюПереопределяемый</CommonModule>
 			<CommonModule>КонтрольВеденияУчетаСлужебный</CommonModule>
+			<CommonModule>ИнтеграцияИСПереопределяемый</CommonModule>
 			<SettingsStorage>ХранилищеВариантовОтчетов</SettingsStorage>
 			<FunctionalOption>сабПодсистемаКазначейство</FunctionalOption>
 			<FunctionalOption>сабПодсистемаБюджетирование</FunctionalOption>
@@ -292,6 +296,8 @@
 			<CommonCommand>ДополнительныеОбработкиУчет</CommonCommand>
 			<CommonCommand>ПрайсЛист</CommonCommand>
 			<CommonCommand>УУ_ОтправитьПоЭлектроннойПочте</CommonCommand>
+			<CommonCommand>ОценкаПроизводительностиФормаСпискаПоступлениеТоваровУслуг</CommonCommand>
+			<CommonCommand>ОценкаПроизводительностиФормаСпискаСчетНаОплатуПоставщика</CommonCommand>
 			<CommandGroup>Взаимодействия</CommandGroup>
 			<CommandGroup>КоммерческиеОтчеты</CommandGroup>
 			<CommandGroup>ОтчетыБюджетные</CommandGroup>
@@ -570,6 +576,7 @@
 			<Document>ОплатаПлатежнойКартой</Document>
 			<Document>МодернизацияОС</Document>
 			<Document>ВыкупПредметовЛизинга</Document>
+			<Document>Доверенность</Document>
 			<DocumentJournal>ЖурналОпераций</DocumentJournal>
 			<DocumentJournal>Деньги</DocumentJournal>
 			<Enum>Б_ВидыДеятельностиПредприятия</Enum>
@@ -720,6 +727,7 @@
 			<Enum>СпособыПогашенияЗадолженности</Enum>
 			<Enum>ВидыПлатежейПоКредитамЗаймам</Enum>
 			<Enum>ПорядокОтраженияАвансов</Enum>
+			<Enum>ВидыРегламентныхОпераций</Enum>
 			<Report>БП_ЗаданияПодчиненным</Report>
 			<Report>ГД_Источники_Рег_Учетный</Report>
 			<Report>ГД_ПланФактПоЦФО</Report>
@@ -761,6 +769,8 @@
 			<Report>сабАнализЗаказов</Report>
 			<Report>сабРасшифровкаФР</Report>
 			<Report>сабОтчетПоСчетамПокупателей</Report>
+			<Report>сабСравнениеДанныхБУУУ</Report>
+			<Report>сабСравнениеНоменклатурыБУУУ</Report>
 			<DataProcessor>УЧ_Полный</DataProcessor>
 			<DataProcessor>GDriveМенеджер</DataProcessor>
 			<DataProcessor>АвтоФормированиеЗаказовПоПотребностям</DataProcessor>
@@ -782,7 +792,6 @@
 			<DataProcessor>сабЗагрузкаВыписокИзКлиентБанка</DataProcessor>
 			<DataProcessor>ПоискИУдалениеДублей</DataProcessor>
 			<DataProcessor>сабОбработкаДокументовУУ</DataProcessor>
-			<DataProcessor>УниверсальныйОбменДаннымиXML</DataProcessor>
 			<InformationRegister>PushПользователиID</InformationRegister>
 			<InformationRegister>АвтосохранениеДанных</InformationRegister>
 			<InformationRegister>АдресныеСокращения</InformationRegister>

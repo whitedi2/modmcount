@@ -298,9 +298,21 @@
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<Pages name="Группа1" id="328">
+		<Pages name="ГруппаСтраницы" id="328">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа страницы</v8:content>
+				</v8:item>
+			</ToolTip>
 			<PagesRepresentation>TabsOnTop</PagesRepresentation>
-			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="329"/>
+			<ExtendedTooltip name="ГруппаСтраницыРасширеннаяПодсказка" id="329"/>
 			<ChildItems>
 				<Page name="ГруппаОсновное" id="330">
 					<Title>
@@ -332,6 +344,11 @@
 							<ContextMenu name="ТабличнаяЧастьКонтекстноеМеню" id="14"/>
 							<AutoCommandBar name="ТабличнаяЧастьКоманднаяПанель" id="15">
 								<ChildItems>
+									<Button name="ТабличнаяЧастьПодобрать" id="595">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Подобрать</CommandName>
+										<ExtendedTooltip name="ТабличнаяЧастьПодобратьРасширеннаяПодсказка" id="596"/>
+									</Button>
 									<Button name="ТабличнаяЧастьПодобратьНоменклатуруПоШК" id="368">
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.ПодобратьНоменклатуруПоШК</CommandName>
@@ -363,6 +380,24 @@
 										<Type>CommandBarButton</Type>
 										<CommandName>Form.Command.ЗагрузитьИзExcel</CommandName>
 										<ExtendedTooltip name="ТабличнаяЧастьЗагрузитьИзExcelРасширеннаяПодсказка" id="403"/>
+									</Button>
+									<Button name="ТабличнаяЧастьСкопироватьСтроки" id="591">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СкопироватьСтроки</CommandName>
+										<Picture>
+											<xr:Ref>CommonPicture.СкопироватьВБуферОбмена</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ТабличнаяЧастьСкопироватьСтрокиРасширеннаяПодсказка" id="592"/>
+									</Button>
+									<Button name="ТабличнаяЧастьВставитьСтроки" id="593">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ВставитьСтроки</CommandName>
+										<Picture>
+											<xr:Ref>CommonPicture.ВставитьИзБуфераОбмена</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<ExtendedTooltip name="ТабличнаяЧастьВставитьСтрокиРасширеннаяПодсказка" id="594"/>
 									</Button>
 								</ChildItems>
 							</AutoCommandBar>
@@ -1901,6 +1936,59 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПровестиИЗакрыть</Action>
+		</Command>
+		<Command name="СкопироватьСтроки" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скопировать строки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Скопировать строки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Shift+C</Shortcut>
+			<Action>СкопироватьСтроки</Action>
+		</Command>
+		<Command name="ВставитьСтроки" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вставить строки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вставить строки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>Ctrl+Shift+V</Shortcut>
+			<Action>ВставитьСтроки</Action>
+		</Command>
+		<Command name="Подобрать" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УУ_ПодборТоваров</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Подобрать</Action>
+			<Representation>TextPicture</Representation>
+			<ModifiesSavedData>true</ModifiesSavedData>
 		</Command>
 	</Commands>
 	<CommandInterface>

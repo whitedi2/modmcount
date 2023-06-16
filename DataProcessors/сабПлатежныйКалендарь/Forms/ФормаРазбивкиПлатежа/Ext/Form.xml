@@ -18,17 +18,147 @@
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
 	<ChildItems>
 		<InputField name="Дата" id="1">
 			<DataPath>Дата</DataPath>
 			<ContextMenu name="ДатаКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="3"/>
 		</InputField>
-		<InputField name="Сумма" id="4">
-			<DataPath>Сумма</DataPath>
-			<ContextMenu name="СуммаКонтекстноеМеню" id="5"/>
-			<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="6"/>
-		</InputField>
+		<UsualGroup name="Группа5" id="41">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа5РасширеннаяПодсказка" id="42"/>
+			<ChildItems>
+				<InputField name="ВалютнаяСуммаКонтрагента" id="12">
+					<DataPath>ВалютнаяСуммаКонтрагента</DataPath>
+					<ContextMenu name="ВалютнаяСуммаКонтрагентаКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ВалютнаяСуммаКонтрагентаРасширеннаяПодсказка" id="14"/>
+					<Events>
+						<Event name="OnChange">КурсКонтрагентаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelField name="ВалютнаяСуммаКонтрагентаИсходная" id="43">
+					<DataPath>ВалютнаяСуммаКонтрагентаИсходная</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступно</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<ContextMenu name="ВалютнаяСуммаКонтрагентаИсходнаяКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ВалютнаяСуммаКонтрагентаИсходнаяРасширеннаяПодсказка" id="45"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="21">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="22"/>
+			<ChildItems>
+				<InputField name="КурсКонтрагента" id="18">
+					<DataPath>КурсКонтрагента</DataPath>
+					<SkipOnInput>true</SkipOnInput>
+					<ContextMenu name="КурсКонтрагентаКонтекстноеМеню" id="19"/>
+					<ExtendedTooltip name="КурсКонтрагентаРасширеннаяПодсказка" id="20"/>
+					<Events>
+						<Event name="OnChange">КурсКонтрагентаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelField name="ВалютаКонтрагента" id="23">
+					<DataPath>ВалютаКонтрагента</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>5</Width>
+					<ContextMenu name="ВалютаКонтрагентаКонтекстноеМеню" id="24"/>
+					<ExtendedTooltip name="ВалютаКонтрагентаРасширеннаяПодсказка" id="25"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа4" id="36">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа4РасширеннаяПодсказка" id="37"/>
+			<ChildItems>
+				<InputField name="ВалютнаяСумма" id="9">
+					<DataPath>ВалютнаяСумма</DataPath>
+					<ContextMenu name="ВалютнаяСуммаКонтекстноеМеню" id="10"/>
+					<ExtendedTooltip name="ВалютнаяСуммаРасширеннаяПодсказка" id="11"/>
+					<Events>
+						<Event name="OnChange">КурсПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelField name="ВалютнаяСуммаИсходная" id="38">
+					<DataPath>ВалютнаяСуммаИсходная</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступно</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<ContextMenu name="ВалютнаяСуммаИсходнаяКонтекстноеМеню" id="39"/>
+					<ExtendedTooltip name="ВалютнаяСуммаИсходнаяРасширеннаяПодсказка" id="40"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="26">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="27"/>
+			<ChildItems>
+				<InputField name="Курс" id="15">
+					<DataPath>Курс</DataPath>
+					<SkipOnInput>true</SkipOnInput>
+					<ContextMenu name="КурсКонтекстноеМеню" id="16"/>
+					<ExtendedTooltip name="КурсРасширеннаяПодсказка" id="17"/>
+					<Events>
+						<Event name="OnChange">КурсПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelField name="Валюта" id="28">
+					<DataPath>Валюта</DataPath>
+					<TitleLocation>None</TitleLocation>
+					<Width>3</Width>
+					<ContextMenu name="ВалютаКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ВалютаРасширеннаяПодсказка" id="30"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа3" id="34">
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<InputField name="Сумма" id="4">
+					<DataPath>Сумма</DataPath>
+					<ContextMenu name="СуммаКонтекстноеМеню" id="5"/>
+					<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="6"/>
+					<Events>
+						<Event name="OnChange">СуммаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<LabelField name="СуммаПлатежа" id="31">
+					<DataPath>СуммаИсходная</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Доступно</v8:content>
+						</v8:item>
+					</Title>
+					<HorizontalAlign>Left</HorizontalAlign>
+					<ContextMenu name="СуммаПлатежаКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="СуммаПлатежаРасширеннаяПодсказка" id="33"/>
+				</LabelField>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -93,11 +223,129 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
-		<Attribute name="СуммаПлатежа" id="6">
+		<Attribute name="СуммаИсходная" id="6">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма платежа</v8:content>
+					<v8:content>Сумма исходная</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютнаяСумма" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валютная сумма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютнаяСуммаКонтрагента" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валютная сумма контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Курс" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Курс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>12</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КурсКонтрагента" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Курс контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>12</v8:Digits>
+					<v8:FractionDigits>5</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Валюта" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютаКонтрагента" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Валюты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютнаяСуммаКонтрагентаИсходная" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валютная сумма контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>17</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВалютнаяСуммаИсходная" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валютная сумма</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

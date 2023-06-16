@@ -39,10 +39,6 @@
 			<field>Субконто3</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Заявитель</dataPath>
-			<field>Заявитель</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>План1</dataPath>
 			<field>План1</field>
 			<title xsi:type="v8:LocalStringType">
@@ -118,18 +114,6 @@
 			<field>Содержание</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>АвторЗаписи</dataPath>
-			<field>АвторЗаписи</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ПодразделениеЗаявителя</dataPath>
-			<field>ПодразделениеЗаявителя</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Документ</dataPath>
 			<field>Документ</field>
 			<role>
@@ -150,6 +134,14 @@
 					<v8:content>План на согласовании</v8:content>
 				</v8:item>
 			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаКор</dataPath>
+			<field>ВалютаКор</field>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
@@ -176,7 +168,7 @@
 	КОНЕЦ КАК План3,
 	-ВЫБОР
 		КОГДА БюджетныйОбороты.СценарийПлана = &amp;СценарийАктуальный
-				ИЛИ БюджетныйОбороты.СценарийПлана = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПланПоСЗ)
+				ИЛИ БюджетныйОбороты.СценарийПлана = &amp;ПланПоСЗ
 				ИЛИ БюджетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийАктуальный)
 					И БюджетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
 			ТОГДА ЕСТЬNULL(БюджетныйОбороты.СуммаОборот, 0)
@@ -184,7 +176,7 @@
 	БюджетныйОбороты.Субконто1 КАК Статья,
 	БюджетныйОбороты.Подразделение КАК Подразделение,
 	БюджетныйОбороты.Предприятия КАК Предприятия,
-	Бюджетный.Содержание,
+	Бюджетный.Содержание КАК Содержание,
 	Бюджетный.Регистратор КАК Документ,
 	ВЫБОР
 		КОГДА ТИПЗНАЧЕНИЯ(БюджетныйОбороты.КорСубконто2) = ТИП(Справочник.ОбъектыСтроительства)
@@ -192,21 +184,18 @@
 			ТОГДА БюджетныйОбороты.КорСубконто2
 		ИНАЧЕ НЕОПРЕДЕЛЕНО
 	КОНЕЦ КАК ИнвПроект,
-	0 КАК ПланНаСогласовании,
-	БюджетныйОбороты.ПодразделениеЗаявителя
+	0 КАК ПланНаСогласовании
 ИЗ
-	РегистрБухгалтерии.Бюджетный.Обороты(
+	РегистрБухгалтерии.Учетный.Обороты(
 			,
 			,
 			Запись,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса))
-				ИЛИ Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.РасчетныйСчет))
-				ИЛИ Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.КазнаОсн)),
+			Счет.ДенежныйСчет = ИСТИНА,
 			,
 			(СценарийПлана = &amp;СценарийГод
 				ИЛИ СценарийПлана = &amp;СценарийКвартал
 				ИЛИ СценарийПлана = &amp;СценарийМесяц
-				ИЛИ СценарийПлана = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПланПоСЗ)
+				ИЛИ СценарийПлана = &amp;ПланПоСЗ
 				ИЛИ СценарийПлана = &amp;СценарийАктуальный
 				ИЛИ СценарийПлана В
 					(ВЫБРАТЬ
@@ -221,14 +210,11 @@
 						И СценарииПланирования.ВлкючатьВПлан = ИСТИНА
 						И СценарииПланирования.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)))
 				И Субконто1 В ИЕРАРХИИ (&amp;Статья)
-				И (Предприятия В (&amp;Предприятия)
-					ИЛИ Заявитель В (&amp;Предприятия))
+				И Предприятия В (&amp;Предприятия)
 				И ВЫБОР
 					КОГДА &amp;ПодразделениеОсновное = ИСТИНА
 						ТОГДА ИСТИНА
 					ИНАЧЕ Подразделение В ИЕРАРХИИ (&amp;Подразделение)
-							ИЛИ ПодразделениеЗаявителя В ИЕРАРХИИ (&amp;Подразделение)
-								И НЕ ПодразделениеЗаявителя.Наименование ПОДОБНО "%Основное%"
 				КОНЕЦ
 				И ВЫБОР
 					КОГДА &amp;ИнвПроект = НЕОПРЕДЕЛЕНО
@@ -237,75 +223,13 @@
 				КОНЕЦ,
 			,
 			) КАК БюджетныйОбороты
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Бюджетный КАК Бюджетный
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Учетный КАК Бюджетный
 			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Б_ПараметрыБюджета КАК Б_ПараметрыБюджета
 			ПО Бюджетный.Предприятия = Б_ПараметрыБюджета.Предприятие
 				И Бюджетный.СценарийПлана = Б_ПараметрыБюджета.Сценарий
 		ПО БюджетныйОбороты.Регистратор = Бюджетный.Регистратор
-			И БюджетныйОбороты.НомерСтроки = Бюджетный.НомерСтроки
-
-ОБЪЕДИНИТЬ ВСЕ
-
-ВЫБРАТЬ
-	0,
-	0,
-	0,
-	0,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.СтатьяБДДС,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.ВидДеятельности,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.ЦФО,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.Основание,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.Ссылка,
-	ВЫБОР
-		КОГДА Д_ЗаявкаНаКорректировкуБюджетаСЗ.ИнвПроект = ЗНАЧЕНИЕ(Справочник.ОбъектыСтроительства.ПустаяСсылка)
-				ИЛИ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ИнвПроект = ЗНАЧЕНИЕ(Справочник.ПредставительскиеРасходы.ПустаяСсылка)
-			ТОГДА НЕОПРЕДЕЛЕНО
-		ИНАЧЕ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ИнвПроект
-	КОНЕЦ,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.СуммаБДДС,
-	NULL
-ИЗ
-	БизнесПроцесс.Согласование2 КАК Согласование2
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Д_ЗаявкаНаКорректировкуБюджета.СЗ КАК Д_ЗаявкаНаКорректировкуБюджетаСЗ
-		ПО Согласование2.Заявка = Д_ЗаявкаНаКорректировкуБюджетаСЗ.Ссылка
-ГДЕ
-	Согласование2.ПометкаУдаления = ЛОЖЬ
-	И Согласование2.Стартован = ИСТИНА
-	И Согласование2.Завершен = ЛОЖЬ
-	И Д_ЗаявкаНаКорректировкуБюджетаСЗ.СтатьяБДДС В ИЕРАРХИИ(&amp;Статья)
-	И Д_ЗаявкаНаКорректировкуБюджетаСЗ.ЦФО В(&amp;Предприятия)
-	И ВЫБОР
-			КОГДА &amp;Подразделение = "Основное"
-					ИЛИ &amp;Подразделение = НЕОПРЕДЕЛЕНО
-				ТОГДА ИСТИНА
-			ИНАЧЕ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ВидДеятельности В ИЕРАРХИИ (&amp;Подразделение)
-		КОНЕЦ
-	И ВЫБОР
-			КОГДА &amp;ИнвПроект = НЕОПРЕДЕЛЕНО
-				ТОГДА ИСТИНА
-			ИНАЧЕ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ИнвПроект В (&amp;ИнвПроект)
-		КОНЕЦ</query>
+			И БюджетныйОбороты.НомерСтроки = Бюджетный.НомерСтроки</query>
 	</dataSet>
-	<totalField>
-		<dataPath>План1</dataPath>
-		<expression>Сумма(План1)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>План2</dataPath>
-		<expression>Сумма(План2)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>План3</dataPath>
-		<expression>Сумма(План3)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>План4</dataPath>
-		<expression>Сумма(План4)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>ПланНаСогласовании</dataPath>
-		<expression>Сумма(ПланНаСогласовании)</expression>
-	</totalField>
 	<parameter>
 		<name>Период</name>
 		<title xsi:type="v8:LocalStringType">
@@ -503,6 +427,21 @@
 		<value xsi:type="xs:boolean">false</value>
 		<useRestriction>false</useRestriction>
 	</parameter>
+	<parameter>
+		<name>ПланПоСЗ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>План по СЗ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>БюджетныйНаСервере.СправочникНайтиПоНаименованию("СценарииПланирования", "План по СЗ", Истина)</expression>
+	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
 		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
@@ -547,33 +486,32 @@
 						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
 						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 					</dcscor:value>
-					<dcsset:userSettingID>354e14c6-f5af-4489-8a79-b4067a518f80</dcsset:userSettingID>
+					<dcsset:userSettingID>b49aae4f-8b44-4940-b642-585a18081643</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Статья</dcscor:parameter>
 					<dcscor:value xsi:type="xs:string"/>
-					<dcsset:userSettingID>ca638960-35aa-435f-b368-571e777de423</dcsset:userSettingID>
+					<dcsset:userSettingID>116c5f56-2aad-4a8d-aa88-999556053f45</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Предприятия</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
-					<dcsset:userSettingID>f93fdd10-4520-4efe-8b04-c5fcf7fd32a9</dcsset:userSettingID>
+					<dcsset:userSettingID>06bc0fa6-46f5-43af-9386-026c6552d456</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Подразделение</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-					<dcsset:userSettingID>d33bd330-4893-4383-bbfd-46743569d7a2</dcsset:userSettingID>
+					<dcscor:value xsi:type="v8:Null"/>
+					<dcsset:userSettingID>d82ce15b-8abd-4bfe-92b5-869630f83cf6</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ИнвПроект</dcscor:parameter>
 					<dcscor:value xsi:type="xs:string"/>
-					<dcsset:userSettingID>46307316-4945-4650-9013-79011e129e89</dcsset:userSettingID>
+					<dcsset:userSettingID>f946df48-0d18-4bcc-8176-483db570090a</dcsset:userSettingID>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ПодразделениеОсновное</dcscor:parameter>
 					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
-					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
-					<dcsset:userSettingID>4a171a43-292e-4ae4-9f50-ca9eb93461b6</dcsset:userSettingID>
+					<dcsset:userSettingID>2455a611-8443-4024-982e-d60fa9f46ab6</dcsset:userSettingID>
 				</dcscor:item>
 			</dcsset:dataParameters>
 			<dcsset:conditionalAppearance>

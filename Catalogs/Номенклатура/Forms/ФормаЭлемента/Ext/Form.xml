@@ -14,6 +14,7 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="OnOpen" callType="After">УУ_ПриОткрытииПосле</Event>
+		<Event name="BeforeWrite" callType="Before">УУ_ПередЗаписьюПеред</Event>
 		<Event name="OnCreateAtServer" callType="After">УУ_ПриСозданииНаСервереПосле</Event>
 	</Events>
 	<ChildItems>
@@ -207,32 +208,62 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="ГруппаРаботаСНоменклатуройРасширеннаяПодсказка" id="379"/>
 						</UsualGroup>
-						<InputField name="ГосударственныйКонтроль" id="323">
+						<UsualGroup name="ГруппаПрослеживаемость" id="516">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Маркировка и контроль</v8:content>
+									<v8:content>Группа прослеживаемость</v8:content>
 								</v8:item>
 							</Title>
-							<ListChoiceMode>true</ListChoiceMode>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>Нет</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:string"/>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ГосударственныйКонтрольКонтекстноеМеню" id="324"/>
-							<ExtendedTooltip name="ГосударственныйКонтрольРасширеннаяПодсказка" id="325"/>
-						</InputField>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа прослеживаемость</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПрослеживаемостьРасширеннаяПодсказка" id="517"/>
+							<ChildItems>
+								<InputField name="ГосударственныйКонтроль" id="323">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Маркировка и контроль</v8:content>
+										</v8:item>
+									</Title>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Нет</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xs:string"/>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ГосударственныйКонтрольКонтекстноеМеню" id="324"/>
+									<ExtendedTooltip name="ГосударственныйКонтрольРасширеннаяПодсказка" id="325"/>
+								</InputField>
+								<LabelDecoration name="ИсторияПрослеживаемогоТовара" id="518">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>История</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="ИсторияПрослеживаемогоТовараКонтекстноеМеню" id="519"/>
+									<ExtendedTooltip name="ИсторияПрослеживаемогоТовараРасширеннаяПодсказка" id="520"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
 						<UsualGroup name="ГруппаПериодичность" id="231">
 							<Title>
 								<v8:item>
@@ -355,6 +386,12 @@
 								</LabelField>
 							</ChildItems>
 						</UsualGroup>
+						<LabelField name="ОписаниеМаркируемогоТовара" id="508">
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<ContextMenu name="ОписаниеМаркируемогоТовараКонтекстноеМеню" id="509"/>
+							<ExtendedTooltip name="ОписаниеМаркируемогоТовараРасширеннаяПодсказка" id="510"/>
+						</LabelField>
 						<UsualGroup name="ГруппаСтавкаНДС" id="270">
 							<Title>
 								<v8:item>
@@ -663,7 +700,7 @@
 								<v8:item>
 									<v8:lang>ru</v8:lang>
 									<v8:content>Малоценное оборудование и запасы включают в себя инвентарь, спецодежду и спецоснастку. 
-Срок использования считается с момента выдачи инвентаря или спецодежды сотрудику и контролируется отчетом "Материалы, выданные сотрудникам"</v8:content>
+Срок использования считается с момента выдачи инвентаря или спецодежды сотруднику и контролируется отчетом "Материалы, выданные сотрудникам"</v8:content>
 								</v8:item>
 							</ToolTip>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
@@ -798,6 +835,54 @@
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="НомерГТДКонтекстноеМеню" id="22"/>
 									<ExtendedTooltip name="НомерГТДExtendedTooltip" id="148"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЭлектронныеСертификаты" id="511">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Электронные сертификаты НСПК</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Информация для учета импортных товаров по номерам ГТД</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Collapsible</Behavior>
+							<Collapsed>true</Collapsed>
+							<ControlRepresentation>Picture</ControlRepresentation>
+							<Representation>None</Representation>
+							<ShowLeftMargin>false</ShowLeftMargin>
+							<ExtendedTooltip name="ГруппаЭлектронныеСертификатыРасширеннаяПодсказка" id="512"/>
+							<ChildItems>
+								<InputField name="КодТРУ" id="513">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Код вида ТРУ</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Код товара, на который может быть выдан сертификат, из классификатора ФСС</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<ContextMenu name="КодТРУКонтекстноеМеню" id="514"/>
+									<ExtendedTooltip name="КодТРУРасширеннаяПодсказка" id="515">
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Код из &lt;link https://esnsi.gosuslugi.ru/classifiers/5541/data&gt;перечня отдельных видов товаров, работ, услуг&lt;/&gt;, приобретаемых с использованием сертификата.
+Заполните этот код, если товар может быть оплачен &lt;link https://buh.ru/articles/documents/143163/&gt;электронным сертификатом НСПК&lt;/&gt;</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -1625,32 +1710,62 @@
 								<ShowTitle>false</ShowTitle>
 								<ExtendedTooltip name="ГруппаРаботаСНоменклатуройРасширеннаяПодсказка" id="379"/>
 							</UsualGroup>
-							<InputField name="ГосударственныйКонтроль" id="323">
+							<UsualGroup name="ГруппаПрослеживаемость" id="516">
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Маркировка и контроль</v8:content>
+										<v8:content>Группа прослеживаемость</v8:content>
 									</v8:item>
 								</Title>
-								<ListChoiceMode>true</ListChoiceMode>
-								<ChoiceList>
-									<xr:Item>
-										<xr:Presentation/>
-										<xr:CheckState>0</xr:CheckState>
-										<xr:Value xsi:type="FormChoiceListDesTimeValue">
-											<Presentation>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Нет</v8:content>
-												</v8:item>
-											</Presentation>
-											<Value xsi:type="xs:string"/>
-										</xr:Value>
-									</xr:Item>
-								</ChoiceList>
-								<ContextMenu name="ГосударственныйКонтрольКонтекстноеМеню" id="324"/>
-								<ExtendedTooltip name="ГосударственныйКонтрольРасширеннаяПодсказка" id="325"/>
-							</InputField>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа прослеживаемость</v8:content>
+									</v8:item>
+								</ToolTip>
+								<Behavior>Usual</Behavior>
+								<ShowTitle>false</ShowTitle>
+								<ExtendedTooltip name="ГруппаПрослеживаемостьРасширеннаяПодсказка" id="517"/>
+								<ChildItems>
+									<InputField name="ГосударственныйКонтроль" id="323">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Маркировка и контроль</v8:content>
+											</v8:item>
+										</Title>
+										<ListChoiceMode>true</ListChoiceMode>
+										<ChoiceList>
+											<xr:Item>
+												<xr:Presentation/>
+												<xr:CheckState>0</xr:CheckState>
+												<xr:Value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Нет</v8:content>
+														</v8:item>
+													</Presentation>
+													<Value xsi:type="xs:string"/>
+												</xr:Value>
+											</xr:Item>
+										</ChoiceList>
+										<ContextMenu name="ГосударственныйКонтрольКонтекстноеМеню" id="324"/>
+										<ExtendedTooltip name="ГосударственныйКонтрольРасширеннаяПодсказка" id="325"/>
+									</InputField>
+									<LabelDecoration name="ИсторияПрослеживаемогоТовара" id="518">
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>История</v8:content>
+											</v8:item>
+										</Title>
+										<Hyperlink>true</Hyperlink>
+										<ContextMenu name="ИсторияПрослеживаемогоТовараКонтекстноеМеню" id="519"/>
+										<ExtendedTooltip name="ИсторияПрослеживаемогоТовараРасширеннаяПодсказка" id="520"/>
+									</LabelDecoration>
+								</ChildItems>
+							</UsualGroup>
 							<UsualGroup name="ГруппаПериодичность" id="231">
 								<Title>
 									<v8:item>
@@ -1773,6 +1888,12 @@
 									</LabelField>
 								</ChildItems>
 							</UsualGroup>
+							<LabelField name="ОписаниеМаркируемогоТовара" id="508">
+								<TitleLocation>None</TitleLocation>
+								<AutoMaxWidth>false</AutoMaxWidth>
+								<ContextMenu name="ОписаниеМаркируемогоТовараКонтекстноеМеню" id="509"/>
+								<ExtendedTooltip name="ОписаниеМаркируемогоТовараРасширеннаяПодсказка" id="510"/>
+							</LabelField>
 							<UsualGroup name="ГруппаСтавкаНДС" id="270">
 								<Title>
 									<v8:item>
@@ -2073,7 +2194,7 @@
 									<v8:item>
 										<v8:lang>ru</v8:lang>
 										<v8:content>Малоценное оборудование и запасы включают в себя инвентарь, спецодежду и спецоснастку. 
-Срок использования считается с момента выдачи инвентаря или спецодежды сотрудику и контролируется отчетом "Материалы, выданные сотрудникам"</v8:content>
+Срок использования считается с момента выдачи инвентаря или спецодежды сотруднику и контролируется отчетом "Материалы, выданные сотрудникам"</v8:content>
 									</v8:item>
 								</ToolTip>
 								<ToolTipRepresentation>Button</ToolTipRepresentation>
@@ -2208,6 +2329,54 @@
 										<EditMode>EnterOnInput</EditMode>
 										<ContextMenu name="НомерГТДКонтекстноеМеню" id="22"/>
 										<ExtendedTooltip name="НомерГТДExtendedTooltip" id="148"/>
+									</InputField>
+								</ChildItems>
+							</UsualGroup>
+							<UsualGroup name="ГруппаЭлектронныеСертификаты" id="511">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Электронные сертификаты НСПК</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Информация для учета импортных товаров по номерам ГТД</v8:content>
+									</v8:item>
+								</ToolTip>
+								<Group>Vertical</Group>
+								<Behavior>Collapsible</Behavior>
+								<Collapsed>true</Collapsed>
+								<ControlRepresentation>Picture</ControlRepresentation>
+								<Representation>None</Representation>
+								<ShowLeftMargin>false</ShowLeftMargin>
+								<ExtendedTooltip name="ГруппаЭлектронныеСертификатыРасширеннаяПодсказка" id="512"/>
+								<ChildItems>
+									<InputField name="КодТРУ" id="513">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Код вида ТРУ</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Код товара, на который может быть выдан сертификат, из классификатора ФСС</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ToolTipRepresentation>Button</ToolTipRepresentation>
+										<ContextMenu name="КодТРУКонтекстноеМеню" id="514"/>
+										<ExtendedTooltip name="КодТРУРасширеннаяПодсказка" id="515">
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Код из &lt;link https://esnsi.gosuslugi.ru/classifiers/5541/data&gt;перечня отдельных видов товаров, работ, услуг&lt;/&gt;, приобретаемых с использованием сертификата.
+Заполните этот код, если товар может быть оплачен &lt;link https://buh.ru/articles/documents/143163/&gt;электронным сертификатом НСПК&lt;/&gt;</v8:content>
+												</v8:item>
+											</Title>
+										</ExtendedTooltip>
 									</InputField>
 								</ChildItems>
 							</UsualGroup>

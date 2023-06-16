@@ -41,23 +41,29 @@
 					</ToolTip>
 					<ExtendedTooltip name="ОбщееРасширеннаяПодсказка" id="57"/>
 					<ChildItems>
-						<CheckBoxField name="ФоноваяОбработкаБУДокументов" id="37">
-							<DataPath>ФоноваяОбработкаБУДокументов</DataPath>
-							<TitleLocation>Right</TitleLocation>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>При установке галочки программа будет пытаться автоматически обработаьь БУ документы, в случае неудачи, документ остается в списке Неопбаботанных</v8:content>
-								</v8:item>
-							</ToolTip>
-							<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ФоноваяОбработкаБУДокументовКонтекстноеМеню" id="38"/>
-							<ExtendedTooltip name="ФоноваяОбработкаБУДокументовРасширеннаяПодсказка" id="39"/>
-							<Events>
-								<Event name="OnChange">ФоноваяОбработкаБУДокументовПриИзменении</Event>
-							</Events>
-						</CheckBoxField>
+						<UsualGroup name="Группа2" id="116">
+							<Behavior>Usual</Behavior>
+							<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="117"/>
+							<ChildItems>
+								<CheckBoxField name="ФоноваяОбработкаБУДокументов" id="37">
+									<DataPath>ФоноваяОбработкаБУДокументов</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>При установке галочки программа будет пытаться автоматически обработаьь БУ документы, в случае неудачи, документ остается в списке Неопбаботанных</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>ShowBottom</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ФоноваяОбработкаБУДокументовКонтекстноеМеню" id="38"/>
+									<ExtendedTooltip name="ФоноваяОбработкаБУДокументовРасширеннаяПодсказка" id="39"/>
+									<Events>
+										<Event name="OnChange">ФоноваяОбработкаБУДокументовПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
 						<CheckBoxField name="ФоноваяПроверкаБУДокументов" id="40">
 							<DataPath>ФоноваяПроверкаБУДокументов</DataPath>
 							<TitleLocation>Right</TitleLocation>
@@ -326,19 +332,67 @@
 							<ContextMenu name="СрезОстатковНаДатуЗаказаКонтекстноеМеню" id="99"/>
 							<ExtendedTooltip name="СрезОстатковНаДатуЗаказаРасширеннаяПодсказка" id="100"/>
 						</CheckBoxField>
-						<CheckBoxField name="сабОперативныйРежимРаботы" id="101">
-							<DataPath>сабОперативныйРежимРаботы</DataPath>
+						<UsualGroup name="Группа3" id="118">
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="119"/>
+							<ChildItems>
+								<CheckBoxField name="сабОперативныйРежимРаботы" id="101">
+									<DataPath>сабОперативныйРежимРаботы</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В данном режиме предусмотрена трансляция оперативных управленческих документов в бухгалтерские.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="сабОперативныйРежимРаботыКонтекстноеМеню" id="102"/>
+									<ExtendedTooltip name="сабОперативныйРежимРаботыРасширеннаяПодсказка" id="103"/>
+									<Events>
+										<Event name="OnChange">сабОперативныйРежимРаботыПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="ФоноваяОбработкаУУДокументов" id="113">
+									<DataPath>ФоноваяОбработкаУУДокументов</DataPath>
+									<TitleLocation>Right</TitleLocation>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="ФоноваяОбработкаУУДокументовКонтекстноеМеню" id="114"/>
+									<ExtendedTooltip name="ФоноваяОбработкаУУДокументовРасширеннаяПодсказка" id="115"/>
+									<Events>
+										<Event name="OnChange">ФоноваяОбработкаУУДокументовПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<CheckBoxField name="сабИгнорироватьБлокировкуАвтообновленийДокументов" id="104">
+							<DataPath>сабИгнорироватьБлокировкуАвтообновленийДокументов</DataPath>
 							<TitleLocation>Right</TitleLocation>
 							<ToolTip>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>В данном режиме предусмотрена трансляция оперативных управленческих документов в бухгалтерские.</v8:content>
+									<v8:content>Испольовать для временного снятия запрета редактирования в соучае замены дублей, изменения реквизитов и т.п.</v8:content>
 								</v8:item>
 							</ToolTip>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
 							<CheckBoxType>Switcher</CheckBoxType>
-							<ContextMenu name="сабОперативныйРежимРаботыКонтекстноеМеню" id="102"/>
-							<ExtendedTooltip name="сабОперативныйРежимРаботыРасширеннаяПодсказка" id="103"/>
+							<ContextMenu name="сабИгнорироватьБлокировкуАвтообновленийДокументовКонтекстноеМеню" id="105"/>
+							<ExtendedTooltip name="сабИгнорироватьБлокировкуАвтообновленийДокументовРасширеннаяПодсказка" id="106"/>
+						</CheckBoxField>
+						<CheckBoxField name="КонтролироватьУникальностьАртикулов" id="107">
+							<DataPath>КонтролироватьУникальностьАртикулов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="КонтролироватьУникальностьАртикуловКонтекстноеМеню" id="108"/>
+							<ExtendedTooltip name="КонтролироватьУникальностьАртикуловРасширеннаяПодсказка" id="109"/>
+						</CheckBoxField>
+						<CheckBoxField name="ВозможноЧастичноеИсполнениеЗаказа" id="110">
+							<DataPath>ВозможноЧастичноеИсполнениеЗаказов</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Switcher</CheckBoxType>
+							<ContextMenu name="ВозможноЧастичноеИсполнениеЗаказаКонтекстноеМеню" id="111"/>
+							<ExtendedTooltip name="ВозможноЧастичноеИсполнениеЗаказаРасширеннаяПодсказка" id="112"/>
 						</CheckBoxField>
 					</ChildItems>
 				</Page>
@@ -571,6 +625,50 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Оперативный режим работы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="сабИгнорироватьБлокировкуАвтообновленийДокументов" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Игнорировать блокировку автообновлений документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтролироватьУникальностьАртикулов" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контролировать уникальность артикулов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВозможноЧастичноеИсполнениеЗаказов" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возможно частичное исполнение заказов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФоноваяОбработкаУУДокументов" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фоновая авто-обработка УУ документов</v8:content>
 				</v8:item>
 			</Title>
 			<Type>

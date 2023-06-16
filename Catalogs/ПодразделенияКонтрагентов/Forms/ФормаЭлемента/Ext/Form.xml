@@ -50,12 +50,80 @@
 			<ContextMenu name="ОбособленноеПодразделениеКонтекстноеМеню" id="39"/>
 			<ExtendedTooltip name="ОбособленноеПодразделениеРасширеннаяПодсказка" id="40"/>
 		</InputField>
-		<InputField name="Адрес" id="10">
-			<DataPath>Объект.Адрес</DataPath>
-			<EditMode>EnterOnInput</EditMode>
-			<ContextMenu name="АдресКонтекстноеМеню" id="11"/>
-			<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="12"/>
-		</InputField>
+		<UsualGroup name="Группа2" id="45">
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="46"/>
+			<ChildItems>
+				<InputField name="Адрес" id="10">
+					<DataPath>Объект.Адрес</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="АдресКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="АдресРасширеннаяПодсказка" id="12"/>
+				</InputField>
+				<Button name="Подобрать" id="41">
+					<Type>Hyperlink</Type>
+					<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+					<CommandName>Form.Command.ПодобратьАдрес</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подобрать</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПодобратьРасширеннаяПодсказка" id="42"/>
+				</Button>
+				<Button name="ПоказатьНаКарте" id="43">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ПоказатьНаКарте</CommandName>
+					<ExtendedTooltip name="ПоказатьНаКартеРасширеннаяПодсказка" id="44"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="КоординатыКоманда" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Координаты команда</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Координаты команда</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>AlwaysHorizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="КоординатыКомандаРасширеннаяПодсказка" id="53"/>
+			<ChildItems>
+				<InputField name="Координаты" id="47">
+					<DataPath>Объект.Координаты</DataPath>
+					<ContextMenu name="КоординатыКонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="КоординатыРасширеннаяПодсказка" id="49"/>
+				</InputField>
+				<Button name="ПолучитьКоординаты" id="50">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ПолучитьКоординаты</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заполнить по адресу</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="ПолучитьКоординатыРасширеннаяПодсказка" id="51"/>
+				</Button>
+				<Button name="ПоказатьНаКартеКоординаты" id="54">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ПоказатьНаКартеКоординаты</CommandName>
+					<ExtendedTooltip name="ПоказатьНаКартеКоординатыРасширеннаяПодсказка" id="55"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<InputField name="МаршрутДоставки" id="27">
 			<DataPath>Объект.МаршрутДоставки</DataPath>
 			<ContextMenu name="МаршрутДоставкиКонтекстноеМеню" id="28"/>
@@ -142,4 +210,67 @@
 			<SavedData>true</SavedData>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ПодобратьАдрес" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать адрес</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать адрес</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Подобрать</Action>
+		</Command>
+		<Command name="ПоказатьНаКарте" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать на карте</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать на карте</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьНаКарте</Action>
+		</Command>
+		<Command name="ПолучитьКоординаты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить координаты</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получить координаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПолучитьКоординаты</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ПоказатьНаКартеКоординаты" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать на карте</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Показать на карте координаты</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПоказатьНаКартеКоординаты</Action>
+		</Command>
+	</Commands>
 </Form>
