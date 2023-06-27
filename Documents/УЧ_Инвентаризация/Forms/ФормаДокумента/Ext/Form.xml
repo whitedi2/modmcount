@@ -13,18 +13,6 @@
 					</v8:item>
 				</Title>
 				<ExtendedTooltip name="ФормаГруппа1РасширеннаяПодсказка" id="207"/>
-				<ChildItems>
-					<Button name="ФормаПечатьПересчет" id="204">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПечатьПересчет</CommandName>
-						<ExtendedTooltip name="ФормаПечатьПересчетРасширеннаяПодсказка" id="205"/>
-					</Button>
-					<Button name="ФормаПечатьИнвентаризационнаяОпись" id="208">
-						<Type>CommandBarButton</Type>
-						<CommandName>Form.Command.ПечатьИнвентаризационнаяОпись</CommandName>
-						<ExtendedTooltip name="ФормаПечатьИнвентаризационнаяОписьРасширеннаяПодсказка" id="209"/>
-					</Button>
-				</ChildItems>
 			</Popup>
 		</ChildItems>
 	</AutoCommandBar>
@@ -63,6 +51,7 @@
 				</InputField>
 				<InputField name="ВидОперации" id="113">
 					<DataPath>Объект.ВидОперации</DataPath>
+					<Visible>false</Visible>
 					<ContextMenu name="ВидОперацииКонтекстноеМеню" id="114"/>
 					<ExtendedTooltip name="ВидОперацииРасширеннаяПодсказка" id="115"/>
 					<Events>
@@ -77,36 +66,59 @@
 			</ChildItems>
 		</UsualGroup>
 		<UsualGroup name="Группа3" id="51">
-			<Group>Horizontal</Group>
+			<Group>AlwaysHorizontal</Group>
 			<Behavior>Usual</Behavior>
 			<Representation>None</Representation>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="52"/>
 			<ChildItems>
-				<InputField name="Предприятие" id="7">
-					<DataPath>Объект.Предприятие</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="8"/>
-					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="9"/>
-					<Events>
-						<Event name="OnChange">ПредприятиеПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="Подразделение" id="10">
-					<DataPath>Объект.Подразделение</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="ПодразделениеКонтекстноеМеню" id="11"/>
-					<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="12"/>
-					<Events>
-						<Event name="OnChange">ПодразделениеПриИзменении</Event>
-					</Events>
-				</InputField>
-				<InputField name="Склад" id="13">
-					<DataPath>Объект.Склад</DataPath>
-					<EditMode>EnterOnInput</EditMode>
-					<ContextMenu name="СкладКонтекстноеМеню" id="14"/>
-					<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="15"/>
-				</InputField>
+				<UsualGroup name="Группа15" id="325">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="326"/>
+					<ChildItems>
+						<InputField name="Предприятие" id="7">
+							<DataPath>Объект.Предприятие</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПредприятиеКонтекстноеМеню" id="8"/>
+							<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="9"/>
+							<Events>
+								<Event name="OnChange">ПредприятиеПриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="Подразделение" id="10">
+							<DataPath>Объект.Подразделение</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПодразделениеКонтекстноеМеню" id="11"/>
+							<ExtendedTooltip name="ПодразделениеРасширеннаяПодсказка" id="12"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="Группа16" id="327">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="Группа16РасширеннаяПодсказка" id="328"/>
+					<ChildItems>
+						<InputField name="Склад" id="13">
+							<DataPath>Объект.Склад</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="СкладКонтекстноеМеню" id="14"/>
+							<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="15"/>
+						</InputField>
+						<InputField name="Организация" id="322">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="323"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="324"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
 		<Pages name="СтраницыРеквизитов" id="73">
@@ -129,7 +141,7 @@
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Основные</v8:content>
+							<v8:content>ТМЦ</v8:content>
 						</v8:item>
 					</Title>
 					<ToolTip>
@@ -357,12 +369,6 @@
 													</Button>
 												</ChildItems>
 											</ButtonGroup>
-											<Button name="ТоварыПечатьПересчет" id="165">
-												<Type>CommandBarButton</Type>
-												<Visible>false</Visible>
-												<CommandName>Form.Command.ПечатьПересчет</CommandName>
-												<ExtendedTooltip name="ТоварыПечатьПересчетРасширеннаяПодсказка" id="166"/>
-											</Button>
 										</ChildItems>
 									</AutoCommandBar>
 									<ExtendedTooltip name="ТоварыРасширеннаяПодсказка" id="25"/>
@@ -443,12 +449,6 @@
 										<InputField name="ТоварыКоличество" id="41">
 											<DataPath>Объект.Товары.Количество</DataPath>
 											<ReadOnly>true</ReadOnly>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Количество уч.</v8:content>
-												</v8:item>
-											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<FooterText>
 												<v8:item>
@@ -464,12 +464,6 @@
 										<InputField name="ТоварыСумма" id="58">
 											<DataPath>Объект.Товары.Сумма</DataPath>
 											<ReadOnly>true</ReadOnly>
-											<Title>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>Сумма уч.</v8:content>
-												</v8:item>
-											</Title>
 											<EditMode>EnterOnInput</EditMode>
 											<FooterDataPath>Объект.Товары.TotalСумма</FooterDataPath>
 											<Width>12</Width>
@@ -478,6 +472,7 @@
 										</InputField>
 										<InputField name="ТоварыКоличествоПрошлаяПодснятие" id="64">
 											<DataPath>Объект.Товары.КоличествоПрошлаяИнвПодснятие</DataPath>
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -491,6 +486,7 @@
 										</InputField>
 										<InputField name="ТоварыСуммаПрошлаяИнвПодснятие" id="254">
 											<DataPath>Объект.Товары.СуммаПрошлаяИнвПодснятие</DataPath>
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -504,6 +500,7 @@
 										</InputField>
 										<InputField name="ТоварыКоличествоРеализация" id="210">
 											<DataPath>Объект.Товары.КоличествоРеализация</DataPath>
+											<Visible>false</Visible>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -539,6 +536,38 @@
 											<Width>12</Width>
 											<ContextMenu name="ТоварыСуммаОтклонениеКонтекстноеМеню" id="71"/>
 											<ExtendedTooltip name="ТоварыСуммаОтклонениеРасширеннаяПодсказка" id="72"/>
+										</InputField>
+										<InputField name="ТоварыКоличествоБУ" id="332">
+											<DataPath>Объект.Товары.КоличествоБУ</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>12</Width>
+											<ContextMenu name="ТоварыКоличествоБУКонтекстноеМеню" id="333"/>
+											<ExtendedTooltip name="ТоварыКоличествоБУРасширеннаяПодсказка" id="334"/>
+										</InputField>
+										<InputField name="ТоварыСуммаБУ" id="329">
+											<DataPath>Объект.Товары.СуммаБУ</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>12</Width>
+											<ContextMenu name="ТоварыСуммаБУКонтекстноеМеню" id="330"/>
+											<ExtendedTooltip name="ТоварыСуммаБУРасширеннаяПодсказка" id="331"/>
+										</InputField>
+										<InputField name="ТоварыКоличествоОтклонениеБУ" id="335">
+											<DataPath>Объект.Товары.КоличествоОтклонениеБУ</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>12</Width>
+											<ContextMenu name="ТоварыКоличествоОтклонениеБУКонтекстноеМеню" id="336"/>
+											<ExtendedTooltip name="ТоварыКоличествоОтклонениеБУРасширеннаяПодсказка" id="337"/>
+										</InputField>
+										<InputField name="ТоварыСуммаОтклонениеБУ" id="338">
+											<DataPath>Объект.Товары.СуммаОтклонениеБУ</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>12</Width>
+											<ContextMenu name="ТоварыСуммаОтклонениеБУКонтекстноеМеню" id="339"/>
+											<ExtendedTooltip name="ТоварыСуммаОтклонениеБУРасширеннаяПодсказка" id="340"/>
 										</InputField>
 									</ChildItems>
 								</Table>
@@ -972,13 +1001,6 @@
 						</v8:item>
 					</Title>
 					<ExtendedTooltip name="Группа14РасширеннаяПодсказка" id="321"/>
-					<ChildItems>
-						<InputField name="Организация" id="322">
-							<DataPath>Объект.Организация</DataPath>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="323"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="324"/>
-						</InputField>
-					</ChildItems>
 				</Page>
 				<Page name="СтраницаДополнительныеРеквизиты" id="318">
 					<Title>
@@ -1326,22 +1348,6 @@
 			<Action>ЗагрузитьДанныеСТСД</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
-		<Command name="ПечатьПересчет" id="4">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Пересчет товаров</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Печать пересчет</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПечатьПересчет</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
 		<Command name="ЗапросНеизвестныхШтрихкодовУКМ" id="5">
 			<Title>
 				<v8:item>
@@ -1388,22 +1394,6 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ОбновитьУчет</Action>
-			<CurrentRowUse>DontUse</CurrentRowUse>
-		</Command>
-		<Command name="ПечатьИнвентаризационнаяОпись" id="8">
-			<Title>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Инвентаризационная опись</v8:content>
-				</v8:item>
-			</Title>
-			<ToolTip>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Печать инвентаризационная опись</v8:content>
-				</v8:item>
-			</ToolTip>
-			<Action>ПечатьИнвентаризационнаяОпись</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="ЗагрузитьРеализации" id="9">

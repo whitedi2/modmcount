@@ -57,16 +57,6 @@
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ПодразделениеЦФО</dataPath>
-			<field>ПодразделениеЦФО</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Предприятия</dataPath>
 			<field>Предприятия</field>
 			<useRestriction>
@@ -89,16 +79,6 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Счет</dataPath>
 			<field>Счет</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ЦФО</dataPath>
-			<field>ЦФО</field>
-			<useRestriction>
-				<condition>true</condition>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Субконто3</dataPath>
@@ -195,48 +175,63 @@
 			<field>Предприятие</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ВидЦены</dataPath>
-			<field>ВидЦены</field>
+			<dataPath>ТипЦен</dataPath>
+			<field>ТипЦен</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоБУ</dataPath>
+			<field>КоличествоБУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество БУ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаБУ</dataPath>
+			<field>СуммаБУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма БУ</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	СпрНоменклатура.Ссылка КАК Номенклатура,
-	СУММА(ВЫБОР
-			КОГДА НЕ УчетныйОстатки.Субконто2 = &amp;СкладПодснятий
-				ТОГДА УчетныйОстатки.КоличествоОстаток
-			ИНАЧЕ 0
-		КОНЕЦ) КАК Количество,
-	СУММА(ВЫБОР
-			КОГДА УчетныйОстатки.Субконто2 = &amp;СкладПодснятий
-				ТОГДА УчетныйОстатки.КоличествоОстаток
-			ИНАЧЕ 0
-		КОНЕЦ) КАК КоличествоПрошлаяИнвПодснятие,
-	СУММА(ВЫБОР
-			КОГДА НЕ УчетныйОстатки.Субконто2 = &amp;СкладПодснятий
-				ТОГДА УчетныйОстатки.СуммаОстаток
-			ИНАЧЕ 0
-		КОНЕЦ) КАК Сумма,
-	СпрНоменклатура.Отдел КАК НомГруппа,
-	СУММА(ВЫБОР
-			КОГДА УчетныйОстатки.Субконто2 = &amp;СкладПодснятий
-				ТОГДА УчетныйОстатки.СуммаОстаток
-			ИНАЧЕ 0
-		КОНЕЦ) КАК СуммаПрошлаяИнвПодснятие,
-	УчетныйОстатки.Субконто2 КАК Склад
+	СУММА(ЕСТЬNULL(УчетныйОстатки.КоличествоОстаток, 0)) КАК Количество,
+	СУММА(0) КАК КоличествоПрошлаяИнвПодснятие,
+	СУММА(ЕСТЬNULL(УчетныйОстатки.СуммаОстаток, 0)) КАК Сумма,
+	СпрНоменклатура.ВидНоменклатуры КАК НомГруппа,
+	СУММА(0) КАК СуммаПрошлаяИнвПодснятие,
+	ЕСТЬNULL(УчетныйОстатки.Субконто2, УчетныйОстатки1.Субконто2) КАК Склад,
+	СУММА(ЕСТЬNULL(УчетныйОстатки1.КоличествоОстаток, 0)) КАК КоличествоБУ,
+	СУММА(ЕСТЬNULL(УчетныйОстатки1.СуммаОстаток, 0)) КАК СуммаБУ
 ПОМЕСТИТЬ ВТ_Остатки
 ИЗ
 	Справочник.Номенклатура КАК СпрНоменклатура
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Учетный.Остатки(
-				,
-				Счет В (&amp;СчетаУчета),
+				&amp;ДатаОстатков,
+				Счет В ИЕРАРХИИ (&amp;СчетаУчета),
 				,
 				(&amp;Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка)
 					ИЛИ Субконто2 = &amp;Склад)
 					И Предприятия = &amp;Предприятие
-					И Подразделение = &amp;Подразделение
 					И (&amp;НеОтбиратьПоНоменклатуре
 						ИЛИ Субконто1 В (&amp;СписокНоменклатур))) КАК УчетныйОстатки
 		ПО СпрНоменклатура.Ссылка = УчетныйОстатки.Субконто1
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(
+				&amp;ДатаОстатков,
+				Счет В ИЕРАРХИИ (&amp;СчетаУчетаБУ),
+				,
+				(&amp;Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка)
+					ИЛИ Субконто2 = &amp;Склад ИЛИ Субконто2 ЕСТЬ NULL)
+					И Организация = &amp;Организация
+					И (&amp;НеОтбиратьПоНоменклатуре
+						ИЛИ Субконто1 В (&amp;СписокНоменклатур))) КАК УчетныйОстатки1
+		ПО СпрНоменклатура.Ссылка = УчетныйОстатки1.Субконто1
 ГДЕ
 	НЕ СпрНоменклатура.ЭтоГруппа
 	И ВЫБОР
@@ -245,15 +240,15 @@
 			ИНАЧЕ СпрНоменклатура.Ссылка В ИЕРАРХИИ (&amp;ГруппаНоменклатуры)
 		КОНЕЦ
 	И (НЕ УчетныйОстатки.Субконто1 ЕСТЬ NULL
+				ИЛИ НЕ УчетныйОстатки1.Субконто1 ЕСТЬ NULL
 			ИЛИ &amp;ВыводитьТоварСНулевымОстатком)
 	И (&amp;НеОтбиратьПоНоменклатуре
 			ИЛИ СпрНоменклатура.Ссылка В (&amp;СписокНоменклатур))
-	И НЕ ЕСТЬNULL(УчетныйОстатки.Субконто2, НЕОПРЕДЕЛЕНО) = &amp;СкладОтветственногоХранения
 
 СГРУППИРОВАТЬ ПО
-	СпрНоменклатура.Отдел,
+	СпрНоменклатура.ВидНоменклатуры,
 	СпрНоменклатура.Ссылка,
-	УчетныйОстатки.Субконто2
+	ЕСТЬNULL(УчетныйОстатки.Субконто2, УчетныйОстатки1.Субконто2)
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -265,7 +260,9 @@
 	ВремТЧ.НомГруппа КАК НомГруппа,
 	ВремТЧ.СуммаПрошлаяИнвПодснятие КАК СуммаПрошлаяИнвПодснятие,
 	ЕСТЬNULL(ЦеныНоменклатурыСрезПоследних.Цена, 0) КАК ЦенаЗакупочная,
-	ВремТЧ.Склад КАК Склад
+	ВремТЧ.Склад КАК Склад,
+	ВремТЧ.КоличествоБУ КАК КоличествоБУ,
+	ВремТЧ.СуммаБУ КАК СуммаБУ
 ИЗ
 	ВТ_Остатки КАК ВремТЧ
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НоменклатураПоставщика.СрезПоследних(
@@ -275,22 +272,15 @@
 							ВремТЧ.Номенклатура
 						ИЗ
 							ВТ_Остатки КАК ВремТЧ)
-					И Предприятие = &amp;Предприятие
-					И Подразделение = &amp;Подразделение) КАК НоменклатураПоставщикаСрезПоследних
+					И Предприятие = &amp;Предприятие) КАК НоменклатураПоставщикаСрезПоследних
 			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ЦеныНоменклатуры.СрезПоследних(
 					&amp;ДатаОстатков,
 					Номенклатура В
-							(ВЫБРАТЬ
-								ВремТЧ.Номенклатура
-							ИЗ
-								ВТ_Остатки КАК ВремТЧ)
-						И ВидЦены.ЦенаПоставщика
-						И Предприятие = &amp;Предприятие
-						И Подразделение = &amp;Подразделение) КАК ЦеныНоменклатурыСрезПоследних
+						(ВЫБРАТЬ
+							ВремТЧ.Номенклатура
+						ИЗ
+							ВТ_Остатки КАК ВремТЧ)) КАК ЦеныНоменклатурыСрезПоследних
 			ПО НоменклатураПоставщикаСрезПоследних.Номенклатура = ЦеныНоменклатурыСрезПоследних.Номенклатура
-				И НоменклатураПоставщикаСрезПоследних.Подразделение = ЦеныНоменклатурыСрезПоследних.Подразделение
-				И НоменклатураПоставщикаСрезПоследних.Предприятие = ЦеныНоменклатурыСрезПоследних.Предприятие
-				И НоменклатураПоставщикаСрезПоследних.Контрагент = ЦеныНоменклатурыСрезПоследних.ВидЦены.Поставщик
 		ПО ВремТЧ.Номенклатура = НоменклатураПоставщикаСрезПоследних.Номенклатура</query>
 	</dataSet>
 	<parameter>
@@ -308,22 +298,6 @@
 			</v8:DateQualifiers>
 		</valueType>
 		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
-		<useRestriction>true</useRestriction>
-		<availableAsField>false</availableAsField>
-	</parameter>
-	<parameter>
-		<name>Подразделение</name>
-		<title xsi:type="v8:LocalStringType">
-			<v8:item>
-				<v8:lang>ru</v8:lang>
-				<v8:content>Подразделение</v8:content>
-			</v8:item>
-		</title>
-		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтруктураПредприятия</v8:Type>
-			<v8:Type>v8:Null</v8:Type>
-		</valueType>
-		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<availableAsField>false</availableAsField>
 	</parameter>
@@ -516,46 +490,32 @@
 		<useRestriction>true</useRestriction>
 	</parameter>
 	<parameter>
-		<name>СкладОтветственногоХранения</name>
+		<name>Организация</name>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
 				<v8:lang>ru</v8:lang>
-				<v8:content>Склад ответственного хранения</v8:content>
+				<v8:content>Организация</v8:content>
 			</v8:item>
 		</title>
 		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Кассы</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтруктураПредприятия</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Склады</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.УЧ_ВыплатаЗП</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВнутренниеДоговоры</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПредставительскиеРасходы</v8:Type>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Фонды</v8:Type>
-			<v8:Type>xs:string</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ЗаказПоставщику</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Учредители</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ОсновныеСредства</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЦенныеБумаги</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиЗатрат</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Предприятия</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ОбъектыСтроительства</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.сабПредприятияХолдинга</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Д_СтатьиОборотки</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:DocumentRef.ЗаказКлиента</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВидыНачисленийОплатыТруда</v8:Type>
-			<v8:StringQualifiers>
-				<v8:Length>50</v8:Length>
-				<v8:AllowedLength>Variable</v8:AllowedLength>
-			</v8:StringQualifiers>
 		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СчетаУчетаБУ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Счета учета БУ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
@@ -583,6 +543,12 @@
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаПрошлаяИнвПодснятие</dcsset:field>
 				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоБУ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаБУ</dcsset:field>
+				</dcsset:item>
 			</dcsset:selection>
 			<dcsset:filter>
 				<dcsset:item xsi:type="dcsset:FilterItemComparison">
@@ -601,17 +567,22 @@
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>Подразделение</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Склад</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>СкладПодснятий</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СчетаУчетаБУ</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 			</dcsset:dataParameters>

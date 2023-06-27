@@ -212,6 +212,14 @@
 								<Event name="StartChoice">ДоговорНачалоВыбора</Event>
 							</Events>
 						</InputField>
+						<InputField name="ПодразделениеКонтрагента" id="490">
+							<DataPath>Объект.ПодразделениеКонтрагента</DataPath>
+							<ContextMenu name="ПодразделениеКонтрагентаКонтекстноеМеню" id="491"/>
+							<ExtendedTooltip name="ПодразделениеКонтрагентаРасширеннаяПодсказка" id="492"/>
+							<Events>
+								<Event name="OnChange">ПодразделениеКонтрагентаПриИзменении</Event>
+							</Events>
+						</InputField>
 						<InputField name="СкладОтправитель" id="414">
 							<DataPath>Объект.СкладОтправитель</DataPath>
 							<Visible>false</Visible>
@@ -382,33 +390,67 @@
 									<DataPath>Объект.ТабличнаяЧасть.Номенклатура</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<Width>20</Width>
+									<HorizontalStretch>true</HorizontalStretch>
 									<ContextMenu name="ТабличнаяЧастьНоменклатураКонтекстноеМеню" id="366"/>
 									<ExtendedTooltip name="ТабличнаяЧастьНоменклатураРасширеннаяПодсказка" id="367"/>
 									<Events>
 										<Event name="OnChange">ТабличнаяЧастьНоменклатураПриИзменении</Event>
 									</Events>
 								</InputField>
-								<InputField name="ТабличнаяЧастьЕдиницаИзмерения" id="357">
-									<DataPath>Объект.ТабличнаяЧасть.ЕдиницаИзмерения</DataPath>
-									<SkipOnInput>true</SkipOnInput>
+								<ColumnGroup name="ТабличнаяЧастьГруппаЕдиницаИзмерения" id="482">
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
-											<v8:content>Ед. изм.</v8:content>
+											<v8:content>Ед. измерения</v8:content>
 										</v8:item>
 									</Title>
-									<EditMode>EnterOnInput</EditMode>
-									<Width>7</Width>
-									<ChoiceButton>false</ChoiceButton>
-									<OpenButton>false</OpenButton>
-									<CreateButton>false</CreateButton>
-									<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
-									<ContextMenu name="ТабличнаяЧастьЕдиницаИзмеренияКонтекстноеМеню" id="358"/>
-									<ExtendedTooltip name="ТабличнаяЧастьЕдиницаИзмеренияРасширеннаяПодсказка" id="359"/>
-									<Events>
-										<Event name="OnChange">ТабличнаяЧастьЕдиницаИзмеренияПриИзменении</Event>
-									</Events>
-								</InputField>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Табличная часть группа единица измерения</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ТабличнаяЧастьГруппаЕдиницаИзмеренияРасширеннаяПодсказка" id="483"/>
+									<ChildItems>
+										<InputField name="ТабличнаяЧастьЕдиницаИзмерения" id="357">
+											<DataPath>Объект.ТабличнаяЧасть.ЕдиницаИзмерения</DataPath>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Ед. изм.</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>5</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ChoiceButton>false</ChoiceButton>
+											<OpenButton>false</OpenButton>
+											<CreateButton>false</CreateButton>
+											<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+											<ContextMenu name="ТабличнаяЧастьЕдиницаИзмеренияКонтекстноеМеню" id="358"/>
+											<ExtendedTooltip name="ТабличнаяЧастьЕдиницаИзмеренияРасширеннаяПодсказка" id="359"/>
+											<Events>
+												<Event name="OnChange">ТабличнаяЧастьЕдиницаИзмеренияПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ТабличнаяЧастьКоличествоВУпаковкеПредставление" id="484">
+											<DataPath>Объект.ТабличнаяЧасть.КоличествоВУпаковкеПредставление</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>5</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТабличнаяЧастьКоличествоВУпаковкеПредставлениеКонтекстноеМеню" id="485"/>
+											<ExtendedTooltip name="ТабличнаяЧастьКоличествоВУпаковкеПредставлениеРасширеннаяПодсказка" id="486"/>
+										</InputField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="ТабличнаяЧастьКоличествоВУпаковке" id="420">
 									<DataPath>Объект.ТабличнаяЧасть.КоличествоВУпаковке</DataPath>
 									<ReadOnly>true</ReadOnly>
@@ -436,6 +478,17 @@
 									<Group>Horizontal</Group>
 									<ExtendedTooltip name="ТабличнаяЧастьГруппа9РасширеннаяПодсказка" id="309"/>
 									<ChildItems>
+										<InputField name="ТабличнаяЧастьКоличествоУпаковокПредставление" id="487">
+											<DataPath>Объект.ТабличнаяЧасть.КоличествоУпаковокПредставление</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>15</Width>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<MaxWidth>15</MaxWidth>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТабличнаяЧастьКоличествоУпаковокПредставлениеКонтекстноеМеню" id="488"/>
+											<ExtendedTooltip name="ТабличнаяЧастьКоличествоУпаковокПредставлениеРасширеннаяПодсказка" id="489"/>
+										</InputField>
 										<InputField name="ТабличнаяЧастьКоличествоУпаковок" id="354">
 											<DataPath>Объект.ТабличнаяЧасть.КоличествоУпаковок</DataPath>
 											<Title>
@@ -643,6 +696,10 @@
 									</InputHint>
 									<ContextMenu name="АдресДоставкиКонтекстноеМеню" id="443"/>
 									<ExtendedTooltip name="АдресДоставкиРасширеннаяПодсказка" id="444"/>
+									<Events>
+										<Event name="OnChange">АдресДоставкиПриИзменении</Event>
+										<Event name="ChoiceProcessing">АдресДоставкиОбработкаВыбора</Event>
+									</Events>
 								</InputField>
 								<InputField name="МаршрутДоставки" id="445">
 									<DataPath>Объект.МаршрутДоставки</DataPath>
@@ -976,6 +1033,36 @@
 							</v8:StringQualifiers>
 						</Type>
 					</Column>
+					<Column name="КоличествоВУпаковкеПредставление" id="3">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество в упаковке представление</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>15</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+					<Column name="КоличествоУпаковокПредставление" id="4">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Количество упаковок</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>25</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
 				</AdditionalColumns>
 			</Columns>
 		</Attribute>
@@ -1029,6 +1116,17 @@
 					<v8:Length>0</v8:Length>
 					<v8:AllowedLength>Variable</v8:AllowedLength>
 				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АльтернативнаяФорма" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Альтернативная форма</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>

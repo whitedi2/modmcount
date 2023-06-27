@@ -7,18 +7,17 @@
 		</v8:item>
 	</Title>
 	<AutoTitle>false</AutoTitle>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
-		<Autofill>false</Autofill>
-	</AutoCommandBar>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<Pages name="Группа1" id="46">
-			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<PagesRepresentation>None</PagesRepresentation>
 			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="47"/>
 			<ChildItems>
 				<Page name="Подснятия" id="50">
+					<Visible>false</Visible>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -209,6 +208,7 @@
 							<ExtendedTooltip name="СписокКомпоновщикНастроекПользовательскиеНастройки1РасширеннаяПодсказка" id="199"/>
 						</UsualGroup>
 						<Table name="Список" id="52">
+							<CommandBarLocation>None</CommandBarLocation>
 							<UseAlternationRowColor>true</UseAlternationRowColor>
 							<EnableStartDrag>true</EnableStartDrag>
 							<FileDragMode>AsFile</FileDragMode>
@@ -318,13 +318,9 @@
 							<ChildItems>
 								<LabelField name="Список1Дата" id="65">
 									<DataPath>Список.Date</DataPath>
+									<Width>8</Width>
 									<ContextMenu name="Список1ДатаКонтекстноеМеню" id="66"/>
 									<ExtendedTooltip name="Список1ДатаРасширеннаяПодсказка" id="67"/>
-								</LabelField>
-								<LabelField name="Список1ДатаОкончания" id="104">
-									<DataPath>Список.ДатаОкончания</DataPath>
-									<ContextMenu name="Список1ДатаОкончанияКонтекстноеМеню" id="105"/>
-									<ExtendedTooltip name="Список1ДатаОкончанияРасширеннаяПодсказка" id="106"/>
 								</LabelField>
 								<LabelField name="Список1Номер" id="68">
 									<DataPath>Список.Number</DataPath>
@@ -338,23 +334,37 @@
 								</LabelField>
 								<LabelField name="Список1Подразделение" id="74">
 									<DataPath>Список.Подразделение</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="Список1ПодразделениеКонтекстноеМеню" id="75"/>
 									<ExtendedTooltip name="Список1ПодразделениеРасширеннаяПодсказка" id="76"/>
 								</LabelField>
+								<LabelField name="Организация" id="232">
+									<DataPath>Список.Организация</DataPath>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="233"/>
+									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="234"/>
+								</LabelField>
 								<LabelField name="Список1Ответственный" id="83">
 									<DataPath>Список.Ответственный</DataPath>
+									<Visible>false</Visible>
 									<ContextMenu name="Список1ОтветственныйКонтекстноеМеню" id="84"/>
 									<ExtendedTooltip name="Список1ОтветственныйРасширеннаяПодсказка" id="85"/>
+								</LabelField>
+								<LabelField name="СписокСуммаДокумента" id="219">
+									<DataPath>Список.СуммаДокумента</DataPath>
+									<ContextMenu name="СписокСуммаДокументаКонтекстноеМеню" id="220"/>
+									<ExtendedTooltip name="СписокСуммаДокументаРасширеннаяПодсказка" id="221"/>
 								</LabelField>
 								<LabelField name="Список1Автор" id="116">
 									<DataPath>Список.Автор</DataPath>
 									<ContextMenu name="Список1АвторКонтекстноеМеню" id="117"/>
 									<ExtendedTooltip name="Список1АвторРасширеннаяПодсказка" id="118"/>
 								</LabelField>
-								<LabelField name="СписокСуммаДокумента" id="219">
-									<DataPath>Список.СуммаДокумента</DataPath>
-									<ContextMenu name="СписокСуммаДокументаКонтекстноеМеню" id="220"/>
-									<ExtendedTooltip name="СписокСуммаДокументаРасширеннаяПодсказка" id="221"/>
+								<LabelField name="Список1ДатаОкончания" id="104">
+									<DataPath>Список.ДатаОкончания</DataPath>
+									<Visible>false</Visible>
+									<Width>8</Width>
+									<ContextMenu name="Список1ДатаОкончанияКонтекстноеМеню" id="105"/>
+									<ExtendedTooltip name="Список1ДатаОкончанияРасширеннаяПодсказка" id="106"/>
 								</LabelField>
 								<LabelField name="Список1Комментарий" id="80">
 									<DataPath>Список.Комментарий</DataPath>
@@ -381,6 +391,7 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
+			<MainAttribute>true</MainAttribute>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>false</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
