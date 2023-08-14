@@ -328,6 +328,20 @@
 			<dataPath>КорСчет</dataPath>
 			<field>КорСчет</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МОЛ</dataPath>
+			<field>МОЛ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>МОЛ</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОстаткиИОбороты.Счет КАК Счет,
@@ -349,7 +363,8 @@
 	ЦеныНоменклатурыСрезПоследних.Цена КАК Цена,
 	УчетныйОстаткиИОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
 	УчетныйОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
-	УчетныйОстаткиИОбороты.Субконто3 КАК Серия
+	УчетныйОстаткиИОбороты.Субконто3 КАК Серия,
+	УчетныйОстаткиИОбороты.Субконто3 КАК МОЛ
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
 			,
@@ -391,6 +406,7 @@
 	ЦеныНоменклатурыСрезПоследних.Цена,
 	0,
 	0,
+	УчетныйОбороты.Субконто3,
 	УчетныйОбороты.Субконто3
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(
@@ -1113,6 +1129,20 @@
 				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МОЛ</dataPath>
+			<field>МОЛ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>МОЛ</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОбороты.КоличествоОборот КАК КоличествоОборот,
@@ -1289,7 +1319,8 @@
 		ИНАЧЕ 0
 	КОНЕЦ КАК СуммаВПроизводство,
 	ТИПЗНАЧЕНИЯ(УчетныйОбороты.Регистратор) КАК ВидДокумента,
-	УчетныйОбороты.Период КАК Период
+	УчетныйОбороты.Период КАК Период,
+	УчетныйОбороты.Субконто3 КАК МОЛ
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(
 			,
@@ -1575,6 +1606,20 @@
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СерииНоменклатуры</v8:Type>
 			</valueType>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МОЛ</dataPath>
+			<field>МОЛ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>МОЛ</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОстаткиИОбороты.Счет КАК Счет,
@@ -1590,7 +1635,8 @@
 	УчетныйОстаткиИОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстатокРег,
 	УчетныйОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстатокРег,
 	УчетныйОстаткиИОбороты.Регистратор КАК Регистратор,
-	УчетныйОстаткиИОбороты.Субконто3 КАК Серия
+	УчетныйОстаткиИОбороты.Субконто3 КАК Серия,
+	УчетныйОстаткиИОбороты.Субконто3 КАК МОЛ
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
 			,
@@ -1681,6 +1727,18 @@
 		<destinationDataSet>НаборДанных3</destinationDataSet>
 		<sourceExpression>Серия</sourceExpression>
 		<destinationExpression>Серия</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных2</destinationDataSet>
+		<sourceExpression>МОЛ</sourceExpression>
+		<destinationExpression>МОЛ</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НаборДанных1</sourceDataSet>
+		<destinationDataSet>НаборДанных3</destinationDataSet>
+		<sourceExpression>МОЛ</sourceExpression>
+		<destinationExpression>МОЛ</destinationExpression>
 	</dataSetLink>
 	<calculatedField>
 		<dataPath>ПрочиеДвижения</dataPath>

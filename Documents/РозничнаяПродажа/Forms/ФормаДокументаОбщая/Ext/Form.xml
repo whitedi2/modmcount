@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>None</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Post</ExcludedCommand>
+		<ExcludedCommand>PostAndClose</ExcludedCommand>
+		<ExcludedCommand>UndoPosting</ExcludedCommand>
+	</CommandSet>
+	<AutoTime>CurrentOrLast</AutoTime>
+	<UsePostingMode>Auto</UsePostingMode>
+	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
 	</AutoCommandBar>
@@ -121,6 +130,12 @@
 									<CommandName>0</CommandName>
 									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 									<ExtendedTooltip name="ФормаОбщаяКомандаФискальныеОперацииПоДокументуРасширеннаяПодсказка" id="908"/>
+								</Button>
+								<Button name="ФормаПередатьДанныеФискальногоЧекаНСПК" id="940">
+									<Type>CommandBarButton</Type>
+									<CommandName>0</CommandName>
+									<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+									<ExtendedTooltip name="ФормаПередатьДанныеФискальногоЧекаНСПКРасширеннаяПодсказка" id="941"/>
 								</Button>
 								<Popup name="ПодменюПечать" id="735">
 									<Title>
@@ -576,12 +591,34 @@
 									<ContextMenu name="ТоварыКиЗ_ГИСМКонтекстноеМеню" id="873"/>
 									<ExtendedTooltip name="ТоварыКиЗ_ГИСМРасширеннаяПодсказка" id="874"/>
 								</InputField>
-								<InputField name="ТоварыКоличество" id="695">
-									<EditMode>EnterOnInput</EditMode>
-									<Width>10</Width>
-									<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="696"/>
-									<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="697"/>
-								</InputField>
+								<ColumnGroup name="ТоварыГруппаКоличество" id="924">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="ТоварыГруппаКоличествоРасширеннаяПодсказка" id="925"/>
+									<ChildItems>
+										<InputField name="ТоварыКоличество" id="695">
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>10</Width>
+											<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="696"/>
+											<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="697"/>
+										</InputField>
+										<LabelField name="ТоварыНоменклатураЕдиницаИзмерения" id="926">
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>6</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="ТоварыНоменклатураЕдиницаИзмеренияКонтекстноеМеню" id="927"/>
+											<ExtendedTooltip name="ТоварыНоменклатураЕдиницаИзмеренияРасширеннаяПодсказка" id="928"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="ТоварыЦена" id="698">
 									<EditMode>EnterOnInput</EditMode>
 									<Width>10</Width>
@@ -598,7 +635,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
 									<ChoiceParameters>
-										<app:item name="ОсновныеСтавкиНДС">
+										<app:item name="РозничнаяПродажа">
 											<app:value xsi:type="FormChoiceListDesTimeValue">
 												<Presentation/>
 												<Value xsi:type="xs:boolean">true</Value>
@@ -697,12 +734,34 @@
 									<ContextMenu name="АгентскиеУслугиСодержаниеКонтекстноеМеню" id="622"/>
 									<ExtendedTooltip name="АгентскиеУслугиСодержаниеРасширеннаяПодсказка" id="623"/>
 								</InputField>
-								<InputField name="АгентскиеУслугиКоличество" id="624">
-									<EditMode>EnterOnInput</EditMode>
-									<Width>10</Width>
-									<ContextMenu name="АгентскиеУслугиКоличествоКонтекстноеМеню" id="625"/>
-									<ExtendedTooltip name="АгентскиеУслугиКоличествоРасширеннаяПодсказка" id="626"/>
-								</InputField>
+								<ColumnGroup name="АгентскиеУслугиГруппаКоличество" id="929">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Количество</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<ShowInHeader>true</ShowInHeader>
+									<ExtendedTooltip name="АгентскиеУслугиГруппаКоличествоРасширеннаяПодсказка" id="930"/>
+									<ChildItems>
+										<InputField name="АгентскиеУслугиКоличество" id="624">
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>10</Width>
+											<ContextMenu name="АгентскиеУслугиКоличествоКонтекстноеМеню" id="625"/>
+											<ExtendedTooltip name="АгентскиеУслугиКоличествоРасширеннаяПодсказка" id="626"/>
+										</InputField>
+										<LabelField name="АгентскиеУслугиНоменклатураЕдиницаИзмерения" id="931">
+											<EditMode>EnterOnInput</EditMode>
+											<ShowInHeader>false</ShowInHeader>
+											<Width>6</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="АгентскиеУслугиНоменклатураЕдиницаИзмеренияКонтекстноеМеню" id="932"/>
+											<ExtendedTooltip name="АгентскиеУслугиНоменклатураЕдиницаИзмеренияРасширеннаяПодсказка" id="933"/>
+										</LabelField>
+									</ChildItems>
+								</ColumnGroup>
 								<InputField name="АгентскиеУслугиЦена" id="627">
 									<EditMode>EnterOnInput</EditMode>
 									<Width>10</Width>
@@ -719,7 +778,7 @@
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
 									<ChoiceParameters>
-										<app:item name="ОсновныеСтавкиНДС">
+										<app:item name="РозничнаяПродажа">
 											<app:value xsi:type="FormChoiceListDesTimeValue">
 												<Presentation/>
 												<Value xsi:type="xs:boolean">true</Value>
@@ -902,6 +961,22 @@
 									<ContextMenu name="ОплатаСуммаКонтекстноеМеню" id="796"/>
 									<ExtendedTooltip name="ОплатаСуммаРасширеннаяПодсказка" id="797"/>
 								</InputField>
+								<InputField name="ОплатаИдентификаторКорзины" id="934">
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОплатаИдентификаторКорзиныКонтекстноеМеню" id="935"/>
+									<ExtendedTooltip name="ОплатаИдентификаторКорзиныРасширеннаяПодсказка" id="936"/>
+								</InputField>
+								<InputField name="ОплатаСуммаСертификатамиНСПК" id="937">
+									<UserVisible>
+										<xr:Common>false</xr:Common>
+									</UserVisible>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ОплатаСуммаСертификатамиНСПККонтекстноеМеню" id="938"/>
+									<ExtendedTooltip name="ОплатаСуммаСертификатамиНСПКРасширеннаяПодсказка" id="939"/>
+								</InputField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -1026,8 +1101,17 @@
 		</UsualGroup>
 	</ChildItems>
 	<Attributes/>
-	<BaseForm version="2.15">
+	<BaseForm version="2.16">
 		<AutoTitle>false</AutoTitle>
+		<CommandBarLocation>None</CommandBarLocation>
+		<CommandSet>
+			<ExcludedCommand>Post</ExcludedCommand>
+			<ExcludedCommand>PostAndClose</ExcludedCommand>
+			<ExcludedCommand>UndoPosting</ExcludedCommand>
+		</CommandSet>
+		<AutoTime>CurrentOrLast</AutoTime>
+		<UsePostingMode>Auto</UsePostingMode>
+		<RepostOnWrite>true</RepostOnWrite>
 		<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 			<Autofill>false</Autofill>
 		</AutoCommandBar>
@@ -1143,6 +1227,12 @@
 										<CommandName>0</CommandName>
 										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 										<ExtendedTooltip name="ФормаОбщаяКомандаФискальныеОперацииПоДокументуРасширеннаяПодсказка" id="908"/>
+									</Button>
+									<Button name="ФормаПередатьДанныеФискальногоЧекаНСПК" id="940">
+										<Type>CommandBarButton</Type>
+										<CommandName>0</CommandName>
+										<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
+										<ExtendedTooltip name="ФормаПередатьДанныеФискальногоЧекаНСПКРасширеннаяПодсказка" id="941"/>
 									</Button>
 									<Popup name="ПодменюПечать" id="735">
 										<Title>
@@ -1598,12 +1688,34 @@
 										<ContextMenu name="ТоварыКиЗ_ГИСМКонтекстноеМеню" id="873"/>
 										<ExtendedTooltip name="ТоварыКиЗ_ГИСМРасширеннаяПодсказка" id="874"/>
 									</InputField>
-									<InputField name="ТоварыКоличество" id="695">
-										<EditMode>EnterOnInput</EditMode>
-										<Width>10</Width>
-										<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="696"/>
-										<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="697"/>
-									</InputField>
+									<ColumnGroup name="ТоварыГруппаКоличество" id="924">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Количество</v8:content>
+											</v8:item>
+										</Title>
+										<Group>Horizontal</Group>
+										<ShowInHeader>true</ShowInHeader>
+										<ExtendedTooltip name="ТоварыГруппаКоличествоРасширеннаяПодсказка" id="925"/>
+										<ChildItems>
+											<InputField name="ТоварыКоличество" id="695">
+												<EditMode>EnterOnInput</EditMode>
+												<ShowInHeader>false</ShowInHeader>
+												<Width>10</Width>
+												<ContextMenu name="ТоварыКоличествоКонтекстноеМеню" id="696"/>
+												<ExtendedTooltip name="ТоварыКоличествоРасширеннаяПодсказка" id="697"/>
+											</InputField>
+											<LabelField name="ТоварыНоменклатураЕдиницаИзмерения" id="926">
+												<EditMode>EnterOnInput</EditMode>
+												<ShowInHeader>false</ShowInHeader>
+												<Width>6</Width>
+												<HorizontalStretch>false</HorizontalStretch>
+												<ContextMenu name="ТоварыНоменклатураЕдиницаИзмеренияКонтекстноеМеню" id="927"/>
+												<ExtendedTooltip name="ТоварыНоменклатураЕдиницаИзмеренияРасширеннаяПодсказка" id="928"/>
+											</LabelField>
+										</ChildItems>
+									</ColumnGroup>
 									<InputField name="ТоварыЦена" id="698">
 										<EditMode>EnterOnInput</EditMode>
 										<Width>10</Width>
@@ -1620,7 +1732,7 @@
 										<EditMode>EnterOnInput</EditMode>
 										<Width>12</Width>
 										<ChoiceParameters>
-											<app:item name="ОсновныеСтавкиНДС">
+											<app:item name="РозничнаяПродажа">
 												<app:value xsi:type="FormChoiceListDesTimeValue">
 													<Presentation/>
 													<Value xsi:type="xs:boolean">true</Value>
@@ -1719,12 +1831,34 @@
 										<ContextMenu name="АгентскиеУслугиСодержаниеКонтекстноеМеню" id="622"/>
 										<ExtendedTooltip name="АгентскиеУслугиСодержаниеРасширеннаяПодсказка" id="623"/>
 									</InputField>
-									<InputField name="АгентскиеУслугиКоличество" id="624">
-										<EditMode>EnterOnInput</EditMode>
-										<Width>10</Width>
-										<ContextMenu name="АгентскиеУслугиКоличествоКонтекстноеМеню" id="625"/>
-										<ExtendedTooltip name="АгентскиеУслугиКоличествоРасширеннаяПодсказка" id="626"/>
-									</InputField>
+									<ColumnGroup name="АгентскиеУслугиГруппаКоличество" id="929">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Количество</v8:content>
+											</v8:item>
+										</Title>
+										<Group>Horizontal</Group>
+										<ShowInHeader>true</ShowInHeader>
+										<ExtendedTooltip name="АгентскиеУслугиГруппаКоличествоРасширеннаяПодсказка" id="930"/>
+										<ChildItems>
+											<InputField name="АгентскиеУслугиКоличество" id="624">
+												<EditMode>EnterOnInput</EditMode>
+												<ShowInHeader>false</ShowInHeader>
+												<Width>10</Width>
+												<ContextMenu name="АгентскиеУслугиКоличествоКонтекстноеМеню" id="625"/>
+												<ExtendedTooltip name="АгентскиеУслугиКоличествоРасширеннаяПодсказка" id="626"/>
+											</InputField>
+											<LabelField name="АгентскиеУслугиНоменклатураЕдиницаИзмерения" id="931">
+												<EditMode>EnterOnInput</EditMode>
+												<ShowInHeader>false</ShowInHeader>
+												<Width>6</Width>
+												<HorizontalStretch>false</HorizontalStretch>
+												<ContextMenu name="АгентскиеУслугиНоменклатураЕдиницаИзмеренияКонтекстноеМеню" id="932"/>
+												<ExtendedTooltip name="АгентскиеУслугиНоменклатураЕдиницаИзмеренияРасширеннаяПодсказка" id="933"/>
+											</LabelField>
+										</ChildItems>
+									</ColumnGroup>
 									<InputField name="АгентскиеУслугиЦена" id="627">
 										<EditMode>EnterOnInput</EditMode>
 										<Width>10</Width>
@@ -1741,7 +1875,7 @@
 										<EditMode>EnterOnInput</EditMode>
 										<Width>12</Width>
 										<ChoiceParameters>
-											<app:item name="ОсновныеСтавкиНДС">
+											<app:item name="РозничнаяПродажа">
 												<app:value xsi:type="FormChoiceListDesTimeValue">
 													<Presentation/>
 													<Value xsi:type="xs:boolean">true</Value>
@@ -1923,6 +2057,22 @@
 										<EditMode>EnterOnInput</EditMode>
 										<ContextMenu name="ОплатаСуммаКонтекстноеМеню" id="796"/>
 										<ExtendedTooltip name="ОплатаСуммаРасширеннаяПодсказка" id="797"/>
+									</InputField>
+									<InputField name="ОплатаИдентификаторКорзины" id="934">
+										<UserVisible>
+											<xr:Common>false</xr:Common>
+										</UserVisible>
+										<EditMode>EnterOnInput</EditMode>
+										<ContextMenu name="ОплатаИдентификаторКорзиныКонтекстноеМеню" id="935"/>
+										<ExtendedTooltip name="ОплатаИдентификаторКорзиныРасширеннаяПодсказка" id="936"/>
+									</InputField>
+									<InputField name="ОплатаСуммаСертификатамиНСПК" id="937">
+										<UserVisible>
+											<xr:Common>false</xr:Common>
+										</UserVisible>
+										<EditMode>EnterOnInput</EditMode>
+										<ContextMenu name="ОплатаСуммаСертификатамиНСПККонтекстноеМеню" id="938"/>
+										<ExtendedTooltip name="ОплатаСуммаСертификатамиНСПКРасширеннаяПодсказка" id="939"/>
 									</InputField>
 								</ChildItems>
 							</Table>

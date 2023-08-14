@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<SaveDataInSettings>UseList</SaveDataInSettings>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<Autofill>false</Autofill>
@@ -741,7 +741,7 @@
 													<Title>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
-															<v8:content>Подобрать входящую УПД ЭДО</v8:content>
+															<v8:content>Подобрать входящую УПД ЭДО и заполнить данные</v8:content>
 														</v8:item>
 													</Title>
 													<ExtendedTooltip name="ЗаполнитьПоУПДЭДОРасширеннаяПодсказка" id="692"/>
@@ -856,6 +856,13 @@
 												<Event name="OnChange">РеквизитыСчФСовпадаютПриИзменении</Event>
 											</Events>
 										</CheckBoxField>
+										<CheckBoxField name="БезСФ" id="803">
+											<DataPath>БезСФ</DataPath>
+											<TitleLocation>Right</TitleLocation>
+											<CheckBoxType>Switcher</CheckBoxType>
+											<ContextMenu name="БезСФКонтекстноеМеню" id="804"/>
+											<ExtendedTooltip name="БезСФРасширеннаяПодсказка" id="805"/>
+										</CheckBoxField>
 										<InputField name="НомерСчФ" id="397">
 											<DataPath>НомерСчФ</DataPath>
 											<Width>14</Width>
@@ -915,6 +922,7 @@
 										</Button>
 										<Button name="ЗаполнитьПоВЕТИС" id="676">
 											<Type>Hyperlink</Type>
+											<Visible>false</Visible>
 											<CommandName>Form.Command.ЗаполнитьПоВЕТИС</CommandName>
 											<ExtendedTooltip name="ЗаполнитьПоВЕТИСРасширеннаяПодсказка" id="677"/>
 										</Button>
@@ -1309,6 +1317,7 @@
 															<Button name="ТЗ_ПланФактСортироватьСписокПоВозрастанию" id="648">
 																<Type>CommandBarButton</Type>
 																<CommandName>Form.Item.ТЗ_ПланФакт.StandardCommand.SortListAsc</CommandName>
+																<Shape>Usual</Shape>
 																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 																<ExtendedTooltip name="ТЗ_ПланФактСортироватьСписокПоВозрастаниюРасширеннаяПодсказка" id="649"/>
 															</Button>
@@ -1324,6 +1333,13 @@
 																<CommandName>Form.Item.ТЗ_ПланФакт.StandardCommand.Find</CommandName>
 																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 																<ExtendedTooltip name="ТЗ_ПланФактНайтиРасширеннаяПодсказка" id="581"/>
+															</Button>
+															<Button name="ТЗ_ПланФактСоздатьЗаказПоставщикуДляОтсутствующихТоваров" id="812">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СоздатьЗаказПоставщикуДляОтсутствующихТоваров</CommandName>
+																<TextColor>web:DarkGray</TextColor>
+																<Font ref="style:NormalTextFont" kind="StyleItem" scale="100"/>
+																<ExtendedTooltip name="ТЗ_ПланФактСоздатьЗаказПоставщикуДляОтсутствующихТоваровРасширеннаяПодсказка" id="813"/>
 															</Button>
 														</ChildItems>
 													</AutoCommandBar>
@@ -1377,6 +1393,34 @@
 															<EditMode>EnterOnInput</EditMode>
 															<ContextMenu name="ТЗ_ПланФактНомерСтрокиКонтекстноеМеню" id="719"/>
 															<ExtendedTooltip name="ТЗ_ПланФактНомерСтрокиРасширеннаяПодсказка" id="720"/>
+														</InputField>
+														<CheckBoxField name="ТЗ_ПланФактВключатьВДокументОтгрузки" id="809">
+															<DataPath>ТЗ_ПланФакт.ВключатьВДокументОтгрузки</DataPath>
+															<TitleLocation>None</TitleLocation>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Включать в документ отгрузки</v8:content>
+																</v8:item>
+															</ToolTip>
+															<EditMode>EnterOnInput</EditMode>
+															<HeaderPicture>
+																<xr:Ref>CommonPicture.КОтгрузке</xr:Ref>
+																<xr:LoadTransparent>true</xr:LoadTransparent>
+															</HeaderPicture>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ТЗ_ПланФактВключатьВДокументОтгрузкиКонтекстноеМеню" id="810"/>
+															<ExtendedTooltip name="ТЗ_ПланФактВключатьВДокументОтгрузкиРасширеннаяПодсказка" id="811"/>
+															<Events>
+																<Event name="OnChange">ТЗ_ПланФактВключатьВДокументОтгрузкиПриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<InputField name="ТЗ_ПланФактИсходныйНомерСтрокиДляСерии" id="806">
+															<DataPath>ТЗ_ПланФакт.ИсходныйНомерСтрокиДляСерии</DataPath>
+															<Visible>false</Visible>
+															<EditMode>EnterOnInput</EditMode>
+															<ContextMenu name="ТЗ_ПланФактИсходныйНомерСтрокиДляСерииКонтекстноеМеню" id="807"/>
+															<ExtendedTooltip name="ТЗ_ПланФактИсходныйНомерСтрокиДляСерииРасширеннаяПодсказка" id="808"/>
 														</InputField>
 														<InputField name="ТЗ_ПланФактНоменклатура" id="216">
 															<DataPath>ТЗ_ПланФакт.Номенклатура</DataPath>
@@ -3445,6 +3489,33 @@
 						</v8:NumberQualifiers>
 					</Type>
 				</Column>
+				<Column name="ИсходныйНомерСтрокиДляСерии" id="44">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Исходный номер строки для серии</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:decimal</v8:Type>
+						<v8:NumberQualifiers>
+							<v8:Digits>9</v8:Digits>
+							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:AllowedSign>Any</v8:AllowedSign>
+						</v8:NumberQualifiers>
+					</Type>
+				</Column>
+				<Column name="ВключатьВДокументОтгрузки" id="45">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Включать в документ отгрузки</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ОбрабатываемыйДокумент" id="5">
@@ -4784,6 +4855,17 @@
 				</v8:NumberQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="БезСФ" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Без СФ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:use>false</dcsset:use>
@@ -5187,6 +5269,26 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТЗ_ПланФакт</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ТЗ_ПланФакт.ВключатьВДокументОтгрузки</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Gray</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -5504,7 +5606,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Подобрать ВЕТИС для строк</v8:content>
+					<v8:content>Подобрать ВЕТИС для строк и заполнить данные</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -5653,6 +5755,26 @@
 				<xr:LoadTransparent>true</xr:LoadTransparent>
 			</Picture>
 			<Action>СуммаЭДО</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СоздатьЗаказПоставщикуДляОтсутствующихТоваров" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать заказ поставщику для отсутствующих товаров</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать заказ поставщику для отсутствующих товаров</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionNewNestedScheme</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьЗаказПоставщикуДляОтсутствующихТоваров</Action>
 			<Representation>TextPicture</Representation>
 		</Command>
 	</Commands>

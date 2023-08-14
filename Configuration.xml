@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<Configuration uuid="897d7c84-6802-4c7f-940c-2818b25aee3b">
 		<InternalInfo>
 			<xr:ContainedObject>
@@ -54,7 +54,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.УУ_ОсновнаяРоль</xr:Item>
 			</DefaultRoles>
 			<Vendor/>
-			<Version>2.5.2</Version>
+			<Version>2.5.3</Version>
 			<DefaultLanguage>Language.Русский</DefaultLanguage>
 			<BriefInformation/>
 			<DetailedInformation/>
@@ -200,6 +200,8 @@
 			<Role>сабРассылка</Role>
 			<Role>допИзменениеСтатусаЗаказаКлиента</Role>
 			<Role>сабБухгалтер</Role>
+			<Role>допОтключитьКонтрольОстатков</Role>
+			<Role>УУ_ЧтениеБезПросмотра</Role>
 			<CommonTemplate>МакетКрасивый</CommonTemplate>
 			<CommonTemplate>РезультатыСогласования</CommonTemplate>
 			<CommonTemplate>МакетБДДС</CommonTemplate>
@@ -323,6 +325,7 @@
 			<Constant>сабПодсистемаОперативныйУчет</Constant>
 			<Constant>сабЗагрузкаВыписокИзКлиентБанка</Constant>
 			<Constant>сабОперативныйРежимРаботы</Constant>
+			<Constant>ИспользоватьТабличныеФормыБанковскихДокументов</Constant>
 			<CommonForm>ФормаКонстант</CommonForm>
 			<CommonForm>СтруктураПодчиненныхДокументов</CommonForm>
 			<CommonForm>ФормаПроверкиОбъектовБД</CommonForm>
@@ -441,6 +444,9 @@
 			<Catalog>ВетеринарноСопроводительныйДокументВЕТИС</Catalog>
 			<Catalog>Билеты</Catalog>
 			<Catalog>Патенты</Catalog>
+			<Catalog>сабСписокОповещаемыхПриСозданииДокумента</Catalog>
+			<Catalog>КонтактныеЛица</Catalog>
+			<Catalog>ВидыОплатОрганизаций</Catalog>
 			<Document>ПлатежноеПоручение</Document>
 			<Document>БП_Оповещение</Document>
 			<Document>БП_Поручение</Document>
@@ -578,6 +584,8 @@
 			<Document>ВыкупПредметовЛизинга</Document>
 			<Document>Доверенность</Document>
 			<Document>ИнвентаризацияТоваровНаСкладе</Document>
+			<Document>СписаниеМатериаловИзЭксплуатации</Document>
+			<Document>РеализацияУслугПоПереработке</Document>
 			<DocumentJournal>ЖурналОпераций</DocumentJournal>
 			<DocumentJournal>Деньги</DocumentJournal>
 			<Enum>Б_ВидыДеятельностиПредприятия</Enum>
@@ -730,6 +738,9 @@
 			<Enum>ПорядокОтраженияАвансов</Enum>
 			<Enum>ВидыРегламентныхОпераций</Enum>
 			<Enum>ВидыОперацийРеализацияТоваров</Enum>
+			<Enum>сабТипыДокументовДляОповещения</Enum>
+			<Enum>сабДействияПриИзмененииПлатежногоКалендаря</Enum>
+			<Enum>ВидыОперацийПоступлениеДенежныхСредств</Enum>
 			<Report>БП_ЗаданияПодчиненным</Report>
 			<Report>ГД_Источники_Рег_Учетный</Report>
 			<Report>ГД_ПланФактПоЦФО</Report>
@@ -773,6 +784,7 @@
 			<Report>сабОтчетПоСчетамПокупателей</Report>
 			<Report>сабСравнениеДанныхБУУУ</Report>
 			<Report>сабСравнениеНоменклатурыБУУУ</Report>
+			<Report>сабСоответствиеДокументовУУБУ</Report>
 			<DataProcessor>УЧ_Полный</DataProcessor>
 			<DataProcessor>GDriveМенеджер</DataProcessor>
 			<DataProcessor>АвтоФормированиеЗаказовПоПотребностям</DataProcessor>
@@ -894,6 +906,9 @@
 			<InformationRegister>СоставыГруппПользователей</InformationRegister>
 			<InformationRegister>ЛицевыеСчетаСотрудниковПоЗарплатнымПроектам</InformationRegister>
 			<InformationRegister>ПараметрыРегламентныхЗаданийРасширения</InformationRegister>
+			<InformationRegister>сабЭлектронныеПисьма</InformationRegister>
+			<InformationRegister>сабИсторияИзмененийПлатежногоКалендаря</InformationRegister>
+			<InformationRegister>ПредупрежденияПриЗагрузкеВыписки</InformationRegister>
 			<ChartOfCharacteristicTypes>ВидыСубконто</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>ВидыСубконтоХозрасчетные</ChartOfCharacteristicTypes>
 			<ChartOfAccounts>Учетный</ChartOfAccounts>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
@@ -99,6 +99,28 @@
 							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
 							<ContextMenu name="СкладКонтекстноеМеню" id="6"/>
 							<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="55"/>
+						</InputField>
+						<InputField name="МОЛ" id="201">
+							<DataPath>Объект.МОЛ</DataPath>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Указан в табличной части</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="МОЛКонтекстноеМеню" id="202"/>
+							<ExtendedTooltip name="МОЛРасширеннаяПодсказка" id="203"/>
+						</InputField>
+						<InputField name="Организация" id="184">
+							<DataPath>Объект.Организация</DataPath>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Без оформления БУ документов</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="185"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="186"/>
 						</InputField>
 						<InputField name="ВнеобАктивы" id="44">
 							<Enabled>false</Enabled>
@@ -212,8 +234,14 @@
 							<ContextMenu name="ТабличнаяЧастьКонтекстноеМеню" id="10"/>
 							<AutoCommandBar name="ТабличнаяЧастьКоманднаяПанель" id="11">
 								<ChildItems>
+									<Button name="ТабличнаяЧастьПодобрать" id="207">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.Подобрать</CommandName>
+										<ExtendedTooltip name="ТабличнаяЧастьПодобратьРасширеннаяПодсказка" id="208"/>
+									</Button>
 									<Button name="ТабличнаяЧастьПодборТовары" id="155">
 										<Type>CommandBarButton</Type>
+										<Visible>false</Visible>
 										<CommandName>Form.Command.ПодборТовары</CommandName>
 										<ExtendedTooltip name="ТабличнаяЧастьПодборТоварыРасширеннаяПодсказка" id="156"/>
 									</Button>
@@ -293,6 +321,8 @@
 							</SearchControlAddition>
 							<Events>
 								<Event name="BeforeDeleteRow">ТабличнаяЧастьПередУдалением</Event>
+								<Event name="OnStartEdit">ТабличнаяЧастьПриНачалеРедактирования</Event>
+								<Event name="OnChange">ТабличнаяЧастьПриИзменении</Event>
 							</Events>
 							<ChildItems>
 								<LabelField name="ТабличнаяЧастьНомерСтроки" id="12">
@@ -339,6 +369,12 @@
 									<ContextMenu name="ТабличнаяЧастьУпаковкаКонтекстноеМеню" id="179"/>
 									<ExtendedTooltip name="ТабличнаяЧастьУпаковкаРасширеннаяПодсказка" id="180"/>
 								</InputField>
+								<InputField name="ТабличнаяЧастьМОЛ" id="204">
+									<DataPath>Объект.ТабличнаяЧасть.МОЛ</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ТабличнаяЧастьМОЛКонтекстноеМеню" id="205"/>
+									<ExtendedTooltip name="ТабличнаяЧастьМОЛРасширеннаяПодсказка" id="206"/>
+								</InputField>
 								<CheckBoxField name="ТабличнаяЧастьНесколькоСерий" id="198">
 									<DataPath>Объект.ТабличнаяЧасть.НесколькоСерий</DataPath>
 									<TitleLocation>None</TitleLocation>
@@ -356,26 +392,6 @@
 									<EditMode>EnterOnInput</EditMode>
 									<Width>12</Width>
 									<ChoiceParameterLinks>
-										<xr:Link>
-											<xr:Name>ДатаОтгрузки</xr:Name>
-											<xr:DataPath xsi:type="xs:string">Объект.Date</xr:DataPath>
-											<xr:ValueChange>DontChange</xr:ValueChange>
-										</xr:Link>
-										<xr:Link>
-											<xr:Name>Предприятие</xr:Name>
-											<xr:DataPath xsi:type="xs:string">Объект.Предприятие</xr:DataPath>
-											<xr:ValueChange>DontChange</xr:ValueChange>
-										</xr:Link>
-										<xr:Link>
-											<xr:Name>Склад</xr:Name>
-											<xr:DataPath xsi:type="xs:string">Объект.Склад</xr:DataPath>
-											<xr:ValueChange>DontChange</xr:ValueChange>
-										</xr:Link>
-										<xr:Link>
-											<xr:Name>Счет</xr:Name>
-											<xr:DataPath xsi:type="xs:string">Items.ТабличнаяЧасть.CurrentData.СчетУчета</xr:DataPath>
-											<xr:ValueChange>DontChange</xr:ValueChange>
-										</xr:Link>
 										<xr:Link>
 											<xr:Name>Отбор.Владелец</xr:Name>
 											<xr:DataPath xsi:type="xs:string">Items.ТабличнаяЧасть.CurrentData.Товар</xr:DataPath>
@@ -439,9 +455,6 @@
 									<ChildItems>
 										<InputField name="ТабличнаяЧастьСчетЗатрат" id="14">
 											<DataPath>Объект.ТабличнаяЧасть.СчетЗатрат</DataPath>
-											<UserVisible>
-												<xr:Common>false</xr:Common>
-											</UserVisible>
 											<EditMode>EnterOnInput</EditMode>
 											<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 											<ChooseType>false</ChooseType>
@@ -468,9 +481,6 @@
 									</ChildItems>
 								</ColumnGroup>
 								<ColumnGroup name="ТабличнаяЧастьГруппа1" id="32">
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
 									<ExtendedTooltip name="ТабличнаяЧастьГруппа1РасширеннаяПодсказка" id="69"/>
 									<ChildItems>
 										<InputField name="ТабличнаяЧастьСубконто1" id="16">
@@ -533,6 +543,20 @@
 										</InputField>
 									</ChildItems>
 								</ColumnGroup>
+								<InputField name="ТабличнаяЧастьСтранаПроисхождения" id="212">
+									<DataPath>Объект.ТабличнаяЧасть.СтранаПроисхождения</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТабличнаяЧастьСтранаПроисхожденияКонтекстноеМеню" id="213"/>
+									<ExtendedTooltip name="ТабличнаяЧастьСтранаПроисхожденияРасширеннаяПодсказка" id="214"/>
+								</InputField>
+								<InputField name="ТабличнаяЧастьНомерГТД" id="209">
+									<DataPath>Объект.ТабличнаяЧасть.НомерГТД</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТабличнаяЧастьНомерГТДКонтекстноеМеню" id="210"/>
+									<ExtendedTooltip name="ТабличнаяЧастьНомерГТДРасширеннаяПодсказка" id="211"/>
+								</InputField>
 							</ChildItems>
 						</Table>
 					</ChildItems>
@@ -552,11 +576,6 @@
 					</ToolTip>
 					<ExtendedTooltip name="ПрочиеРеквизитыРасширеннаяПодсказка" id="103"/>
 					<ChildItems>
-						<InputField name="Организация" id="184">
-							<DataPath>Объект.Организация</DataPath>
-							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="185"/>
-							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="186"/>
-						</InputField>
 						<InputField name="АктСписанияЕГАИС" id="104">
 							<DataPath>Объект.АктСписанияЕГАИС</DataPath>
 							<Visible>false</Visible>
@@ -743,6 +762,22 @@
 							<v8:Type>xs:boolean</v8:Type>
 						</Type>
 					</Column>
+					<Column name="ИсходныйНомерСтрокиДляСерии" id="6">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Исходный номер строки для серии</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:decimal</v8:Type>
+							<v8:NumberQualifiers>
+								<v8:Digits>9</v8:Digits>
+								<v8:FractionDigits>0</v8:FractionDigits>
+								<v8:AllowedSign>Any</v8:AllowedSign>
+							</v8:NumberQualifiers>
+						</Type>
+					</Column>
 				</AdditionalColumns>
 			</Columns>
 		</Attribute>
@@ -773,6 +808,28 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Использовать серии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьМОЛ" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использовать МОЛ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользованиеГТД" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Использование ГТД</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -915,6 +972,56 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьМОЛ</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ИспользоватьМОЛ</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.МОЛ</dcsset:left>
+							<dcsset:comparisonType>Filled</dcsset:comparisonType>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьНомерГТД</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСтранаПроисхождения</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИспользованиеГТД</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -1026,6 +1133,26 @@
 			<Action>ПодборТовары</Action>
 			<ModifiesSavedData>true</ModifiesSavedData>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="Подобрать" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.УУ_ПодборТоваров</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>Подобрать</Action>
+			<Representation>TextPicture</Representation>
 		</Command>
 	</Commands>
 </Form>

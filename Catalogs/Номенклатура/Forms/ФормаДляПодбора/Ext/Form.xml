@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<Width>500</Width>
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
@@ -273,7 +273,7 @@
 											<Format>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>ЧН=0</v8:content>
+													<v8:content>ЧЦ=15; ЧДЦ=3; ЧН=0.000</v8:content>
 												</v8:item>
 											</Format>
 											<ContextMenu name="Счет41КонтекстноеМеню" id="85"/>
@@ -292,7 +292,7 @@
 											<Format>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>ЧН=0</v8:content>
+													<v8:content>ЧЦ=15; ЧДЦ=3; ЧН=0.000</v8:content>
 												</v8:item>
 											</Format>
 											<ContextMenu name="Счет43КонтекстноеМеню" id="88"/>
@@ -306,12 +306,12 @@
 													<v8:content>счет 10</v8:content>
 												</v8:item>
 											</Title>
-											<AutoMaxWidth>false</AutoMaxWidth>
+											<CellHyperlink>true</CellHyperlink>
 											<HorizontalStretch>false</HorizontalStretch>
 											<Format>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>ЧН=0</v8:content>
+													<v8:content>ЧЦ=15; ЧДЦ=3; ЧН=0.000</v8:content>
 												</v8:item>
 											</Format>
 											<ContextMenu name="Счет10КонтекстноеМеню" id="91"/>
@@ -481,7 +481,7 @@
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
 	СправочникНоменклатура.Ссылка КАК Ссылка,
 	СправочникНоменклатура.ПометкаУдаления КАК ПометкаУдаления,
@@ -500,7 +500,7 @@
 			ИНАЧЕ 0
 		КОНЕЦ) КАК Счет43,
 	СУММА(ВЫБОР
-			КОГДА УчетныйОстатки.Счет = &amp;Счет10
+			КОГДА УчетныйОстатки.Счет.Родитель = &amp;Счет10 ИЛИ УчетныйОстатки.Счет = &amp;Счет10
 				ТОГДА УчетныйОстатки.КоличествоОстаток
 			ИНАЧЕ 0
 		КОНЕЦ) КАК Счет10
@@ -510,7 +510,7 @@
 				,
 				Счет = &amp;Счет41
 					ИЛИ Счет = &amp;Счет43
-					ИЛИ Счет = &amp;Счет10,
+					ИЛИ Счет.Родитель = &amp;Счет10 ИЛИ Счет = &amp;Счет10,
 				,
 				ВЫБОР
 						КОГДА &amp;Предприятие = ЗНАЧЕНИЕ(Справочник.Предприятия.ПустаяСсылка)

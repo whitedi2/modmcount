@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="BeforeWrite">ПередЗаписью</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ТипДокументаДляОповещения" id="23">
+			<DataPath>Объект.ТипДокументаДляОповещения</DataPath>
+			<DropListButton>true</DropListButton>
+			<ContextMenu name="ТипДокументаДляОповещенияКонтекстноеМеню" id="24"/>
+			<ExtendedTooltip name="ТипДокументаДляОповещенияРасширеннаяПодсказка" id="25"/>
+		</InputField>
+		<Table name="СписокОповещаемыхПользователей" id="4">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>Объект.СписокОповещаемыхПользователей</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="СписокОповещаемыхПользователейКонтекстноеМеню" id="5"/>
+			<AutoCommandBar name="СписокОповещаемыхПользователейКоманднаяПанель" id="6"/>
+			<ExtendedTooltip name="СписокОповещаемыхПользователейРасширеннаяПодсказка" id="7"/>
+			<SearchStringAddition name="СписокОповещаемыхПользователейСтрокаПоиска" id="8">
+				<AdditionSource>
+					<Item>СписокОповещаемыхПользователей</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокОповещаемыхПользователейСтрокаПоискаКонтекстноеМеню" id="9"/>
+				<ExtendedTooltip name="СписокОповещаемыхПользователейСтрокаПоискаРасширеннаяПодсказка" id="10"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокОповещаемыхПользователейСостояниеПросмотра" id="11">
+				<AdditionSource>
+					<Item>СписокОповещаемыхПользователей</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокОповещаемыхПользователейСостояниеПросмотраКонтекстноеМеню" id="12"/>
+				<ExtendedTooltip name="СписокОповещаемыхПользователейСостояниеПросмотраРасширеннаяПодсказка" id="13"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокОповещаемыхПользователейУправлениеПоиском" id="14">
+				<AdditionSource>
+					<Item>СписокОповещаемыхПользователей</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="СписокОповещаемыхПользователейУправлениеПоискомКонтекстноеМеню" id="15"/>
+				<ExtendedTooltip name="СписокОповещаемыхПользователейУправлениеПоискомРасширеннаяПодсказка" id="16"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<LabelField name="СписокОповещаемыхПользователейНомерСтроки" id="17">
+					<DataPath>Объект.СписокОповещаемыхПользователей.LineNumber</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокОповещаемыхПользователейНомерСтрокиКонтекстноеМеню" id="18"/>
+					<ExtendedTooltip name="СписокОповещаемыхПользователейНомерСтрокиРасширеннаяПодсказка" id="19"/>
+				</LabelField>
+				<InputField name="СписокОповещаемыхПользователейПользователь" id="20">
+					<DataPath>Объект.СписокОповещаемыхПользователей.Пользователь</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="СписокОповещаемыхПользователейПользовательКонтекстноеМеню" id="21"/>
+					<ExtendedTooltip name="СписокОповещаемыхПользователейПользовательРасширеннаяПодсказка" id="22"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject.сабСписокОповещаемыхПриСозданииДокумента</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

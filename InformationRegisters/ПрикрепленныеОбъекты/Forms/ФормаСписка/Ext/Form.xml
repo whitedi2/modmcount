@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<CommandSet>
 		<ExcludedCommand>CancelSearch</ExcludedCommand>
 		<ExcludedCommand>Change</ExcludedCommand>
@@ -370,7 +370,7 @@
 			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
 	РегистрСведенийПрикрепленныеОбъекты.Владелец КАК Владелец,
 	РегистрСведенийПрикрепленныеОбъекты.Объект КАК Объект,
@@ -379,31 +379,31 @@
 	РегистрСведенийПрикрепленныеОбъекты.Комментарии КАК Комментарии,
 	ТИПЗНАЧЕНИЯ(РегистрСведенийПрикрепленныеОбъекты.Объект) КАК ТипДокумента,
 	РегистрСведенийПрикрепленныеОбъекты.Автор КАК Автор,
-	РегистрСведенийПрикрепленныеОбъекты.Объект.ИндексКартинки КАК ОбъектИндексКартинки,
+	Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).ИндексКартинки КАК ОбъектИндексКартинки,
 	РегистрСведенийПрикрепленныеОбъекты.Автор В (&amp;МассивДоступныхПользователей) КАК ФайлДоступен,
-	РегистрСведенийПрикрепленныеОбъекты.Объект.Редактирует КАК Редактирует,
+	Выразить(Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).Редактирует КАК Справочник.Пользователи) КАК Редактирует,
 	ВЫБОР
-		КОГДА РегистрСведенийПрикрепленныеОбъекты.Объект.Редактирует В (&amp;МассивДоступныхПользователей)
+		КОГДА Выразить(Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).Редактирует КАК Справочник.Пользователи) В (&amp;МассивДоступныхПользователей)
 			ТОГДА ИСТИНА
 		ИНАЧЕ ЛОЖЬ
 	КОНЕЦ КАК РедактируетТекущийПользователь,
-	РегистрСведенийПрикрепленныеОбъекты.Объект.ПодписанЭП КАК ПодписанЭП,
-	РегистрСведенийПрикрепленныеОбъекты.Объект.Зашифрован КАК Зашифрован,
-	РегистрСведенийПрикрепленныеОбъекты.Объект.ХранитьВерсии КАК ХранитьВерсии,
+	Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).ПодписанЭП КАК ПодписанЭП,
+	Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).Зашифрован КАК Зашифрован,
+	Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).ХранитьВерсии КАК ХранитьВерсии,
 	КодировкиВерсийФайлов.Кодировка КАК Кодировка,
 	РегистрСведенийПрикрепленныеОбъекты.Владелец.ВидСЗ.РазрешитьРедактированиеПрикрепленныхФайлов КАК РазрешитьРедактированиеПрикрепленныхФайлов,
 	РегистрСведенийПрикрепленныеОбъекты.ВидОбъекта КАК ВидОбъекта
 ИЗ
 	РегистрСведений.ПрикрепленныеОбъекты КАК РегистрСведенийПрикрепленныеОбъекты
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КодировкиФайлов КАК КодировкиВерсийФайлов
-		ПО РегистрСведенийПрикрепленныеОбъекты.Объект = КодировкиВерсийФайлов.Файл
+		ПО Выразить(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы) = Выразить(КодировкиВерсийФайлов.Файл КАК Справочник.Файлы)
 ГДЕ
 	ВЫБОР
 			КОГДА РегистрСведенийПрикрепленныеОбъекты.Объект ССЫЛКА Справочник.Файлы
 				ТОГДА НЕ ВЫРАЗИТЬ(РегистрСведенийПрикрепленныеОбъекты.Объект КАК Справочник.Файлы).Служебный
 			ИНАЧЕ ИСТИНА
 		КОНЕЦ</QueryText>
-				<MainTable>InformationRegister.ПрикрепленныеОбъекты</MainTable>
+				<MainTable>InformationRegister.КодировкиФайлов</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>

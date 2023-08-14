@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
 	</Events>
 	<ChildItems>
 		<UsualGroup name="Группа1" id="33">
@@ -129,6 +130,17 @@
 			<ContextMenu name="МаршрутДоставкиКонтекстноеМеню" id="28"/>
 			<ExtendedTooltip name="МаршрутДоставкиРасширеннаяПодсказка" id="29"/>
 		</InputField>
+		<InputField name="Склад" id="56">
+			<DataPath>Объект.Склад</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад по умолчанию</v8:content>
+				</v8:item>
+			</Title>
+			<ContextMenu name="СкладКонтекстноеМеню" id="57"/>
+			<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="58"/>
+		</InputField>
 		<InputField name="Ответственный" id="13">
 			<DataPath>Объект.Ответственный</DataPath>
 			<EditMode>EnterOnInput</EditMode>
@@ -192,8 +204,392 @@
 					<ContextMenu name="ДатаДоставкиДоКонтекстноеМеню" id="25"/>
 					<ExtendedTooltip name="ДатаДоставкиДоРасширеннаяПодсказка" id="26"/>
 				</InputField>
+				<CheckBoxField name="ВремяПоДнямНеделиПереключатель" id="149">
+					<DataPath>Объект.ВремяПоДнямНеделиПереключатель</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ВремяПоДнямНеделиПереключательКонтекстноеМеню" id="150"/>
+					<ExtendedTooltip name="ВремяПоДнямНеделиПереключательРасширеннаяПодсказка" id="151"/>
+					<Events>
+						<Event name="OnChange">ВремяПоДнямНеделиПереключательПриИзменении</Event>
+					</Events>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="ГруппаВремяДоставкиПоДнямНедели" id="109">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Время доставки по дням недели</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа время доставки по дням недели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Collapsible</Behavior>
+			<Collapsed>true</Collapsed>
+			<ControlRepresentation>Picture</ControlRepresentation>
+			<Representation>StrongSeparation</Representation>
+			<ExtendedTooltip name="ГруппаВремяДоставкиПоДнямНеделиРасширеннаяПодсказка" id="110"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаВремяДоставкиПонедельник" id="89">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки понедельник</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки понедельник</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиПонедельникРасширеннаяПодсказка" id="90"/>
+					<ChildItems>
+						<InputField name="ПонедельникДатаДоставки" id="91">
+							<DataPath>Объект.ПонедельникДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ПонедельникДатаДоставкиКонтекстноеМеню" id="92"/>
+							<ExtendedTooltip name="ПонедельникДатаДоставкиРасширеннаяПодсказка" id="93"/>
+						</InputField>
+						<InputField name="ПонедельникДатаДоставкиДо" id="94">
+							<DataPath>Объект.ПонедельникДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ПонедельникДатаДоставкиДоКонтекстноеМеню" id="95"/>
+							<ExtendedTooltip name="ПонедельникДатаДоставкиДоРасширеннаяПодсказка" id="96"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяДоставкиВторник" id="147">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки вторник</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки вторник</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиВторникРасширеннаяПодсказка" id="148"/>
+					<ChildItems>
+						<InputField name="ВторникДатаДоставки" id="111">
+							<DataPath>Объект.ВторникДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВторникДатаДоставкиКонтекстноеМеню" id="112"/>
+							<ExtendedTooltip name="ВторникДатаДоставкиРасширеннаяПодсказка" id="113"/>
+						</InputField>
+						<InputField name="ВторникДатаДоставкиДо" id="114">
+							<DataPath>Объект.ВторникДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВторникДатаДоставкиДоКонтекстноеМеню" id="115"/>
+							<ExtendedTooltip name="ВторникДатаДоставкиДоРасширеннаяПодсказка" id="116"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяДоставкиСреда" id="99">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки среда</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки среда</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиСредаРасширеннаяПодсказка" id="100"/>
+					<ChildItems>
+						<InputField name="СредаДатаДоставки" id="117">
+							<DataPath>Объект.СредаДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="СредаДатаДоставкиКонтекстноеМеню" id="118"/>
+							<ExtendedTooltip name="СредаДатаДоставкиРасширеннаяПодсказка" id="119"/>
+						</InputField>
+						<InputField name="СредаДатаДоставкиДо" id="120">
+							<DataPath>Объект.СредаДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="СредаДатаДоставкиДоКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="СредаДатаДоставкиДоРасширеннаяПодсказка" id="122"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяДоставкиЧертверг" id="101">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки чертверг</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки чертверг</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиЧертвергРасширеннаяПодсказка" id="102"/>
+					<ChildItems>
+						<InputField name="ЧетвергДатаДоставки" id="123">
+							<DataPath>Объект.ЧетвергДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ЧетвергДатаДоставкиКонтекстноеМеню" id="124"/>
+							<ExtendedTooltip name="ЧетвергДатаДоставкиРасширеннаяПодсказка" id="125"/>
+						</InputField>
+						<InputField name="ЧетвергДатаДоставкиДо" id="126">
+							<DataPath>Объект.ЧетвергДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ЧетвергДатаДоставкиДоКонтекстноеМеню" id="127"/>
+							<ExtendedTooltip name="ЧетвергДатаДоставкиДоРасширеннаяПодсказка" id="128"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяДоставкиПятница" id="103">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки пятница</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки пятница</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиПятницаРасширеннаяПодсказка" id="104"/>
+					<ChildItems>
+						<InputField name="ПятницаДатаДоставки" id="129">
+							<DataPath>Объект.ПятницаДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ПятницаДатаДоставкиКонтекстноеМеню" id="130"/>
+							<ExtendedTooltip name="ПятницаДатаДоставкиРасширеннаяПодсказка" id="131"/>
+						</InputField>
+						<InputField name="ПятницаДатаДоставкиДо" id="132">
+							<DataPath>Объект.ПятницаДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ПятницаДатаДоставкиДоКонтекстноеМеню" id="133"/>
+							<ExtendedTooltip name="ПятницаДатаДоставкиДоРасширеннаяПодсказка" id="134"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяДоставкиСуббота" id="105">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки суббота</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки суббота</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиСубботаРасширеннаяПодсказка" id="106"/>
+					<ChildItems>
+						<InputField name="СубботаДатаДоставки" id="135">
+							<DataPath>Объект.СубботаДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="СубботаДатаДоставкиКонтекстноеМеню" id="136"/>
+							<ExtendedTooltip name="СубботаДатаДоставкиРасширеннаяПодсказка" id="137"/>
+						</InputField>
+						<InputField name="СубботаДатаДоставкиДо" id="138">
+							<DataPath>Объект.СубботаДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="СубботаДатаДоставкиДоКонтекстноеМеню" id="139"/>
+							<ExtendedTooltip name="СубботаДатаДоставкиДоРасширеннаяПодсказка" id="140"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаВремяДоставкиВоскресенье" id="107">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки воскресенье</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа время доставки воскресенье</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаВремяДоставкиВоскресеньеРасширеннаяПодсказка" id="108"/>
+					<ChildItems>
+						<InputField name="ВоскресеньеДатаДоставки" id="141">
+							<DataPath>Объект.ВоскресеньеДатаДоставки</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВоскресеньеДатаДоставкиКонтекстноеМеню" id="142"/>
+							<ExtendedTooltip name="ВоскресеньеДатаДоставкиРасширеннаяПодсказка" id="143"/>
+						</InputField>
+						<InputField name="ВоскресеньеДатаДоставкиДо" id="144">
+							<DataPath>Объект.ВоскресеньеДатаДоставкиДо</DataPath>
+							<Width>5</Width>
+							<ChoiceButton>false</ChoiceButton>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ДФ=ЧЧ:мм</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="ВоскресеньеДатаДоставкиДоКонтекстноеМеню" id="145"/>
+							<ExtendedTooltip name="ВоскресеньеДатаДоставкиДоРасширеннаяПодсказка" id="146"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="СервисноеВремя" id="59">
+			<DataPath>Объект.СервисноеВремя</DataPath>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сервисное время(мин.)</v8:content>
+				</v8:item>
+			</Title>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="СервисноеВремяКонтекстноеМеню" id="60"/>
+			<ExtendedTooltip name="СервисноеВремяРасширеннаяПодсказка" id="61"/>
+		</InputField>
 		<InputField name="Примечание" id="30">
 			<DataPath>Объект.Примечание</DataPath>
 			<MultiLine>true</MultiLine>

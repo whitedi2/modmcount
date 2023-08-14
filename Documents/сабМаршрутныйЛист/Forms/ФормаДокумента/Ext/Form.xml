@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
@@ -178,6 +178,7 @@
 			</ChildItems>
 		</UsualGroup>
 		<Table name="ТабличнаяЧасть" id="156">
+			<Footer>true</Footer>
 			<AutoInsertNewRow>true</AutoInsertNewRow>
 			<EnableStartDrag>true</EnableStartDrag>
 			<EnableDrag>true</EnableDrag>
@@ -195,6 +196,17 @@
 						<Type>CommandBarButton</Type>
 						<CommandName>Form.Command.СоздатьРеализацииБезПроведения</CommandName>
 						<ExtendedTooltip name="ТабличнаяЧастьСоздатьРеализацииБезПроведенияРасширеннаяПодсказка" id="212"/>
+					</Button>
+					<Button name="ТабличнаяЧастьПроверитьОстатки" id="242">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПроверитьОстатки</CommandName>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Проверить остатки</v8:content>
+							</v8:item>
+						</Title>
+						<ExtendedTooltip name="ТабличнаяЧастьПроверитьОстаткиРасширеннаяПодсказка" id="243"/>
 					</Button>
 				</ChildItems>
 			</AutoCommandBar>
@@ -315,6 +327,13 @@
 					<DataPath>Объект.ТабличнаяЧасть.АдресДоставки</DataPath>
 					<ReadOnly>true</ReadOnly>
 					<EditMode>EnterOnInput</EditMode>
+					<FooterText>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Итого:</v8:content>
+						</v8:item>
+					</FooterText>
+					<FooterHorizontalAlign>Right</FooterHorizontalAlign>
 					<ContextMenu name="ТабличнаяЧастьЗаказКлиентаАдресДоставкиКонтекстноеМеню" id="182"/>
 					<ExtendedTooltip name="ТабличнаяЧастьЗаказКлиентаАдресДоставкиРасширеннаяПодсказка" id="183"/>
 				</LabelField>
@@ -327,12 +346,14 @@
 				<InputField name="ТабличнаяЧастьСумма" id="175">
 					<DataPath>Объект.ТабличнаяЧасть.Сумма</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.ТабличнаяЧасть.TotalСумма</FooterDataPath>
 					<ContextMenu name="ТабличнаяЧастьСуммаКонтекстноеМеню" id="176"/>
 					<ExtendedTooltip name="ТабличнаяЧастьСуммаРасширеннаяПодсказка" id="177"/>
 				</InputField>
 				<InputField name="ТабличнаяЧастьВес" id="213">
 					<DataPath>Объект.ТабличнаяЧасть.ВесЗаказа</DataPath>
 					<EditMode>EnterOnInput</EditMode>
+					<FooterDataPath>Объект.ТабличнаяЧасть.TotalВесЗаказа</FooterDataPath>
 					<ContextMenu name="ТабличнаяЧастьВесКонтекстноеМеню" id="214"/>
 					<ExtendedTooltip name="ТабличнаяЧастьВесРасширеннаяПодсказка" id="215"/>
 				</InputField>
@@ -607,6 +628,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СоздатьРеализации</Action>
+		</Command>
+		<Command name="ПроверитьОстатки" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить остатки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Проверить остатки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПроверитьОстатки</Action>
 		</Command>
 	</Commands>
 </Form>

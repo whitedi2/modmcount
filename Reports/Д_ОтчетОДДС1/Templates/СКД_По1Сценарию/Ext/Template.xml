@@ -365,6 +365,7 @@
 			</role>
 			<valueType>
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Кассы</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.БанковскиеСчета</v8:Type>
 			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -746,6 +747,24 @@
 			<dataPath>Валюта</dataPath>
 			<field>Валюта</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Источник</dataPath>
+			<field>Источник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Источник</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Кассы</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.БанковскиеСчета</v8:Type>
+			</valueType>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ЕСТЬNULL(ОстаткиДенег1.СуммаНачальныйОстаток, 0) КАК СуммаНачальныйОстаток,
@@ -765,7 +784,8 @@
 		КОГДА &amp;Сводный
 			ТОГДА ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка)
 		ИНАЧЕ ОстаткиДенег1.Подразделение
-	КОНЕЦ КАК Подразделение
+	КОНЕЦ КАК Подразделение,
+	ОстаткиДенег1.Субконто2 КАК Источник
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(&amp;НачалоПериода, &amp;КонецПериода, Месяц, , Счет.ДенежныйСчет = ИСТИНА, , СценарийПлана В (&amp;Сценарий1)) КАК ОстаткиДенег1
 
@@ -790,7 +810,8 @@
 		КОГДА &amp;Сводный
 			ТОГДА ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка)
 		ИНАЧЕ УчетныйОстаткиИОбороты.Подразделение
-	КОНЕЦ
+	КОНЕЦ,
+	УчетныйОстаткиИОбороты.Субконто2
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(&amp;НачалоПериода, &amp;КонецПериода, Месяц, , Счет.ДенежныйСчет = ИСТИНА, , СценарийПлана = &amp;Сценарий2) КАК УчетныйОстаткиИОбороты
 	//#</query>
@@ -982,6 +1003,20 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Источник</dataPath>
+			<field>Источник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Источник</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ЕСТЬNULL(ОстаткиДенег1.СуммаНачальныйОстаток, 0) КАК НачСальдо,
@@ -999,7 +1034,8 @@
 			ТОГДА ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка)
 		ИНАЧЕ ОстаткиДенег1.Подразделение
 	КОНЕЦ КАК Подразделение,
-	ОстаткиДенег1.Подразделение КАК Подразделения
+	ОстаткиДенег1.Подразделение КАК Подразделения,
+	ОстаткиДенег1.Субконто2 КАК Источник
 ПОМЕСТИТЬ ВТ_Данные
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(&amp;НачалоПериода1, &amp;КонецПериода1, , , Счет.ДенежныйСчет = ИСТИНА, , СценарийПлана В (&amp;Сценарий1)) КАК ОстаткиДенег1
@@ -1022,7 +1058,8 @@
 			ТОГДА ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка)
 		ИНАЧЕ ОстаткиДенег2.Подразделение
 	КОНЕЦ,
-	ОстаткиДенег2.Подразделение
+	ОстаткиДенег2.Подразделение,
+	ОстаткиДенег2.Субконто2
 ИЗ
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(&amp;НачалоПериода1, &amp;КонецПериода1, , , Счет.ДенежныйСчет = ИСТИНА, , СценарийПлана = &amp;Сценарий2) КАК ОстаткиДенег2
 ;
@@ -1036,7 +1073,8 @@
 	СУММА(ВТ_Данные.КонСальдо) КАК КонСальдо,
 	СУММА(ВТ_Данные.КонСальдо1) КАК КонСальдо1,
 	ВТ_Данные.Подразделение КАК Подразделение,
-	ВТ_Данные.Подразделения КАК Подразделения
+	ВТ_Данные.Подразделения КАК Подразделения,
+	ВТ_Данные.Источник КАК Источник
 ИЗ
 	ВТ_Данные КАК ВТ_Данные
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КурсыВалют.СрезПоследних(&amp;ДатаКурса {(&amp;ДатаКурса)}, ) КАК КурсыВалютСрезПоследних
@@ -1068,7 +1106,8 @@
 	ВТ_Данные.Предприятие,
 	ВТ_Данные.Предприятия,
 	ВТ_Данные.Подразделение,
-	ВТ_Данные.Подразделения</query>
+	ВТ_Данные.Подразделения,
+	ВТ_Данные.Источник</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetUnion">
 		<name>ДетЗаписи</name>
@@ -2130,6 +2169,19 @@
 			<dcscom:orderType>Asc</dcscom:orderType>
 			<dcscom:autoOrder>true</dcscom:autoOrder>
 		</orderExpression>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Организация</dataPath>
+		<expression>Источник.Владелец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
 	</calculatedField>
 	<totalField>
 		<dataPath>ВиртСумма1</dataPath>
