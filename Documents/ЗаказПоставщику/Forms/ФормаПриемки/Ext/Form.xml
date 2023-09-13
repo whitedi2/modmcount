@@ -679,6 +679,16 @@
 									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
 									<ExtendedTooltip name="ИзменитьФормуРасширеннаяПодсказка" id="590"/>
 								</Button>
+								<CheckBoxField name="Кладовщик" id="814">
+									<DataPath>Кладовщик</DataPath>
+									<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+									<CheckBoxType>Switcher</CheckBoxType>
+									<ContextMenu name="КладовщикКонтекстноеМеню" id="815"/>
+									<ExtendedTooltip name="КладовщикРасширеннаяПодсказка" id="816"/>
+									<Events>
+										<Event name="OnChange">КладовщикПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="Группа14" id="665">
@@ -1334,6 +1344,11 @@
 																<LocationInCommandBar>InCommandBar</LocationInCommandBar>
 																<ExtendedTooltip name="ТЗ_ПланФактНайтиРасширеннаяПодсказка" id="581"/>
 															</Button>
+															<Button name="ТЗ_ПланФактСопоставитьНоменклатуруЭДО" id="817">
+																<Type>CommandBarButton</Type>
+																<CommandName>Form.Command.СопоставитьНоменклатуруЭДО</CommandName>
+																<ExtendedTooltip name="ТЗ_ПланФактСопоставитьНоменклатуруЭДОРасширеннаяПодсказка" id="818"/>
+															</Button>
 															<Button name="ТЗ_ПланФактСоздатьЗаказПоставщикуДляОтсутствующихТоваров" id="812">
 																<Type>CommandBarButton</Type>
 																<CommandName>Form.Command.СоздатьЗаказПоставщикуДляОтсутствующихТоваров</CommandName>
@@ -1422,18 +1437,59 @@
 															<ContextMenu name="ТЗ_ПланФактИсходныйНомерСтрокиДляСерииКонтекстноеМеню" id="807"/>
 															<ExtendedTooltip name="ТЗ_ПланФактИсходныйНомерСтрокиДляСерииРасширеннаяПодсказка" id="808"/>
 														</InputField>
-														<InputField name="ТЗ_ПланФактНоменклатура" id="216">
-															<DataPath>ТЗ_ПланФакт.Номенклатура</DataPath>
-															<ReadOnly>true</ReadOnly>
-															<EditMode>EnterOnInput</EditMode>
-															<FooterDataPath>ТЗ_ПланФактНоменклатураТекстПодвала</FooterDataPath>
-															<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
-															<ContextMenu name="ТЗ_ПланФактНоменклатураКонтекстноеМеню" id="217"/>
-															<ExtendedTooltip name="ТЗ_ПланФактНоменклатураРасширеннаяПодсказка" id="218"/>
-															<Events>
-																<Event name="OnChange">ТЗ_ПланФактНоменклатураПриИзменении</Event>
-															</Events>
-														</InputField>
+														<ColumnGroup name="ТЗ_ПланФактГруппаНоменклатура" id="819">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Т з план факт группа номенклатура</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Т з план факт группа номенклатура</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ExtendedTooltip name="ТЗ_ПланФактГруппаНоменклатураРасширеннаяПодсказка" id="820"/>
+															<ChildItems>
+																<InputField name="ТЗ_ПланФактНоменклатура" id="216">
+																	<DataPath>ТЗ_ПланФакт.Номенклатура</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<TitleBackColor>#CCFFCC</TitleBackColor>
+																	<EditMode>EnterOnInput</EditMode>
+																	<FooterDataPath>ТЗ_ПланФактНоменклатураТекстПодвала</FooterDataPath>
+																	<FooterFont ref="style:NormalTextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+																	<BackColor>#CCFFCC</BackColor>
+																	<ContextMenu name="ТЗ_ПланФактНоменклатураКонтекстноеМеню" id="217"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактНоменклатураРасширеннаяПодсказка" id="218"/>
+																	<Events>
+																		<Event name="OnChange">ТЗ_ПланФактНоменклатураПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<InputField name="ТЗ_ПланФактНоменклатураЭДО" id="821">
+																	<DataPath>ТЗ_ПланФакт.НоменклатураЭДО</DataPath>
+																	<TitleBackColor>#FBE6FF</TitleBackColor>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<BackColor>#FBE6FF</BackColor>
+																	<ContextMenu name="ТЗ_ПланФактНоменклатураЭДОКонтекстноеМеню" id="822"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактНоменклатураЭДОРасширеннаяПодсказка" id="823"/>
+																</InputField>
+																<InputField name="ТЗ_ПланФактНоменклатураВетИС" id="824">
+																	<DataPath>ТЗ_ПланФакт.НоменклатураВетИС</DataPath>
+																	<TitleBackColor>#CCFFFF</TitleBackColor>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<BackColor>#CCFFFF</BackColor>
+																	<ChoiceHistoryOnInput>DontUse</ChoiceHistoryOnInput>
+																	<ContextMenu name="ТЗ_ПланФактНоменклатураВетИСКонтекстноеМеню" id="825"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактНоменклатураВетИСРасширеннаяПодсказка" id="826"/>
+																	<Events>
+																		<Event name="StartChoice">ТЗ_ПланФактНоменклатураВетИСНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
 														<InputField name="ТЗ_ПланФактНаименование" id="94">
 															<DataPath>ТЗ_ПланФакт.Наименование</DataPath>
 															<Visible>false</Visible>
@@ -1455,21 +1511,79 @@
 															<ContextMenu name="ТЗ_ПланФактШтрихкодКонтекстноеМеню" id="98"/>
 															<ExtendedTooltip name="ТЗ_ПланФактШтрихкодРасширеннаяПодсказка" id="99"/>
 														</InputField>
-														<InputField name="ТЗ_ПланФактЕдИзм" id="100">
-															<DataPath>ТЗ_ПланФакт.Номенклатура.ЕдиницаИзмерения</DataPath>
-															<ReadOnly>true</ReadOnly>
+														<ColumnGroup name="ТЗ_ПланФактГруппаЕдИзм" id="827">
 															<Title>
 																<v8:item>
 																	<v8:lang>ru</v8:lang>
 																	<v8:content>Ед.</v8:content>
 																</v8:item>
 															</Title>
-															<EditMode>EnterOnInput</EditMode>
-															<Width>3</Width>
-															<HorizontalStretch>false</HorizontalStretch>
-															<ContextMenu name="ТЗ_ПланФактЕдИзмКонтекстноеМеню" id="101"/>
-															<ExtendedTooltip name="ТЗ_ПланФактЕдИзмРасширеннаяПодсказка" id="102"/>
-														</InputField>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Т з план факт группа ед изм</v8:content>
+																</v8:item>
+															</ToolTip>
+															<ExtendedTooltip name="ТЗ_ПланФактГруппаЕдИзмРасширеннаяПодсказка" id="828"/>
+															<ChildItems>
+																<InputField name="ТЗ_ПланФактЕдИзм" id="100">
+																	<DataPath>ТЗ_ПланФакт.Номенклатура.ЕдиницаИзмерения</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Ед.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<Width>3</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<BackColor>#CCFFCC</BackColor>
+																	<ContextMenu name="ТЗ_ПланФактЕдИзмКонтекстноеМеню" id="101"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактЕдИзмРасширеннаяПодсказка" id="102"/>
+																</InputField>
+																<InputField name="ТЗ_ПланФактЕдИзмЭДО" id="832">
+																	<DataPath>ТЗ_ПланФакт.ЕдИзмЭДО</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Ед.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ShowInHeader>false</ShowInHeader>
+																	<ShowInFooter>false</ShowInFooter>
+																	<Width>2</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>2</MaxWidth>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<BackColor>#FBE6FF</BackColor>
+																	<ContextMenu name="ТЗ_ПланФактЕдИзмЭДОКонтекстноеМеню" id="833"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактЕдИзмЭДОРасширеннаяПодсказка" id="834"/>
+																</InputField>
+																<InputField name="ТЗ_ПланФактЕдИзмВетис" id="829">
+																	<DataPath>ТЗ_ПланФакт.ЕдИзмВетис</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Ед.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<TitleLocation>None</TitleLocation>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ShowInHeader>false</ShowInHeader>
+																	<ShowInFooter>false</ShowInFooter>
+																	<Width>2</Width>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<BackColor>#CCFFFF</BackColor>
+																	<ContextMenu name="ТЗ_ПланФактЕдИзмВетисКонтекстноеМеню" id="830"/>
+																	<ExtendedTooltip name="ТЗ_ПланФактЕдИзмВетисРасширеннаяПодсказка" id="831"/>
+																</InputField>
+															</ChildItems>
+														</ColumnGroup>
 														<CheckBoxField name="ТЗ_ПланФактНесколькоСерий" id="662">
 															<DataPath>ТЗ_ПланФакт.НесколькоСерий</DataPath>
 															<SkipOnInput>true</SkipOnInput>
@@ -3516,6 +3630,50 @@
 						<v8:Type>xs:boolean</v8:Type>
 					</Type>
 				</Column>
+				<Column name="НоменклатураЭДО" id="46">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.НоменклатураКонтрагентов</v8:Type>
+					</Type>
+				</Column>
+				<Column name="НоменклатураВетИС" id="47">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номенклатура ВетИС</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ПродукцияВЕТИС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЕдИзмВетис" id="48">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ед</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ЕдиницыИзмеренияВЕТИС</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ЕдИзмЭДО" id="49">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ед</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+					</Type>
+				</Column>
 			</Columns>
 		</Attribute>
 		<Attribute name="ОбрабатываемыйДокумент" id="5">
@@ -4866,6 +5024,17 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="Кладовщик" id="56">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кладовщик</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:use>false</dcsset:use>
@@ -5776,6 +5945,21 @@
 			</Picture>
 			<Action>СоздатьЗаказПоставщикуДляОтсутствующихТоваров</Action>
 			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="СопоставитьНоменклатуруЭДО" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставить номенклатуру ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сопоставить номенклатуру ЭДО</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СопоставитьНоменклатуруЭДО</Action>
 		</Command>
 	</Commands>
 </Form>

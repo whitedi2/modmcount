@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидДенежныхСредств</dataPath>
+			<field>ВидДенежныхСредств</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид денежных средств</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Размещение</dataPath>
+			<field>Размещение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчетный счет</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОстаток</dataPath>
+			<field>СуммаОстаток</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютнаяСуммаОстаток</dataPath>
+			<field>ВалютнаяСуммаОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валютная сумма остаток</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Итог</dataPath>
+			<field>Итог</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Итог</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаУчетаБезналичные
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетныеСчета), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВалютныеСчета), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.СпециальныеСчета), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПереводыВПути_))
+	И НЕ Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПриобретениеИностраннойВалюты), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПродажиПоПлатежнымКартам), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РеализацияИностраннойВалюты))
+	И (НЕ Хозрасчетный.Валютный
+			ИЛИ &amp;ВедетсяУчетПоВалютам)
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СчетаУчетаБезналичные.Счет КАК Счет
+ИЗ
+	СчетаУчетаБезналичные КАК СчетаУчетаБезналичные
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаПереводовВПути
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПереводыВПути_))
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СчетаУчетаБезналичные.Счет КАК Счет
+ПОМЕСТИТЬ СчетаУчета
+ИЗ
+	СчетаУчетаБезналичные КАК СчетаУчетаБезналичные
+
+ИНДЕКСИРОВАТЬ ПО
+	СчетаУчетаБезналичные.Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ХозрасчетныйОстатки.Организация КАК Организация,
+	ЕСТЬNULL(ХозрасчетныйОстатки.Подразделение, НЕОПРЕДЕЛЕНО) КАК Подразделение,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Счет В
+				(ВЫБРАТЬ
+					СчетаУчетаБезналичные.Счет
+				ИЗ
+					СчетаУчетаБезналичные КАК СчетаУчетаБезналичные)
+			ТОГДА "Деньги на расчетных счетах"
+		ИНАЧЕ ""
+	КОНЕЦ КАК ВидДенежныхСредств,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Счет В
+				(ВЫБРАТЬ
+					СчетаУчетаБезналичные.Счет
+				ИЗ
+					СчетаУчетаБезналичные КАК СчетаУчетаБезналичные)
+			ТОГДА ВЫБОР
+					КОГДА НЕ ХозрасчетныйОстатки.Счет В
+								(ВЫБРАТЬ
+									СчетаПереводовВПути.Счет
+								ИЗ
+									СчетаПереводовВПути)
+						ТОГДА ВЫРАЗИТЬ(ХозрасчетныйОстатки.Субконто1 КАК Справочник.БанковскиеСчета).Наименование
+					ИНАЧЕ ХозрасчетныйОстатки.Счет.Наименование
+				КОНЕЦ
+		ИНАЧЕ ""
+	КОНЕЦ КАК Размещение,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Счет.Валютный
+			ТОГДА ХозрасчетныйОстатки.Валюта
+		ИНАЧЕ &amp;Рубль
+	КОНЕЦ КАК Валюта,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Счет.Валютный
+			ТОГДА ХозрасчетныйОстатки.ВалютнаяСуммаОстаток
+		ИНАЧЕ ХозрасчетныйОстатки.СуммаОстаток
+	КОНЕЦ КАК ВалютнаяСуммаОстаток,
+	ХозрасчетныйОстатки.СуммаОстаток КАК СуммаОстаток,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Счет.Валютный
+				ИЛИ НЕ &amp;ВедетсяУчетПоВалютам
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК Итог
+ПОМЕСТИТЬ Остатки
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;ДатаОкончания,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаУчета.Счет
+				ИЗ
+					СчетаУчета КАК СчетаУчета),
+			,
+			{(Организация).*, (Подразделение).*, (Валюта).*}) КАК ХозрасчетныйОстатки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Остатки.Организация КАК Организация,
+	Остатки.Подразделение КАК Подразделение,
+	Остатки.ВидДенежныхСредств КАК ВидДенежныхСредств,
+	Остатки.Размещение КАК Размещение,
+	Остатки.Валюта КАК Валюта,
+	Остатки.СуммаОстаток КАК СуммаОстаток,
+	Остатки.Итог КАК Итог,
+	Остатки.ВалютнаяСуммаОстаток КАК ВалютнаяСуммаОстаток
+{ВЫБРАТЬ
+	Организация.*,
+	Подразделение.*,
+	ВидДенежныхСредств,
+	Размещение,
+	Валюта.*,
+	СуммаОстаток,
+	Итог,
+	ВалютнаяСуммаОстаток}
+ИЗ
+	Остатки КАК Остатки
+{ГДЕ
+	Остатки.ВидДенежныхСредств,
+	Остатки.Размещение,
+	Остатки.Организация.*,
+	Остатки.Подразделение.*}</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаОстаток</dataPath>
+		<expression>Сумма(СуммаОстаток)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Рубль</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Рубль</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВедетсяУчетПоВалютам</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ведется учет по валютам</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>На дату</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>60710f3f-9b49-4df7-a337-0777812ca07b</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>90c2c7f0-f34f-4a6e-a19c-b5ab1e5019bc</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:userSettingID>9165e909-be9e-4617-9d85-b072e72eb326</dcsset:userSettingID>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Размещение</dcsset:left>
+						<dcsset:comparisonType>Contains</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string"/>
+						<dcsset:userSettingID>e10ff586-335c-4d22-bbde-6b08c83769dd</dcsset:userSettingID>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Размещение</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расчетный счет</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаОстаток</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Остаток на расчетном счете</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Валюта</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
