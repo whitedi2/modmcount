@@ -7,6 +7,7 @@
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
+		<Event name="ChoiceProcessing">ОбработкаВыбора</Event>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
 		<Event name="OnReadAtServer">ПриЧтенииНаСервере</Event>
 		<Event name="OnOpen">ПриОткрытии</Event>
@@ -210,6 +211,7 @@
 										<Event name="BeforeDeleteRow">ТабличнаяЧастьПередУдалением</Event>
 										<Event name="OnActivateRow">ТабличнаяЧастьПриАктивизацииСтроки</Event>
 										<Event name="OnStartEdit">ТабличнаяЧастьПриНачалеРедактирования</Event>
+										<Event name="OnChange">ТабличнаяЧастьПриИзменении</Event>
 									</Events>
 									<ChildItems>
 										<LabelField name="ТабличнаяЧастьНомерСтроки" id="12">
@@ -346,31 +348,48 @@
 													<TitleDataPath>Объект.Материалы.RowsCount</TitleDataPath>
 													<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="212"/>
 													<ChildItems>
-														<PictureDecoration name="ДекорацияМатериалы" id="91">
-															<Visible>false</Visible>
-															<Width>1</Width>
-															<Height>1</Height>
-															<Title formatted="false">
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Декорация материалы</v8:content>
-																</v8:item>
-															</Title>
-															<FileDragMode>AsFile</FileDragMode>
-															<ContextMenu name="ДекорацияМатериалыКонтекстноеМеню" id="92"/>
-															<ExtendedTooltip name="ДекорацияМатериалыРасширеннаяПодсказка" id="93"/>
-														</PictureDecoration>
-														<InputField name="СкладМатериалов" id="264">
-															<DataPath>Объект.СкладМатериалов</DataPath>
-															<InputHint>
-																<v8:item>
-																	<v8:lang>ru</v8:lang>
-																	<v8:content>Совпадает со складом Продукции</v8:content>
-																</v8:item>
-															</InputHint>
-															<ContextMenu name="СкладМатериаловКонтекстноеМеню" id="265"/>
-															<ExtendedTooltip name="СкладМатериаловРасширеннаяПодсказка" id="266"/>
-														</InputField>
+														<UsualGroup name="Группа6" id="334">
+															<Group>AlwaysHorizontal</Group>
+															<Behavior>Usual</Behavior>
+															<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="335"/>
+															<ChildItems>
+																<PictureDecoration name="ДекорацияМатериалы" id="91">
+																	<Visible>false</Visible>
+																	<Width>1</Width>
+																	<Height>1</Height>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Декорация материалы</v8:content>
+																		</v8:item>
+																	</Title>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<ContextMenu name="ДекорацияМатериалыКонтекстноеМеню" id="92"/>
+																	<ExtendedTooltip name="ДекорацияМатериалыРасширеннаяПодсказка" id="93"/>
+																</PictureDecoration>
+																<InputField name="СкладМатериалов" id="264">
+																	<DataPath>Объект.СкладМатериалов</DataPath>
+																	<InputHint>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Совпадает со складом Продукции</v8:content>
+																		</v8:item>
+																	</InputHint>
+																	<ContextMenu name="СкладМатериаловКонтекстноеМеню" id="265"/>
+																	<ExtendedTooltip name="СкладМатериаловРасширеннаяПодсказка" id="266"/>
+																</InputField>
+																<CheckBoxField name="ИзменениеКоличестваМатериалов" id="336">
+																	<DataPath>Объект.ИзменениеКоличестваМатериалов</DataPath>
+																	<TitleLocation>Right</TitleLocation>
+																	<CheckBoxType>Switcher</CheckBoxType>
+																	<ContextMenu name="ИзменениеКоличестваМатериаловКонтекстноеМеню" id="337"/>
+																	<ExtendedTooltip name="ИзменениеКоличестваМатериаловРасширеннаяПодсказка" id="338"/>
+																	<Events>
+																		<Event name="OnChange">ИзменениеКоличестваМатериаловПриИзменении</Event>
+																	</Events>
+																</CheckBoxField>
+															</ChildItems>
+														</UsualGroup>
 														<CommandBar name="ГруппаКомПанельМатериалы" id="136">
 															<Title>
 																<v8:item>
@@ -453,9 +472,10 @@
 																<ExtendedTooltip name="МатериалыУправлениеПоискомРасширеннаяПодсказка" id="77"/>
 															</SearchControlAddition>
 															<Events>
-																<Event name="Selection">МатериалыВыбор</Event>
+																<Event name="ChoiceProcessing">МатериалыОбработкаВыбора</Event>
 																<Event name="BeforeRowChange">МатериалыПередНачаломИзменения</Event>
 																<Event name="OnStartEdit">МатериалыПриНачалеРедактирования</Event>
+																<Event name="OnChange">МатериалыПриИзменении</Event>
 															</Events>
 															<ChildItems>
 																<LabelField name="МатериалыМатериалКод" id="94">
@@ -493,6 +513,7 @@
 																	<Events>
 																		<Event name="OnChange">МатериалыСерияНоменклатурыПриИзменении</Event>
 																		<Event name="StartChoice">МатериалыСерияНоменклатурыНачалоВыбора</Event>
+																		<Event name="ChoiceProcessing">МатериалыСерияНоменклатурыОбработкаВыбора</Event>
 																	</Events>
 																</InputField>
 																<InputField name="МатериалыСклад" id="125">
@@ -504,6 +525,7 @@
 																</InputField>
 																<InputField name="МатериалыКоличество" id="84">
 																	<DataPath>Объект.Материалы.Количество</DataPath>
+																	<ReadOnly>true</ReadOnly>
 																	<EditMode>EnterOnInput</EditMode>
 																	<Width>8</Width>
 																	<ContextMenu name="МатериалыКоличествоКонтекстноеМеню" id="85"/>
@@ -511,6 +533,14 @@
 																	<Events>
 																		<Event name="OnChange">МатериалыКоличествоПриИзменении</Event>
 																	</Events>
+																</InputField>
+																<InputField name="МатериалыНормативноеКоличество" id="339">
+																	<DataPath>Объект.Материалы.НормативноеКоличество</DataPath>
+																	<ReadOnly>true</ReadOnly>
+																	<EditMode>EnterOnInput</EditMode>
+																	<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+																	<ContextMenu name="МатериалыНормативноеКоличествоКонтекстноеМеню" id="340"/>
+																	<ExtendedTooltip name="МатериалыНормативноеКоличествоРасширеннаяПодсказка" id="341"/>
 																</InputField>
 																<InputField name="МатериалыСчетУчета" id="206">
 																	<DataPath>Объект.Материалы.СчетУчета</DataPath>
@@ -1220,6 +1250,85 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>УслугиСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УслугиСуммаНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.УчитыватьНДС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>МатериалыСчетУчета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.Материалы.СчетУчета</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#808080</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;Авто&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ВозвращенныеМатериалыСчетУчета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ВозвращенныеМатериалы.СчетУчета</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#808080</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Текст</dcscor:parameter>
+						<dcscor:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>&lt;Авто&gt;</v8:content>
+							</v8:item>
+						</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -1320,6 +1429,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗаполнитьСерииПоФИФО</Action>
+		</Command>
+		<Command name="ИзменениеКоличества" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменение количества</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменение количества</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзменениеКоличества</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

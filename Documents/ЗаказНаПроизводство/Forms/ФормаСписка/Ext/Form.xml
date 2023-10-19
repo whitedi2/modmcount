@@ -130,7 +130,15 @@
 			<UpdateOnDataChange>Auto</UpdateOnDataChange>
 			<UserSettingsGroup>СписокКомпоновщикНастроекПользовательскиеНастройки</UserSettingsGroup>
 			<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-			<ContextMenu name="СписокКонтекстноеМеню" id="4"/>
+			<ContextMenu name="СписокКонтекстноеМеню" id="4">
+				<ChildItems>
+					<Button name="СписокКонтекстноеМенюИзменитьВыделенные" id="116">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ИзменитьВыделенные</CommandName>
+						<ExtendedTooltip name="СписокКонтекстноеМенюИзменитьВыделенныеРасширеннаяПодсказка" id="117"/>
+					</Button>
+				</ChildItems>
+			</ContextMenu>
 			<AutoCommandBar name="СписокКоманднаяПанель" id="5">
 				<Autofill>false</Autofill>
 			</AutoCommandBar>
@@ -163,17 +171,28 @@
 				<Event name="Selection">СписокВыбор</Event>
 			</Events>
 			<ChildItems>
+				<PictureField name="Приоритет" id="130">
+					<DataPath>Список.ПроритетСрочности</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приоритет</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>None</TitleLocation>
+					<ValuesPicture>
+						<xr:Ref>CommonPicture.СостояниеЗаказа</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</ValuesPicture>
+					<ContextMenu name="ПриоритетКонтекстноеМеню" id="131"/>
+					<ExtendedTooltip name="ПриоритетРасширеннаяПодсказка" id="132"/>
+				</PictureField>
 				<LabelField name="Дата" id="16">
 					<DataPath>Список.Дата</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<Width>10</Width>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="17"/>
 					<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="18"/>
-				</LabelField>
-				<LabelField name="Номер" id="19">
-					<DataPath>Список.Номер</DataPath>
-					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
-					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
 				</LabelField>
 				<LabelField name="НомерПоДаннымКлиента" id="73">
 					<DataPath>~Список.НомерПоДаннымКлиента</DataPath>
@@ -188,6 +207,24 @@
 					<ContextMenu name="НомерПоДаннымКлиентаКонтекстноеМеню" id="74"/>
 					<ExtendedTooltip name="НомерПоДаннымКлиентаРасширеннаяПодсказка" id="75"/>
 				</LabelField>
+				<LabelField name="Номер" id="19">
+					<DataPath>Список.Номер</DataPath>
+					<ContextMenu name="НомерКонтекстноеМеню" id="20"/>
+					<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="21"/>
+				</LabelField>
+				<InputField name="НомерЗаданияНаПроизводство" id="127">
+					<DataPath>Список.НомерЗаданияНаПроизводство</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер задания</v8:content>
+						</v8:item>
+					</Title>
+					<Width>15</Width>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="НомерЗаданияНаПроизводствоКонтекстноеМеню" id="128"/>
+					<ExtendedTooltip name="НомерЗаданияНаПроизводствоРасширеннаяПодсказка" id="129"/>
+				</InputField>
 				<LabelField name="Статус" id="49">
 					<DataPath>Список.Статус</DataPath>
 					<CellHyperlink>true</CellHyperlink>
@@ -199,6 +236,12 @@
 					<ContextMenu name="ПредприятиеКонтекстноеМеню" id="23"/>
 					<ExtendedTooltip name="ПредприятиеРасширеннаяПодсказка" id="24"/>
 				</LabelField>
+				<InputField name="ДатаПроизводства" id="124">
+					<DataPath>Список.ДатаПроизводства</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ДатаПроизводстваКонтекстноеМеню" id="125"/>
+					<ExtendedTooltip name="ДатаПроизводстваРасширеннаяПодсказка" id="126"/>
+				</InputField>
 				<LabelField name="Организация" id="25">
 					<DataPath>Список.Организация</DataPath>
 					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="26"/>
@@ -264,18 +307,43 @@
 					<ContextMenu name="ВесТовараКонтекстноеМеню" id="112"/>
 					<ExtendedTooltip name="ВесТовараРасширеннаяПодсказка" id="113"/>
 				</LabelField>
+				<InputField name="Основание" id="121">
+					<DataPath>Список.ДокОснование</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Основание</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ОснованиеКонтекстноеМеню" id="122"/>
+					<ExtendedTooltip name="ОснованиеРасширеннаяПодсказка" id="123"/>
+				</InputField>
+				<InputField name="Автор" id="118">
+					<DataPath>Список.Автор</DataPath>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="АвторКонтекстноеМеню" id="119"/>
+					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="120"/>
+				</InputField>
 				<LabelField name="Ответственный" id="97">
 					<DataPath>Список.Ответственный</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ответственный</v8:content>
+						</v8:item>
+					</Title>
 					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="98"/>
 					<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="99"/>
 				</LabelField>
 				<LabelField name="Комментарий" id="43">
-					<DataPath>~Список.Комментарий</DataPath>
+					<DataPath>Список.Комментарий</DataPath>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="44"/>
 					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="45"/>
 				</LabelField>
 				<LabelField name="Ссылка" id="46">
 					<DataPath>Список.Ссылка</DataPath>
+					<Visible>false</Visible>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -340,7 +408,21 @@
 	ЗаказНаПроизводство.Статус КАК Статус,
 	ЗаказНаПроизводство.Ответственный КАК Ответственный,
 	ЗаказНаПроизводство.Склад КАК Склад,
-	ЗаказНаПроизводство.МоментВремени КАК МоментВремени
+	ЗаказНаПроизводство.МоментВремени КАК МоментВремени,
+	ЗаказНаПроизводство.Комментарий КАК Комментарий,
+	ЗаказНаПроизводство.Автор КАК Автор,
+	ЗаказНаПроизводство.ДокОснование КАК ДокОснование,
+	ЗаказНаПроизводство.ДатаПроизводства КАК ДатаПроизводства,
+	ВЫБОР
+		КОГДА ЗаказНаПроизводство.ПриоритетСрочности = ЗНАЧЕНИЕ(Перечисление.сабПриоритетыСрочности.Срочно)
+			ТОГДА ВЫРАЗИТЬ(6 КАК ЧИСЛО(2, 0))
+		ИНАЧЕ ВЫБОР
+				КОГДА ЗаказНаПроизводство.ПриоритетСрочности = ЗНАЧЕНИЕ(Перечисление.сабПриоритетыСрочности.НеСрочно)
+					ТОГДА ВЫРАЗИТЬ(2 КАК ЧИСЛО(2, 0))
+				ИНАЧЕ ВЫРАЗИТЬ(4 КАК ЧИСЛО(2, 0))
+			КОНЕЦ
+	КОНЕЦ КАК ПроритетСрочности,
+	ЗаказНаПроизводство.НомерЗаданияНаПроизводство КАК НомерЗаданияНаПроизводство
 ИЗ
 	Документ.ЗаказНаПроизводство КАК ЗаказНаПроизводство
 ГДЕ
@@ -591,6 +673,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СтатусСогласовано</Action>
+		</Command>
+		<Command name="ИзменитьВыделенные" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить выделенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить выделенные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзменитьВыделенные</Action>
 		</Command>
 	</Commands>
 </Form>

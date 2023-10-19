@@ -168,7 +168,7 @@
 								<ExtendedTooltip name="СписокНеобработанныхУправлениеПоискомРасширеннаяПодсказка" id="41"/>
 							</SearchControlAddition>
 							<Events>
-								<Event name="OnActivateCell">СписокНеобработанныхПриАктивизацииЯчейки</Event>
+								<Event name="Selection">СписокНеобработанныхВыбор</Event>
 							</Events>
 							<ChildItems>
 								<PictureField name="СписокНеобработанныхНомерКартинки" id="303">
@@ -179,6 +179,7 @@
 											<v8:content>Ошибка</v8:content>
 										</v8:item>
 									</Title>
+									<CellHyperlink>true</CellHyperlink>
 									<ValuesPicture>
 										<xr:Ref>CommonPicture.НекорректныйКонтрагент</xr:Ref>
 										<xr:LoadTransparent>true</xr:LoadTransparent>
@@ -188,6 +189,7 @@
 								</PictureField>
 								<LabelField name="СписокНеобработанныхДата" id="45">
 									<DataPath>СписокНеобработанных.Дата</DataPath>
+									<DefaultItem>true</DefaultItem>
 									<ContextMenu name="СписокНеобработанныхДатаКонтекстноеМеню" id="46"/>
 									<ExtendedTooltip name="СписокНеобработанныхДатаРасширеннаяПодсказка" id="47"/>
 								</LabelField>
@@ -496,12 +498,12 @@
 									<ExtendedTooltip name="СписокИзмененныеНомерРасширеннаяПодсказка" id="107"/>
 								</LabelField>
 								<LabelField name="СписокИзмененныеТип" id="117">
-									<DataPath>СписокИзмененные.Тип</DataPath>
+									<DataPath>~СписокИзмененные.Тип</DataPath>
 									<ContextMenu name="СписокИзмененныеТипКонтекстноеМеню" id="118"/>
 									<ExtendedTooltip name="СписокИзмененныеТипРасширеннаяПодсказка" id="119"/>
 								</LabelField>
 								<LabelField name="СписокИзмененныеВидОперации" id="90">
-									<DataPath>СписокИзмененные.ВидОперации</DataPath>
+									<DataPath>~СписокИзмененные.ВидОперации</DataPath>
 									<ContextMenu name="СписокИзмененныеВидОперацииКонтекстноеМеню" id="91"/>
 									<ExtendedTooltip name="СписокИзмененныеВидОперацииРасширеннаяПодсказка" id="92"/>
 								</LabelField>
@@ -521,18 +523,33 @@
 									<ExtendedTooltip name="СписокИзмененныеКомментарийРасширеннаяПодсказка" id="104"/>
 								</LabelField>
 								<LabelField name="СписокИзмененныеСсылка" id="111">
-									<DataPath>СписокИзмененные.Ссылка</DataPath>
+									<DataPath>~СписокИзмененные.Ссылка</DataPath>
 									<UserVisible>
 										<xr:Common>false</xr:Common>
 									</UserVisible>
 									<ContextMenu name="СписокИзмененныеСсылкаКонтекстноеМеню" id="112"/>
 									<ExtendedTooltip name="СписокИзмененныеСсылкаРасширеннаяПодсказка" id="113"/>
 								</LabelField>
+								<LabelField name="СписокИзмененныеДокументБУ" id="310">
+									<DataPath>СписокИзмененные.ДокументБУ</DataPath>
+									<ContextMenu name="СписокИзмененныеДокументБУКонтекстноеМеню" id="311"/>
+									<ExtendedTooltip name="СписокИзмененныеДокументБУРасширеннаяПодсказка" id="312"/>
+								</LabelField>
+								<LabelField name="СписокИзмененныеВидДокументаБУ" id="313">
+									<DataPath>СписокИзмененные.ВидДокументаБУ</DataPath>
+									<ContextMenu name="СписокИзмененныеВидДокументаБУКонтекстноеМеню" id="314"/>
+									<ExtendedTooltip name="СписокИзмененныеВидДокументаБУРасширеннаяПодсказка" id="315"/>
+								</LabelField>
 								<LabelField name="СписокИзмененныеДокументУУ" id="157">
 									<DataPath>СписокИзмененные.ДокументУУ</DataPath>
 									<CellHyperlink>true</CellHyperlink>
 									<ContextMenu name="СписокИзмененныеДокументУУКонтекстноеМеню" id="158"/>
 									<ExtendedTooltip name="СписокИзмененныеДокументУУРасширеннаяПодсказка" id="159"/>
+								</LabelField>
+								<LabelField name="СписокИзмененныеВидДокументаУУ" id="316">
+									<DataPath>СписокИзмененные.ВидДокументаУУ</DataPath>
+									<ContextMenu name="СписокИзмененныеВидДокументаУУКонтекстноеМеню" id="317"/>
+									<ExtendedTooltip name="СписокИзмененныеВидДокументаУУРасширеннаяПодсказка" id="318"/>
 								</LabelField>
 							</ChildItems>
 						</Table>
@@ -603,58 +620,58 @@
 							</SearchControlAddition>
 							<ChildItems>
 								<LabelField name="ДокументБУ" id="138">
-									<DataPath>~Список.ДокументБУ</DataPath>
+									<DataPath>Список.ДокументБУ</DataPath>
 									<ContextMenu name="ДокументБУКонтекстноеМеню" id="139"/>
 									<ExtendedTooltip name="ДокументБУРасширеннаяПодсказка" id="140"/>
 								</LabelField>
 								<LabelField name="ДокументУУ" id="141">
-									<DataPath>~Список.ДокументУУ</DataPath>
+									<DataPath>Список.ДокументУУ</DataPath>
 									<ContextMenu name="ДокументУУКонтекстноеМеню" id="142"/>
 									<ExtendedTooltip name="ДокументУУРасширеннаяПодсказка" id="143"/>
 								</LabelField>
 								<LabelField name="ТипБУ" id="169">
-									<DataPath>~Список.ТипБУ</DataPath>
+									<DataPath>Список.ТипБУ</DataPath>
 									<ContextMenu name="ТипБУКонтекстноеМеню" id="170"/>
 									<ExtendedTooltip name="ТипБУРасширеннаяПодсказка" id="171"/>
 								</LabelField>
 								<LabelField name="Дата" id="172">
-									<DataPath>~Список.Дата</DataPath>
+									<DataPath>Список.Дата</DataPath>
 									<ContextMenu name="ДатаКонтекстноеМеню" id="173"/>
 									<ExtendedTooltip name="ДатаРасширеннаяПодсказка" id="174"/>
 								</LabelField>
 								<LabelField name="Номер" id="175">
-									<DataPath>~Список.Номер</DataPath>
+									<DataPath>Список.Номер</DataPath>
 									<ContextMenu name="НомерКонтекстноеМеню" id="176"/>
 									<ExtendedTooltip name="НомерРасширеннаяПодсказка" id="177"/>
 								</LabelField>
 								<LabelField name="Контрагент" id="178">
-									<DataPath>~Список.Контрагент</DataPath>
+									<DataPath>Список.Контрагент</DataPath>
 									<ContextMenu name="КонтрагентКонтекстноеМеню" id="179"/>
 									<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="180"/>
 								</LabelField>
 								<LabelField name="СуммаДокумента" id="181">
-									<DataPath>~Список.СуммаДокумента</DataPath>
+									<DataPath>Список.СуммаДокумента</DataPath>
 									<ContextMenu name="СуммаДокументаКонтекстноеМеню" id="182"/>
 									<ExtendedTooltip name="СуммаДокументаРасширеннаяПодсказка" id="183"/>
 								</LabelField>
 								<CheckBoxField name="Модифицирован" id="144">
-									<DataPath>~Список.Модифицирован</DataPath>
+									<DataPath>Список.Модифицирован</DataPath>
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="МодифицированКонтекстноеМеню" id="145"/>
 									<ExtendedTooltip name="МодифицированРасширеннаяПодсказка" id="146"/>
 								</CheckBoxField>
 								<LabelField name="ДатаОбработки" id="163">
-									<DataPath>~Список.ДатаОбработки</DataPath>
+									<DataPath>Список.ДатаОбработки</DataPath>
 									<ContextMenu name="ДатаОбработкиКонтекстноеМеню" id="164"/>
 									<ExtendedTooltip name="ДатаОбработкиРасширеннаяПодсказка" id="165"/>
 								</LabelField>
 								<LabelField name="Автор" id="160">
-									<DataPath>~Список.Автор</DataPath>
+									<DataPath>Список.Автор</DataPath>
 									<ContextMenu name="АвторКонтекстноеМеню" id="161"/>
 									<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="162"/>
 								</LabelField>
 								<LabelField name="Комментарий" id="166">
-									<DataPath>~Список.Комментарий</DataPath>
+									<DataPath>Список.Комментарий</DataPath>
 									<ContextMenu name="КомментарийКонтекстноеМеню" id="167"/>
 									<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="168"/>
 								</LabelField>
@@ -933,26 +950,23 @@
 			</Type>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
-				<QueryText>ВЫБРАТЬ
-	ЖурналДокументовЖурналОпераций.Дата КАК Дата,
-	ЖурналДокументовЖурналОпераций.Номер КАК Номер,
-	ЖурналДокументовЖурналОпераций.Организация КАК Организация,
-	ЖурналДокументовЖурналОпераций.Информация КАК Информация,
-	ЖурналДокументовЖурналОпераций.СуммаДокумента КАК СуммаДокумента,
-	ЖурналДокументовЖурналОпераций.ВидОперации КАК ВидОперации,
-	ЖурналДокументовЖурналОпераций.Комментарий КАК Комментарий,
-	ЖурналДокументовЖурналОпераций.Тип КАК Тип,
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	сабСоответствиеДокументов.ДокументБУ КАК ДокументБУ,
 	сабСоответствиеДокументов.ДокументУУ КАК ДокументУУ,
-	ЖурналДокументовЖурналОпераций.Ссылка КАК Ссылка
+	сабСоответствиеДокументов.ДокументБУ.Дата КАК Дата,
+	сабСоответствиеДокументов.ДокументБУ.Номер КАК Номер,
+	сабСоответствиеДокументов.ДокументБУ.Организация КАК Организация,
+	сабСоответствиеДокументов.ДокументБУ.СуммаДокумента КАК СуммаДокумента,
+	сабСоответствиеДокументов.ДокументБУ.Комментарий КАК Комментарий,
+	ТИПЗНАЧЕНИЯ(сабСоответствиеДокументов.ДокументБУ.Ссылка) КАК ВидДокументаБУ,
+	ТИПЗНАЧЕНИЯ(сабСоответствиеДокументов.ДокументУУ.Ссылка) КАК ВидДокументаУУ
 ИЗ
-	ЖурналДокументов.ЖурналОпераций КАК ЖурналДокументовЖурналОпераций
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.сабОбработкаДокументов КАК сабСоответствиеДокументов
-		ПО ЖурналДокументовЖурналОпераций.Ссылка = сабСоответствиеДокументов.ДокументБУ
-			И (сабСоответствиеДокументов.Модифицирован = ИСТИНА)
+	РегистрСведений.сабОбработкаДокументов КАК сабСоответствиеДокументов
 ГДЕ
-	ЖурналДокументовЖурналОпераций.Дата &gt;= &amp;Дата</QueryText>
-				<MainTable>DocumentJournal.ЖурналОпераций</MainTable>
+	сабСоответствиеДокументов.Модифицирован = ИСТИНА
+	И сабСоответствиеДокументов.ДокументБУ.Дата &gt;= &amp;Дата</QueryText>
+				<MainTable>InformationRegister.сабОбработкаДокументов</MainTable>
 				<ListSettings>
 					<dcsset:filter>
 						<dcsset:viewMode>Normal</dcsset:viewMode>
@@ -1362,7 +1376,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Создать на основании</v8:content>
+					<v8:content>Обработать с открытием формы документа</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

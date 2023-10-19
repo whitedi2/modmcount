@@ -150,7 +150,7 @@
 			,
 			,
 			Авто,
-			Счет.Код = "43",
+			Счет.Код = "43" ИЛИ Счет.Код = "10.21",
 			,
 			СценарийПлана = &amp;Сценарий,
 			КорСчет.Код = "40"
@@ -314,7 +314,7 @@
 			,
 			СценарийПлана = &amp;Сценарий,
 			КорСчет.Код = "40"
-				ИЛИ КорСчет.Код = "43",
+				ИЛИ КорСчет.Код = "43" ИЛИ КорСчет.Код = "10.21",
 			) КАК УчетныйОбороты
 ;
 
@@ -488,7 +488,7 @@
 			<dataPath>ПериодМесяц</dataPath>
 			<field>ПериодМесяц</field>
 			<role>
-				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
 				<dcscom:periodType>Additional</dcscom:periodType>
 			</role>
 		</field>
@@ -512,6 +512,14 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОбороты.Субконто1 КАК Номенклатура,
@@ -520,9 +528,10 @@
 	УчетныйОбороты.Субконто2 КАК СтатьяЗатрат,
 	УчетныйОбороты.СуммаОборот КАК СуммаДетализация,
 	УчетныйОбороты.КорСубконто1 КАК Материал,
-	УчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
 	УчетныйОбороты.КоличествоКорОборот КАК КоличествоДетализация,
-	УчетныйОбороты.Подразделение КАК Подразделение
+	УчетныйОбороты.Подразделение КАК Подразделение,
+	УчетныйОбороты.Регистратор КАК Регистратор,
+	УчетныйОбороты.ПериодМесяц КАК ПериодМесяц
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(
 			,
@@ -876,10 +885,83 @@
 			<dcsat:expression>ЦенаДетализация</dcsat:expression>
 		</parameter>
 	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Регистратор</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>АвтоОтступ</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">2</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Расшифровка</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:Parameter">РегистраторРасш</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+				<dcsat:tableCell/>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СуммаЕдДетализация</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+				</dcsat:tableCell>
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">СуммаДетализация</dcsat:value>
+					</dcsat:item>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Регистратор</dcsat:name>
+			<dcsat:expression>Представление(Регистратор)</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СуммаЕдДетализация</dcsat:name>
+			<dcsat:expression>СуммаЕдДетализация</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>СуммаДетализация</dcsat:name>
+			<dcsat:expression>СуммаДетализация</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:DetailsAreaTemplateParameter">
+			<dcsat:name>РегистраторРасш</dcsat:name>
+			<dcsat:fieldExpression>
+				<dcsat:field>Регистратор</dcsat:field>
+				<dcsat:expression>Регистратор</dcsat:expression>
+			</dcsat:fieldExpression>
+		</parameter>
+	</template>
 	<groupTemplate>
 		<groupField>Материал</groupField>
 		<templateType>Header</templateType>
 		<template>Макет1</template>
+	</groupTemplate>
+	<groupTemplate>
+		<groupField>Регистратор</groupField>
+		<templateType>Header</templateType>
+		<template>Макет2</template>
 	</groupTemplate>
 	<settingsVariant>
 		<dcsset:name>Производственная себестоимость</dcsset:name>
@@ -1196,6 +1278,23 @@
 										</dcsset:appearance>
 									</dcsset:item>
 								</dcsset:conditionalAppearance>
+								<dcsset:item xsi:type="dcsset:StructureItemGroup">
+									<dcsset:groupItems>
+										<dcsset:item xsi:type="dcsset:GroupItemField">
+											<dcsset:field>Регистратор</dcsset:field>
+											<dcsset:groupType>Items</dcsset:groupType>
+											<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+											<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+											<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+										</dcsset:item>
+									</dcsset:groupItems>
+									<dcsset:order>
+										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+									</dcsset:order>
+									<dcsset:selection>
+										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									</dcsset:selection>
+								</dcsset:item>
 							</dcsset:item>
 						</dcsset:item>
 					</dcsset:item>

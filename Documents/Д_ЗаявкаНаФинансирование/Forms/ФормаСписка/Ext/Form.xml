@@ -155,7 +155,15 @@
 							<UpdateOnDataChange>Auto</UpdateOnDataChange>
 							<UserSettingsGroup>Группа7</UserSettingsGroup>
 							<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-							<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+							<ContextMenu name="СписокКонтекстноеМеню" id="2">
+								<ChildItems>
+									<Button name="СписокКонтекстноеМенюИзменитьВыделенные" id="861">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ИзменитьВыделенные</CommandName>
+										<ExtendedTooltip name="СписокКонтекстноеМенюИзменитьВыделенныеРасширеннаяПодсказка" id="862"/>
+									</Button>
+								</ChildItems>
+							</ContextMenu>
 							<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 								<Autofill>false</Autofill>
 							</AutoCommandBar>
@@ -590,6 +598,9 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.Ссылка</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>false</DynamicDataRead>
@@ -629,7 +640,9 @@
 			ТОГДА 3
 		ИНАЧЕ 0
 	КОНЕЦ КАК КартинкаСтатуса,
-	ВнутренниеДокументы.ОрганизацияСМП КАК СМП
+	ВнутренниеДокументы.ОрганизацияСМП КАК СМП,
+	ВнутренниеДокументы.НомерВходящегоДокумента КАК НомерВходящегоДокумента,
+	ВнутренниеДокументы.ДатаВходящегоДокумента КАК ДатаВходящегоДокумента
 ИЗ
 	Документ.Д_ЗаявкаНаФинансирование КАК ВнутренниеДокументы
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Д_ТекущаяЗадача КАК Д_ТекущаяЗадача
@@ -941,7 +954,7 @@
 					<Type>
 						<v8:Type>cfg:CatalogRef.ГруппыПользователей</v8:Type>
 						<v8:Type>cfg:EnumRef.ОсновныеДолжностиПредприятия</v8:Type>
-						<v8:Type>cfg:CatalogRef.Д_Должности</v8:Type>
+						<v8:Type>cfg:CatalogRef.Должности</v8:Type>
 						<v8:Type>xs:string</v8:Type>
 						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
 						<v8:StringQualifiers>
@@ -2157,6 +2170,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>СтатусСогласовано</Action>
+		</Command>
+		<Command name="ИзменитьВыделенные" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить выделенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить выделенные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзменитьВыделенные</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

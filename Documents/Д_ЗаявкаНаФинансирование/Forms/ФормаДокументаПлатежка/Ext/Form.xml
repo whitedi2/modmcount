@@ -396,6 +396,70 @@
 									<ContextMenu name="ОчередностьПлатежаКонтекстноеМеню" id="547"/>
 									<ExtendedTooltip name="ОчередностьПлатежаExtendedTooltip" id="548"/>
 								</InputField>
+								<UsualGroup name="ГруппаВхНомерДата" id="677">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Счет от поставщика</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Входящие номер и дата</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Group>Vertical</Group>
+									<Behavior>PopUp</Behavior>
+									<Representation>None</Representation>
+									<ExtendedTooltip name="ГруппаВхНомерДатаExtendedTooltip" id="678"/>
+									<ChildItems>
+										<UsualGroup name="Группа11" id="687">
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа11РасширеннаяПодсказка" id="688"/>
+											<ChildItems>
+												<InputField name="НомерВходящегоДокумента" id="679">
+													<DataPath>Объект.НомерВходящегоДокумента</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Счет №</v8:content>
+														</v8:item>
+													</Title>
+													<Width>11</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<ContextMenu name="НомерВходящегоДокументаКонтекстноеМеню" id="680"/>
+													<ExtendedTooltip name="НомерВходящегоДокументаExtendedTooltip" id="681"/>
+													<Events>
+														<Event name="OnChange">НомерВходящегоДокументаПриИзменении</Event>
+													</Events>
+												</InputField>
+												<InputField name="ДатаВходящегоДокумента" id="682">
+													<DataPath>Объект.ДатаВходящегоДокумента</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>от</v8:content>
+														</v8:item>
+													</Title>
+													<Width>15</Width>
+													<ContextMenu name="ДатаВходящегоДокументаКонтекстноеМеню" id="683"/>
+													<ExtendedTooltip name="ДатаВходящегоДокументаExtendedTooltip" id="684"/>
+													<Events>
+														<Event name="OnChange">НомерВходящегоДокументаПриИзменении</Event>
+													</Events>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<Button name="ЗаполнитьНазначение" id="685">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ЗаполнитьНазначение</CommandName>
+											<ExtendedTooltip name="ЗаполнитьНазначениеРасширеннаяПодсказка" id="686"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
 						<UsualGroup name="Группа24" id="521">
@@ -2077,6 +2141,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПровестиИЗакрыть</Action>
+		</Command>
+		<Command name="ЗаполнитьНазначение" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить назначение платежа</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить назначение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьНазначение</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

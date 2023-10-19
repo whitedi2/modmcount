@@ -1173,18 +1173,17 @@
 					</Title>
 					<ExtendedTooltip name="Группа10РасширеннаяПодсказка" id="333"/>
 					<ChildItems>
+						<InputField name="Организация" id="354">
+							<DataPath>Объект.Организация</DataPath>
+							<ContextMenu name="ОрганизацияКонтекстноеМеню" id="355"/>
+							<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="356"/>
+						</InputField>
 						<UsualGroup name="Группа11" id="334">
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа11РасширеннаяПодсказка" id="335"/>
 							<ChildItems>
-								<InputField name="Организация" id="354">
-									<DataPath>Объект.Организация</DataPath>
-									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="355"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="356"/>
-								</InputField>
 								<CheckBoxField name="ФлагВалюты" id="106">
 									<DataPath>Объект.ФлагВалюты</DataPath>
 									<Title>
@@ -1232,6 +1231,12 @@
 											<ContextMenu name="КурсКонтекстноеМеню" id="111"/>
 											<ExtendedTooltip name="КурсExtendedTooltip" id="122"/>
 										</InputField>
+										<InputField name="КратностьВзаиморасчетов" id="468">
+											<DataPath>Объект.КратностьВзаиморасчетов</DataPath>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="КратностьВзаиморасчетовКонтекстноеМеню" id="469"/>
+											<ExtendedTooltip name="КратностьВзаиморасчетовРасширеннаяПодсказка" id="470"/>
+										</InputField>
 									</ChildItems>
 								</UsualGroup>
 							</ChildItems>
@@ -1251,7 +1256,6 @@
 							<HorizontalStretch>false</HorizontalStretch>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа12РасширеннаяПодсказка" id="347"/>
 							<ChildItems>
@@ -1269,7 +1273,6 @@
 						<UsualGroup name="Группа15" id="402">
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа15РасширеннаяПодсказка" id="403"/>
 							<ChildItems>
@@ -1399,6 +1402,17 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Использовать серии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВестиУчетНДС" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вести учет НДС</v8:content>
 				</v8:item>
 			</Title>
 			<Type>
@@ -1540,6 +1554,50 @@
 					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 						<dcscor:parameter>ТолькоПросмотр</dcscor:parameter>
 						<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСуммаБезНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСуммаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСчетУчетаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УслугиСуммаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УслугиСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>УчитыватьНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ЦенаВключаетНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>СуммаВключаетНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ВестиУчетНДС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>

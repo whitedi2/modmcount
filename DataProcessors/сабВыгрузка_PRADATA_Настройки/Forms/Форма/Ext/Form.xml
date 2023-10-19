@@ -255,6 +255,13 @@
 							<ContextMenu name="КонтрагентыЭкомилкКонтекстноеМеню" id="115"/>
 							<ExtendedTooltip name="КонтрагентыЭкомилкРасширеннаяПодсказка" id="116"/>
 						</CheckBoxField>
+						<CheckBoxField name="КонтрагентыБонфесто" id="120">
+							<DataPath>Объект.Контрагенты.Бонфесто</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="КонтрагентыБонфестоКонтекстноеМеню" id="121"/>
+							<ExtendedTooltip name="КонтрагентыБонфестоРасширеннаяПодсказка" id="122"/>
+						</CheckBoxField>
 						<InputField name="КонтрагентыИД" id="105">
 							<DataPath>Объект.Контрагенты.ИД</DataPath>
 							<EditMode>EnterOnInput</EditMode>
@@ -303,6 +310,7 @@
 				</Table>
 				<Table name="Номенклатура" id="81">
 					<TitleLocation>Top</TitleLocation>
+					<SelectionMode>SingleRow</SelectionMode>
 					<AutoInsertNewRow>true</AutoInsertNewRow>
 					<EnableStartDrag>true</EnableStartDrag>
 					<EnableDrag>true</EnableDrag>
@@ -315,13 +323,12 @@
 					</Title>
 					<TitleTextColor>style:AccentColor</TitleTextColor>
 					<TitleFont ref="style:NormalTextFont" height="12" kind="StyleItem" scale="100"/>
+					<SearchStringLocation>None</SearchStringLocation>
 					<RowFilter xsi:nil="true"/>
 					<ContextMenu name="НоменклатураКонтекстноеМеню" id="82"/>
-					<AutoCommandBar name="НоменклатураКоманднаяПанель" id="83">
-						<Autofill>false</Autofill>
-					</AutoCommandBar>
+					<AutoCommandBar name="НоменклатураКоманднаяПанель" id="83"/>
 					<ExtendedTooltip name="НоменклатураРасширеннаяПодсказка" id="84"/>
-					<SearchStringAddition name="НоменклатураСтрокаПоиска" id="85">
+					<SearchStringAddition name="НоменклатураСтрокаПоиска" id="85" DisplayImportance="Usual">
 						<AdditionSource>
 							<Item>Номенклатура</Item>
 							<Type>SearchStringRepresentation</Type>
@@ -346,12 +353,13 @@
 						<ExtendedTooltip name="НоменклатураУправлениеПоискомРасширеннаяПодсказка" id="93"/>
 					</SearchControlAddition>
 					<Events>
+						<Event name="BeforeAddRow">НоменклатураПередНачаломДобавления</Event>
+						<Event name="OnStartEdit">НоменклатураПриНачалеРедактирования</Event>
 						<Event name="OnChange">НоменклатураПриИзменении</Event>
 					</Events>
 					<ChildItems>
 						<InputField name="НоменклатураНоменклатура" id="97">
 							<DataPath>Объект.Номенклатура.Номенклатура</DataPath>
-							<ReadOnly>true</ReadOnly>
 							<EditMode>EnterOnInput</EditMode>
 							<ContextMenu name="НоменклатураНоменклатураКонтекстноеМеню" id="98"/>
 							<ExtendedTooltip name="НоменклатураНоменклатураРасширеннаяПодсказка" id="99"/>

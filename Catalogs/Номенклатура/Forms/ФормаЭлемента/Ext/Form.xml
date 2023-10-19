@@ -13,6 +13,7 @@
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
+		<Event name="NotificationProcessing" callType="After">УУ_ОбработкаОповещенияПосле</Event>
 		<Event name="OnOpen" callType="After">УУ_ПриОткрытииПосле</Event>
 		<Event name="BeforeWrite" callType="Before">УУ_ПередЗаписьюПеред</Event>
 		<Event name="OnCreateAtServer" callType="After">УУ_ПриСозданииНаСервереПосле</Event>
@@ -134,62 +135,343 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаЛеваяКолонкаРасширеннаяПодсказка" id="383"/>
 					<ChildItems>
-						<UsualGroup name="ГруппаВидНоменклатуры" id="226">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Группа вид номенклатуры</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Vertical</Group>
+						<UsualGroup name="Группа1" id="521">
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаВидНоменклатурыРасширеннаяПодсказка" id="227"/>
+							<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="522"/>
 							<ChildItems>
-								<InputField name="ВидНоменклатуры" id="218">
-									<ContextMenu name="ВидНоменклатурыКонтекстноеМеню" id="219"/>
-									<ExtendedTooltip name="ВидНоменклатурыРасширеннаяПодсказка" id="220"/>
-								</InputField>
+								<UsualGroup name="Группа2" id="582">
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="583"/>
+									<ChildItems>
+										<InputField name="Код" id="1">
+											<UserVisible>
+												<xr:Common>false</xr:Common>
+											</UserVisible>
+											<EditMode>EnterOnInput</EditMode>
+											<HorizontalStretch>false</HorizontalStretch>
+											<ContextMenu name="КодКонтекстноеМеню" id="2"/>
+											<ExtendedTooltip name="КодExtendedTooltip" id="132"/>
+										</InputField>
+										<UsualGroup name="ГруппаВидНоменклатуры" id="226">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа вид номенклатуры</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Vertical</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВидНоменклатурыРасширеннаяПодсказка" id="227"/>
+											<ChildItems>
+												<InputField name="ВидНоменклатуры" id="218">
+													<ContextMenu name="ВидНоменклатурыКонтекстноеМеню" id="219"/>
+													<ExtendedTooltip name="ВидНоменклатурыРасширеннаяПодсказка" id="220"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаНаименованиеКод" id="91">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Наименование и код</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="130"/>
+											<ChildItems>
+												<InputField name="Наименование" id="3">
+													<EditMode>EnterOnInput</EditMode>
+													<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+													<ExtendedTooltip name="НаименованиеExtendedTooltip" id="131"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<InputField name="НаименованиеПолное" id="211">
+											<TitleLocation>Left</TitleLocation>
+											<Height>2</Height>
+											<VerticalStretch>false</VerticalStretch>
+											<MultiLine>true</MultiLine>
+											<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="212"/>
+											<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="213"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<UsualGroup name="Группа3" id="584">
+									<Behavior>Usual</Behavior>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="585"/>
+									<ChildItems>
+										<UsualGroup name="ПереключениеИзображений" id="523">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Переключение изображений</v8:content>
+												</v8:item>
+											</Title>
+											<Group>Horizontal</Group>
+											<Behavior>Usual</Behavior>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ПереключениеИзображенийРасширеннаяПодсказка" id="524"/>
+											<ChildItems>
+												<UsualGroup name="ПереключениеИзображенийГруппаВлево" id="525">
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ПереключениеИзображенийГруппаВлевоРасширеннаяПодсказка" id="526"/>
+													<ChildItems>
+														<LabelDecoration name="ДекорацияВлево" id="527">
+															<Height>2</Height>
+															<ContextMenu name="ДекорацияВлевоКонтекстноеМеню" id="528"/>
+															<ExtendedTooltip name="ДекорацияВлевоРасширеннаяПодсказка" id="529"/>
+														</LabelDecoration>
+														<UsualGroup name="ДекорацияПрокруткаИзображенийГруппа" id="530">
+															<Group>AlwaysHorizontal</Group>
+															<Behavior>Usual</Behavior>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ДекорацияПрокруткаИзображенийГруппаРасширеннаяПодсказка" id="531"/>
+															<ChildItems>
+																<PictureDecoration name="ДекорацияПрокруткаИзображенийВлево" id="532">
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>8</MaxWidth>
+																	<Height>4</Height>
+																	<HorizontalStretch>true</HorizontalStretch>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Прокрутка Влево</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Hyperlink>true</Hyperlink>
+																	<Picture>
+																		<xr:Ref>CommonPicture.УУ_ИзображениеПредыдущее</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
+																	</Picture>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<ContextMenu name="ДекорацияПрокруткаИзображенийВлевоКонтекстноеМеню" id="533"/>
+																	<ExtendedTooltip name="ДекорацияПрокруткаИзображенийВлевоРасширеннаяПодсказка" id="534"/>
+																	<Events>
+																		<Event name="Click" callType="Before">ДекорацияПрокруткаИзображенийВлевоНажатие</Event>
+																	</Events>
+																</PictureDecoration>
+																<LabelDecoration name="ДекорацияПрокруткаИзображенийВлевоОтступ" id="535">
+																	<Visible>false</Visible>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>8</MaxWidth>
+																	<Height>4</Height>
+																	<HorizontalStretch>true</HorizontalStretch>
+																	<ContextMenu name="ДекорацияПрокруткаИзображенийВлевоОтступКонтекстноеМеню" id="536"/>
+																	<ExtendedTooltip name="ДекорацияПрокруткаИзображенийВлевоОтступРасширеннаяПодсказка" id="537"/>
+																</LabelDecoration>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="Изображение" id="591">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Изображение</v8:content>
+														</v8:item>
+													</Title>
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ИзображениеРасширеннаяПодсказка" id="592"/>
+													<ChildItems>
+														<PictureField name="АдресКартинки" id="593">
+															<DataPath>Изображения[0].Адрес</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Изображение</v8:content>
+																</v8:item>
+															</Title>
+															<TitleLocation>None</TitleLocation>
+															<AutoMaxWidth>false</AutoMaxWidth>
+															<MaxWidth>21</MaxWidth>
+															<Height>7</Height>
+															<VerticalStretch>false</VerticalStretch>
+															<PictureSize>Proportionally</PictureSize>
+															<Hyperlink>true</Hyperlink>
+															<NonselectedPictureText>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Добавить изображение</v8:content>
+																</v8:item>
+															</NonselectedPictureText>
+															<Font ref="style:NormalTextFont" kind="StyleItem"/>
+															<FileDragMode>AsFile</FileDragMode>
+															<ContextMenu name="АдресКартинкиКонтекстноеМеню" id="594">
+																<ChildItems>
+																	<Button name="АдресКартинкиКонтекстноеМенюДобавитьИзображение" id="596">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.ДобавитьИзображение</CommandName>
+																		<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюДобавитьИзображениеРасширеннаяПодсказка" id="597"/>
+																	</Button>
+																	<Button name="АдресКартинкиКонтекстноеМенюУстановитьИзображениеОсновным" id="598">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.УстановитьИзображениеОсновным</CommandName>
+																		<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюУстановитьИзображениеОсновнымРасширеннаяПодсказка" id="599"/>
+																	</Button>
+																	<Button name="АдресКартинкиКонтекстноеМенюУдалитьИзображение" id="600">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.УдалитьИзображение</CommandName>
+																		<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюУдалитьИзображениеРасширеннаяПодсказка" id="601"/>
+																	</Button>
+																	<Button name="АдресКартинкиКонтекстноеМенюПросмотретьИзображение" id="602">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.ПросмотретьИзображение</CommandName>
+																		<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюПросмотретьИзображениеРасширеннаяПодсказка" id="603"/>
+																	</Button>
+																	<Button name="АдресКартинкиКонтекстноеМенюКнопкаСортировкаФайловНаСайте" id="604">
+																		<Type>CommandBarButton</Type>
+																		<CommandName>Form.Command.КнопкаСортировкаФайловНаСайте</CommandName>
+																		<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюКнопкаСортировкаФайловНаСайтеРасширеннаяПодсказка" id="605"/>
+																	</Button>
+																</ChildItems>
+															</ContextMenu>
+															<ExtendedTooltip name="АдресКартинкиExtendedTooltip" id="595"/>
+															<Events>
+																<Event name="Click" callType="Before">Подключаемый_АдресКартинкиНажатие</Event>
+															</Events>
+														</PictureField>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ИзображениеКоманднаяПанельГруппа" id="553">
+													<Group>Vertical</Group>
+													<Behavior>Usual</Behavior>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ИзображениеКоманднаяПанельГруппаРасширеннаяПодсказка" id="554"/>
+													<ChildItems>
+														<UsualGroup name="ИзображениеКоманднаяПанельГруппаВправо" id="555">
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Изображение командная панель группа вправо</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Behavior>Usual</Behavior>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ИзображениеКоманднаяПанельГруппаВправоРасширеннаяПодсказка" id="556"/>
+															<ChildItems>
+																<LabelDecoration name="ДекорацияВправо" id="557">
+																	<Height>2</Height>
+																	<ContextMenu name="ДекорацияВправоКонтекстноеМеню" id="558"/>
+																	<ExtendedTooltip name="ДекорацияВправоРасширеннаяПодсказка" id="559"/>
+																</LabelDecoration>
+																<CommandBar name="ИзображениеКоманднаяПанель" id="560">
+																	<Visible>false</Visible>
+																	<EnableContentChange>true</EnableContentChange>
+																	<Width>5</Width>
+																	<HorizontalStretch>false</HorizontalStretch>
+																	<HorizontalLocation>Right</HorizontalLocation>
+																	<ExtendedTooltip name="ИзображениеКоманднаяПанельРасширеннаяПодсказка" id="561"/>
+																	<ChildItems>
+																		<Popup name="ИзображениеКоманднаяПанельПодменю" id="562">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Изображение командная панель подменю</v8:content>
+																				</v8:item>
+																			</Title>
+																			<Representation>Picture</Representation>
+																			<ShapeRepresentation>None</ShapeRepresentation>
+																			<ExtendedTooltip name="ИзображениеКоманднаяПанельПодменюРасширеннаяПодсказка" id="563"/>
+																			<ChildItems>
+																				<Button name="АдресКартинкиКонтекстноеМенюУстановитьИзображениеОсновнымДоп" id="564">
+																					<Type>CommandBarButton</Type>
+																					<CommandName>22:409b9a53-7f7e-4178-86c1-33176c7c7a7a</CommandName>
+																					<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюУстановитьИзображениеОсновнымДопРасширеннаяПодсказка" id="565"/>
+																				</Button>
+																				<Button name="АдресКартинкиКонтекстноеМенюУдалитьИзображениеДоп" id="566">
+																					<Type>CommandBarButton</Type>
+																					<CommandName>Form.Command.УдалитьИзображение</CommandName>
+																					<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюУдалитьИзображениеДопРасширеннаяПодсказка" id="567"/>
+																				</Button>
+																				<Button name="АдресКартинкиКонтекстноеМенюПросмотретьИзображениеДоп" id="568">
+																					<Type>CommandBarButton</Type>
+																					<CommandName>5:409b9a53-7f7e-4178-86c1-33176c7c7a7a</CommandName>
+																					<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюПросмотретьИзображениеДопРасширеннаяПодсказка" id="569"/>
+																				</Button>
+																				<Button name="АдресКартинкиКонтекстноеМенюДобавитьИзображениеДоп" id="570">
+																					<Type>CommandBarButton</Type>
+																					<CommandName>2:409b9a53-7f7e-4178-86c1-33176c7c7a7a</CommandName>
+																					<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюДобавитьИзображениеДопРасширеннаяПодсказка" id="571"/>
+																				</Button>
+																				<Button name="АдресКартинкиКонтекстноеМенюКнопкаСортировкаФайловНаСайтеДоп" id="572">
+																					<Type>CommandBarButton</Type>
+																					<CommandName>26:409b9a53-7f7e-4178-86c1-33176c7c7a7a</CommandName>
+																					<ExtendedTooltip name="АдресКартинкиКонтекстноеМенюКнопкаСортировкаФайловНаСайтеДопРасширеннаяПодсказка" id="573"/>
+																				</Button>
+																			</ChildItems>
+																		</Popup>
+																	</ChildItems>
+																</CommandBar>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="ДекорацияПрокруткаИзображенийВправоГруппа" id="574">
+															<Group>AlwaysHorizontal</Group>
+															<Behavior>Usual</Behavior>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ДекорацияПрокруткаИзображенийВправоГруппаРасширеннаяПодсказка" id="575"/>
+															<ChildItems>
+																<PictureDecoration name="ДекорацияПрокруткаИзображенийВправо" id="576">
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>8</MaxWidth>
+																	<Height>4</Height>
+																	<HorizontalStretch>true</HorizontalStretch>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Прокрутка вправо</v8:content>
+																		</v8:item>
+																	</Title>
+																	<Hyperlink>true</Hyperlink>
+																	<Picture>
+																		<xr:Ref>CommonPicture.УУ_ИзображениеСледующее</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
+																	</Picture>
+																	<FileDragMode>AsFile</FileDragMode>
+																	<ContextMenu name="ДекорацияПрокруткаИзображенийВправоКонтекстноеМеню" id="577"/>
+																	<ExtendedTooltip name="ДекорацияПрокруткаИзображенийВправоРасширеннаяПодсказка" id="578"/>
+																	<Events>
+																		<Event name="Click" callType="Before">ДекорацияПрокруткаИзображенийВправоНажатие</Event>
+																	</Events>
+																</PictureDecoration>
+																<LabelDecoration name="ДекорацияПрокруткаИзображенийВправоОтступ" id="579">
+																	<Visible>false</Visible>
+																	<AutoMaxWidth>false</AutoMaxWidth>
+																	<MaxWidth>8</MaxWidth>
+																	<Height>4</Height>
+																	<HorizontalStretch>true</HorizontalStretch>
+																	<ContextMenu name="ДекорацияПрокруткаИзображенийВправоОтступКонтекстноеМеню" id="580"/>
+																	<ExtendedTooltip name="ДекорацияПрокруткаИзображенийВправоОтступРасширеннаяПодсказка" id="581"/>
+																</LabelDecoration>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
 							</ChildItems>
 						</UsualGroup>
-						<UsualGroup name="ГруппаНаименованиеКод" id="91">
-							<Title>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Наименование и код</v8:content>
-								</v8:item>
-							</Title>
-							<Group>Horizontal</Group>
-							<Behavior>Usual</Behavior>
-							<Representation>None</Representation>
-							<ShowTitle>false</ShowTitle>
-							<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="130"/>
-							<ChildItems>
-								<InputField name="Наименование" id="3">
-									<EditMode>EnterOnInput</EditMode>
-									<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
-									<ExtendedTooltip name="НаименованиеExtendedTooltip" id="131"/>
-								</InputField>
-								<InputField name="Код" id="1">
-									<UserVisible>
-										<xr:Common>false</xr:Common>
-									</UserVisible>
-									<EditMode>EnterOnInput</EditMode>
-									<HorizontalStretch>false</HorizontalStretch>
-									<ContextMenu name="КодКонтекстноеМеню" id="2"/>
-									<ExtendedTooltip name="КодExtendedTooltip" id="132"/>
-								</InputField>
-							</ChildItems>
-						</UsualGroup>
-						<InputField name="НаименованиеПолное" id="211">
-							<TitleLocation>Left</TitleLocation>
-							<Height>2</Height>
-							<VerticalStretch>false</VerticalStretch>
-							<MultiLine>true</MultiLine>
-							<ContextMenu name="НаименованиеПолноеКонтекстноеМеню" id="212"/>
-							<ExtendedTooltip name="НаименованиеПолноеРасширеннаяПодсказка" id="213"/>
-						</InputField>
 						<UsualGroup name="ГруппаРаботаСНоменклатурой" id="378">
 							<Title>
 								<v8:item>
@@ -372,7 +654,7 @@
 								<InputField name="ЕдиницаИзмерения" id="9">
 									<EditMode>EnterOnInput</EditMode>
 									<HorizontalStretch>false</HorizontalStretch>
-									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<AutoMarkIncomplete>false</AutoMarkIncomplete>
 									<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="10"/>
 									<ExtendedTooltip name="ЕдиницаИзмеренияExtendedTooltip" id="140"/>
 								</InputField>
@@ -465,13 +747,26 @@
 										<Title formatted="false">
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Код операции для заполнения декларации по НДС</v8:content>
+												<v8:content>Код операции для заполнения декларации по НДС.</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
+						<InputField name="Операции0" id="586">
+							<TitleLocation>Left</TitleLocation>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<ContextMenu name="Операции0КонтекстноеМеню" id="589"/>
+							<ExtendedTooltip name="Операции0РасширеннаяПодсказка" id="590">
+								<Title formatted="false">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Классификация кодов операций по ставке НДС 0% для заполнения в регламентных отчетах и документах.</v8:content>
+									</v8:item>
+								</Title>
+							</ExtendedTooltip>
+						</InputField>
 						<UsualGroup name="ГруппаЦенаПродажи" id="265">
 							<Title>
 								<v8:item>
@@ -1505,10 +1800,136 @@
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
-	<Attributes/>
+	<Attributes>
+		<Attribute name="ТекущееИзображение" id="1000002">
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Изображения" id="1000001">
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Адрес" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Адрес</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="2">
+					<Type>
+						<v8:Type>cfg:CatalogRef.НоменклатураПрисоединенныеФайлы</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ДобавитьИзображение" id="1000000">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить изображение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action callType="Before">ДобавитьИзображение</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УдалитьИзображение" id="1000001">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удалить изображение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action callType="Before">УдалитьИзображение</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="УстановитьИзображениеОсновным" id="1000002">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить изображение основным</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Установить изображение основным</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action callType="After">УУ_УстановитьИзображениеОсновнымПосле</Action>
+		</Command>
+		<Command name="КнопкаСортировкаФайловНаСайте" id="1000003">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка сортировка файлов на сайте</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кнопка сортировка файлов на сайте</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action callType="Override">УУ_КнопкаСортировкаФайловНаСайтеВместо</Action>
+		</Command>
+		<Command name="ПросмотретьИзображение" id="1000004">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотреть изображение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Просмотреть изображение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action callType="After">УУ_ПросмотретьИзображениеПосле</Action>
+		</Command>
+	</Commands>
 	<BaseForm version="2.16">
 		<ScalingMode>Normal</ScalingMode>
-		<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 		<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 			<ChildItems>
 				<Button name="ФормаПоказатьКонтекстныеНовости" id="221">
@@ -1874,7 +2295,7 @@
 									<InputField name="ЕдиницаИзмерения" id="9">
 										<EditMode>EnterOnInput</EditMode>
 										<HorizontalStretch>false</HorizontalStretch>
-										<AutoMarkIncomplete>true</AutoMarkIncomplete>
+										<AutoMarkIncomplete>false</AutoMarkIncomplete>
 										<ContextMenu name="ЕдиницаИзмеренияКонтекстноеМеню" id="10"/>
 										<ExtendedTooltip name="ЕдиницаИзмеренияExtendedTooltip" id="140"/>
 									</InputField>
@@ -1967,13 +2388,26 @@
 											<Title formatted="false">
 												<v8:item>
 													<v8:lang>ru</v8:lang>
-													<v8:content>Код операции для заполнения декларации по НДС</v8:content>
+													<v8:content>Код операции для заполнения декларации по НДС.</v8:content>
 												</v8:item>
 											</Title>
 										</ExtendedTooltip>
 									</InputField>
 								</ChildItems>
 							</UsualGroup>
+							<InputField name="Операции0" id="521">
+								<TitleLocation>Left</TitleLocation>
+								<ToolTipRepresentation>Button</ToolTipRepresentation>
+								<ContextMenu name="Операции0КонтекстноеМеню" id="522"/>
+								<ExtendedTooltip name="Операции0РасширеннаяПодсказка" id="523">
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Классификация кодов операций по ставке НДС 0% для заполнения в регламентных отчетах и документах.</v8:content>
+										</v8:item>
+									</Title>
+								</ExtendedTooltip>
+							</InputField>
 							<UsualGroup name="ГруппаЦенаПродажи" id="265">
 								<Title>
 									<v8:item>

@@ -69,7 +69,15 @@
 									<UpdateOnDataChange>Auto</UpdateOnDataChange>
 									<UserSettingsGroup>Группа5</UserSettingsGroup>
 									<AllowGettingCurrentRowURL>true</AllowGettingCurrentRowURL>
-									<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+									<ContextMenu name="СписокКонтекстноеМеню" id="2">
+										<ChildItems>
+											<Button name="СписокКонтекстноеМенюИзменитьВыделенные" id="182">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ИзменитьВыделенные</CommandName>
+												<ExtendedTooltip name="СписокКонтекстноеМенюИзменитьВыделенныеРасширеннаяПодсказка" id="183"/>
+											</Button>
+										</ChildItems>
+									</ContextMenu>
 									<AutoCommandBar name="СписокКоманднаяПанель" id="3">
 										<ChildItems>
 											<Button name="СписокДокументД_СлужебнаяЗапискаСоздатьЗадание" id="125">
@@ -467,6 +475,9 @@
 			<Type>
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
+			<UseAlways>
+				<Field>Список.Ref</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
@@ -679,6 +690,23 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Commands>
+		<Command name="ИзменитьВыделенные" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить выделенные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изменить выделенные</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ИзменитьВыделенные</Action>
+		</Command>
+	</Commands>
 	<CommandInterface>
 		<CommandBar>
 			<Item>

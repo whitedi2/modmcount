@@ -3,6 +3,7 @@
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
 	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
 		<Event name="BeforeWriteAtServer">ПередЗаписьюНаСервере</Event>
 	</Events>
 	<ChildItems>
@@ -13,15 +14,26 @@
 		</InputField>
 		<CheckBoxField name="Использование" id="4">
 			<DataPath>Запись.Использование</DataPath>
+			<ReadOnly>true</ReadOnly>
 			<CheckBoxType>Auto</CheckBoxType>
 			<ContextMenu name="ИспользованиеКонтекстноеМеню" id="5"/>
 			<ExtendedTooltip name="ИспользованиеРасширеннаяПодсказка" id="6"/>
 		</CheckBoxField>
-		<Button name="Расписание" id="7">
-			<Type>UsualButton</Type>
-			<CommandName>Form.Command.Расписание</CommandName>
-			<ExtendedTooltip name="РасписаниеРасширеннаяПодсказка" id="8"/>
-		</Button>
+		<UsualGroup name="Группа1" id="11">
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="12"/>
+			<ChildItems>
+				<Button name="Расписание" id="7">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.Расписание</CommandName>
+					<ExtendedTooltip name="РасписаниеРасширеннаяПодсказка" id="8"/>
+				</Button>
+				<Button name="РегламентныеИФоновыеЗадания" id="9">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.РегламентныеИФоновыеЗадания</CommandName>
+					<ExtendedTooltip name="РегламентныеИФоновыеЗаданияРасширеннаяПодсказка" id="10"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Запись" id="1">
@@ -62,6 +74,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>Расписание</Action>
+		</Command>
+		<Command name="РегламентныеИФоновыеЗадания" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регламентные и фоновые задания</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регламентные и фоновые задания</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>РегламентныеИФоновыеЗадания</Action>
 		</Command>
 	</Commands>
 </Form>
