@@ -5,6 +5,11 @@
 	<RepostOnWrite>true</RepostOnWrite>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
+			<Button name="ТоварыВнестиИсправления" id="344">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.Command.ВнестиИсправления</CommandName>
+				<ExtendedTooltip name="ТоварыВнестиИсправленияРасширеннаяПодсказка" id="345"/>
+			</Button>
 			<Popup name="ФормаГруппа1" id="206">
 				<Title>
 					<v8:item>
@@ -425,6 +430,13 @@
 											<ContextMenu name="ТоварыНоменклатураКонтекстноеМеню" id="39"/>
 											<ExtendedTooltip name="ТоварыНоменклатураРасширеннаяПодсказка" id="40"/>
 										</InputField>
+										<InputField name="ТоварыСерияНоменклатуры" id="341">
+											<DataPath>Объект.Товары.СерияНоменклатуры</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+											<ContextMenu name="ТоварыСерияНоменклатурыКонтекстноеМеню" id="342"/>
+											<ExtendedTooltip name="ТоварыСерияНоменклатурыРасширеннаяПодсказка" id="343"/>
+										</InputField>
 										<InputField name="ТоварыЦенаЗакупочная" id="158">
 											<DataPath>Объект.Товары.ЦенаЗакупочная</DataPath>
 											<Visible>false</Visible>
@@ -432,25 +444,6 @@
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ТоварыЦенаЗакупочнаяКонтекстноеМеню" id="159"/>
 											<ExtendedTooltip name="ТоварыЦенаЗакупочнаяРасширеннаяПодсказка" id="160"/>
-										</InputField>
-										<InputField name="ТоварыКоличествоФакт" id="44">
-											<DataPath>Объект.Товары.КоличествоФакт</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<Width>12</Width>
-											<ContextMenu name="ТоварыКоличествоФактКонтекстноеМеню" id="45"/>
-											<ExtendedTooltip name="ТоварыКоличествоФактРасширеннаяПодсказка" id="46"/>
-											<Events>
-												<Event name="OnChange">ТоварыКоличествоФактПриИзменении</Event>
-											</Events>
-										</InputField>
-										<InputField name="ТоварыСуммаФакт" id="100">
-											<DataPath>Объект.Товары.СуммаФакт</DataPath>
-											<ReadOnly>true</ReadOnly>
-											<EditMode>EnterOnInput</EditMode>
-											<FooterDataPath>Объект.Товары.TotalСуммаФакт</FooterDataPath>
-											<Width>12</Width>
-											<ContextMenu name="ТоварыСуммаФактКонтекстноеМеню" id="101"/>
-											<ExtendedTooltip name="ТоварыСуммаФактРасширеннаяПодсказка" id="102"/>
 										</InputField>
 										<InputField name="ТоварыКоличество" id="41">
 											<DataPath>Объект.Товары.Количество</DataPath>
@@ -475,6 +468,25 @@
 											<Width>12</Width>
 											<ContextMenu name="ТоварыСуммаКонтекстноеМеню" id="59"/>
 											<ExtendedTooltip name="ТоварыСуммаРасширеннаяПодсказка" id="60"/>
+										</InputField>
+										<InputField name="ТоварыКоличествоФакт" id="44">
+											<DataPath>Объект.Товары.КоличествоФакт</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<Width>12</Width>
+											<ContextMenu name="ТоварыКоличествоФактКонтекстноеМеню" id="45"/>
+											<ExtendedTooltip name="ТоварыКоличествоФактРасширеннаяПодсказка" id="46"/>
+											<Events>
+												<Event name="OnChange">ТоварыКоличествоФактПриИзменении</Event>
+											</Events>
+										</InputField>
+										<InputField name="ТоварыСуммаФакт" id="100">
+											<DataPath>Объект.Товары.СуммаФакт</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<EditMode>EnterOnInput</EditMode>
+											<FooterDataPath>Объект.Товары.TotalСуммаФакт</FooterDataPath>
+											<Width>12</Width>
+											<ContextMenu name="ТоварыСуммаФактКонтекстноеМеню" id="101"/>
+											<ExtendedTooltip name="ТоварыСуммаФактРасширеннаяПодсказка" id="102"/>
 										</InputField>
 										<InputField name="ТоварыКоличествоПрошлаяПодснятие" id="64">
 											<DataPath>Объект.Товары.КоличествоПрошлаяИнвПодснятие</DataPath>
@@ -1449,6 +1461,21 @@
 			</ToolTip>
 			<Action>ЗаполнитьНомГруппы</Action>
 			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ВнестиИсправления" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внести исправления</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внести исправления</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВнестиИсправления</Action>
 		</Command>
 	</Commands>
 </Form>

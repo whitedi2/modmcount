@@ -85,6 +85,12 @@
 				<CommandName>Form.Command.ЗагрузитьЗаказыИзExcel</CommandName>
 				<ExtendedTooltip name="ФормаЗагрузитьЗаказыИзExcelРасширеннаяПодсказка" id="56"/>
 			</Button>
+			<Button name="ФормаДокументЗаказНаПроизводствоПечатьЗаданиеНаПроизводство" id="139">
+				<Type>CommandBarButton</Type>
+				<CommandName>Document.ЗаказНаПроизводство.Command.ПечатьЗаданиеНаПроизводство</CommandName>
+				<DataPath>Items.Список.CurrentData.Ссылка</DataPath>
+				<ExtendedTooltip name="ФормаДокументЗаказНаПроизводствоПечатьЗаданиеНаПроизводствоРасширеннаяПодсказка" id="140"/>
+			</Button>
 		</ChildItems>
 	</AutoCommandBar>
 	<Events>
@@ -307,6 +313,17 @@
 					<ContextMenu name="ВесТовараКонтекстноеМеню" id="112"/>
 					<ExtendedTooltip name="ВесТовараРасширеннаяПодсказка" id="113"/>
 				</LabelField>
+				<LabelField name="ПродукцияСтрока" id="133">
+					<DataPath>Список.ПродукцияСтрока</DataPath>
+					<ContextMenu name="ПродукцияСтрокаКонтекстноеМеню" id="134"/>
+					<ExtendedTooltip name="ПродукцияСтрокаРасширеннаяПодсказка" id="135"/>
+				</LabelField>
+				<LabelField name="Партия" id="136">
+					<DataPath>Список.Партия</DataPath>
+					<Width>10</Width>
+					<ContextMenu name="ПартияКонтекстноеМеню" id="137"/>
+					<ExtendedTooltip name="ПартияРасширеннаяПодсказка" id="138"/>
+				</LabelField>
 				<InputField name="Основание" id="121">
 					<DataPath>Список.ДокОснование</DataPath>
 					<Title>
@@ -343,7 +360,6 @@
 				</LabelField>
 				<LabelField name="Ссылка" id="46">
 					<DataPath>Список.Ссылка</DataPath>
-					<Visible>false</Visible>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -422,7 +438,9 @@
 				ИНАЧЕ ВЫРАЗИТЬ(4 КАК ЧИСЛО(2, 0))
 			КОНЕЦ
 	КОНЕЦ КАК ПроритетСрочности,
-	ЗаказНаПроизводство.НомерЗаданияНаПроизводство КАК НомерЗаданияНаПроизводство
+	ЗаказНаПроизводство.НомерЗаданияНаПроизводство КАК НомерЗаданияНаПроизводство,
+	ЗаказНаПроизводство.ПродукцияСтрока КАК ПродукцияСтрока,
+	ЗаказНаПроизводство.Партия КАК Партия
 ИЗ
 	Документ.ЗаказНаПроизводство КАК ЗаказНаПроизводство
 ГДЕ

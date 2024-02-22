@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<CommandSet>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Close</ExcludedCommand>
+		<ExcludedCommand>CustomizeForm</ExcludedCommand>
+		<ExcludedCommand>Help</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<ChildItems>
+			<Button name="КнопкаСохранить" id="17">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>0</CommandName>
+				<Picture>
+					<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Сохранить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="КнопкаСохранитьExtendedTooltip" id="80"/>
+			</Button>
+			<Button name="КнопкаОтмена" id="64">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="КнопкаОтменаExtendedTooltip" id="81"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen" callType="After">УУ_ПриОткрытииПосле</Event>
+		<Event name="OnCreateAtServer" callType="After">УУ_ПриСозданииНаСервереПосле</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ВыборМестаСохраненияФайла" id="50" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выбор места сохранения файла</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ВыборМестаСохраненияФайлаExtendedTooltip" id="82"/>
+			<ChildItems>
+				<RadioButtonField name="ВариантСохранения" id="67" DisplayImportance="VeryHigh">
+					<TitleLocation>None</TitleLocation>
+					<RadioButtonType>RadioButtons</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сохранить в папку на компьютер</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">СохранитьВПапку</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Присоединить к документу</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:string">Присоединить</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ВариантСохраненияКонтекстноеМеню" id="68"/>
+					<ExtendedTooltip name="ВариантСохраненияExtendedTooltip" id="83"/>
+				</RadioButtonField>
+				<InputField name="ПапкаДляСохраненияФайлов" id="42">
+					<TitleLocation>None</TitleLocation>
+					<Width>40</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<ChoiceButton>true</ChoiceButton>
+					<AutoMarkIncomplete>true</AutoMarkIncomplete>
+					<ContextMenu name="ПапкаДляСохраненияФайловКонтекстноеМеню" id="43"/>
+					<ExtendedTooltip name="ПапкаДляСохраненияФайловExtendedTooltip" id="86"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаВыборФорматов" id="77" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В форматах</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ExtendedTooltip name="ГруппаВыборФорматовExtendedTooltip" id="89"/>
+			<ChildItems>
+				<Table name="ВыбранныеФорматыСохранения" id="72">
+					<Representation>List</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<Header>false</Header>
+					<HorizontalLines>false</HorizontalLines>
+					<VerticalLines>false</VerticalLines>
+					<FileDragMode>AsFile</FileDragMode>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбранные форматы сохранения</v8:content>
+						</v8:item>
+					</Title>
+					<SearchStringLocation>Top</SearchStringLocation>
+					<ContextMenu name="ВыбранныеФорматыСохраненияКонтекстноеМеню" id="73"/>
+					<AutoCommandBar name="ВыбранныеФорматыСохраненияКоманднаяПанель" id="74">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ВыбранныеФорматыСохраненияExtendedTooltip" id="90"/>
+					<SearchStringAddition name="ВыбранныеФорматыСохраненияSearchString" id="95">
+						<AdditionSource>
+							<Item>ВыбранныеФорматыСохранения</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВыбранныеФорматыСохраненияSearchStringContextMenu" id="96"/>
+						<ExtendedTooltip name="ВыбранныеФорматыСохраненияSearchStringExtendedTooltip" id="97"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ВыбранныеФорматыСохраненияViewStatus" id="98">
+						<AdditionSource>
+							<Item>ВыбранныеФорматыСохранения</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ВыбранныеФорматыСохраненияViewStatusContextMenu" id="99"/>
+						<ExtendedTooltip name="ВыбранныеФорматыСохраненияViewStatusExtendedTooltip" id="100"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ВыбранныеФорматыСохраненияSearchControl" id="101">
+						<AdditionSource>
+							<Item>ВыбранныеФорматыСохранения</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ВыбранныеФорматыСохраненияSearchControlContextMenu" id="102"/>
+						<ExtendedTooltip name="ВыбранныеФорматыСохраненияSearchControlExtendedTooltip" id="103"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<CheckBoxField name="ВыбранныеФорматыСохраненияПометка" id="78">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Пометка</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ВыбранныеФорматыСохраненияПометкаКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="ВыбранныеФорматыСохраненияПометкаExtendedTooltip" id="91"/>
+						</CheckBoxField>
+						<InputField name="ВыбранныеФорматыСохраненияЗначение" id="75">
+							<ReadOnly>true</ReadOnly>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Значение</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ВыбранныеФорматыСохраненияЗначениеКонтекстноеМеню" id="76"/>
+							<ExtendedTooltip name="ВыбранныеФорматыСохраненияЗначениеExtendedTooltip" id="92"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеПараметры" id="63" DisplayImportance="VeryHigh">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дополнительные параметры</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеПараметрыExtendedTooltip" id="93"/>
+			<ChildItems>
+				<CheckBoxField name="УпаковатьВАрхив" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дополнительно упаковать в архив (.zip)</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УпаковатьВАрхивКонтекстноеМеню" id="15"/>
+					<ExtendedTooltip name="УпаковатьВАрхивExtendedTooltip" id="94"/>
+				</CheckBoxField>
+				<CheckBoxField name="ПереводитьИменаФайловВТранслит" id="104">
+					<TitleLocation>Right</TitleLocation>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сохраненные файлы будут иметь имена, содержащие только латинские буквы и цифры, для возможности переноса между различными операционными системами. Например, файл "Документ.txt" будет сохранен с именем "Document.txt".</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПереводитьИменаФайловВТранслитКонтекстноеМеню" id="105"/>
+					<ExtendedTooltip name="ПереводитьИменаФайловВТранслитРасширеннаяПодсказка" id="106"/>
+				</CheckBoxField>
+				<CheckBoxField name="Подписать" id="107">
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПодписатьКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="109"/>
+				</CheckBoxField>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes/>
+	<BaseForm version="2.16">
+		<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+		<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+		<CommandBarLocation>Bottom</CommandBarLocation>
+		<CommandSet>
+			<ExcludedCommand>Abort</ExcludedCommand>
+			<ExcludedCommand>Close</ExcludedCommand>
+			<ExcludedCommand>CustomizeForm</ExcludedCommand>
+			<ExcludedCommand>Help</ExcludedCommand>
+			<ExcludedCommand>Ignore</ExcludedCommand>
+			<ExcludedCommand>No</ExcludedCommand>
+			<ExcludedCommand>OK</ExcludedCommand>
+			<ExcludedCommand>RestoreValues</ExcludedCommand>
+			<ExcludedCommand>Retry</ExcludedCommand>
+			<ExcludedCommand>SaveValues</ExcludedCommand>
+			<ExcludedCommand>Yes</ExcludedCommand>
+		</CommandSet>
+		<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+			<HorizontalAlign>Right</HorizontalAlign>
+			<ChildItems>
+				<Button name="КнопкаСохранить" id="17">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<DefaultButton>true</DefaultButton>
+					<SkipOnInput>false</SkipOnInput>
+					<CommandName>0</CommandName>
+					<Picture>
+						<xr:Ref>StdPicture.WriteAndClose</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сохранить</v8:content>
+						</v8:item>
+					</Title>
+					<ExtendedTooltip name="КнопкаСохранитьExtendedTooltip" id="80"/>
+				</Button>
+				<Button name="КнопкаОтмена" id="64">
+					<Type>CommandBarButton</Type>
+					<CommandName>0</CommandName>
+					<ExtendedTooltip name="КнопкаОтменаExtendedTooltip" id="81"/>
+				</Button>
+			</ChildItems>
+		</AutoCommandBar>
+		<ChildItems>
+			<UsualGroup name="ВыборМестаСохраненияФайла" id="50" DisplayImportance="VeryHigh">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Выбор места сохранения файла</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Vertical</Group>
+				<Behavior>Usual</Behavior>
+				<Representation>NormalSeparation</Representation>
+				<ShowTitle>false</ShowTitle>
+				<ExtendedTooltip name="ВыборМестаСохраненияФайлаExtendedTooltip" id="82"/>
+				<ChildItems>
+					<RadioButtonField name="ВариантСохранения" id="67" DisplayImportance="VeryHigh">
+						<TitleLocation>None</TitleLocation>
+						<RadioButtonType>RadioButtons</RadioButtonType>
+						<ChoiceList>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сохранить в папку на компьютер</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xs:string">СохранитьВПапку</Value>
+								</xr:Value>
+							</xr:Item>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Присоединить к документу</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xs:string">Присоединить</Value>
+								</xr:Value>
+							</xr:Item>
+						</ChoiceList>
+						<ContextMenu name="ВариантСохраненияКонтекстноеМеню" id="68"/>
+						<ExtendedTooltip name="ВариантСохраненияExtendedTooltip" id="83"/>
+					</RadioButtonField>
+					<InputField name="ПапкаДляСохраненияФайлов" id="42">
+						<TitleLocation>None</TitleLocation>
+						<Width>40</Width>
+						<AutoMaxWidth>false</AutoMaxWidth>
+						<ChoiceButton>true</ChoiceButton>
+						<AutoMarkIncomplete>true</AutoMarkIncomplete>
+						<ContextMenu name="ПапкаДляСохраненияФайловКонтекстноеМеню" id="43"/>
+						<ExtendedTooltip name="ПапкаДляСохраненияФайловExtendedTooltip" id="86"/>
+					</InputField>
+				</ChildItems>
+			</UsualGroup>
+			<UsualGroup name="ГруппаВыборФорматов" id="77" DisplayImportance="VeryHigh">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>В форматах</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Vertical</Group>
+				<Behavior>Usual</Behavior>
+				<ExtendedTooltip name="ГруппаВыборФорматовExtendedTooltip" id="89"/>
+				<ChildItems>
+					<Table name="ВыбранныеФорматыСохранения" id="72">
+						<Representation>List</Representation>
+						<ChangeRowSet>false</ChangeRowSet>
+						<ChangeRowOrder>false</ChangeRowOrder>
+						<Header>false</Header>
+						<HorizontalLines>false</HorizontalLines>
+						<VerticalLines>false</VerticalLines>
+						<FileDragMode>AsFile</FileDragMode>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Выбранные форматы сохранения</v8:content>
+							</v8:item>
+						</Title>
+						<SearchStringLocation>Top</SearchStringLocation>
+						<ContextMenu name="ВыбранныеФорматыСохраненияКонтекстноеМеню" id="73"/>
+						<AutoCommandBar name="ВыбранныеФорматыСохраненияКоманднаяПанель" id="74">
+							<Autofill>false</Autofill>
+						</AutoCommandBar>
+						<ExtendedTooltip name="ВыбранныеФорматыСохраненияExtendedTooltip" id="90"/>
+						<SearchStringAddition name="ВыбранныеФорматыСохраненияSearchString" id="95">
+							<AdditionSource>
+								<Item>ВыбранныеФорматыСохранения</Item>
+								<Type>SearchStringRepresentation</Type>
+							</AdditionSource>
+							<ContextMenu name="ВыбранныеФорматыСохраненияSearchStringContextMenu" id="96"/>
+							<ExtendedTooltip name="ВыбранныеФорматыСохраненияSearchStringExtendedTooltip" id="97"/>
+						</SearchStringAddition>
+						<ViewStatusAddition name="ВыбранныеФорматыСохраненияViewStatus" id="98">
+							<AdditionSource>
+								<Item>ВыбранныеФорматыСохранения</Item>
+								<Type>ViewStatusRepresentation</Type>
+							</AdditionSource>
+							<ContextMenu name="ВыбранныеФорматыСохраненияViewStatusContextMenu" id="99"/>
+							<ExtendedTooltip name="ВыбранныеФорматыСохраненияViewStatusExtendedTooltip" id="100"/>
+						</ViewStatusAddition>
+						<SearchControlAddition name="ВыбранныеФорматыСохраненияSearchControl" id="101">
+							<AdditionSource>
+								<Item>ВыбранныеФорматыСохранения</Item>
+								<Type>SearchControl</Type>
+							</AdditionSource>
+							<ContextMenu name="ВыбранныеФорматыСохраненияSearchControlContextMenu" id="102"/>
+							<ExtendedTooltip name="ВыбранныеФорматыСохраненияSearchControlExtendedTooltip" id="103"/>
+						</SearchControlAddition>
+						<ChildItems>
+							<CheckBoxField name="ВыбранныеФорматыСохраненияПометка" id="78">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Пометка</v8:content>
+									</v8:item>
+								</Title>
+								<EditMode>EnterOnInput</EditMode>
+								<CheckBoxType>Auto</CheckBoxType>
+								<ContextMenu name="ВыбранныеФорматыСохраненияПометкаКонтекстноеМеню" id="79"/>
+								<ExtendedTooltip name="ВыбранныеФорматыСохраненияПометкаExtendedTooltip" id="91"/>
+							</CheckBoxField>
+							<InputField name="ВыбранныеФорматыСохраненияЗначение" id="75">
+								<ReadOnly>true</ReadOnly>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Значение</v8:content>
+									</v8:item>
+								</Title>
+								<EditMode>EnterOnInput</EditMode>
+								<ContextMenu name="ВыбранныеФорматыСохраненияЗначениеКонтекстноеМеню" id="76"/>
+								<ExtendedTooltip name="ВыбранныеФорматыСохраненияЗначениеExtendedTooltip" id="92"/>
+							</InputField>
+						</ChildItems>
+					</Table>
+				</ChildItems>
+			</UsualGroup>
+			<UsualGroup name="ГруппаДополнительныеПараметры" id="63" DisplayImportance="VeryHigh">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Дополнительные параметры</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Vertical</Group>
+				<Behavior>Usual</Behavior>
+				<Representation>NormalSeparation</Representation>
+				<ShowTitle>false</ShowTitle>
+				<ExtendedTooltip name="ГруппаДополнительныеПараметрыExtendedTooltip" id="93"/>
+				<ChildItems>
+					<CheckBoxField name="УпаковатьВАрхив" id="14">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Дополнительно упаковать в архив (.zip)</v8:content>
+							</v8:item>
+						</Title>
+						<TitleLocation>Right</TitleLocation>
+						<CheckBoxType>Auto</CheckBoxType>
+						<ContextMenu name="УпаковатьВАрхивКонтекстноеМеню" id="15"/>
+						<ExtendedTooltip name="УпаковатьВАрхивExtendedTooltip" id="94"/>
+					</CheckBoxField>
+					<CheckBoxField name="ПереводитьИменаФайловВТранслит" id="104">
+						<TitleLocation>Right</TitleLocation>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сохраненные файлы будут иметь имена, содержащие только латинские буквы и цифры, для возможности переноса между различными операционными системами. Например, файл "Документ.txt" будет сохранен с именем "Document.txt".</v8:content>
+							</v8:item>
+						</ToolTip>
+						<ToolTipRepresentation>Button</ToolTipRepresentation>
+						<CheckBoxType>Auto</CheckBoxType>
+						<ContextMenu name="ПереводитьИменаФайловВТранслитКонтекстноеМеню" id="105"/>
+						<ExtendedTooltip name="ПереводитьИменаФайловВТранслитРасширеннаяПодсказка" id="106"/>
+					</CheckBoxField>
+					<CheckBoxField name="Подписать" id="107">
+						<TitleLocation>Right</TitleLocation>
+						<CheckBoxType>Auto</CheckBoxType>
+						<ContextMenu name="ПодписатьКонтекстноеМеню" id="108"/>
+						<ExtendedTooltip name="ПодписатьРасширеннаяПодсказка" id="109"/>
+					</CheckBoxField>
+				</ChildItems>
+			</UsualGroup>
+		</ChildItems>
+		<Attributes/>
+	</BaseForm>
+</Form>

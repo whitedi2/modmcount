@@ -4,8 +4,83 @@
 		<name>ИсточникДанных1</name>
 		<dataSourceType>Local</dataSourceType>
 	</dataSource>
-	<dataSet xsi:type="DataSetUnion">
-		<name>НаборДанных1</name>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных2</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокНаНачало</dataPath>
+			<field>ОстатокНаНачало</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток на начало</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=3</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СценарийПлана</dataPath>
+			<field>СценарийПлана</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто3</dataPath>
+			<field>Субконто3</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Предприятия</dataPath>
 			<field>Предприятия</field>
@@ -14,112 +89,17 @@
 			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Субконто1</dataPath>
-			<field>Субконто1</field>
-			<useRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</attributeUseRestriction>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Субконто2</dataPath>
-			<field>Субконто2</field>
-			<useRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</attributeUseRestriction>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Счет</dataPath>
-			<field>Счет</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Субконто3</dataPath>
-			<field>Субконто3</field>
-			<useRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</attributeUseRestriction>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Валюта</dataPath>
-			<field>Валюта</field>
-			<useRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СценарийПлана</dataPath>
-			<field>СценарийПлана</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Подразделение</dataPath>
 			<field>Подразделение</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Дата</dataPath>
-			<field>Дата</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Дата</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:periodNumber>1</dcscom:periodNumber>
-				<dcscom:periodType>Main</dcscom:periodType>
-			</role>
-			<appearance>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Формат</dcscor:parameter>
-					<dcscor:value xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ДФ=dd.MM.yyyy</v8:content>
-						</v8:item>
-					</dcscor:value>
-				</dcscor:item>
-			</appearance>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>КорСубконто1</dataPath>
 			<field>КорСубконто1</field>
 			<useRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</useRestriction>
 			<attributeUseRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -127,11 +107,9 @@
 			<field>КорСубконто2</field>
 			<useRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</useRestriction>
 			<attributeUseRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -139,27 +117,42 @@
 			<field>КорСубконто3</field>
 			<useRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</useRestriction>
 			<attributeUseRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ПодразделениеКор</dataPath>
 			<field>ПодразделениеКор</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидДвижения</dataPath>
+			<field>ВидДвижения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид движения</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ВалютаКор</dataPath>
 			<field>ВалютаКор</field>
 			<useRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</useRestriction>
 			<attributeUseRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -167,11 +160,9 @@
 			<field>КорСчет</field>
 			<useRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</useRestriction>
 			<attributeUseRestriction>
 				<condition>true</condition>
-				<group>true</group>
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -209,31 +200,28 @@
 			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>ВидДвижения</dataPath>
-			<field>ВидДвижения</field>
+			<dataPath>Дата</dataPath>
+			<field>Дата</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Вид движения</v8:content>
+					<v8:content>Дата</v8:content>
 				</v8:item>
 			</title>
-			<useRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</attributeUseRestriction>
 			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
-			<orderExpression>
-				<dcscom:expression>Порядок</dcscom:expression>
-				<dcscom:orderType>Asc</dcscom:orderType>
-				<dcscom:autoOrder>false</dcscom:autoOrder>
-			</orderExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Оборот</dataPath>
+			<field>Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оборот</v8:content>
+				</v8:item>
+			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Сумма</dataPath>
@@ -246,49 +234,14 @@
 			</title>
 			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Формат</dcscor:parameter>
-					<dcscor:value xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧДЦ=3</v8:content>
-						</v8:item>
-					</dcscor:value>
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
-					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Overflow</dcscor:value>
 				</dcscor:item>
-			</appearance>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Порядок</dataPath>
-			<field>Порядок</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Порядок</v8:content>
-				</v8:item>
-			</title>
-			<useRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</useRestriction>
-			<attributeUseRestriction>
-				<condition>true</condition>
-				<group>true</group>
-			</attributeUseRestriction>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ОстатокНаНачало</dataPath>
-			<field>ОстатокНаНачало</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Остаток на начало</v8:content>
-				</v8:item>
-			</title>
-			<appearance>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
@@ -314,6 +267,10 @@
 				</v8:item>
 			</title>
 			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
@@ -343,117 +300,22 @@
 				<dcscom:periodType>Main</dcscom:periodType>
 			</role>
 		</field>
-		<item xsi:type="DataSetQuery">
-			<name>Остатки</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Предприятия</dataPath>
-				<field>Предприятия</field>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СценарийПлана</dataPath>
-				<field>СценарийПлана</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Номенклатура</dataPath>
-				<field>Номенклатура</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Номенклатура</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Склад</dataPath>
-				<field>Склад</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Склад</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Порядок</dataPath>
-				<field>Порядок</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Порядок</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Дата</dataPath>
-				<field>Дата</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Дата</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОстатокНаНачало</dataPath>
-				<field>ОстатокНаНачало</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Остаток на начало</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОстатокНаКонец</dataPath>
-				<field>ОстатокНаКонец</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Остаток на конец</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОборотЗаВсеВремя</dataPath>
+			<field>ОборотЗаВсеВремя</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оборот за все время</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
 	УчетныйОстатки.Субконто1 КАК Номенклатура,
 	УчетныйОстатки.Субконто2 КАК Склад,
 	УчетныйОстатки.Предприятия КАК Предприятия,
-	УчетныйОстатки.КоличествоОстаток КАК ОстатокНаНачало
+	УчетныйОстатки.КоличествоОстаток КАК Остаток
 ПОМЕСТИТЬ Врем
 ИЗ
 	РегистрБухгалтерии.Учетный.Остатки(&amp;Период, Счет.Код = "41", , ) КАК УчетныйОстатки
@@ -464,197 +326,15 @@
 	Врем.Номенклатура КАК Номенклатура,
 	Врем.Склад КАК Склад,
 	Врем.Предприятия КАК Предприятия,
-	1 КАК Порядок,
 	НАЧАЛОПЕРИОДА(&amp;ПериодТекДата, ДЕНЬ) КАК Дата,
-	Врем.ОстатокНаНачало КАК ОстатокНаНачало,
-	0 КАК ОстатокНаКонец
+	Врем.Остаток КАК Остаток
+ПОМЕСТИТЬ ВТ1
 ИЗ
 	Врем КАК Врем
+;
 
-ОБЪЕДИНИТЬ ВСЕ
-
+////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	Врем.Номенклатура,
-	Врем.Склад,
-	Врем.Предприятия,
-	4,
-	НАЧАЛОПЕРИОДА(&amp;ПериодТекДата, ДЕНЬ),
-	0,
-	Врем.ОстатокНаНачало
-ИЗ
-	Врем КАК Врем</query>
-		</item>
-		<item xsi:type="DataSetQuery">
-			<name>Обороты</name>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Предприятия</dataPath>
-				<field>Предприятия</field>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто1</dataPath>
-				<field>Субконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто2</dataPath>
-				<field>Субконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Дата</dataPath>
-				<field>Дата</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Дата</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Счет</dataPath>
-				<field>Счет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Субконто3</dataPath>
-				<field>Субконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СценарийПлана</dataPath>
-				<field>СценарийПлана</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Подразделение</dataPath>
-				<field>Подразделение</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто1</dataPath>
-				<field>КорСубконто1</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто2</dataPath>
-				<field>КорСубконто2</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСубконто3</dataPath>
-				<field>КорСубконто3</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПодразделениеКор</dataPath>
-				<field>ПодразделениеКор</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВалютаКор</dataPath>
-				<field>ВалютаКор</field>
-				<useRestriction>
-					<condition>true</condition>
-				</useRestriction>
-				<attributeUseRestriction>
-					<condition>true</condition>
-				</attributeUseRestriction>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КорСчет</dataPath>
-				<field>КорСчет</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Номенклатура</dataPath>
-				<field>Номенклатура</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Номенклатура</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Склад</dataPath>
-				<field>Склад</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Склад</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:dimension>true</dcscom:dimension>
-					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ВидДвижения</dataPath>
-				<field>ВидДвижения</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Вид движения</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Сумма</dataPath>
-				<field>Сумма</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Сумма</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Порядок</dataPath>
-				<field>Порядок</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Порядок</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОстатокНаНачало</dataPath>
-				<field>ОстатокНаНачало</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Остаток на начало</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОстатокНаКонец</dataPath>
-				<field>ОстатокНаКонец</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Остаток на конец</v8:content>
-					</v8:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Заказ</dataPath>
-				<field>Заказ</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Заказ</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:periodNumber>1</dcscom:periodNumber>
-					<dcscom:periodType>Main</dcscom:periodType>
-				</role>
-			</field>
-			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ
 	УчетныйОбороты.Субконто1 КАК Номенклатура,
 	УчетныйОбороты.Субконто2 КАК Склад,
 	УчетныйОбороты.Предприятия КАК Предприятия,
@@ -667,7 +347,7 @@
 		ИНАЧЕ НАЧАЛОПЕРИОДА(УчетныйОбороты.Период, ДЕНЬ)
 	КОНЕЦ КАК Дата,
 	УчетныйОбороты.Регистратор КАК Заказ
-ПОМЕСТИТЬ Врем
+ПОМЕСТИТЬ Врем2
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(, , Регистратор, Счет.Код = "0041", , , , ) КАК УчетныйОбороты
 ГДЕ
@@ -704,53 +384,322 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	Врем.Номенклатура КАК Номенклатура,
-	Врем.Склад КАК Склад,
-	Врем.Предприятия КАК Предприятия,
-	Врем.Приход КАК Сумма,
-	Врем.Дата КАК Дата,
+	Врем2.Номенклатура КАК Номенклатура,
+	Врем2.Склад КАК Склад,
+	Врем2.Предприятия КАК Предприятия,
+	Врем2.Приход КАК Сумма,
+	Врем2.Дата КАК Дата,
 	"Приход" КАК ВидДвижения,
-	2 КАК Порядок,
-	Врем.Оборот КАК ОстатокНаНачало,
-	0 КАК ОстатокНаКонец,
-	Врем.Заказ КАК Заказ
+	Врем2.Заказ КАК Заказ
+ПОМЕСТИТЬ ВТ2
 ИЗ
-	Врем КАК Врем
+	Врем2 КАК Врем2
 
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
-	Врем.Номенклатура,
-	Врем.Склад,
-	Врем.Предприятия,
-	-Врем.Расход,
-	Врем.Дата,
+	Врем2.Номенклатура,
+	Врем2.Склад,
+	Врем2.Предприятия,
+	-Врем2.Расход,
+	Врем2.Дата,
 	"Расход",
-	3,
-	0,
-	Врем.Оборот,
-	Врем.Заказ
+	Врем2.Заказ
 ИЗ
-	Врем КАК Врем</query>
-		</item>
+	Врем2 КАК Врем2
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВТ2.Дата КАК Дата
+ПОМЕСТИТЬ ВТДаты
+ИЗ
+	ВТ2 КАК ВТ2
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВТ1.Дата
+ИЗ
+	ВТ1 КАК ВТ1
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЕСТЬNULL(ВТ1.Номенклатура, ВТ2.Номенклатура) КАК Номенклатура,
+	ЕСТЬNULL(ВТ1.Склад, ВТ2.Склад) КАК Склад,
+	ЕСТЬNULL(ВТ1.Предприятия, ВТ2.Предприятия) КАК Предприятия,
+	ЕСТЬNULL(ВТ2.Дата, ВТ1.Дата) КАК Дата,
+	ЕСТЬNULL(ВТ1.Остаток, 0) КАК Остаток,
+	ЕСТЬNULL(ВТ2.Сумма, 0) КАК Сумма,
+	ВТ2.ВидДвижения КАК ВидДвижения,
+	ВТ2.Заказ КАК Заказ
+ПОМЕСТИТЬ Рез1
+ИЗ
+	ВТ1 КАК ВТ1
+		ПОЛНОЕ СОЕДИНЕНИЕ ВТ2 КАК ВТ2
+		ПО ВТ1.Номенклатура = ВТ2.Номенклатура
+			И ВТ1.Склад = ВТ2.Склад
+			И ВТ1.Предприятия = ВТ2.Предприятия
+
+СГРУППИРОВАТЬ ПО
+	ЕСТЬNULL(ВТ2.Дата, ВТ1.Дата),
+	ВТ2.ВидДвижения,
+	ЕСТЬNULL(ВТ1.Предприятия, ВТ2.Предприятия),
+	ВТ2.Заказ,
+	ЕСТЬNULL(ВТ1.Склад, ВТ2.Склад),
+	ЕСТЬNULL(ВТ1.Номенклатура, ВТ2.Номенклатура),
+	ЕСТЬNULL(ВТ1.Остаток, 0),
+	ЕСТЬNULL(ВТ2.Сумма, 0)
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	ВТ1.Номенклатура,
+	ВТ1.Склад,
+	ВТ1.Предприятия,
+	ВТДаты.Дата,
+	ЕСТЬNULL(ВТ1.Остаток, 0),
+	0,
+	NULL,
+	NULL
+ИЗ
+	ВТ1 КАК ВТ1
+		ПОЛНОЕ СОЕДИНЕНИЕ ВТДаты КАК ВТДаты
+		ПО (ИСТИНА)
+ГДЕ
+	ВЫБОР
+			КОГДА ВТ1.Номенклатура &lt;&gt; ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ
+
+СГРУППИРОВАТЬ ПО
+	ВТ1.Номенклатура,
+	ВТ1.Склад,
+	ВТ1.Предприятия,
+	ВТДаты.Дата,
+	ЕСТЬNULL(ВТ1.Остаток, 0)
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	ВТ2.Номенклатура,
+	ВТ2.Склад,
+	ВТ2.Предприятия,
+	ВТДаты.Дата,
+	0,
+	0,
+	//ЕСТЬNULL(ВТ2.Сумма, 0),
+	ВТ2.ВидДвижения,
+	ВТ2.Заказ
+ИЗ
+	ВТ2 КАК ВТ2
+		ПОЛНОЕ СОЕДИНЕНИЕ ВТДаты КАК ВТДаты
+		ПО (ВТДаты.Дата &gt;= ВТ2.Дата)
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ1 КАК ВТ1
+		ПО ВТ2.Номенклатура = ВТ1.Номенклатура
+			И ВТ2.Склад = ВТ1.Склад
+			И ВТ2.Предприятия = ВТ1.Предприятия
+ГДЕ
+	ВЫБОР
+			КОГДА ВТ2.Номенклатура &lt;&gt; ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ
+   И ВТ1.Остаток ЕСТЬ NULL
+   
+СГРУППИРОВАТЬ ПО
+	ВТ2.Номенклатура,
+	ВТ2.Склад,
+	ВТ2.Предприятия,
+	ВТДаты.Дата,
+	ЕСТЬNULL(ВТ2.Сумма, 0),
+	ВТ2.ВидДвижения,
+	ВТ2.Заказ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Рез1.Номенклатура КАК Номенклатура,
+	Рез1.Склад КАК Склад,
+	Рез1.Предприятия КАК Предприятия,
+	Рез1.Дата КАК Дата,
+	Рез1.Остаток КАК Остаток,
+	СУММА(Рез1.Сумма) КАК Оборот
+ПОМЕСТИТЬ Рез2
+ИЗ
+	Рез1 КАК Рез1
+
+СГРУППИРОВАТЬ ПО
+	Рез1.Номенклатура,
+	Рез1.Склад,
+	Рез1.Дата,
+	Рез1.Остаток,
+	Рез1.Предприятия
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Рез1.Номенклатура КАК Номенклатура,
+	Рез1.Склад КАК Склад,
+	Рез1.Предприятия КАК Предприятия,
+	Рез1.Дата КАК Дата,
+	Рез1.Остаток КАК Остаток,
+	Рез2.Оборот КАК ОборотЗаВсеВремя
+ПОМЕСТИТЬ Рез3
+ИЗ
+	Рез1 КАК Рез1
+		ЛЕВОЕ СОЕДИНЕНИЕ Рез2 КАК Рез2
+		ПО Рез1.Номенклатура = Рез2.Номенклатура
+			И Рез1.Склад = Рез2.Склад
+			И Рез1.Предприятия = Рез2.Предприятия
+			И Рез1.Дата &gt;= Рез2.Дата
+ГДЕ
+	ВЫБОР
+			КОГДА Рез2.Оборот &lt;&gt; 0
+					И НЕ Рез2.Оборот ЕСТЬ NULL
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ
+
+СГРУППИРОВАТЬ ПО
+	Рез2.Оборот,
+	Рез1.Номенклатура,
+	Рез1.Склад,
+	Рез1.Дата,
+	Рез1.Остаток,
+	Рез1.Предприятия
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СУММА(Рез3.ОборотЗаВсеВремя) КАК ОборотЗаВсеВремя,
+	Рез3.Номенклатура КАК Номенклатура,
+	Рез3.Склад КАК Склад,
+	Рез3.Предприятия КАК Предприятия,
+	Рез3.Дата КАК Дата,
+	Рез3.Остаток КАК Остаток
+ПОМЕСТИТЬ Рез5
+ИЗ
+	Рез3 КАК Рез3
+
+СГРУППИРОВАТЬ ПО
+	Рез3.Номенклатура,
+	Рез3.Склад,
+	Рез3.Предприятия,
+	Рез3.Дата,
+	Рез3.Остаток,
+	Рез3.ОборотЗаВсеВремя
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Рез1.Номенклатура КАК Номенклатура,
+	Рез1.Склад КАК Склад,
+	Рез1.Предприятия КАК Предприятия,
+	Рез1.Дата КАК Дата,
+	//Рез1.Остаток + Рез2.Оборот КАК Остаток,
+	Рез1.Остаток КАК ОстатокНаНачало,
+	ЕСТЬNULL(Рез2.Оборот, 0) КАК Оборот,
+	Рез1.ВидДвижения КАК ВидДвижения,
+	Рез1.Сумма КАК Сумма,
+	СУММА(Рез5.ОборотЗаВсеВремя) КАК ОборотЗаВсеВремя,
+	Рез1.Остаток + СУММА(ЕСТЬNULL(Рез5.ОборотЗаВсеВремя, 0)) КАК ОстатокНаКонец,
+	Рез1.Заказ КАК Заказ
+ИЗ
+	Рез1 КАК Рез1
+		ЛЕВОЕ СОЕДИНЕНИЕ Рез2 КАК Рез2
+		ПО Рез1.Номенклатура = Рез2.Номенклатура
+			И Рез1.Склад = Рез2.Склад
+			И Рез1.Предприятия = Рез2.Предприятия
+			И Рез1.Дата = Рез2.Дата
+		ЛЕВОЕ СОЕДИНЕНИЕ Рез5 КАК Рез5
+		ПО Рез1.Номенклатура = Рез5.Номенклатура
+			И Рез1.Склад = Рез5.Склад
+			И Рез1.Предприятия = Рез5.Предприятия
+			И Рез1.Дата = Рез5.Дата
+
+СГРУППИРОВАТЬ ПО
+	Рез1.Номенклатура,
+	Рез1.Склад,
+	Рез1.Предприятия,
+	Рез1.Дата,
+	Рез1.Остаток + Рез2.Оборот,
+	Рез1.Остаток,
+	ЕСТЬNULL(Рез2.Оборот, 0),
+	Рез1.ВидДвижения,
+	Рез1.Сумма,
+	Рез1.Заказ</query>
 	</dataSet>
+	<calculatedField>
+		<dataPath>Пар1</dataPath>
+		<expression>ВычислитьВыражениеСГруппировкойМассив("ОстатокНаКонец","Дата")</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>П1</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+		</useRestriction>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>3</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>Пар2</dataPath>
+		<expression>ВычислитьВыражениеСГруппировкойМассив("Сумма(ВычислитьВыражениеСГруппировкойМассив(""ОстатокНаКонец"",""Дата""))","Номенклатура")</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>П2</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+		</useRestriction>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>15</v8:Digits>
+				<v8:FractionDigits>3</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
 	<totalField>
 		<dataPath>Сумма</dataPath>
-		<expression>Выбор Когда ВидДвижения = "Приход" ИЛИ ВидДвижения = "Расход" Тогда Сумма(Сумма) 
-Когда ВидДвижения = "Остаток на начало" Тогда ВычислитьВыражение("Сумма(ОстатокНаНачало)", "Дата", , "Первая", "Предыдущая") Когда ВидДвижения = "Остаток на конец" Тогда ВычислитьВыражение("Сумма(остатокНаКонец)", "Дата" , ,"Предыдущая", "Текущая") Иначе Сумма(ОстатокНаКонец) Конец</expression>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(Сумма)","Заказ"))</expression>
 		<group>ВидДвижения</group>
 	</totalField>
 	<totalField>
 		<dataPath>Сумма</dataPath>
-		<expression>ВычислитьВыражение("Сумма(ОстатокНаКонец)", "Дата", , "Первая", "Текущая")</expression>
+		<expression>Сумма(Пар1)</expression>
 		<group>Номенклатура</group>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(Пар1)","Номенклатура"))</expression>
 		<group>Предприятия</group>
 		<group>Склад</group>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(Пар2)","Склад"))</expression>
 		<group>ОбщийИтог</group>
 	</totalField>
 	<totalField>
 		<dataPath>Сумма</dataPath>
-		<expression>Сумма(Сумма)</expression>
+		<expression>ВычислитьВыражение("Сумма(Сумма)","Заказ")</expression>
 		<group>Заказ</group>
 	</totalField>
 	<parameter>

@@ -7,94 +7,24 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных1</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Контрагент</dataPath>
-			<field>Контрагент</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Ссылка</dataPath>
-			<field>Ссылка</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ДоговорКонтрагента</dataPath>
-			<field>ДоговорКонтрагента</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СчетПокупателю</dataPath>
-			<field>СчетПокупателю</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Счет покупателю</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>СуммаПлатежа</dataPath>
-			<field>СуммаПлатежа</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма поступило</v8:content>
-				</v8:item>
-			</title>
-		</field>
-		<dataSource>ИсточникДанных1</dataSource>
-		<query>ВЫБРАТЬ
-	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка КАК Ссылка,
-	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.ДоговорКонтрагента КАК ДоговорКонтрагента,
-	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Контрагент КАК Контрагент,
-	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СчетНаОплату КАК СчетПокупателю,
-	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СуммаПлатежа КАК СуммаПлатежа
-
-ИЗ
-	Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа КАК ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа
-ГДЕ
-	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
-	И ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Проведен = ИСТИНА
-	И ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийПоступлениеДенежныхСредств.ОплатаПокупателя)</query>
-	</dataSet>
-	<dataSet xsi:type="DataSetQuery">
-		<name>НаборДанных2</name>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>НомерСтроки</dataPath>
 			<field>НомерСтроки</field>
+			<role>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Номенклатура</dataPath>
 			<field>Номенклатура</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Количество</dataPath>
-			<field>Количество</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Цена</dataPath>
-			<field>Цена</field>
-			<appearance>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:parameter>Формат</dcscor:parameter>
-					<dcscor:value xsi:type="v8:LocalStringType">
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>ЧДЦ=2</v8:content>
-						</v8:item>
-					</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Сумма</dataPath>
-			<field>Сумма</field>
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Сумма по счету</v8:content>
+					<v8:content>Номенклатура</v8:content>
 				</v8:item>
 			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Ссылка</dataPath>
-			<field>Ссылка</field>
+			<role>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>ФизЛицо</dataPath>
@@ -107,8 +37,40 @@
 			</title>
 		</field>
 		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<role>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+			<role>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетПокупателю</dataPath>
+			<field>СчетПокупателю</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счет покупателю</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
 			<dataPath>Ответственный</dataPath>
 			<field>Ответственный</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Организация</dataPath>
@@ -121,6 +83,58 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Группа пользователя</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Ссылка</dataPath>
+			<field>Ссылка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПлатежейПоСчету</dataPath>
+			<field>СуммаПлатежейПоСчету</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма платежей по счету</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНеОплачено</dataPath>
+			<field>СуммаНеОплачено</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма не оплачено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПлатежа</dataPath>
+			<field>СуммаПлатежа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма платежа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаСчетаПокупателю</dataPath>
+			<field>СуммаСчетаПокупателю</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма счета покупателю</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -145,20 +159,159 @@
 	СчетНаОплатуПокупателюТовары.НомерСтроки КАК НомерСтроки,
 	СчетНаОплатуПокупателюТовары.Ссылка КАК Ссылка,
 	СчетНаОплатуПокупателюТовары.Ссылка.Ответственный КАК Ответственный,
-	СчетНаОплатуПокупателюТовары.Ссылка.Ответственный.ФизическоеЛицо КАК ФизЛицо,
+	СправочникПользователи.ФизическоеЛицо КАК ФизЛицо,
 	СчетНаОплатуПокупателюТовары.Ссылка.Организация КАК Организация,
-	ЕСТЬNULL(Группы.Группа, ЗНАЧЕНИЕ(Справочник.ГруппыПользователей.ПустаяСсылка)) КАК ГруппаПользователя
+	ЕСТЬNULL(Группы.Группа, ЗНАЧЕНИЕ(Справочник.ГруппыПользователей.ПустаяСсылка)) КАК ГруппаПользователя,
+	СчетНаОплатуПокупателюТовары.Ссылка.Контрагент КАК Контрагент,
+	СчетНаОплатуПокупателюТовары.Ссылка.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	СчетНаОплатуПокупателюТовары.Ссылка.Заказ КАК Заказ
+ПОМЕСТИТЬ ВТСчетаПокупателей
 ИЗ
 	Документ.СчетНаОплатуПокупателю.Товары КАК СчетНаОплатуПокупателюТовары
 		ЛЕВОЕ СОЕДИНЕНИЕ Группы КАК Группы
-		ПО СчетНаОплатуПокупателюТовары.Ссылка.Ответственный = Группы.Пользователь</query>
+		ПО СчетНаОплатуПокупателюТовары.Ссылка.Ответственный = Группы.Пользователь
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Пользователи КАК СправочникПользователи
+		ПО СчетНаОплатуПокупателюТовары.Ссылка.Ответственный = СправочникПользователи.Ссылка
+ГДЕ
+	СчетНаОплатуПокупателюТовары.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПоступлениеНаРасчетныйСчет.Ссылка КАК Ссылка,
+	ПоступлениеНаРасчетныйСчет.Контрагент КАК Контрагент,
+	ПоступлениеНаРасчетныйСчет.Организация КАК Организация,
+	ПоступлениеНаРасчетныйСчет.Ответственный КАК Ответственный,
+	СправочникПользователи.ФизическоеЛицо КАК ФизЛицо,
+	ПоступлениеНаРасчетныйСчет.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СчетНаОплату КАК СчетНаОплату,
+	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СуммаПлатежа КАК СуммаПлатежа,
+	ЕСТЬNULL(Группы.Группа, ЗНАЧЕНИЕ(Справочник.ГруппыПользователей.ПустаяСсылка)) КАК ГруппаПользователя
+ПОМЕСТИТЬ ВТПоступления
+ИЗ
+	Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа КАК ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеНаРасчетныйСчет КАК ПоступлениеНаРасчетныйСчет
+			ЛЕВОЕ СОЕДИНЕНИЕ Группы КАК Группы
+			ПО ПоступлениеНаРасчетныйСчет.Ответственный = Группы.Пользователь
+			ЛЕВОЕ СОЕДИНЕНИЕ Справочник.Пользователи КАК СправочникПользователи
+			ПО ПоступлениеНаРасчетныйСчет.Ответственный = СправочникПользователи.Ссылка
+		ПО ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка = ПоступлениеНаРасчетныйСчет.Ссылка
+ГДЕ
+	ПоступлениеНаРасчетныйСчет.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Проведен = ИСТИНА
+	И ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийПоступлениеДенежныхСредств.ОплатаПокупателя)
+	И ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТСчетаПокупателей.Ссылка КАК СчетПокупателю,
+	ЕСТЬNULL(ВТСчетаПокупателей.Ссылка.СуммаДокумента, 0) КАК СуммаСчета,
+	ЕСТЬNULL(ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СуммаПлатежа, 0) КАК СуммаПлатежа,
+	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка КАК Ссылка
+ПОМЕСТИТЬ ВТСуммы1
+ИЗ
+	ВТСчетаПокупателей КАК ВТСчетаПокупателей
+		ПОЛНОЕ СОЕДИНЕНИЕ Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа КАК ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа
+		ПО ВТСчетаПокупателей.Ссылка = ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СчетНаОплату
+			И (ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Проведен = ИСТИНА)
+			И (ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийПоступлениеДенежныхСредств.ОплатаПокупателя))
+			И (ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода)
+
+СГРУППИРОВАТЬ ПО
+	ВТСчетаПокупателей.Ссылка,
+	ЕСТЬNULL(ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.СуммаПлатежа, 0),
+	ПоступлениеНаРасчетныйСчетРасшифровкаПлатежа.Ссылка,
+	ЕСТЬNULL(ВТСчетаПокупателей.Ссылка.СуммаДокумента, 0)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТСуммы1.СчетПокупателю КАК СчетПокупателю,
+	ВТСуммы1.СуммаСчета КАК СуммаСчетаПокупателю,
+	СУММА(ВТСуммы1.СуммаПлатежа) КАК СуммаПлатежейПоСчету
+ПОМЕСТИТЬ ВТСуммы
+ИЗ
+	ВТСуммы1 КАК ВТСуммы1
+
+СГРУППИРОВАТЬ ПО
+	ВТСуммы1.СчетПокупателю,
+	ВТСуммы1.СуммаСчета
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫРАЗИТЬ(ВТСчетаПокупателей.Номенклатура КАК Справочник.Номенклатура) КАК Номенклатура,
+	ЕСТЬNULL(ВТСчетаПокупателей.Количество, 0) КАК Количество,
+	ЕСТЬNULL(ВТСчетаПокупателей.Цена, 0) КАК Цена,
+	ЕСТЬNULL(ВТСчетаПокупателей.Сумма, 0) КАК Сумма,
+	ЕСТЬNULL(ВТСчетаПокупателей.НомерСтроки, 0) КАК НомерСтроки,
+	ЕСТЬNULL(ВТСчетаПокупателей.Ссылка, ЗНАЧЕНИЕ(Документ.СчетНаОплатуПокупателю.ПустаяСсылка)) КАК СчетПокупателю,
+	ЕСТЬNULL(ВТСчетаПокупателей.Ответственный, ВТПоступления.Ответственный) КАК Ответственный,
+	ЕСТЬNULL(ВЫРАЗИТЬ(ВТСчетаПокупателей.ФизЛицо КАК Справочник.ФизическиеЛица), ВЫРАЗИТЬ(ВТПоступления.ФизЛицо КАК Справочник.ФизическиеЛица)) КАК ФизЛицо,
+	ЕСТЬNULL(ВТСчетаПокупателей.Организация, ВТПоступления.Организация) КАК Организация,
+	ЕСТЬNULL(ВТСчетаПокупателей.ГруппаПользователя, ВТПоступления.ГруппаПользователя) КАК ГруппаПользователя,
+	ЕСТЬNULL(ВТСчетаПокупателей.Контрагент, ВЫРАЗИТЬ(ВТПоступления.Контрагент КАК Справочник.Контрагенты)) КАК Контрагент,
+	ЕСТЬNULL(ВТСчетаПокупателей.ДоговорКонтрагента, ВТПоступления.ДоговорКонтрагента) КАК ДоговорКонтрагента,
+	ЕСТЬNULL(ВТСчетаПокупателей.Заказ, ЗНАЧЕНИЕ(Документ.ЗаказКлиента.ПустаяСсылка)) КАК Заказ,
+	ЕСТЬNULL(ВТПоступления.Ссылка, ЗНАЧЕНИЕ(Документ.ПоступлениеНаРасчетныйСчет.ПустаяСсылка)) КАК Ссылка,
+	ЕСТЬNULL(ВТСуммы.СуммаПлатежейПоСчету, 0) КАК СуммаПлатежейПоСчету,
+	ВЫБОР
+		КОГДА (ВЫРАЗИТЬ(СтатусыДокументов.Статус КАК Перечисление.СтатусОплатыСчета)) = ЗНАЧЕНИЕ(Перечисление.СтатусОплатыСчета.Оплачен)
+			ТОГДА 0
+		ИНАЧЕ ВТСуммы.СуммаСчетаПокупателю - ЕСТЬNULL(ВТСуммы.СуммаПлатежейПоСчету, 0)
+	КОНЕЦ КАК СуммаНеОплачено,
+	ЕСТЬNULL(ЕСТЬNULL(ВТСуммы1.СуммаПлатежа, ВТПоступления.СуммаПлатежа),0) КАК СуммаПлатежа,
+	ВТСуммы.СуммаСчетаПокупателю КАК СуммаСчетаПокупателю
+ИЗ
+	ВТСчетаПокупателей КАК ВТСчетаПокупателей
+		ПОЛНОЕ СОЕДИНЕНИЕ ВТПоступления КАК ВТПоступления
+		ПО ВТСчетаПокупателей.Ссылка = ВТПоступления.СчетНаОплату
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТСуммы КАК ВТСуммы
+		ПО ВТСчетаПокупателей.Ссылка = ВТСуммы.СчетПокупателю
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТСуммы1 КАК ВТСуммы1
+		ПО ВТСчетаПокупателей.Ссылка = ВТСуммы1.СчетПокупателю
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтатусыДокументов КАК СтатусыДокументов
+		ПО (ВТСчетаПокупателей.Ссылка = (ВЫРАЗИТЬ(СтатусыДокументов.Документ КАК Документ.СчетНаОплатуПокупателю)))
+
+СГРУППИРОВАТЬ ПО
+	ЕСТЬNULL(ВТСчетаПокупателей.ГруппаПользователя, ВТПоступления.ГруппаПользователя),
+	ЕСТЬNULL(ВТСчетаПокупателей.Контрагент, ВЫРАЗИТЬ(ВТПоступления.Контрагент КАК Справочник.Контрагенты)),
+	ЕСТЬNULL(ВТПоступления.Ссылка, ЗНАЧЕНИЕ(Документ.ПоступлениеНаРасчетныйСчет.ПустаяСсылка)),
+	ЕСТЬNULL(ВТСчетаПокупателей.ДоговорКонтрагента, ВТПоступления.ДоговорКонтрагента),
+	ЕСТЬNULL(ВТСчетаПокупателей.Заказ, ЗНАЧЕНИЕ(Документ.ЗаказКлиента.ПустаяСсылка)),
+	ЕСТЬNULL(ВТСчетаПокупателей.Организация, ВТПоступления.Организация),
+	ВЫРАЗИТЬ(ВТСчетаПокупателей.Номенклатура КАК Справочник.Номенклатура),
+	ЕСТЬNULL(ВТСчетаПокупателей.Ссылка, ЗНАЧЕНИЕ(Документ.СчетНаОплатуПокупателю.ПустаяСсылка)),
+	ЕСТЬNULL(ВТСчетаПокупателей.Ответственный, ВТПоступления.Ответственный),
+	ЕСТЬNULL(ВЫРАЗИТЬ(ВТСчетаПокупателей.ФизЛицо КАК Справочник.ФизическиеЛица), ВЫРАЗИТЬ(ВТПоступления.ФизЛицо КАК Справочник.ФизическиеЛица)),
+	ЕСТЬNULL(ВТСчетаПокупателей.Количество, 0),
+	ЕСТЬNULL(ВТСчетаПокупателей.Цена, 0),
+	ЕСТЬNULL(ВТСчетаПокупателей.Сумма, 0),
+	ЕСТЬNULL(ВТСчетаПокупателей.НомерСтроки, 0),
+	ЕСТЬNULL(ВТСуммы.СуммаПлатежейПоСчету, 0),
+	ВЫБОР
+		КОГДА (ВЫРАЗИТЬ(СтатусыДокументов.Статус КАК Перечисление.СтатусОплатыСчета)) = ЗНАЧЕНИЕ(Перечисление.СтатусОплатыСчета.Оплачен)
+			ТОГДА 0
+		ИНАЧЕ ВТСуммы.СуммаСчетаПокупателю - ЕСТЬNULL(ВТСуммы.СуммаПлатежейПоСчету, 0)
+	КОНЕЦ,
+	ЕСТЬNULL(ЕСТЬNULL(ВТСуммы1.СуммаПлатежа, ВТПоступления.СуммаПлатежа),0),
+	ВТСуммы.СуммаСчетаПокупателю</query>
 	</dataSet>
-	<dataSetLink>
-		<sourceDataSet>НаборДанных1</sourceDataSet>
-		<destinationDataSet>НаборДанных2</destinationDataSet>
-		<sourceExpression>СчетПокупателю</sourceExpression>
-		<destinationExpression>Ссылка</destinationExpression>
-	</dataSetLink>
+	<calculatedField>
+		<dataPath>НС</dataPath>
+		<expression>Максимум(НомерСтроки)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>НС</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<field>true</field>
+			<condition>true</condition>
+		</useRestriction>
+	</calculatedField>
 	<totalField>
 		<dataPath>Сумма</dataPath>
 		<expression>Сумма(Сумма)</expression>
@@ -169,11 +322,26 @@
 	</totalField>
 	<totalField>
 		<dataPath>Цена</dataPath>
-		<expression> Сумма(Сумма) / Сумма(Количество)</expression>
+		<expression>Сумма(Сумма) / Сумма(Количество)</expression>
 	</totalField>
 	<totalField>
 		<dataPath>СуммаПлатежа</dataPath>
-		<expression>Сумма(СуммаПлатежа)</expression>
+		<expression>
+ВЫБОР КОГДА НС = 0 ТОГДА Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СуммаПлатежа)","Ссылка")) ИНАЧЕ Сумма(ВычислитьВыражениеСГруппировкойМассив("Сумма(СуммаПлатежа)/НС","Ссылка")) КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНеОплачено</dataPath>
+		<expression>ВЫБОР КОГДА (СуммаНеОплачено) &lt; 0 ТОГДА 0 ИНАЧЕ СуммаНеОплачено КОНЕЦ</expression>
+		<group>СчетПокупателю</group>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНеОплачено</dataPath>
+		<expression>ВЫБОР КОГДА (Сумма(ВычислитьВыражениеСГруппировкойМассив("СуммаНеОплачено","СчетПокупателю"))) &lt; 0 ТОГДА 0 ИНАЧЕ Сумма(ВычислитьВыражениеСГруппировкойМассив("СуммаНеОплачено","СчетПокупателю")) КОНЕЦ</expression>
+		<group>ГруппаПользователя</group>
+		<group>Контрагент</group>
+		<group>Организация</group>
+		<group>ФизЛицо</group>
+		<group>ОбщийИтог</group>
 	</totalField>
 	<parameter>
 		<name>КонецПериода</name>
@@ -243,6 +411,9 @@
 					<dcsset:field>СуммаПлатежа</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНеОплачено</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>Количество</dcsset:field>
 				</dcsset:item>
@@ -303,7 +474,15 @@
 					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 				</dcsset:order>
 				<dcsset:selection>
-					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ГруппаПользователя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаПлатежа</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СуммаНеОплачено</dcsset:field>
+					</dcsset:item>
 				</dcsset:selection>
 				<dcsset:item xsi:type="dcsset:StructureItemGroup">
 					<dcsset:groupItems>
@@ -319,7 +498,15 @@
 						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 					</dcsset:order>
 					<dcsset:selection>
-						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ФизЛицо</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаПлатежа</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>СуммаНеОплачено</dcsset:field>
+						</dcsset:item>
 					</dcsset:selection>
 					<dcsset:item xsi:type="dcsset:StructureItemGroup">
 						<dcsset:groupItems>
@@ -335,7 +522,15 @@
 							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 						</dcsset:order>
 						<dcsset:selection>
-							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Организация</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаПлатежа</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаНеОплачено</dcsset:field>
+							</dcsset:item>
 						</dcsset:selection>
 						<dcsset:item xsi:type="dcsset:StructureItemGroup">
 							<dcsset:groupItems>
@@ -358,7 +553,18 @@
 								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 							</dcsset:order>
 							<dcsset:selection>
-								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Контрагент</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Контрагент.ИНН</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СуммаПлатежа</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>СуммаНеОплачено</dcsset:field>
+								</dcsset:item>
 							</dcsset:selection>
 							<dcsset:item xsi:type="dcsset:StructureItemGroup">
 								<dcsset:groupItems>
@@ -399,12 +605,36 @@
 										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
 										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
 									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:GroupItemField">
+										<dcsset:field>Заказ</dcsset:field>
+										<dcsset:groupType>Items</dcsset:groupType>
+										<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+										<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+										<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+									</dcsset:item>
 								</dcsset:groupItems>
 								<dcsset:order>
 									<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 								</dcsset:order>
 								<dcsset:selection>
-									<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Ссылка</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>ДоговорКонтрагента</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>СчетПокупателю</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>Заказ</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>СуммаПлатежа</dcsset:field>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:SelectedItemField">
+										<dcsset:field>СуммаНеОплачено</dcsset:field>
+									</dcsset:item>
 								</dcsset:selection>
 								<dcsset:item xsi:type="dcsset:StructureItemGroup">
 									<dcsset:groupItems>
@@ -427,7 +657,12 @@
 										<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
 									</dcsset:order>
 									<dcsset:selection>
-										<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>НомерСтроки</dcsset:field>
+										</dcsset:item>
+										<dcsset:item xsi:type="dcsset:SelectedItemField">
+											<dcsset:field>Номенклатура</dcsset:field>
+										</dcsset:item>
 									</dcsset:selection>
 								</dcsset:item>
 							</dcsset:item>

@@ -395,20 +395,35 @@
 								<Event name="OnChange">ТабличнаяЧастьСуммаПриИзменении</Event>
 							</Events>
 						</InputField>
-						<InputField name="ТабличнаяЧастьСодержание" id="26">
-							<DataPath>Объект.ТабличнаяЧасть.Содержание</DataPath>
-							<EditMode>EnterOnInput</EditMode>
-							<ShowInFooter>false</ShowInFooter>
-							<ContextMenu name="ТабличнаяЧастьСодержаниеКонтекстноеМеню" id="27"/>
-							<ExtendedTooltip name="ТабличнаяЧастьСодержаниеExtendedTooltip" id="102"/>
-						</InputField>
 					</ChildItems>
 				</ColumnGroup>
+				<InputField name="ТабличнаяЧастьСтавкаНДС" id="162">
+					<DataPath>Объект.ТабличнаяЧасть.СтавкаНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ТабличнаяЧастьСтавкаНДСКонтекстноеМеню" id="163"/>
+					<ExtendedTooltip name="ТабличнаяЧастьСтавкаНДСРасширеннаяПодсказка" id="164"/>
+				</InputField>
+				<InputField name="ТабличнаяЧастьСуммаНДС" id="165">
+					<DataPath>Объект.ТабличнаяЧасть.СуммаНДС</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ТабличнаяЧастьСуммаНДСКонтекстноеМеню" id="166"/>
+					<ExtendedTooltip name="ТабличнаяЧастьСуммаНДСРасширеннаяПодсказка" id="167"/>
+				</InputField>
+				<InputField name="ТабличнаяЧастьСодержание" id="26">
+					<DataPath>Объект.ТабличнаяЧасть.Содержание</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ShowInFooter>false</ShowInFooter>
+					<ContextMenu name="ТабличнаяЧастьСодержаниеКонтекстноеМеню" id="27"/>
+					<ExtendedTooltip name="ТабличнаяЧастьСодержаниеExtendedTooltip" id="102"/>
+				</InputField>
 			</ChildItems>
 		</Table>
 		<UsualGroup name="Группа6" id="142">
 			<Group>Horizontal</Group>
 			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа6РасширеннаяПодсказка" id="143"/>
 			<ChildItems>
 				<InputField name="Комментарий" id="33">
@@ -428,6 +443,20 @@
 					<ContextMenu name="АвторКонтекстноеМеню" id="145"/>
 					<ExtendedTooltip name="АвторРасширеннаяПодсказка" id="146"/>
 				</LabelField>
+				<CheckBoxField name="УчитыватьНДС" id="156">
+					<DataPath>Объект.УчитыватьНДС</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="УчитыватьНДСКонтекстноеМеню" id="157"/>
+					<ExtendedTooltip name="УчитыватьНДСРасширеннаяПодсказка" id="158"/>
+				</CheckBoxField>
+				<CheckBoxField name="СуммаВключаетНДС" id="159">
+					<DataPath>Объект.СуммаВключаетНДС</DataPath>
+					<TitleLocation>Right</TitleLocation>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="160"/>
+					<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="161"/>
+				</CheckBoxField>
 			</ChildItems>
 		</UsualGroup>
 	</ChildItems>
@@ -545,6 +574,17 @@
 				</AdditionalColumns>
 			</Columns>
 		</Attribute>
+		<Attribute name="ВестиУчетНДС" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вести учет НДС</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:selection>
@@ -610,6 +650,29 @@
 							<dcsset:left xsi:type="dcscor:Field">Объект.ТабличнаяЧасть.НомерСтроки</dcsset:left>
 							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
 						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСтавкаНДС</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьСуммаНДС</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ВестиУчетНДС</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
 					</dcsset:item>
 				</dcsset:filter>
 				<dcsset:appearance>

@@ -86,9 +86,23 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Владелец</dataPath>
+			<field>Владелец</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
-	ВложенныйЗапрос.Ссылка КАК Ссылка,
+	ВложенныйЗапрос.Ссылка КАК Документ,
 	ВложенныйЗапрос.Номенклатура КАК Номенклатура,
 	ВложенныйЗапрос.Спецификация КАК Спецификация,
 	ВложенныйЗапрос.КоличествоПродукции КАК КоличествоПродукции,
@@ -96,11 +110,19 @@
 	ВложенныйЗапрос.ФактическоеКоличествоМатериалов КАК ФактическоеКоличествоМатериалов,
 	ВложенныйЗапрос.НормативноеКоличествоМатериаловТЧ КАК НормативноеКоличествоМатериаловТЧ,
 	ВложенныйЗапрос.РазницаТЧ КАК РазницаТЧ,
-	ВложенныйЗапрос1.Количество * ВложенныйЗапрос.КоличествоПродукции КАК НормативноеКоличествоМатериаловСпецификация,
-	ВложенныйЗапрос1.Количество * ВложенныйЗапрос.КоличествоПродукции - ВложенныйЗапрос.ФактическоеКоличествоМатериалов КАК РазницаСпецификация
+	ВЫБОР
+		КОГДА ВложенныйЗапрос1.Количество ЕСТЬ NULL
+			ТОГДА 0
+		ИНАЧЕ ВложенныйЗапрос1.Количество * ВложенныйЗапрос.КоличествоПродукции
+	КОНЕЦ КАК НормативноеКоличествоМатериаловСпецификация,
+	ВЫБОР
+		КОГДА ВложенныйЗапрос1.Количество ЕСТЬ NULL
+			ТОГДА -ВложенныйЗапрос.ФактическоеКоличествоМатериалов
+		ИНАЧЕ ВложенныйЗапрос1.Количество * ВложенныйЗапрос.КоличествоПродукции - ВложенныйЗапрос.ФактическоеКоличествоМатериалов
+	КОНЕЦ КАК РазницаСпецификация
 ИЗ
 	(ВЫБРАТЬ
-		УЧ_ВыпускПродукции.Ссылка КАК Ссылка,
+		УЧ_ВыпускПродукцииМатериалы.Ссылка КАК Ссылка,
 		УЧ_ВыпускПродукцииТабличнаяЧасть.Номенклатура КАК Номенклатура,
 		УЧ_ВыпускПродукцииТабличнаяЧасть.Спецификация КАК Спецификация,
 		УЧ_ВыпускПродукцииТабличнаяЧасть.Количество КАК КоличествоПродукции,
@@ -111,43 +133,51 @@
 	ИЗ
 		Документ.УЧ_ВыпускПродукции.Материалы КАК УЧ_ВыпускПродукцииМатериалы
 			ЛЕВОЕ СОЕДИНЕНИЕ Документ.УЧ_ВыпускПродукции.ТабличнаяЧасть КАК УЧ_ВыпускПродукцииТабличнаяЧасть
-			ПО (УЧ_ВыпускПродукцииТабличнаяЧасть.УИД = УЧ_ВыпускПродукцииМатериалы.УИДТЧ)
-			ЛЕВОЕ СОЕДИНЕНИЕ Документ.УЧ_ВыпускПродукции КАК УЧ_ВыпускПродукции
-			ПО УЧ_ВыпускПродукцииМатериалы.Ссылка = УЧ_ВыпускПродукции.Ссылка
+			ПО УЧ_ВыпускПродукцииМатериалы.УИДТЧ = УЧ_ВыпускПродукцииТабличнаяЧасть.УИД
+				И УЧ_ВыпускПродукцииМатериалы.Ссылка = УЧ_ВыпускПродукцииТабличнаяЧасть.Ссылка
 	ГДЕ
-		УЧ_ВыпускПродукции.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода) КАК ВложенныйЗапрос
+		УЧ_ВыпускПродукцииМатериалы.Ссылка.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+		И УЧ_ВыпускПродукцииМатериалы.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацииВыпускаПродукции.ПроизводствоПоСпецификации)) КАК ВложенныйЗапрос
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			СпецификацииНоменклатурыИсходныеКомплектующие.Ссылка КАК Ссылка,
 			ВЫРАЗИТЬ(СпецификацииНоменклатурыИсходныеКомплектующие.Номенклатура КАК Справочник.Номенклатура) КАК Номенклатура,
-			СпецификацииНоменклатурыИсходныеКомплектующие.Количество КАК Количество
+			СпецификацииНоменклатурыИсходныеКомплектующие.Количество КАК Количество,
+			СпецификацииНоменклатурыИсходныеКомплектующие.Ссылка.Владелец КАК Владелец
 		ИЗ
 			Справочник.СпецификацииНоменклатуры.ИсходныеКомплектующие КАК СпецификацииНоменклатурыИсходныеКомплектующие) КАК ВложенныйЗапрос1
-		ПО ВложенныйЗапрос.Материал = ВложенныйЗапрос1.Номенклатура
-			И ВложенныйЗапрос.Спецификация = ВложенныйЗапрос1.Ссылка</query>
+		ПО ВложенныйЗапрос.Спецификация = ВложенныйЗапрос1.Ссылка
+			И ВложенныйЗапрос.Материал = ВложенныйЗапрос1.Номенклатура
+			И ВложенныйЗапрос.Номенклатура = ВложенныйЗапрос1.Владелец</query>
 	</dataSet>
 	<totalField>
-		<dataPath>КоличествоПродукции</dataPath>
-		<expression>Сумма(КоличествоПродукции)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>ФактическоеКоличествоМатериалов</dataPath>
-		<expression>Сумма(ФактическоеКоличествоМатериалов)</expression>
+		<dataPath>НормативноеКоличествоМатериаловСпецификация</dataPath>
+		<expression>Сумма(НормативноеКоличествоМатериаловСпецификация)</expression>
+		<group>НормативноеКоличествоМатериаловСпецификация</group>
+		<group>ОбщийИтог</group>
 	</totalField>
 	<totalField>
 		<dataPath>НормативноеКоличествоМатериаловТЧ</dataPath>
 		<expression>Сумма(НормативноеКоличествоМатериаловТЧ)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>РазницаТЧ</dataPath>
-		<expression>Сумма(РазницаТЧ)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>НормативноеКоличествоМатериаловСпецификация</dataPath>
-		<expression>Сумма(НормативноеКоличествоМатериаловСпецификация)</expression>
+		<group>НормативноеКоличествоМатериаловТЧ</group>
+		<group>ОбщийИтог</group>
 	</totalField>
 	<totalField>
 		<dataPath>РазницаСпецификация</dataPath>
 		<expression>Сумма(РазницаСпецификация)</expression>
+		<group>РазницаСпецификация</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>РазницаТЧ</dataPath>
+		<expression>Сумма(РазницаТЧ)</expression>
+		<group>РазницаТЧ</group>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<totalField>
+		<dataPath>ФактическоеКоличествоМатериалов</dataPath>
+		<expression>Сумма(ФактическоеКоличествоМатериалов)</expression>
+		<group>ФактическоеКоличествоМатериалов</group>
+		<group>ОбщийИтог</group>
 	</totalField>
 	<parameter>
 		<name>КонецПериода</name>
@@ -217,6 +247,7 @@
 					<dcsset:field>Материал</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>КоличествоПродукции</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -354,6 +385,39 @@
 						</dcscor:item>
 					</dcsset:appearance>
 				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>КоличествоПродукции</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ФактическоеКоличествоМатериалов</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>Формат</dcscor:parameter>
+							<dcscor:value xsi:type="v8:LocalStringType">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>ЧДЦ=2</v8:content>
+								</v8:item>
+							</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
 			</dcsset:conditionalAppearance>
 			<dcsset:outputParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
@@ -375,9 +439,10 @@
 				</dcscor:item>
 			</dcsset:outputParameters>
 			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Документ</dcsset:name>
 				<dcsset:groupItems>
 					<dcsset:item xsi:type="dcsset:GroupItemField">
-						<dcsset:field>Ссылка</dcsset:field>
+						<dcsset:field>Документ</dcsset:field>
 						<dcsset:groupType>Items</dcsset:groupType>
 						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -394,6 +459,13 @@
 					<dcsset:groupItems>
 						<dcsset:item xsi:type="dcsset:GroupItemField">
 							<dcsset:field>Номенклатура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КоличествоПродукции</dcsset:field>
 							<dcsset:groupType>Items</dcsset:groupType>
 							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
 							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
@@ -429,6 +501,23 @@
 							<dcsset:selection>
 								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
 							</dcsset:selection>
+							<dcsset:outputParameters>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+									<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>РасположениеПолейГруппировки</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionGroupFieldsPlacement">Separately</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:use>false</dcscor:use>
+									<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+									<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">None</dcscor:value>
+								</dcscor:item>
+							</dcsset:outputParameters>
 						</dcsset:item>
 					</dcsset:item>
 				</dcsset:item>

@@ -1,13 +1,44 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<CommandSet>
+		<ExcludedCommand>WriteAndClose</ExcludedCommand>
+	</CommandSet>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
 		<ChildItems>
+			<Button name="ФормаКомандаЗаписатьИЗакрыть" id="489">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаКомандаЗаписатьИЗакрытьРасширеннаяПодсказка" id="490"/>
+			</Button>
+			<Button name="ФормаЗаписать" id="493">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="494"/>
+			</Button>
 			<Button name="ФормаПоказатьКонтекстныеНовости" id="324">
 				<Type>CommandBarButton</Type>
 				<CommandName>0</CommandName>
 				<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 				<ExtendedTooltip name="ФормаПоказатьКонтекстныеНовостиРасширеннаяПодсказка" id="325"/>
+			</Button>
+			<ButtonGroup name="КнопкиКоманднойПанели" id="491">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Кнопки командной панели</v8:content>
+					</v8:item>
+				</Title>
+				<CommandSource>Form</CommandSource>
+				<ExtendedTooltip name="КнопкиКоманднойПанелиРасширеннаяПодсказка" id="492"/>
+			</ButtonGroup>
+			<Button name="ФормаСправка" id="495">
+				<Type>CommandBarButton</Type>
+				<CommandName>0</CommandName>
+				<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="496"/>
 			</Button>
 		</ChildItems>
 	</AutoCommandBar>
@@ -65,7 +96,6 @@
 							<ExtendedTooltip name="ГруппаВидДоговораРасширеннаяПодсказка" id="130"/>
 							<ChildItems>
 								<InputField name="ВидДоговора" id="13">
-									<DataPath>1000001/0:adcfa131-1baa-4c7e-808f-4945eed8e395</DataPath>
 									<ContextMenu name="ВидДоговораКонтекстноеМеню" id="14"/>
 									<ExtendedTooltip name="ВидДоговораExtendedTooltip" id="90"/>
 								</InputField>
@@ -79,12 +109,6 @@
 									<v8:content>Номер и дата договора</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Номер и дата договора</v8:content>
-								</v8:item>
-							</ToolTip>
 							<Group>Horizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
@@ -92,7 +116,6 @@
 							<ExtendedTooltip name="ГруппаНомерДатаExtendedTooltip" id="83"/>
 							<ChildItems>
 								<InputField name="Номер" id="16">
-									<DataPath>1000001/0:0b35d69d-39ba-47ac-9858-39be0df3c18c</DataPath>
 									<DefaultItem>true</DefaultItem>
 									<Title>
 										<v8:item>
@@ -100,13 +123,20 @@
 											<v8:content>Номер договора</v8:content>
 										</v8:item>
 									</Title>
-									<Width>25</Width>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<Width>23</Width>
 									<HorizontalStretch>false</HorizontalStretch>
 									<ContextMenu name="НомерКонтекстноеМеню" id="17"/>
-									<ExtendedTooltip name="НомерExtendedTooltip" id="84"/>
+									<ExtendedTooltip name="НомерExtendedTooltip" id="84">
+										<Title formatted="true">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Настройте нумерацию в разделе &lt;link e1cib/command/Обработка.ПанельАдминистрированияБП.Команда.НумерацияДоговоров&gt;Настройки - Другие настройки - Параметры учета - Нумерация договоров&lt;/&gt;</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
 								</InputField>
 								<InputField name="Дата" id="18">
-									<DataPath>1000001/0:375e4795-7069-49ab-8ad5-aa74554a756f</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -116,6 +146,41 @@
 									<ContextMenu name="ДатаКонтекстноеМеню" id="19"/>
 									<ExtendedTooltip name="ДатаExtendedTooltip" id="85"/>
 								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаПроверкаДублей" id="485">
+							<Visible>false</Visible>
+							<EnableContentChange>true</EnableContentChange>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Проверка дублей</v8:content>
+								</v8:item>
+							</Title>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<BackColor>style:ToolTipBackColor</BackColor>
+							<ExtendedTooltip name="ГруппаПроверкаДублейРасширеннаяПодсказка" id="486"/>
+							<ChildItems>
+								<LabelField name="НадписьПояснениеПроверкиДублей" id="482">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Пояснение</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<Width>36</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<ContextMenu name="НадписьПояснениеПроверкиДублейКонтекстноеМеню" id="483"/>
+									<ExtendedTooltip name="НадписьПояснениеПроверкиДублейРасширеннаяПодсказка" id="484"/>
+								</LabelField>
+								<Button name="УстановитьНомерДоговора" id="487">
+									<Type>UsualButton</Type>
+									<CommandName>0</CommandName>
+									<ExtendedTooltip name="УстановитьНомерДоговораРасширеннаяПодсказка" id="488"/>
+								</Button>
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="Наименование" id="11">
@@ -131,6 +196,12 @@
 							<CreateButton>false</CreateButton>
 							<ContextMenu name="РодительКонтекстноеМеню" id="7"/>
 							<ExtendedTooltip name="РодительExtendedTooltip" id="82"/>
+						</InputField>
+						<InputField name="Комментарий" id="72">
+							<TitleLocation>Left</TitleLocation>
+							<MultiLine>false</MultiLine>
+							<ContextMenu name="КомментарийКонтекстноеМеню" id="73"/>
+							<ExtendedTooltip name="КомментарийExtendedTooltip" id="126"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -172,17 +243,90 @@
 							<ContextMenu name="ВладелецКонтекстноеМеню" id="5"/>
 							<ExtendedTooltip name="ВладелецExtendedTooltip" id="81"/>
 						</InputField>
+						<UsualGroup name="ГруппаПодписан" id="527">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Подписан</v8:content>
+								</v8:item>
+							</Title>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПодписанРасширеннаяПодсказка" id="528"/>
+							<ChildItems>
+								<CheckBoxField name="Подписан" id="270">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content> </v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>style:FormBackColor</TitleTextColor>
+									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ПодписанКонтекстноеМеню" id="271"/>
+									<ExtendedTooltip name="ПодписанРасширеннаяПодсказка" id="272">
+										<TextColor>style:FormTextColor</TextColor>
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Договор подписан</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаДоговорЗакрыт" id="522">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Договор закрыт</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Закрытый договор скрывается по умолчанию в списках и в документах при выборе</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ToolTipRepresentation>Button</ToolTipRepresentation>
+							<Group>AlwaysHorizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаДоговорЗакрытРасширеннаяПодсказка" id="523"/>
+							<ChildItems>
+								<CheckBoxField name="ДоговорЗакрыт" id="519">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content> </v8:content>
+										</v8:item>
+									</Title>
+									<TitleTextColor>style:FormBackColor</TitleTextColor>
+									<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+									<CheckBoxType>Auto</CheckBoxType>
+									<ContextMenu name="ДоговорЗакрытКонтекстноеМеню" id="520"/>
+									<ExtendedTooltip name="ДоговорЗакрытРасширеннаяПодсказка" id="521">
+										<TextColor>style:FormTextColor</TextColor>
+										<Title formatted="false">
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Договор закрыт</v8:content>
+											</v8:item>
+										</Title>
+									</ExtendedTooltip>
+								</CheckBoxField>
+							</ChildItems>
+						</UsualGroup>
 					</ChildItems>
 				</UsualGroup>
 			</ChildItems>
 		</UsualGroup>
-		<InputField name="Комментарий" id="72">
-			<DataPath>1000001/0:3d35bf24-9b60-4560-ba8e-e5c6c1386b0f</DataPath>
-			<TitleLocation>Left</TitleLocation>
-			<MultiLine>false</MultiLine>
-			<ContextMenu name="КомментарийКонтекстноеМеню" id="73"/>
-			<ExtendedTooltip name="КомментарийExtendedTooltip" id="126"/>
-		</InputField>
 		<UsualGroup name="ГруппаРасчеты" id="137">
 			<Title>
 				<v8:item>
@@ -199,83 +343,158 @@
 			<ChildItemsWidth>Equal</ChildItemsWidth>
 			<ExtendedTooltip name="ГруппаРасчетыРасширеннаяПодсказка" id="138"/>
 			<ChildItems>
-				<UsualGroup name="ГруппаВалютаВзаиморасчетов" id="315">
+				<UsualGroup name="ГруппаСумма" id="497">
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Валюта взаиморасчетов</v8:content>
+							<v8:content>Сумма</v8:content>
 						</v8:item>
 					</Title>
-					<ToolTip>
-						<v8:item>
-							<v8:lang>ru</v8:lang>
-							<v8:content>Группа валюта взаиморасчетов</v8:content>
-						</v8:item>
-					</ToolTip>
-					<Group>Horizontal</Group>
+					<Group>AlwaysHorizontal</Group>
 					<Behavior>Usual</Behavior>
 					<Representation>None</Representation>
 					<ShowTitle>false</ShowTitle>
-					<ExtendedTooltip name="ГруппаВалютаВзаиморасчетовРасширеннаяПодсказка" id="316"/>
+					<ExtendedTooltip name="ГруппаСуммаРасширеннаяПодсказка" id="498"/>
 					<ChildItems>
-						<InputField name="ВалютаВзаиморасчетов" id="141">
-							<DataPath>1000001/0:84a2ab05-cd80-466c-a02a-6d5b0ad8647b</DataPath>
+						<InputField name="Сумма" id="499">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Цена в</v8:content>
+									<v8:content>Сумма</v8:content>
 								</v8:item>
 							</Title>
-							<HorizontalStretch>false</HorizontalStretch>
-							<ContextMenu name="ВалютаВзаиморасчетовКонтекстноеМеню" id="142"/>
-							<ExtendedTooltip name="ВалютаВзаиморасчетовExtendedTooltip" id="143"/>
+							<Width>12</Width>
+							<ContextMenu name="СуммаКонтекстноеМеню" id="500"/>
+							<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="501"/>
 						</InputField>
-						<RadioButtonField name="ОплатаВРублях" id="317">
+						<InputField name="ВалютаДоговора" id="502">
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Оплата в</v8:content>
+									<v8:content>Валюта</v8:content>
 								</v8:item>
 							</Title>
-							<TitleLocation>Left</TitleLocation>
-							<RadioButtonType>RadioButtons</RadioButtonType>
-							<ChoiceList>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>руб.</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">1</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation>
-											<v8:item>
-												<v8:lang>ru</v8:lang>
-												<v8:content>USD</v8:content>
-											</v8:item>
-										</Presentation>
-										<Value xsi:type="xs:decimal">0</Value>
-									</xr:Value>
-								</xr:Item>
-							</ChoiceList>
-							<ContextMenu name="ОплатаВРубляхКонтекстноеМеню" id="318"/>
-							<ExtendedTooltip name="ОплатаВРубляхРасширеннаяПодсказка" id="319"/>
-						</RadioButtonField>
+							<TitleLocation>None</TitleLocation>
+							<Width>12</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<OpenButton>false</OpenButton>
+							<CreateButton>true</CreateButton>
+							<ContextMenu name="ВалютаДоговораКонтекстноеМеню" id="503"/>
+							<ExtendedTooltip name="ВалютаДоговораРасширеннаяПодсказка" id="504"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
-				<InputField name="ТипЦен" id="156">
-					<DataPath>1000001/0:8f6ba451-57df-403d-b01f-6a6e27818f26</DataPath>
-					<ContextMenu name="ТипЦенКонтекстноеМеню" id="157"/>
-					<ExtendedTooltip name="ТипЦенExtendedTooltip" id="158"/>
+				<RadioButtonField name="СуммаВключаетНДС" id="505">
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>В сумме</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Сверху</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="506"/>
+					<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="507"/>
+				</RadioButtonField>
+				<UsualGroup name="ГруппаСуммаНДС" id="508">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма НДС</v8:content>
+						</v8:item>
+					</Title>
+					<Group>AlwaysHorizontal</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаСуммаНДСРасширеннаяПодсказка" id="509"/>
+					<ChildItems>
+						<InputField name="СтавкаНДС" id="510">
+							<Width>12</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="511"/>
+							<ExtendedTooltip name="СтавкаНДСРасширеннаяПодсказка" id="512"/>
+						</InputField>
+						<InputField name="СуммаНДС" id="513">
+							<TitleLocation>None</TitleLocation>
+							<Width>12</Width>
+							<ContextMenu name="СуммаНДСКонтекстноеМеню" id="514"/>
+							<ExtendedTooltip name="СуммаНДСРасширеннаяПодсказка" id="515"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<InputField name="Всего" id="516">
+					<ReadOnly>true</ReadOnly>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Всего</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ВсегоКонтекстноеМеню" id="517"/>
+					<ExtendedTooltip name="ВсегоРасширеннаяПодсказка" id="518"/>
+				</InputField>
+				<InputField name="ОплатаВРублях" id="317">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оплата в</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<ListChoiceMode>true</ListChoiceMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>руб.</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">1</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>USD</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xs:decimal">0</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ОплатаВРубляхКонтекстноеМеню" id="318"/>
+					<ExtendedTooltip name="ОплатаВРубляхРасширеннаяПодсказка" id="319"/>
 				</InputField>
 				<UsualGroup name="ГруппаСрокОплаты" id="159">
 					<EnableContentChange>true</EnableContentChange>
@@ -298,14 +517,16 @@
 					<ExtendedTooltip name="ГруппаСрокОплатыExtendedTooltip" id="160"/>
 					<ChildItems>
 						<InputField name="ВидСрокаОплаты" id="460">
+							<Width>12</Width>
 							<AutoMaxWidth>false</AutoMaxWidth>
 							<MaxWidth>13</MaxWidth>
+							<HorizontalStretch>false</HorizontalStretch>
 							<ListChoiceMode>true</ListChoiceMode>
 							<ContextMenu name="ВидСрокаОплатыКонтекстноеМеню" id="461"/>
 							<ExtendedTooltip name="ВидСрокаОплатыРасширеннаяПодсказка" id="462"/>
 						</InputField>
 						<CheckBoxField name="УстановленСрокОплаты" id="161">
-							<DataPath>1000001/0:a329d03e-dc1e-4aa7-850c-5e58eea992d0</DataPath>
+							<DataPath>Объект.УстановленСрокОплаты</DataPath>
 							<Visible>false</Visible>
 							<TitleLocation>Right</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
@@ -313,7 +534,7 @@
 							<ExtendedTooltip name="УстановленСрокОплатыExtendedTooltip" id="163"/>
 						</CheckBoxField>
 						<InputField name="СрокОплаты" id="168">
-							<DataPath>1000001/0:15ff4b09-c269-47ea-99f9-9a0a6ab38ead</DataPath>
+							<DataPath>Объект.СрокОплаты</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -325,10 +546,32 @@
 							<ExtendedTooltip name="СрокОплатыExtendedTooltip" id="170"/>
 						</InputField>
 						<InputField name="ДатаОплаты" id="463">
-							<DataPath>1000001/0:85f8f017-ed7d-4a51-95b1-0691fb2c2b39</DataPath>
 							<TitleLocation>None</TitleLocation>
 							<ContextMenu name="ДатаОплатыКонтекстноеМеню" id="464"/>
 							<ExtendedTooltip name="ДатаОплатыРасширеннаяПодсказка" id="465"/>
+						</InputField>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаТипЦен" id="532">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа тип цен</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа тип цен</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаТипЦенРасширеннаяПодсказка" id="533"/>
+					<ChildItems>
+						<InputField name="ТипЦен" id="156">
+							<DataPath>Объект.ТипЦен</DataPath>
+							<ContextMenu name="ТипЦенКонтекстноеМеню" id="157"/>
+							<ExtendedTooltip name="ТипЦенExtendedTooltip" id="158"/>
 						</InputField>
 					</ChildItems>
 				</UsualGroup>
@@ -350,7 +593,6 @@
 			<ExtendedTooltip name="ГруппаБухгалтерскийУчетРасширеннаяПодсказка" id="475"/>
 			<ChildItems>
 				<InputField name="ВидАктивов" id="471">
-					<DataPath>1000001/0:9bf3fe29-1975-4e99-a797-36b46b7f26ad</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -367,23 +609,10 @@
 								<Presentation>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Запасы</v8:content>
+										<v8:content>Дебиторская задолженность</v8:content>
 									</v8:item>
 								</Presentation>
-								<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.971ac716-37c5-4ccb-9031-f18ddac11f2c</Value>
-							</xr:Value>
-						</xr:Item>
-						<xr:Item>
-							<xr:Presentation/>
-							<xr:CheckState>0</xr:CheckState>
-							<xr:Value xsi:type="FormChoiceListDesTimeValue">
-								<Presentation>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Основные средства </v8:content>
-									</v8:item>
-								</Presentation>
-								<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.c2da7cda-016b-465f-b912-1eb6dd3388ec</Value>
+								<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.00000000-0000-0000-0000-000000000000</Value>
 							</xr:Value>
 						</xr:Item>
 						<xr:Item>
@@ -396,7 +625,7 @@
 										<v8:content>Прочие активы</v8:content>
 									</v8:item>
 								</Presentation>
-								<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.4d55f190-b832-49a6-85c8-561f4fce8cc6</Value>
+								<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.6448860f-e02d-4566-95e1-49668be3b185</Value>
 							</xr:Value>
 						</xr:Item>
 						<xr:Item>
@@ -406,10 +635,23 @@
 								<Presentation>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Дебиторская задолженность</v8:content>
+										<v8:content>Основные средства </v8:content>
 									</v8:item>
 								</Presentation>
-								<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.00000000-0000-0000-0000-000000000000</Value>
+								<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.711805fa-18fa-4443-9966-444ea94671f6</Value>
+							</xr:Value>
+						</xr:Item>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Запасы</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.030062df-7429-449d-9191-337a014bf668</Value>
 							</xr:Value>
 						</xr:Item>
 					</ChoiceList>
@@ -474,7 +716,6 @@
 					<ExtendedTooltip name="ГруппаЗаполнениеДокументовРасширеннаяПодсказка" id="407"/>
 					<ChildItems>
 						<InputField name="СпособЗаполненияСтавкиНДС" id="408">
-							<DataPath>1000001/0:4e91c197-c5c2-4df3-9c5e-cf6c381ae4bb</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -494,10 +735,10 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>По умолчанию</v8:content>
+												<v8:content>Без НДС</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">b74c5b2e-9359-4559-91e6-d3002b85eeba.7f26d3bb-a770-48c2-8cd4-3ddb650bbcad</Value>
+										<Value xsi:type="xr:DesignTimeRef">70dc048f-34f3-4672-9750-17f3d3ea7b4b.d3e72ac6-4f0c-474d-a35d-3daed00a4038</Value>
 									</xr:Value>
 								</xr:Item>
 								<xr:Item>
@@ -510,7 +751,7 @@
 												<v8:content>Из карточки номенклатуры</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">b74c5b2e-9359-4559-91e6-d3002b85eeba.81495c78-32d8-4756-af56-23b1f2d94e63</Value>
+										<Value xsi:type="xr:DesignTimeRef">70dc048f-34f3-4672-9750-17f3d3ea7b4b.3db55a76-099e-4812-ac5e-f1a51364bdc6</Value>
 									</xr:Value>
 								</xr:Item>
 								<xr:Item>
@@ -520,10 +761,10 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Без НДС</v8:content>
+												<v8:content>По умолчанию</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">b74c5b2e-9359-4559-91e6-d3002b85eeba.d7c138fc-6949-4452-81c6-2c4fd96ae9da</Value>
+										<Value xsi:type="xr:DesignTimeRef">70dc048f-34f3-4672-9750-17f3d3ea7b4b.6db038a6-7891-4ef4-9396-e15f0bd0f622</Value>
 									</xr:Value>
 								</xr:Item>
 							</ChoiceList>
@@ -538,7 +779,6 @@
 							</ExtendedTooltip>
 						</InputField>
 						<InputField name="СпособВыставленияДокументов" id="457">
-							<DataPath>1000001/0:0a80fd67-3993-434f-896d-194ab2713fbd</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -556,10 +796,10 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>По умолчанию</v8:content>
+												<v8:content>Акт (накладная) и счет-фактура</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">325069ef-2d09-447b-8d51-8b51726cfc77.993e4e06-55f6-4da3-b2bc-0be368c2675e</Value>
+										<Value xsi:type="xr:DesignTimeRef">1cbe211c-bc66-4df4-9c55-1e5f536b8fe2.ba99c8e7-c2e5-4765-9429-752d4eb48a0d</Value>
 									</xr:Value>
 								</xr:Item>
 								<xr:Item>
@@ -572,7 +812,7 @@
 												<v8:content>УПД</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">325069ef-2d09-447b-8d51-8b51726cfc77.906f582b-bf9e-4b1d-98c7-0e9ccc430491</Value>
+										<Value xsi:type="xr:DesignTimeRef">1cbe211c-bc66-4df4-9c55-1e5f536b8fe2.4ad36dd6-98d2-4bed-ac91-d52f56d2c8b2</Value>
 									</xr:Value>
 								</xr:Item>
 								<xr:Item>
@@ -582,10 +822,10 @@
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
-												<v8:content>Акт (накладная) и счет-фактура</v8:content>
+												<v8:content>По умолчанию</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">325069ef-2d09-447b-8d51-8b51726cfc77.fd0be79e-dd9f-429d-a734-bfeb401972dd</Value>
+										<Value xsi:type="xr:DesignTimeRef">1cbe211c-bc66-4df4-9c55-1e5f536b8fe2.779ffefe-74b7-4dca-9467-927010a457c9</Value>
 									</xr:Value>
 								</xr:Item>
 							</ChoiceList>
@@ -593,7 +833,6 @@
 							<ExtendedTooltip name="СпособВыставленияДокументовРасширеннаяПодсказка" id="459"/>
 						</InputField>
 						<CheckBoxField name="НДСПоСтавкам4и2" id="411">
-							<DataPath>1000001/0:0292484d-fd67-4e3d-965e-4cca121f1c24</DataPath>
 							<UserVisible>
 								<xr:Common>false</xr:Common>
 							</UserVisible>
@@ -633,7 +872,6 @@
 					<ExtendedTooltip name="ГруппаНалоговыйАгентПокупательРасширеннаяПодсказка" id="400"/>
 					<ChildItems>
 						<CheckBoxField name="УчетАгентскогоНДСПокупателем" id="396">
-							<DataPath>1000001/0:e977c7d8-f79f-422c-a6a5-cdff61656293</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -667,7 +905,6 @@
 					<ExtendedTooltip name="ГруппаНДССАвансовРасширеннаяПодсказка" id="283"/>
 					<ChildItems>
 						<InputField name="ПорядокРегистрацииСчетовФактурНаАвансПоДоговору" id="284">
-							<DataPath>1000001/0:fb65383a-3ddc-4799-b4a6-25c5a5b6e7ae</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -681,53 +918,53 @@
 									<xr:Presentation/>
 									<xr:CheckState>0</xr:CheckState>
 									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.e14f7b78-184f-4812-8784-c6e300c76df9</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.99d97c38-6453-4bf3-8c8b-d70a7d21d350</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.0be723ac-bce5-450f-bc90-366b2251af53</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.a208a884-dfc3-4a3e-bbfe-2cb6e60ba141</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation/>
+										<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.35f3083d-e50d-4979-907d-bffc622899df</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
 										<Presentation>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Регистрировать счета-фактуры на аванс в порядке, соответствующем учетной политике</v8:content>
 											</v8:item>
 										</Presentation>
-										<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.00000000-0000-0000-0000-000000000000</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.5ef9c165-7214-4acb-b92e-05677dc020fd</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.dee8009b-298e-4cdb-ab89-4bc3aa678829</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.6be224dd-9620-4862-9f2d-a8206a3fd77b</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.f8982344-0fef-4ea4-a1ab-16d300ea61aa</Value>
-									</xr:Value>
-								</xr:Item>
-								<xr:Item>
-									<xr:Presentation/>
-									<xr:CheckState>0</xr:CheckState>
-									<xr:Value xsi:type="FormChoiceListDesTimeValue">
-										<Presentation/>
-										<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.4586791f-b602-4956-9d4f-60a930e33a90</Value>
+										<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.00000000-0000-0000-0000-000000000000</Value>
 									</xr:Value>
 								</xr:Item>
 							</ChoiceList>
@@ -735,7 +972,6 @@
 							<ExtendedTooltip name="ПорядокРегистрацииСчетовФактурНаАвансПоДоговоруExtendedTooltip" id="286"/>
 						</InputField>
 						<InputField name="НаименованиеДляСчетаФактурыНаАванс" id="287">
-							<DataPath>1000001/0:aff3b5fb-ca3f-4d09-bbc3-d512070ed45c</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -768,7 +1004,6 @@
 					<ExtendedTooltip name="ГруппаПеревыставлениеСФРасширеннаяПодсказка" id="402"/>
 					<ChildItems>
 						<CheckBoxField name="СчетаФактурыОтИмениОрганизации" id="403">
-							<DataPath>1000001/0:ce592610-7e68-4e3a-a9b1-02e302717f53</DataPath>
 							<TitleLocation>Right</TitleLocation>
 							<CheckBoxType>Auto</CheckBoxType>
 							<ContextMenu name="СчетаФактурыОтИмениОрганизацииКонтекстноеМеню" id="404"/>
@@ -796,7 +1031,6 @@
 					<ExtendedTooltip name="КодДекларацияРаздел7РасширеннаяПодсказка" id="381"/>
 					<ChildItems>
 						<InputField name="КодРаздел7ДекларацииНДС" id="382">
-							<DataPath>1000001/0:c83dd5a4-e230-4fe6-8a6b-2c546b33fa93</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -932,7 +1166,6 @@
 					<ExtendedTooltip name="ГруппаНалоговыйАгентОрганизацияРасширеннаяПодсказка" id="291"/>
 					<ChildItems>
 						<CheckBoxField name="УчетАгентскогоНДС" id="292">
-							<DataPath>1000001/0:8d550704-9808-45d5-a83a-695b687292a8</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -976,12 +1209,10 @@
 									<ExtendedTooltip name="ГруппаНастройкиНалоговыйАгентРасширеннаяПодсказка" id="450"/>
 									<ChildItems>
 										<InputField name="ВидАгентскогоДоговора" id="451">
-											<DataPath>1000001/0:25693885-fde7-4dbd-b596-d89913a04a78</DataPath>
 											<ContextMenu name="ВидАгентскогоДоговораКонтекстноеМеню" id="452"/>
 											<ExtendedTooltip name="ВидАгентскогоДоговораРасширеннаяПодсказка" id="453"/>
 										</InputField>
 										<InputField name="НаименованиеДляСчетаФактурыНалоговогоАгента" id="454">
-											<DataPath>1000001/0:aff3b5fb-ca3f-4d09-bbc3-d512070ed45c</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1050,7 +1281,6 @@
 					<ExtendedTooltip name="ГосударственныйКонтрактЕИСРасширеннаяПодсказка" id="481"/>
 				</InputField>
 				<InputField name="ГосударственныйКонтракт" id="390">
-					<DataPath>1000001/0:dd46fbd2-89ca-41c4-a10c-b55fb7aafd60</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1080,7 +1310,6 @@
 			<ExtendedTooltip name="ГруппаКомиссионноеВознаграждениеExtendedTooltip" id="180"/>
 			<ChildItems>
 				<InputField name="СпособРасчетаКомиссионногоВознаграждения" id="181">
-					<DataPath>1000001/0:8492d712-48f1-4074-ac61-91a75c2a7bb6</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1099,7 +1328,6 @@
 					<ExtendedTooltip name="ГруппаПроцентКомиссионногоВознагражденияРасширеннаяПодсказка" id="185"/>
 					<ChildItems>
 						<InputField name="ПроцентКомиссионногоВознаграждения" id="186">
-							<DataPath>1000001/0:b8cec2ac-c16a-42de-8f9d-1f84a5371b7d</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1146,7 +1374,6 @@
 			<ExtendedTooltip name="ГруппаПлатежныйАгентРасширеннаяПодсказка" id="352"/>
 			<ChildItems>
 				<CheckBoxField name="ПлатежныйАгент" id="353">
-					<DataPath>1000001/0:fc33535a-fd47-40a0-900b-b40c45d8d2a1</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1159,7 +1386,6 @@
 					<ExtendedTooltip name="ПлатежныйАгентРасширеннаяПодсказка" id="355"/>
 				</CheckBoxField>
 				<InputField name="ПризнакАгента" id="393">
-					<DataPath>1000001/0:d783182b-029b-4c7f-b9af-f899beeee599</DataPath>
 					<ListChoiceMode>true</ListChoiceMode>
 					<ChoiceList>
 						<xr:Item>
@@ -1167,7 +1393,7 @@
 							<xr:CheckState>0</xr:CheckState>
 							<xr:Value xsi:type="FormChoiceListDesTimeValue">
 								<Presentation/>
-								<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.e108d9b5-ec12-4093-9f45-9f05fce224a4</Value>
+								<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.6e9a3251-2fce-416d-b3e3-269aada0c24c</Value>
 							</xr:Value>
 						</xr:Item>
 						<xr:Item>
@@ -1175,7 +1401,7 @@
 							<xr:CheckState>0</xr:CheckState>
 							<xr:Value xsi:type="FormChoiceListDesTimeValue">
 								<Presentation/>
-								<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.aa54a785-9e0e-4b09-aee9-3de1c4c30024</Value>
+								<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.60e95d69-1ceb-4a4a-bdb3-2e9ad0f6c273</Value>
 							</xr:Value>
 						</xr:Item>
 						<xr:Item>
@@ -1183,7 +1409,7 @@
 							<xr:CheckState>0</xr:CheckState>
 							<xr:Value xsi:type="FormChoiceListDesTimeValue">
 								<Presentation/>
-								<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.0c3e8417-93a8-4782-8011-8ecffcc1fad7</Value>
+								<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.726b19d0-2748-440b-b4f9-47c52fa6190a</Value>
 							</xr:Value>
 						</xr:Item>
 						<xr:Item>
@@ -1191,7 +1417,7 @@
 							<xr:CheckState>0</xr:CheckState>
 							<xr:Value xsi:type="FormChoiceListDesTimeValue">
 								<Presentation/>
-								<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.8530f0ec-1c49-42f1-a95d-9aa61b4fe694</Value>
+								<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.7d2e3d72-6fc6-4f34-a822-415388b08281</Value>
 							</xr:Value>
 						</xr:Item>
 					</ChoiceList>
@@ -1199,7 +1425,6 @@
 					<ExtendedTooltip name="ПризнакАгентаРасширеннаяПодсказка" id="395"/>
 				</InputField>
 				<InputField name="ТелефонПоставщика" id="356">
-					<DataPath>1000001/0:a7e6e086-9112-45ca-92e5-c87dc720d62d</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1211,7 +1436,6 @@
 					<ExtendedTooltip name="ТелефонПоставщикаРасширеннаяПодсказка" id="358"/>
 				</InputField>
 				<InputField name="ОперацияПлатежногоАгента" id="377">
-					<DataPath>1000001/0:6013030b-8a4a-4c48-8850-dfe78b77cac6</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1223,7 +1447,6 @@
 					<ExtendedTooltip name="ОперацияПлатежногоАгентаРасширеннаяПодсказка" id="379"/>
 				</InputField>
 				<InputField name="ТелефонПлатежногоАгента" id="359">
-					<DataPath>1000001/0:91d2a47f-4f10-4a29-9ab8-45da7da8a71d</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1235,7 +1458,6 @@
 					<ExtendedTooltip name="ТелефонПлатежногоАгентаРасширеннаяПодсказка" id="361"/>
 				</InputField>
 				<InputField name="НаименованиеОператораПеревода" id="365">
-					<DataPath>1000001/0:119055a2-6810-40e7-a83f-0053d0771a50</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1247,7 +1469,6 @@
 					<ExtendedTooltip name="НаименованиеОператораПереводаРасширеннаяПодсказка" id="367"/>
 				</InputField>
 				<InputField name="ИННОператораПеревода" id="368">
-					<DataPath>1000001/0:61ba682a-ed5f-4d07-9bb4-1bfaed85777b</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1259,7 +1480,6 @@
 					<ExtendedTooltip name="ИННОператораПереводаРасширеннаяПодсказка" id="370"/>
 				</InputField>
 				<InputField name="АдресОператораПеревода" id="371">
-					<DataPath>1000001/0:0c03c0dd-95f0-45c5-89b2-d253592cd1be</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1271,7 +1491,6 @@
 					<ExtendedTooltip name="АдресОператораПереводаРасширеннаяПодсказка" id="373"/>
 				</InputField>
 				<InputField name="ТелефонОператораПеревода" id="374">
-					<DataPath>1000001/0:637822c7-08db-44d8-8a4f-3237198f8f19</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1283,7 +1502,6 @@
 					<ExtendedTooltip name="ТелефонОператораПереводаРасширеннаяПодсказка" id="376"/>
 				</InputField>
 				<InputField name="ТелефонОператораПоПриемуПлатежей" id="362">
-					<DataPath>1000001/0:6444732d-3abf-4dae-996d-2a8acb81d692</DataPath>
 					<ToolTip>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1338,7 +1556,6 @@
 							<ExtendedTooltip name="ГруппаРуководительКонтрагентаРасширеннаяПодсказка" id="335"/>
 							<ChildItems>
 								<InputField name="ПолРуководителя" id="340">
-									<DataPath>1000001/0:2934f482-3798-48b2-8be9-e5ef5b2941eb</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<Width>7</Width>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -1352,10 +1569,10 @@
 												<Presentation>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Г-н</v8:content>
+														<v8:content>Г-жа</v8:content>
 													</v8:item>
 												</Presentation>
-												<Value xsi:type="xr:DesignTimeRef">3e0afc22-13f2-41a3-aba8-460f7ce79cd1.2a3fea09-6c1c-4562-8c24-509afe29ec5c</Value>
+												<Value xsi:type="xr:DesignTimeRef">864bbae6-34a4-4e68-8065-29d315040359.f46e791d-611a-468f-8070-7903d097cd3e</Value>
 											</xr:Value>
 										</xr:Item>
 										<xr:Item>
@@ -1365,10 +1582,10 @@
 												<Presentation>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
-														<v8:content>Г-жа</v8:content>
+														<v8:content>Г-н</v8:content>
 													</v8:item>
 												</Presentation>
-												<Value xsi:type="xr:DesignTimeRef">3e0afc22-13f2-41a3-aba8-460f7ce79cd1.19a643bd-3e71-472d-bafa-11a5e7b82155</Value>
+												<Value xsi:type="xr:DesignTimeRef">864bbae6-34a4-4e68-8065-29d315040359.70efd85e-1113-4658-81a8-aff72046a5d0</Value>
 											</xr:Value>
 										</xr:Item>
 									</ChoiceList>
@@ -1377,7 +1594,6 @@
 									<ExtendedTooltip name="ПолРуководителяРасширеннаяПодсказка" id="342"/>
 								</InputField>
 								<InputField name="РуководительКонтрагента" id="227">
-									<DataPath>1000001/0:5f17100b-8946-49bd-af5e-1b7c4666b49d</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -1385,7 +1601,6 @@
 										</v8:item>
 									</Title>
 									<TitleLocation>None</TitleLocation>
-									<ChoiceButton>true</ChoiceButton>
 									<ContextMenu name="РуководительКонтрагентаКонтекстноеМеню" id="228"/>
 									<ExtendedTooltip name="РуководительКонтрагентаРасширеннаяПодсказка" id="229"/>
 								</InputField>
@@ -1405,7 +1620,6 @@
 							<ExtendedTooltip name="ГруппаДолжностьРуководителяКонтрагентаРасширеннаяПодсказка" id="337"/>
 							<ChildItems>
 								<InputField name="ДолжностьРуководителяКонтрагента" id="230">
-									<DataPath>1000001/0:51efe95c-fba8-44ca-bac5-c2bf6f645ec2</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -1424,7 +1638,6 @@
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="ЗаРуководителяКонтрагентаПоПриказу" id="233">
-							<DataPath>1000001/0:47852a6a-9130-4e6a-82d8-4a576d461e13</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1440,14 +1653,6 @@
 							<ContextMenu name="ЗаРуководителяКонтрагентаПоПриказуКонтекстноеМеню" id="234"/>
 							<ExtendedTooltip name="ЗаРуководителяКонтрагентаПоПриказуРасширеннаяПодсказка" id="235"/>
 						</InputField>
-						<CheckBoxField name="Подписан" id="270">
-							<DataPath>1000001/0:fcd5842a-ae63-4532-a9a3-b53292d87000</DataPath>
-							<TitleLocation>Right</TitleLocation>
-							<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-							<CheckBoxType>Auto</CheckBoxType>
-							<ContextMenu name="ПодписанКонтекстноеМеню" id="271"/>
-							<ExtendedTooltip name="ПодписанРасширеннаяПодсказка" id="272"/>
-						</CheckBoxField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="ГруппаПодписиПравая" id="236">
@@ -1477,7 +1682,6 @@
 							<ExtendedTooltip name="ГруппаРуководительРасширеннаяПодсказка" id="344"/>
 							<ChildItems>
 								<InputField name="Руководитель" id="238">
-									<DataPath>1000001/0:c22aa877-6148-4461-9f14-584b8b5adedd</DataPath>
 									<ContextMenu name="РуководительКонтекстноеМеню" id="239"/>
 									<ExtendedTooltip name="РуководительРасширеннаяПодсказка" id="240"/>
 								</InputField>
@@ -1497,7 +1701,6 @@
 							<ExtendedTooltip name="ГруппаДолжностьРуководителяРасширеннаяПодсказка" id="348"/>
 							<ChildItems>
 								<InputField name="ДолжностьРуководителя" id="241">
-									<DataPath>1000001/0:85241341-1bd8-4e7a-a593-32b194bea8cc</DataPath>
 									<EditTextUpdate>OnValueChange</EditTextUpdate>
 									<ContextMenu name="ДолжностьРуководителяКонтекстноеМеню" id="242"/>
 									<ExtendedTooltip name="ДолжностьРуководителяРасширеннаяПодсказка" id="243"/>
@@ -1511,7 +1714,6 @@
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="ЗаРуководителяПоПриказу" id="244">
-							<DataPath>1000001/0:a1cfffa9-aeb1-410b-ab40-3aa220ee6166</DataPath>
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
@@ -1559,7 +1761,6 @@
 					<ExtendedTooltip name="ПредусмотреноОбеспечениеОбязательствРасширеннаяПодсказка" id="418"/>
 				</CheckBoxField>
 				<InputField name="ВидОбеспеченияОбязательствИПлатежей" id="419">
-					<DataPath>1000001/0:32b37cbf-37b7-43ae-b2e7-63f736d34395</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -1640,17 +1841,15 @@
 			<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="310"/>
 			<ChildItems>
 				<InputField name="СрокДействия" id="20">
-					<DataPath>1000001/0:315a9429-004f-44c3-9487-94e561b33f06</DataPath>
+					<DataPath>Объект.СрокДействия</DataPath>
 					<ContextMenu name="СрокДействияКонтекстноеМеню" id="21"/>
 					<ExtendedTooltip name="СрокДействияExtendedTooltip" id="86"/>
 				</InputField>
 				<InputField name="ВидВзаиморасчетов" id="150">
-					<DataPath>1000001/0:ab1731cc-3d11-4f1f-b053-7b37c170a14b</DataPath>
 					<ContextMenu name="ВидВзаиморасчетовКонтекстноеМеню" id="151"/>
 					<ExtendedTooltip name="ВидВзаиморасчетовExtendedTooltip" id="152"/>
 				</InputField>
 				<InputField name="ФайлДоговора" id="260">
-					<DataPath>1000001/0:71e832e5-e1b3-431b-aa16-81861e2295d8</DataPath>
 					<UserVisible>
 						<xr:Common>false</xr:Common>
 					</UserVisible>
@@ -1683,20 +1882,48 @@
 			</Type>
 			<MainAttribute>true</MainAttribute>
 			<SavedData>true</SavedData>
-			<UseAlways>
-				<Field>1000001/0:916af2ad-5cab-422f-8b5c-44a0d5978d07</Field>
-			</UseAlways>
 		</Attribute>
 	</Attributes>
 	<BaseForm version="2.16">
+		<CommandSet>
+			<ExcludedCommand>WriteAndClose</ExcludedCommand>
+		</CommandSet>
 		<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 		<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+			<Autofill>false</Autofill>
 			<ChildItems>
+				<Button name="ФормаКомандаЗаписатьИЗакрыть" id="489">
+					<Type>CommandBarButton</Type>
+					<Representation>Text</Representation>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>0</CommandName>
+					<ExtendedTooltip name="ФормаКомандаЗаписатьИЗакрытьРасширеннаяПодсказка" id="490"/>
+				</Button>
+				<Button name="ФормаЗаписать" id="493">
+					<Type>CommandBarButton</Type>
+					<CommandName>0</CommandName>
+					<ExtendedTooltip name="ФормаЗаписатьРасширеннаяПодсказка" id="494"/>
+				</Button>
 				<Button name="ФормаПоказатьКонтекстныеНовости" id="324">
 					<Type>CommandBarButton</Type>
 					<CommandName>0</CommandName>
 					<LocationInCommandBar>InAdditionalSubmenu</LocationInCommandBar>
 					<ExtendedTooltip name="ФормаПоказатьКонтекстныеНовостиРасширеннаяПодсказка" id="325"/>
+				</Button>
+				<ButtonGroup name="КнопкиКоманднойПанели" id="491">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Кнопки командной панели</v8:content>
+						</v8:item>
+					</Title>
+					<CommandSource>Form</CommandSource>
+					<ExtendedTooltip name="КнопкиКоманднойПанелиРасширеннаяПодсказка" id="492"/>
+				</ButtonGroup>
+				<Button name="ФормаСправка" id="495">
+					<Type>CommandBarButton</Type>
+					<CommandName>0</CommandName>
+					<ExtendedTooltip name="ФормаСправкаРасширеннаяПодсказка" id="496"/>
 				</Button>
 			</ChildItems>
 		</AutoCommandBar>
@@ -1750,7 +1977,6 @@
 								<ExtendedTooltip name="ГруппаВидДоговораРасширеннаяПодсказка" id="130"/>
 								<ChildItems>
 									<InputField name="ВидДоговора" id="13">
-										<DataPath>1000001/0:adcfa131-1baa-4c7e-808f-4945eed8e395</DataPath>
 										<ContextMenu name="ВидДоговораКонтекстноеМеню" id="14"/>
 										<ExtendedTooltip name="ВидДоговораExtendedTooltip" id="90"/>
 									</InputField>
@@ -1764,12 +1990,6 @@
 										<v8:content>Номер и дата договора</v8:content>
 									</v8:item>
 								</Title>
-								<ToolTip>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Номер и дата договора</v8:content>
-									</v8:item>
-								</ToolTip>
 								<Group>Horizontal</Group>
 								<Behavior>Usual</Behavior>
 								<Representation>None</Representation>
@@ -1777,7 +1997,6 @@
 								<ExtendedTooltip name="ГруппаНомерДатаExtendedTooltip" id="83"/>
 								<ChildItems>
 									<InputField name="Номер" id="16">
-										<DataPath>1000001/0:0b35d69d-39ba-47ac-9858-39be0df3c18c</DataPath>
 										<DefaultItem>true</DefaultItem>
 										<Title>
 											<v8:item>
@@ -1785,13 +2004,20 @@
 												<v8:content>Номер договора</v8:content>
 											</v8:item>
 										</Title>
-										<Width>25</Width>
+										<ToolTipRepresentation>Button</ToolTipRepresentation>
+										<Width>23</Width>
 										<HorizontalStretch>false</HorizontalStretch>
 										<ContextMenu name="НомерКонтекстноеМеню" id="17"/>
-										<ExtendedTooltip name="НомерExtendedTooltip" id="84"/>
+										<ExtendedTooltip name="НомерExtendedTooltip" id="84">
+											<Title formatted="true">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Настройте нумерацию в разделе &lt;link e1cib/command/Обработка.ПанельАдминистрированияБП.Команда.НумерацияДоговоров&gt;Настройки - Другие настройки - Параметры учета - Нумерация договоров&lt;/&gt;</v8:content>
+												</v8:item>
+											</Title>
+										</ExtendedTooltip>
 									</InputField>
 									<InputField name="Дата" id="18">
-										<DataPath>1000001/0:375e4795-7069-49ab-8ad5-aa74554a756f</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -1801,6 +2027,41 @@
 										<ContextMenu name="ДатаКонтекстноеМеню" id="19"/>
 										<ExtendedTooltip name="ДатаExtendedTooltip" id="85"/>
 									</InputField>
+								</ChildItems>
+							</UsualGroup>
+							<UsualGroup name="ГруппаПроверкаДублей" id="485">
+								<Visible>false</Visible>
+								<EnableContentChange>true</EnableContentChange>
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Проверка дублей</v8:content>
+									</v8:item>
+								</Title>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ShowTitle>false</ShowTitle>
+								<BackColor>style:ToolTipBackColor</BackColor>
+								<ExtendedTooltip name="ГруппаПроверкаДублейРасширеннаяПодсказка" id="486"/>
+								<ChildItems>
+									<LabelField name="НадписьПояснениеПроверкиДублей" id="482">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Пояснение</v8:content>
+											</v8:item>
+										</Title>
+										<TitleLocation>None</TitleLocation>
+										<Width>36</Width>
+										<HorizontalStretch>false</HorizontalStretch>
+										<ContextMenu name="НадписьПояснениеПроверкиДублейКонтекстноеМеню" id="483"/>
+										<ExtendedTooltip name="НадписьПояснениеПроверкиДублейРасширеннаяПодсказка" id="484"/>
+									</LabelField>
+									<Button name="УстановитьНомерДоговора" id="487">
+										<Type>UsualButton</Type>
+										<CommandName>0</CommandName>
+										<ExtendedTooltip name="УстановитьНомерДоговораРасширеннаяПодсказка" id="488"/>
+									</Button>
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="Наименование" id="11">
@@ -1816,6 +2077,12 @@
 								<CreateButton>false</CreateButton>
 								<ContextMenu name="РодительКонтекстноеМеню" id="7"/>
 								<ExtendedTooltip name="РодительExtendedTooltip" id="82"/>
+							</InputField>
+							<InputField name="Комментарий" id="72">
+								<TitleLocation>Left</TitleLocation>
+								<MultiLine>false</MultiLine>
+								<ContextMenu name="КомментарийКонтекстноеМеню" id="73"/>
+								<ExtendedTooltip name="КомментарийExtendedTooltip" id="126"/>
 							</InputField>
 						</ChildItems>
 					</UsualGroup>
@@ -1857,17 +2124,90 @@
 								<ContextMenu name="ВладелецКонтекстноеМеню" id="5"/>
 								<ExtendedTooltip name="ВладелецExtendedTooltip" id="81"/>
 							</InputField>
+							<UsualGroup name="ГруппаПодписан" id="527">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Подписан</v8:content>
+									</v8:item>
+								</Title>
+								<Group>AlwaysHorizontal</Group>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ShowTitle>false</ShowTitle>
+								<ExtendedTooltip name="ГруппаПодписанРасширеннаяПодсказка" id="528"/>
+								<ChildItems>
+									<CheckBoxField name="Подписан" id="270">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content> </v8:content>
+											</v8:item>
+										</Title>
+										<TitleTextColor>style:FormBackColor</TitleTextColor>
+										<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+										<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+										<CheckBoxType>Auto</CheckBoxType>
+										<ContextMenu name="ПодписанКонтекстноеМеню" id="271"/>
+										<ExtendedTooltip name="ПодписанРасширеннаяПодсказка" id="272">
+											<TextColor>style:FormTextColor</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Договор подписан</v8:content>
+												</v8:item>
+											</Title>
+										</ExtendedTooltip>
+									</CheckBoxField>
+								</ChildItems>
+							</UsualGroup>
+							<UsualGroup name="ГруппаДоговорЗакрыт" id="522">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Договор закрыт</v8:content>
+									</v8:item>
+								</Title>
+								<ToolTip>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Закрытый договор скрывается по умолчанию в списках и в документах при выборе</v8:content>
+									</v8:item>
+								</ToolTip>
+								<ToolTipRepresentation>Button</ToolTipRepresentation>
+								<Group>AlwaysHorizontal</Group>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ShowTitle>false</ShowTitle>
+								<ExtendedTooltip name="ГруппаДоговорЗакрытРасширеннаяПодсказка" id="523"/>
+								<ChildItems>
+									<CheckBoxField name="ДоговорЗакрыт" id="519">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content> </v8:content>
+											</v8:item>
+										</Title>
+										<TitleTextColor>style:FormBackColor</TitleTextColor>
+										<ToolTipRepresentation>ShowRight</ToolTipRepresentation>
+										<CheckBoxType>Auto</CheckBoxType>
+										<ContextMenu name="ДоговорЗакрытКонтекстноеМеню" id="520"/>
+										<ExtendedTooltip name="ДоговорЗакрытРасширеннаяПодсказка" id="521">
+											<TextColor>style:FormTextColor</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Договор закрыт</v8:content>
+												</v8:item>
+											</Title>
+										</ExtendedTooltip>
+									</CheckBoxField>
+								</ChildItems>
+							</UsualGroup>
 						</ChildItems>
 					</UsualGroup>
 				</ChildItems>
 			</UsualGroup>
-			<InputField name="Комментарий" id="72">
-				<DataPath>1000001/0:3d35bf24-9b60-4560-ba8e-e5c6c1386b0f</DataPath>
-				<TitleLocation>Left</TitleLocation>
-				<MultiLine>false</MultiLine>
-				<ContextMenu name="КомментарийКонтекстноеМеню" id="73"/>
-				<ExtendedTooltip name="КомментарийExtendedTooltip" id="126"/>
-			</InputField>
 			<UsualGroup name="ГруппаРасчеты" id="137">
 				<Title>
 					<v8:item>
@@ -1884,83 +2224,159 @@
 				<ChildItemsWidth>Equal</ChildItemsWidth>
 				<ExtendedTooltip name="ГруппаРасчетыРасширеннаяПодсказка" id="138"/>
 				<ChildItems>
-					<UsualGroup name="ГруппаВалютаВзаиморасчетов" id="315">
+					<UsualGroup name="ГруппаСумма" id="497">
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
-								<v8:content>Валюта взаиморасчетов</v8:content>
+								<v8:content>Сумма</v8:content>
 							</v8:item>
 						</Title>
-						<ToolTip>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Группа валюта взаиморасчетов</v8:content>
-							</v8:item>
-						</ToolTip>
-						<Group>Horizontal</Group>
+						<Group>AlwaysHorizontal</Group>
 						<Behavior>Usual</Behavior>
 						<Representation>None</Representation>
 						<ShowTitle>false</ShowTitle>
-						<ExtendedTooltip name="ГруппаВалютаВзаиморасчетовРасширеннаяПодсказка" id="316"/>
+						<ExtendedTooltip name="ГруппаСуммаРасширеннаяПодсказка" id="498"/>
 						<ChildItems>
-							<InputField name="ВалютаВзаиморасчетов" id="141">
-								<DataPath>1000001/0:84a2ab05-cd80-466c-a02a-6d5b0ad8647b</DataPath>
+							<InputField name="Сумма" id="499">
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Цена в</v8:content>
+										<v8:content>Сумма</v8:content>
 									</v8:item>
 								</Title>
-								<HorizontalStretch>false</HorizontalStretch>
-								<ContextMenu name="ВалютаВзаиморасчетовКонтекстноеМеню" id="142"/>
-								<ExtendedTooltip name="ВалютаВзаиморасчетовExtendedTooltip" id="143"/>
+								<Width>12</Width>
+								<ContextMenu name="СуммаКонтекстноеМеню" id="500"/>
+								<ExtendedTooltip name="СуммаРасширеннаяПодсказка" id="501"/>
 							</InputField>
-							<RadioButtonField name="ОплатаВРублях" id="317">
+							<InputField name="ВалютаДоговора" id="502">
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Оплата в</v8:content>
+										<v8:content>Валюта</v8:content>
 									</v8:item>
 								</Title>
-								<TitleLocation>Left</TitleLocation>
-								<RadioButtonType>RadioButtons</RadioButtonType>
-								<ChoiceList>
-									<xr:Item>
-										<xr:Presentation/>
-										<xr:CheckState>0</xr:CheckState>
-										<xr:Value xsi:type="FormChoiceListDesTimeValue">
-											<Presentation>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>руб.</v8:content>
-												</v8:item>
-											</Presentation>
-											<Value xsi:type="xs:decimal">1</Value>
-										</xr:Value>
-									</xr:Item>
-									<xr:Item>
-										<xr:Presentation/>
-										<xr:CheckState>0</xr:CheckState>
-										<xr:Value xsi:type="FormChoiceListDesTimeValue">
-											<Presentation>
-												<v8:item>
-													<v8:lang>ru</v8:lang>
-													<v8:content>USD</v8:content>
-												</v8:item>
-											</Presentation>
-											<Value xsi:type="xs:decimal">0</Value>
-										</xr:Value>
-									</xr:Item>
-								</ChoiceList>
-								<ContextMenu name="ОплатаВРубляхКонтекстноеМеню" id="318"/>
-								<ExtendedTooltip name="ОплатаВРубляхРасширеннаяПодсказка" id="319"/>
-							</RadioButtonField>
+								<TitleLocation>None</TitleLocation>
+								<Width>12</Width>
+								<HorizontalStretch>false</HorizontalStretch>
+								<OpenButton>false</OpenButton>
+								<CreateButton>true</CreateButton>
+								<ContextMenu name="ВалютаДоговораКонтекстноеМеню" id="503"/>
+								<ExtendedTooltip name="ВалютаДоговораРасширеннаяПодсказка" id="504"/>
+							</InputField>
 						</ChildItems>
 					</UsualGroup>
-					<InputField name="ТипЦен" id="156">
-						<DataPath>1000001/0:8f6ba451-57df-403d-b01f-6a6e27818f26</DataPath>
-						<ContextMenu name="ТипЦенКонтекстноеМеню" id="157"/>
-						<ExtendedTooltip name="ТипЦенExtendedTooltip" id="158"/>
+					<RadioButtonField name="СуммаВключаетНДС" id="505">
+						<RadioButtonType>Auto</RadioButtonType>
+						<ChoiceList>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В сумме</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xs:decimal">1</Value>
+								</xr:Value>
+							</xr:Item>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сверху</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xs:decimal">0</Value>
+								</xr:Value>
+							</xr:Item>
+						</ChoiceList>
+						<ContextMenu name="СуммаВключаетНДСКонтекстноеМеню" id="506"/>
+						<ExtendedTooltip name="СуммаВключаетНДСРасширеннаяПодсказка" id="507"/>
+					</RadioButtonField>
+					<UsualGroup name="ГруппаСуммаНДС" id="508">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Сумма НДС</v8:content>
+							</v8:item>
+						</Title>
+						<Group>AlwaysHorizontal</Group>
+						<Behavior>Usual</Behavior>
+						<Representation>None</Representation>
+						<ShowTitle>false</ShowTitle>
+						<ExtendedTooltip name="ГруппаСуммаНДСРасширеннаяПодсказка" id="509"/>
+						<ChildItems>
+							<InputField name="СтавкаНДС" id="510">
+								<Width>12</Width>
+								<HorizontalStretch>false</HorizontalStretch>
+								<ContextMenu name="СтавкаНДСКонтекстноеМеню" id="511"/>
+								<ExtendedTooltip name="СтавкаНДСРасширеннаяПодсказка" id="512"/>
+							</InputField>
+							<InputField name="СуммаНДС" id="513">
+								<TitleLocation>None</TitleLocation>
+								<Width>12</Width>
+								<ContextMenu name="СуммаНДСКонтекстноеМеню" id="514"/>
+								<ExtendedTooltip name="СуммаНДСРасширеннаяПодсказка" id="515"/>
+							</InputField>
+						</ChildItems>
+					</UsualGroup>
+					<InputField name="Всего" id="516">
+						<ReadOnly>true</ReadOnly>
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Всего</v8:content>
+							</v8:item>
+						</Title>
+						<ContextMenu name="ВсегоКонтекстноеМеню" id="517"/>
+						<ExtendedTooltip name="ВсегоРасширеннаяПодсказка" id="518"/>
+					</InputField>
+					<InputField name="ОплатаВРублях" id="317">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Оплата в</v8:content>
+							</v8:item>
+						</Title>
+						<TitleLocation>Left</TitleLocation>
+						<Width>12</Width>
+						<HorizontalStretch>false</HorizontalStretch>
+						<ListChoiceMode>true</ListChoiceMode>
+						<ChoiceList>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>руб.</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xs:decimal">1</Value>
+								</xr:Value>
+							</xr:Item>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>USD</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xs:decimal">0</Value>
+								</xr:Value>
+							</xr:Item>
+						</ChoiceList>
+						<ContextMenu name="ОплатаВРубляхКонтекстноеМеню" id="318"/>
+						<ExtendedTooltip name="ОплатаВРубляхРасширеннаяПодсказка" id="319"/>
 					</InputField>
 					<UsualGroup name="ГруппаСрокОплаты" id="159">
 						<EnableContentChange>true</EnableContentChange>
@@ -1983,14 +2399,14 @@
 						<ExtendedTooltip name="ГруппаСрокОплатыExtendedTooltip" id="160"/>
 						<ChildItems>
 							<InputField name="ВидСрокаОплаты" id="460">
-								<AutoMaxWidth>false</AutoMaxWidth>
-								<MaxWidth>13</MaxWidth>
+								<Width>12</Width>
+								<HorizontalStretch>false</HorizontalStretch>
 								<ListChoiceMode>true</ListChoiceMode>
 								<ContextMenu name="ВидСрокаОплатыКонтекстноеМеню" id="461"/>
 								<ExtendedTooltip name="ВидСрокаОплатыРасширеннаяПодсказка" id="462"/>
 							</InputField>
 							<CheckBoxField name="УстановленСрокОплаты" id="161">
-								<DataPath>1000001/0:a329d03e-dc1e-4aa7-850c-5e58eea992d0</DataPath>
+								<DataPath>Объект.УстановленСрокОплаты</DataPath>
 								<Visible>false</Visible>
 								<TitleLocation>Right</TitleLocation>
 								<CheckBoxType>Auto</CheckBoxType>
@@ -1998,7 +2414,7 @@
 								<ExtendedTooltip name="УстановленСрокОплатыExtendedTooltip" id="163"/>
 							</CheckBoxField>
 							<InputField name="СрокОплаты" id="168">
-								<DataPath>1000001/0:15ff4b09-c269-47ea-99f9-9a0a6ab38ead</DataPath>
+								<DataPath>Объект.СрокОплаты</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2010,13 +2426,17 @@
 								<ExtendedTooltip name="СрокОплатыExtendedTooltip" id="170"/>
 							</InputField>
 							<InputField name="ДатаОплаты" id="463">
-								<DataPath>1000001/0:85f8f017-ed7d-4a51-95b1-0691fb2c2b39</DataPath>
 								<TitleLocation>None</TitleLocation>
 								<ContextMenu name="ДатаОплатыКонтекстноеМеню" id="464"/>
 								<ExtendedTooltip name="ДатаОплатыРасширеннаяПодсказка" id="465"/>
 							</InputField>
 						</ChildItems>
 					</UsualGroup>
+					<InputField name="ТипЦен" id="156">
+						<DataPath>Объект.ТипЦен</DataPath>
+						<ContextMenu name="ТипЦенКонтекстноеМеню" id="157"/>
+						<ExtendedTooltip name="ТипЦенExtendedTooltip" id="158"/>
+					</InputField>
 				</ChildItems>
 			</UsualGroup>
 			<UsualGroup name="ГруппаБухгалтерскийУчет" id="474">
@@ -2035,7 +2455,6 @@
 				<ExtendedTooltip name="ГруппаБухгалтерскийУчетРасширеннаяПодсказка" id="475"/>
 				<ChildItems>
 					<InputField name="ВидАктивов" id="471">
-						<DataPath>1000001/0:9bf3fe29-1975-4e99-a797-36b46b7f26ad</DataPath>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2055,7 +2474,7 @@
 											<v8:content>Запасы</v8:content>
 										</v8:item>
 									</Presentation>
-									<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.971ac716-37c5-4ccb-9031-f18ddac11f2c</Value>
+									<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.030062df-7429-449d-9191-337a014bf668</Value>
 								</xr:Value>
 							</xr:Item>
 							<xr:Item>
@@ -2068,7 +2487,7 @@
 											<v8:content>Основные средства </v8:content>
 										</v8:item>
 									</Presentation>
-									<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.c2da7cda-016b-465f-b912-1eb6dd3388ec</Value>
+									<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.711805fa-18fa-4443-9966-444ea94671f6</Value>
 								</xr:Value>
 							</xr:Item>
 							<xr:Item>
@@ -2081,7 +2500,7 @@
 											<v8:content>Прочие активы</v8:content>
 										</v8:item>
 									</Presentation>
-									<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.4d55f190-b832-49a6-85c8-561f4fce8cc6</Value>
+									<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.6448860f-e02d-4566-95e1-49668be3b185</Value>
 								</xr:Value>
 							</xr:Item>
 							<xr:Item>
@@ -2094,7 +2513,7 @@
 											<v8:content>Дебиторская задолженность</v8:content>
 										</v8:item>
 									</Presentation>
-									<Value xsi:type="xr:DesignTimeRef">b932d00e-e103-4593-89e8-81ec861ddc13.00000000-0000-0000-0000-000000000000</Value>
+									<Value xsi:type="xr:DesignTimeRef">618a15ec-2807-4502-aa5b-d0630044234c.00000000-0000-0000-0000-000000000000</Value>
 								</xr:Value>
 							</xr:Item>
 						</ChoiceList>
@@ -2159,7 +2578,6 @@
 						<ExtendedTooltip name="ГруппаЗаполнениеДокументовРасширеннаяПодсказка" id="407"/>
 						<ChildItems>
 							<InputField name="СпособЗаполненияСтавкиНДС" id="408">
-								<DataPath>1000001/0:4e91c197-c5c2-4df3-9c5e-cf6c381ae4bb</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2182,7 +2600,7 @@
 													<v8:content>По умолчанию</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">b74c5b2e-9359-4559-91e6-d3002b85eeba.7f26d3bb-a770-48c2-8cd4-3ddb650bbcad</Value>
+											<Value xsi:type="xr:DesignTimeRef">70dc048f-34f3-4672-9750-17f3d3ea7b4b.6db038a6-7891-4ef4-9396-e15f0bd0f622</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2195,7 +2613,7 @@
 													<v8:content>Из карточки номенклатуры</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">b74c5b2e-9359-4559-91e6-d3002b85eeba.81495c78-32d8-4756-af56-23b1f2d94e63</Value>
+											<Value xsi:type="xr:DesignTimeRef">70dc048f-34f3-4672-9750-17f3d3ea7b4b.3db55a76-099e-4812-ac5e-f1a51364bdc6</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2208,7 +2626,7 @@
 													<v8:content>Без НДС</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">b74c5b2e-9359-4559-91e6-d3002b85eeba.d7c138fc-6949-4452-81c6-2c4fd96ae9da</Value>
+											<Value xsi:type="xr:DesignTimeRef">70dc048f-34f3-4672-9750-17f3d3ea7b4b.d3e72ac6-4f0c-474d-a35d-3daed00a4038</Value>
 										</xr:Value>
 									</xr:Item>
 								</ChoiceList>
@@ -2223,7 +2641,6 @@
 								</ExtendedTooltip>
 							</InputField>
 							<InputField name="СпособВыставленияДокументов" id="457">
-								<DataPath>1000001/0:0a80fd67-3993-434f-896d-194ab2713fbd</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2244,7 +2661,7 @@
 													<v8:content>По умолчанию</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">325069ef-2d09-447b-8d51-8b51726cfc77.993e4e06-55f6-4da3-b2bc-0be368c2675e</Value>
+											<Value xsi:type="xr:DesignTimeRef">1cbe211c-bc66-4df4-9c55-1e5f536b8fe2.779ffefe-74b7-4dca-9467-927010a457c9</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2257,7 +2674,7 @@
 													<v8:content>УПД</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">325069ef-2d09-447b-8d51-8b51726cfc77.906f582b-bf9e-4b1d-98c7-0e9ccc430491</Value>
+											<Value xsi:type="xr:DesignTimeRef">1cbe211c-bc66-4df4-9c55-1e5f536b8fe2.4ad36dd6-98d2-4bed-ac91-d52f56d2c8b2</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2270,7 +2687,7 @@
 													<v8:content>Акт (накладная) и счет-фактура</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">325069ef-2d09-447b-8d51-8b51726cfc77.fd0be79e-dd9f-429d-a734-bfeb401972dd</Value>
+											<Value xsi:type="xr:DesignTimeRef">1cbe211c-bc66-4df4-9c55-1e5f536b8fe2.ba99c8e7-c2e5-4765-9429-752d4eb48a0d</Value>
 										</xr:Value>
 									</xr:Item>
 								</ChoiceList>
@@ -2278,7 +2695,6 @@
 								<ExtendedTooltip name="СпособВыставленияДокументовРасширеннаяПодсказка" id="459"/>
 							</InputField>
 							<CheckBoxField name="НДСПоСтавкам4и2" id="411">
-								<DataPath>1000001/0:0292484d-fd67-4e3d-965e-4cca121f1c24</DataPath>
 								<UserVisible>
 									<xr:Common>false</xr:Common>
 								</UserVisible>
@@ -2318,7 +2734,6 @@
 						<ExtendedTooltip name="ГруппаНалоговыйАгентПокупательРасширеннаяПодсказка" id="400"/>
 						<ChildItems>
 							<CheckBoxField name="УчетАгентскогоНДСПокупателем" id="396">
-								<DataPath>1000001/0:e977c7d8-f79f-422c-a6a5-cdff61656293</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2352,7 +2767,6 @@
 						<ExtendedTooltip name="ГруппаНДССАвансовРасширеннаяПодсказка" id="283"/>
 						<ChildItems>
 							<InputField name="ПорядокРегистрацииСчетовФактурНаАвансПоДоговору" id="284">
-								<DataPath>1000001/0:fb65383a-3ddc-4799-b4a6-25c5a5b6e7ae</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2372,7 +2786,7 @@
 													<v8:content>Регистрировать счета-фактуры на аванс в порядке, соответствующем учетной политике</v8:content>
 												</v8:item>
 											</Presentation>
-											<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.00000000-0000-0000-0000-000000000000</Value>
+											<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.00000000-0000-0000-0000-000000000000</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2380,7 +2794,7 @@
 										<xr:CheckState>0</xr:CheckState>
 										<xr:Value xsi:type="FormChoiceListDesTimeValue">
 											<Presentation/>
-											<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.5ef9c165-7214-4acb-b92e-05677dc020fd</Value>
+											<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.35f3083d-e50d-4979-907d-bffc622899df</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2388,7 +2802,7 @@
 										<xr:CheckState>0</xr:CheckState>
 										<xr:Value xsi:type="FormChoiceListDesTimeValue">
 											<Presentation/>
-											<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.dee8009b-298e-4cdb-ab89-4bc3aa678829</Value>
+											<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.a208a884-dfc3-4a3e-bbfe-2cb6e60ba141</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2396,7 +2810,7 @@
 										<xr:CheckState>0</xr:CheckState>
 										<xr:Value xsi:type="FormChoiceListDesTimeValue">
 											<Presentation/>
-											<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.6be224dd-9620-4862-9f2d-a8206a3fd77b</Value>
+											<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.0be723ac-bce5-450f-bc90-366b2251af53</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2404,7 +2818,7 @@
 										<xr:CheckState>0</xr:CheckState>
 										<xr:Value xsi:type="FormChoiceListDesTimeValue">
 											<Presentation/>
-											<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.f8982344-0fef-4ea4-a1ab-16d300ea61aa</Value>
+											<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.99d97c38-6453-4bf3-8c8b-d70a7d21d350</Value>
 										</xr:Value>
 									</xr:Item>
 									<xr:Item>
@@ -2412,7 +2826,7 @@
 										<xr:CheckState>0</xr:CheckState>
 										<xr:Value xsi:type="FormChoiceListDesTimeValue">
 											<Presentation/>
-											<Value xsi:type="xr:DesignTimeRef">fc39fe8f-18d7-430c-a4a5-a051291069fc.4586791f-b602-4956-9d4f-60a930e33a90</Value>
+											<Value xsi:type="xr:DesignTimeRef">5130d2cd-457c-4ecd-ace4-56c83c54cd23.e14f7b78-184f-4812-8784-c6e300c76df9</Value>
 										</xr:Value>
 									</xr:Item>
 								</ChoiceList>
@@ -2420,7 +2834,6 @@
 								<ExtendedTooltip name="ПорядокРегистрацииСчетовФактурНаАвансПоДоговоруExtendedTooltip" id="286"/>
 							</InputField>
 							<InputField name="НаименованиеДляСчетаФактурыНаАванс" id="287">
-								<DataPath>1000001/0:aff3b5fb-ca3f-4d09-bbc3-d512070ed45c</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2453,7 +2866,6 @@
 						<ExtendedTooltip name="ГруппаПеревыставлениеСФРасширеннаяПодсказка" id="402"/>
 						<ChildItems>
 							<CheckBoxField name="СчетаФактурыОтИмениОрганизации" id="403">
-								<DataPath>1000001/0:ce592610-7e68-4e3a-a9b1-02e302717f53</DataPath>
 								<TitleLocation>Right</TitleLocation>
 								<CheckBoxType>Auto</CheckBoxType>
 								<ContextMenu name="СчетаФактурыОтИмениОрганизацииКонтекстноеМеню" id="404"/>
@@ -2481,7 +2893,6 @@
 						<ExtendedTooltip name="КодДекларацияРаздел7РасширеннаяПодсказка" id="381"/>
 						<ChildItems>
 							<InputField name="КодРаздел7ДекларацииНДС" id="382">
-								<DataPath>1000001/0:c83dd5a4-e230-4fe6-8a6b-2c546b33fa93</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2617,7 +3028,6 @@
 						<ExtendedTooltip name="ГруппаНалоговыйАгентОрганизацияРасширеннаяПодсказка" id="291"/>
 						<ChildItems>
 							<CheckBoxField name="УчетАгентскогоНДС" id="292">
-								<DataPath>1000001/0:8d550704-9808-45d5-a83a-695b687292a8</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2661,12 +3071,10 @@
 										<ExtendedTooltip name="ГруппаНастройкиНалоговыйАгентРасширеннаяПодсказка" id="450"/>
 										<ChildItems>
 											<InputField name="ВидАгентскогоДоговора" id="451">
-												<DataPath>1000001/0:25693885-fde7-4dbd-b596-d89913a04a78</DataPath>
 												<ContextMenu name="ВидАгентскогоДоговораКонтекстноеМеню" id="452"/>
 												<ExtendedTooltip name="ВидАгентскогоДоговораРасширеннаяПодсказка" id="453"/>
 											</InputField>
 											<InputField name="НаименованиеДляСчетаФактурыНалоговогоАгента" id="454">
-												<DataPath>1000001/0:aff3b5fb-ca3f-4d09-bbc3-d512070ed45c</DataPath>
 												<Title>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
@@ -2735,7 +3143,6 @@
 						<ExtendedTooltip name="ГосударственныйКонтрактЕИСРасширеннаяПодсказка" id="481"/>
 					</InputField>
 					<InputField name="ГосударственныйКонтракт" id="390">
-						<DataPath>1000001/0:dd46fbd2-89ca-41c4-a10c-b55fb7aafd60</DataPath>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2765,7 +3172,6 @@
 				<ExtendedTooltip name="ГруппаКомиссионноеВознаграждениеExtendedTooltip" id="180"/>
 				<ChildItems>
 					<InputField name="СпособРасчетаКомиссионногоВознаграждения" id="181">
-						<DataPath>1000001/0:8492d712-48f1-4074-ac61-91a75c2a7bb6</DataPath>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2784,7 +3190,6 @@
 						<ExtendedTooltip name="ГруппаПроцентКомиссионногоВознагражденияРасширеннаяПодсказка" id="185"/>
 						<ChildItems>
 							<InputField name="ПроцентКомиссионногоВознаграждения" id="186">
-								<DataPath>1000001/0:b8cec2ac-c16a-42de-8f9d-1f84a5371b7d</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -2831,7 +3236,6 @@
 				<ExtendedTooltip name="ГруппаПлатежныйАгентРасширеннаяПодсказка" id="352"/>
 				<ChildItems>
 					<CheckBoxField name="ПлатежныйАгент" id="353">
-						<DataPath>1000001/0:fc33535a-fd47-40a0-900b-b40c45d8d2a1</DataPath>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2844,7 +3248,6 @@
 						<ExtendedTooltip name="ПлатежныйАгентРасширеннаяПодсказка" id="355"/>
 					</CheckBoxField>
 					<InputField name="ПризнакАгента" id="393">
-						<DataPath>1000001/0:d783182b-029b-4c7f-b9af-f899beeee599</DataPath>
 						<ListChoiceMode>true</ListChoiceMode>
 						<ChoiceList>
 							<xr:Item>
@@ -2852,7 +3255,7 @@
 								<xr:CheckState>0</xr:CheckState>
 								<xr:Value xsi:type="FormChoiceListDesTimeValue">
 									<Presentation/>
-									<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.e108d9b5-ec12-4093-9f45-9f05fce224a4</Value>
+									<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.7d2e3d72-6fc6-4f34-a822-415388b08281</Value>
 								</xr:Value>
 							</xr:Item>
 							<xr:Item>
@@ -2860,7 +3263,7 @@
 								<xr:CheckState>0</xr:CheckState>
 								<xr:Value xsi:type="FormChoiceListDesTimeValue">
 									<Presentation/>
-									<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.aa54a785-9e0e-4b09-aee9-3de1c4c30024</Value>
+									<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.726b19d0-2748-440b-b4f9-47c52fa6190a</Value>
 								</xr:Value>
 							</xr:Item>
 							<xr:Item>
@@ -2868,7 +3271,7 @@
 								<xr:CheckState>0</xr:CheckState>
 								<xr:Value xsi:type="FormChoiceListDesTimeValue">
 									<Presentation/>
-									<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.0c3e8417-93a8-4782-8011-8ecffcc1fad7</Value>
+									<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.60e95d69-1ceb-4a4a-bdb3-2e9ad0f6c273</Value>
 								</xr:Value>
 							</xr:Item>
 							<xr:Item>
@@ -2876,7 +3279,7 @@
 								<xr:CheckState>0</xr:CheckState>
 								<xr:Value xsi:type="FormChoiceListDesTimeValue">
 									<Presentation/>
-									<Value xsi:type="xr:DesignTimeRef">87e93a32-9b9a-4cbf-9628-cab98d4127f6.8530f0ec-1c49-42f1-a95d-9aa61b4fe694</Value>
+									<Value xsi:type="xr:DesignTimeRef">edb771f8-0da0-429e-8f93-c792d56430f7.6e9a3251-2fce-416d-b3e3-269aada0c24c</Value>
 								</xr:Value>
 							</xr:Item>
 						</ChoiceList>
@@ -2884,7 +3287,6 @@
 						<ExtendedTooltip name="ПризнакАгентаРасширеннаяПодсказка" id="395"/>
 					</InputField>
 					<InputField name="ТелефонПоставщика" id="356">
-						<DataPath>1000001/0:a7e6e086-9112-45ca-92e5-c87dc720d62d</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2896,7 +3298,6 @@
 						<ExtendedTooltip name="ТелефонПоставщикаРасширеннаяПодсказка" id="358"/>
 					</InputField>
 					<InputField name="ОперацияПлатежногоАгента" id="377">
-						<DataPath>1000001/0:6013030b-8a4a-4c48-8850-dfe78b77cac6</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2908,7 +3309,6 @@
 						<ExtendedTooltip name="ОперацияПлатежногоАгентаРасширеннаяПодсказка" id="379"/>
 					</InputField>
 					<InputField name="ТелефонПлатежногоАгента" id="359">
-						<DataPath>1000001/0:91d2a47f-4f10-4a29-9ab8-45da7da8a71d</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2920,7 +3320,6 @@
 						<ExtendedTooltip name="ТелефонПлатежногоАгентаРасширеннаяПодсказка" id="361"/>
 					</InputField>
 					<InputField name="НаименованиеОператораПеревода" id="365">
-						<DataPath>1000001/0:119055a2-6810-40e7-a83f-0053d0771a50</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2932,7 +3331,6 @@
 						<ExtendedTooltip name="НаименованиеОператораПереводаРасширеннаяПодсказка" id="367"/>
 					</InputField>
 					<InputField name="ИННОператораПеревода" id="368">
-						<DataPath>1000001/0:61ba682a-ed5f-4d07-9bb4-1bfaed85777b</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2944,7 +3342,6 @@
 						<ExtendedTooltip name="ИННОператораПереводаРасширеннаяПодсказка" id="370"/>
 					</InputField>
 					<InputField name="АдресОператораПеревода" id="371">
-						<DataPath>1000001/0:0c03c0dd-95f0-45c5-89b2-d253592cd1be</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2956,7 +3353,6 @@
 						<ExtendedTooltip name="АдресОператораПереводаРасширеннаяПодсказка" id="373"/>
 					</InputField>
 					<InputField name="ТелефонОператораПеревода" id="374">
-						<DataPath>1000001/0:637822c7-08db-44d8-8a4f-3237198f8f19</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -2968,7 +3364,6 @@
 						<ExtendedTooltip name="ТелефонОператораПереводаРасширеннаяПодсказка" id="376"/>
 					</InputField>
 					<InputField name="ТелефонОператораПоПриемуПлатежей" id="362">
-						<DataPath>1000001/0:6444732d-3abf-4dae-996d-2a8acb81d692</DataPath>
 						<ToolTip>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -3023,7 +3418,6 @@
 								<ExtendedTooltip name="ГруппаРуководительКонтрагентаРасширеннаяПодсказка" id="335"/>
 								<ChildItems>
 									<InputField name="ПолРуководителя" id="340">
-										<DataPath>1000001/0:2934f482-3798-48b2-8be9-e5ef5b2941eb</DataPath>
 										<TitleLocation>None</TitleLocation>
 										<Width>7</Width>
 										<HorizontalStretch>false</HorizontalStretch>
@@ -3040,7 +3434,7 @@
 															<v8:content>Г-н</v8:content>
 														</v8:item>
 													</Presentation>
-													<Value xsi:type="xr:DesignTimeRef">3e0afc22-13f2-41a3-aba8-460f7ce79cd1.2a3fea09-6c1c-4562-8c24-509afe29ec5c</Value>
+													<Value xsi:type="xr:DesignTimeRef">864bbae6-34a4-4e68-8065-29d315040359.70efd85e-1113-4658-81a8-aff72046a5d0</Value>
 												</xr:Value>
 											</xr:Item>
 											<xr:Item>
@@ -3053,7 +3447,7 @@
 															<v8:content>Г-жа</v8:content>
 														</v8:item>
 													</Presentation>
-													<Value xsi:type="xr:DesignTimeRef">3e0afc22-13f2-41a3-aba8-460f7ce79cd1.19a643bd-3e71-472d-bafa-11a5e7b82155</Value>
+													<Value xsi:type="xr:DesignTimeRef">864bbae6-34a4-4e68-8065-29d315040359.f46e791d-611a-468f-8070-7903d097cd3e</Value>
 												</xr:Value>
 											</xr:Item>
 										</ChoiceList>
@@ -3062,7 +3456,6 @@
 										<ExtendedTooltip name="ПолРуководителяРасширеннаяПодсказка" id="342"/>
 									</InputField>
 									<InputField name="РуководительКонтрагента" id="227">
-										<DataPath>1000001/0:5f17100b-8946-49bd-af5e-1b7c4666b49d</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -3070,7 +3463,6 @@
 											</v8:item>
 										</Title>
 										<TitleLocation>None</TitleLocation>
-										<ChoiceButton>true</ChoiceButton>
 										<ContextMenu name="РуководительКонтрагентаКонтекстноеМеню" id="228"/>
 										<ExtendedTooltip name="РуководительКонтрагентаРасширеннаяПодсказка" id="229"/>
 									</InputField>
@@ -3090,7 +3482,6 @@
 								<ExtendedTooltip name="ГруппаДолжностьРуководителяКонтрагентаРасширеннаяПодсказка" id="337"/>
 								<ChildItems>
 									<InputField name="ДолжностьРуководителяКонтрагента" id="230">
-										<DataPath>1000001/0:51efe95c-fba8-44ca-bac5-c2bf6f645ec2</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -3109,7 +3500,6 @@
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="ЗаРуководителяКонтрагентаПоПриказу" id="233">
-								<DataPath>1000001/0:47852a6a-9130-4e6a-82d8-4a576d461e13</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -3125,14 +3515,6 @@
 								<ContextMenu name="ЗаРуководителяКонтрагентаПоПриказуКонтекстноеМеню" id="234"/>
 								<ExtendedTooltip name="ЗаРуководителяКонтрагентаПоПриказуРасширеннаяПодсказка" id="235"/>
 							</InputField>
-							<CheckBoxField name="Подписан" id="270">
-								<DataPath>1000001/0:fcd5842a-ae63-4532-a9a3-b53292d87000</DataPath>
-								<TitleLocation>Right</TitleLocation>
-								<GroupHorizontalAlign>Left</GroupHorizontalAlign>
-								<CheckBoxType>Auto</CheckBoxType>
-								<ContextMenu name="ПодписанКонтекстноеМеню" id="271"/>
-								<ExtendedTooltip name="ПодписанРасширеннаяПодсказка" id="272"/>
-							</CheckBoxField>
 						</ChildItems>
 					</UsualGroup>
 					<UsualGroup name="ГруппаПодписиПравая" id="236">
@@ -3162,7 +3544,6 @@
 								<ExtendedTooltip name="ГруппаРуководительРасширеннаяПодсказка" id="344"/>
 								<ChildItems>
 									<InputField name="Руководитель" id="238">
-										<DataPath>1000001/0:c22aa877-6148-4461-9f14-584b8b5adedd</DataPath>
 										<ContextMenu name="РуководительКонтекстноеМеню" id="239"/>
 										<ExtendedTooltip name="РуководительРасширеннаяПодсказка" id="240"/>
 									</InputField>
@@ -3182,7 +3563,6 @@
 								<ExtendedTooltip name="ГруппаДолжностьРуководителяРасширеннаяПодсказка" id="348"/>
 								<ChildItems>
 									<InputField name="ДолжностьРуководителя" id="241">
-										<DataPath>1000001/0:85241341-1bd8-4e7a-a593-32b194bea8cc</DataPath>
 										<EditTextUpdate>OnValueChange</EditTextUpdate>
 										<ContextMenu name="ДолжностьРуководителяКонтекстноеМеню" id="242"/>
 										<ExtendedTooltip name="ДолжностьРуководителяРасширеннаяПодсказка" id="243"/>
@@ -3196,7 +3576,6 @@
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="ЗаРуководителяПоПриказу" id="244">
-								<DataPath>1000001/0:a1cfffa9-aeb1-410b-ab40-3aa220ee6166</DataPath>
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
@@ -3244,7 +3623,6 @@
 						<ExtendedTooltip name="ПредусмотреноОбеспечениеОбязательствРасширеннаяПодсказка" id="418"/>
 					</CheckBoxField>
 					<InputField name="ВидОбеспеченияОбязательствИПлатежей" id="419">
-						<DataPath>1000001/0:32b37cbf-37b7-43ae-b2e7-63f736d34395</DataPath>
 						<Title>
 							<v8:item>
 								<v8:lang>ru</v8:lang>
@@ -3325,17 +3703,15 @@
 				<ExtendedTooltip name="ГруппаДополнительнаяИнформацияРасширеннаяПодсказка" id="310"/>
 				<ChildItems>
 					<InputField name="СрокДействия" id="20">
-						<DataPath>1000001/0:315a9429-004f-44c3-9487-94e561b33f06</DataPath>
+						<DataPath>Объект.СрокДействия</DataPath>
 						<ContextMenu name="СрокДействияКонтекстноеМеню" id="21"/>
 						<ExtendedTooltip name="СрокДействияExtendedTooltip" id="86"/>
 					</InputField>
 					<InputField name="ВидВзаиморасчетов" id="150">
-						<DataPath>1000001/0:ab1731cc-3d11-4f1f-b053-7b37c170a14b</DataPath>
 						<ContextMenu name="ВидВзаиморасчетовКонтекстноеМеню" id="151"/>
 						<ExtendedTooltip name="ВидВзаиморасчетовExtendedTooltip" id="152"/>
 					</InputField>
 					<InputField name="ФайлДоговора" id="260">
-						<DataPath>1000001/0:71e832e5-e1b3-431b-aa16-81861e2295d8</DataPath>
 						<UserVisible>
 							<xr:Common>false</xr:Common>
 						</UserVisible>
@@ -3368,9 +3744,6 @@
 				</Type>
 				<MainAttribute>true</MainAttribute>
 				<SavedData>true</SavedData>
-				<UseAlways>
-					<Field>1000001/0:916af2ad-5cab-422f-8b5c-44a0d5978d07</Field>
-				</UseAlways>
 			</Attribute>
 		</Attributes>
 	</BaseForm>

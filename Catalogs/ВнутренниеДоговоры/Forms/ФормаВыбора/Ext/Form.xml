@@ -63,15 +63,18 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="30"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="31"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="BeforeAddRow">СписокПередНачаломДобавления</Event>
+			</Events>
 			<ChildItems>
 				<LabelField name="Наименование" id="5">
-					<DataPath>Список.Description</DataPath>
+					<DataPath>Список.Наименование</DataPath>
 					<DefaultItem>true</DefaultItem>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="6"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="7"/>
 				</LabelField>
 				<LabelField name="Код" id="8">
-					<DataPath>Список.Code</DataPath>
+					<DataPath>Список.Код</DataPath>
 					<ContextMenu name="КодКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="10"/>
 				</LabelField>
@@ -105,25 +108,30 @@
 				<v8:Type>cfg:DynamicList</v8:Type>
 			</Type>
 			<MainAttribute>true</MainAttribute>
+			<UseAlways>
+				<Field>Список.ОрганизацияВладельца</Field>
+			</UseAlways>
 			<Settings xsi:type="DynamicList">
 				<ManualQuery>true</ManualQuery>
-				<DynamicDataRead>true</DynamicDataRead>
+				<DynamicDataRead>false</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	СправочникВнутренниеДоговоры.Ссылка,
-	СправочникВнутренниеДоговоры.ПометкаУдаления,
-	СправочникВнутренниеДоговоры.Предопределенный,
-	СправочникВнутренниеДоговоры.Владелец,
-	СправочникВнутренниеДоговоры.Родитель,
-	СправочникВнутренниеДоговоры.ЭтоГруппа,
-	СправочникВнутренниеДоговоры.Код,
-	СправочникВнутренниеДоговоры.Наименование,
-	СправочникВнутренниеДоговоры.Предприятие,
-	СправочникВнутренниеДоговоры.Комментарий,
-	СправочникВнутренниеДоговоры.БухгалтерскийДоговор
+	СправочникВнутренниеДоговоры.Ссылка КАК Ссылка,
+	СправочникВнутренниеДоговоры.ПометкаУдаления КАК ПометкаУдаления,
+	СправочникВнутренниеДоговоры.Предопределенный КАК Предопределенный,
+	СправочникВнутренниеДоговоры.Владелец КАК Владелец,
+	СправочникВнутренниеДоговоры.Родитель КАК Родитель,
+	СправочникВнутренниеДоговоры.ЭтоГруппа КАК ЭтоГруппа,
+	СправочникВнутренниеДоговоры.Код КАК Код,
+	СправочникВнутренниеДоговоры.Наименование КАК Наименование,
+	СправочникВнутренниеДоговоры.Предприятие КАК Предприятие,
+	СправочникВнутренниеДоговоры.Комментарий КАК Комментарий,
+	СправочникВнутренниеДоговоры.БухгалтерскийДоговор КАК БухгалтерскийДоговор,
+	СправочникВнутренниеДоговоры.ОрганизацияВладельца КАК ОрганизацияВладельца
 ИЗ
 	Справочник.ВнутренниеДоговоры КАК СправочникВнутренниеДоговоры
 ГДЕ
-	СправочникВнутренниеДоговоры.Предприятие В(&amp;ДоступныеПредприятия)</QueryText>
+	СправочникВнутренниеДоговоры.Предприятие В (&amp;ДоступныеПредприятия)
+	</QueryText>
 				<MainTable>Catalog.ВнутренниеДоговоры</MainTable>
 				<ListSettings>
 					<dcsset:filter>
@@ -144,4 +152,30 @@
 			</Settings>
 		</Attribute>
 	</Attributes>
+	<Parameters>
+		<Parameter name="Контрагент">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ОрганизацияКонтрагента">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="Предприятие">
+			<Type>
+				<v8:Type>cfg:CatalogRef.Предприятия</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+		<Parameter name="ЗаполнятьОтборДляВНХ">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<KeyParameter>true</KeyParameter>
+		</Parameter>
+	</Parameters>
 </Form>

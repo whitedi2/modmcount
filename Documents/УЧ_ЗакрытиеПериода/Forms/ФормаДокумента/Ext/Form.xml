@@ -179,6 +179,11 @@
 												<CommandName>Form.Command.ЗаполнитьПродукцию</CommandName>
 												<ExtendedTooltip name="НоменклатураЗаполнитьПродукциюРасширеннаяПодсказка" id="66"/>
 											</Button>
+											<Button name="НоменклатураЗаполнитьПродукциюСумма" id="170">
+												<Type>CommandBarButton</Type>
+												<CommandName>Form.Command.ЗаполнитьПродукциюСумма</CommandName>
+												<ExtendedTooltip name="НоменклатураЗаполнитьПродукциюСуммаРасширеннаяПодсказка" id="171"/>
+											</Button>
 											<Button name="НоменклатураЗаполнитьПродукциюВыручка" id="151">
 												<Type>CommandBarButton</Type>
 												<CommandName>Form.Command.ЗаполнитьПродукциюВыручка</CommandName>
@@ -187,6 +192,7 @@
 										</ChildItems>
 									</Popup>
 									<Popup name="ГруппаРассчитатьПроценты" id="104">
+										<Visible>false</Visible>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -493,6 +499,20 @@
 							<ContextMenu name="НачислятьАмортизациюКонтекстноеМеню" id="149"/>
 							<ExtendedTooltip name="НачислятьАмортизациюРасширеннаяПодсказка" id="150"/>
 						</CheckBoxField>
+						<CheckBoxField name="РаспределятьПрямыеЗатраты" id="164">
+							<DataPath>Объект.РаспределятьПрямыеЗатраты</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РаспределятьПрямыеЗатратыКонтекстноеМеню" id="165"/>
+							<ExtendedTooltip name="РаспределятьПрямыеЗатратыРасширеннаяПодсказка" id="166"/>
+						</CheckBoxField>
+						<CheckBoxField name="РаспределятьКосвенныеЗатраты" id="167">
+							<DataPath>Объект.РаспределятьКосвенныеЗатраты</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="РаспределятьКосвенныеЗатратыКонтекстноеМеню" id="168"/>
+							<ExtendedTooltip name="РаспределятьКосвенныеЗатратыРасширеннаяПодсказка" id="169"/>
+						</CheckBoxField>
 					</ChildItems>
 				</Page>
 				<Page name="Группа3" id="108">
@@ -724,7 +744,7 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>По продукции и услугам (затраты)</v8:content>
+					<v8:content>По продукции (количество)</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>
@@ -771,7 +791,23 @@
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>По продукции и услугам (выручка)</v8:content>
+					<v8:content>По продукции и услугам (сумма выручки)</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить продукцию</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьПродукцию</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ЗаполнитьПродукциюСумма" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>По продукции и услугам (сумма затрат)</v8:content>
 				</v8:item>
 			</Title>
 			<ToolTip>

@@ -108,6 +108,18 @@
 							<ContextMenu name="НачислениеВРазрезеПредприятийКонтекстноеМеню" id="81"/>
 							<ExtendedTooltip name="НачислениеВРазрезеПредприятийРасширеннаяПодсказка" id="82"/>
 						</CheckBoxField>
+						<InputField name="ВидНачисления" id="185">
+							<DataPath>Объект.ВидНачисления</DataPath>
+							<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+							<InputHint>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Указано в табличной части</v8:content>
+								</v8:item>
+							</InputHint>
+							<ContextMenu name="ВидНачисленияКонтекстноеМеню" id="186"/>
+							<ExtendedTooltip name="ВидНачисленияРасширеннаяПодсказка" id="187"/>
+						</InputField>
 					</ChildItems>
 				</UsualGroup>
 				<UsualGroup name="Группа3" id="34">
@@ -237,7 +249,7 @@
 									<Button name="ФормаЗагрузитьИзExcell" id="31">
 										<Type>CommandBarButton</Type>
 										<Representation>PictureAndText</Representation>
-										<CommandName>Form.Command.ЗагрузитьИзExcell</CommandName>
+										<CommandName>Form.Command.ЗагрузитьИзExcel</CommandName>
 										<ExtendedTooltip name="ФормаЗагрузитьИзExcellРасширеннаяПодсказка" id="38"/>
 									</Button>
 								</ChildItems>
@@ -738,10 +750,29 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ТабличнаяЧастьВидНачисления</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ВидНачисления</dcsset:left>
+						<dcsset:comparisonType>Filled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Видимость</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
-		<Command name="ЗагрузитьИзExcell" id="1">
+		<Command name="ЗагрузитьИзExcel" id="1">
 			<Title>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -754,7 +785,12 @@
 					<v8:content>Загрузить из Excel</v8:content>
 				</v8:item>
 			</ToolTip>
-			<Action>ЗагрузитьИзExcell</Action>
+			<Picture>
+				<xr:Ref>CommonPicture.УУ_Excel</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЗагрузитьИзExcel</Action>
+			<Representation>TextPicture</Representation>
 			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 		<Command name="Заполнить" id="2">

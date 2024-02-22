@@ -114,6 +114,9 @@
 					<EditMode>EnterOnInput</EditMode>
 					<ContextMenu name="ДатаКонтекстноеМеню" id="4"/>
 					<ExtendedTooltip name="ДатаExtendedTooltip" id="114"/>
+					<Events>
+						<Event name="OnChange">ДатаПриИзменении</Event>
+					</Events>
 				</InputField>
 				<InputField name="ДатаПоступления" id="338">
 					<DataPath>Объект.ДатаПоступления</DataPath>
@@ -255,6 +258,7 @@
 							</Events>
 						</InputField>
 						<UsualGroup name="Группа9" id="545">
+							<Group>AlwaysHorizontal</Group>
 							<Behavior>Usual</Behavior>
 							<Representation>None</Representation>
 							<ShowTitle>false</ShowTitle>
@@ -280,6 +284,31 @@
 										<Event name="OnChange">ПродажаВРозницуПриИзменении</Event>
 									</Events>
 								</CheckBoxField>
+								<Button name="ОбновитьЗадолженность" id="617">
+									<Type>UsualButton</Type>
+									<GroupHorizontalAlign>Left</GroupHorizontalAlign>
+									<CommandName>Form.Command.ОбновитьЗадолженность</CommandName>
+									<ExtendedTooltip name="ОбновитьЗадолженностьРасширеннаяПодсказка" id="618"/>
+								</Button>
+								<LabelField name="ЗадолженностьНадпись" id="608">
+									<DataPath>ЗадолженностьНадпись</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Информация о задолженности</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Hiperlink>true</Hiperlink>
+									<Font ref="style:NormalTextFont" kind="StyleItem" scale="100"/>
+									<ContextMenu name="ЗадолженностьНадписьКонтекстноеМеню" id="609"/>
+									<ExtendedTooltip name="ЗадолженностьНадписьРасширеннаяПодсказка" id="610"/>
+									<Events>
+										<Event name="Click">ЗадолженностьНадписьНажатие</Event>
+									</Events>
+								</LabelField>
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="МестоДоставки" id="474">
@@ -1107,6 +1136,14 @@
 			<ContextMenu name="КомментарийКонтекстноеМеню" id="74"/>
 			<ExtendedTooltip name="КомментарийExtendedTooltip" id="168"/>
 		</InputField>
+		<InputField name="ОтветственныйЗаНаборку" id="611">
+			<DataPath>Объект.ОтветственныйЗаНаборку</DataPath>
+			<ChoiceButton>true</ChoiceButton>
+			<ChoiceButtonRepresentation>ShowInInputField</ChoiceButtonRepresentation>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ОтветственныйЗаНаборкуКонтекстноеМеню" id="612"/>
+			<ExtendedTooltip name="ОтветственныйЗаНаборкуРасширеннаяПодсказка" id="613"/>
+		</InputField>
 	</ChildItems>
 	<Attributes>
 		<Attribute name="Объект" id="1">
@@ -1353,11 +1390,13 @@
 						</v8:item>
 					</Title>
 					<Type>
+						<v8:Type>cfg:DocumentRef.УЧ_ВыпускПродукции</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_ПеремещениеТоваров</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказНаПеремещение</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказНаПроизводство</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_ПереводТМЦ</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_Реализация</v8:Type>
+						<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_ПоступлениеТоваров</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_Возврат</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказКлиента</v8:Type>
@@ -1491,6 +1530,7 @@
 						</v8:item>
 					</Title>
 					<Type>
+						<v8:Type>cfg:DocumentRef.УЧ_ВыпускПродукции</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_ВозвратТоваровПоставщику</v8:Type>
 						<v8:Type>cfg:DocumentRef.УЧ_ПеремещениеТоваров</v8:Type>
 						<v8:Type>cfg:DocumentRef.ЗаказНаПеремещение</v8:Type>
@@ -1681,6 +1721,32 @@
 			</Title>
 			<Type>
 				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗадолженностьНадпись" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность надпись</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>50</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДокументыЗадолженности" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документы задолженности</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
 			</Type>
 		</Attribute>
 		<ConditionalAppearance>
@@ -2049,6 +2115,74 @@
 					</dcscor:item>
 				</dcsset:appearance>
 			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ЗадолженностьНадпись</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ЗадолженностьДни</dcsset:left>
+						<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:ForestGreen</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ЗадолженностьНадпись</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ЗадолженностьДни</dcsset:left>
+							<dcsset:comparisonType>Greater</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">Объект.ЗадолженностьДни</dcsset:left>
+							<dcsset:comparisonType>LessOrEqual</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:decimal">14</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Goldenrod</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ЗадолженностьНадпись</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Объект.ЗадолженностьДни</dcsset:left>
+						<dcsset:comparisonType>Greater</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">14</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветТекста</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Red</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
 		</ConditionalAppearance>
 	</Attributes>
 	<Commands>
@@ -2201,6 +2335,26 @@
 			<Action>Подобрать</Action>
 			<Representation>TextPicture</Representation>
 			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+		<Command name="ОбновитьЗадолженность" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить задолженность</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОбновитьЗадолженность</Action>
+			<Representation>Picture</Representation>
 		</Command>
 	</Commands>
 	<CommandInterface>

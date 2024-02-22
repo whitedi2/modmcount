@@ -209,15 +209,6 @@
 							<ShowTitle>false</ShowTitle>
 							<ExtendedTooltip name="Группа26РасширеннаяПодсказка" id="466"/>
 							<ChildItems>
-								<InputField name="Счет" id="123">
-									<DataPath>Объект.Счет</DataPath>
-									<ListChoiceMode>true</ListChoiceMode>
-									<ContextMenu name="СчетКонтекстноеМеню" id="124"/>
-									<ExtendedTooltip name="СчетExtendedTooltip" id="309"/>
-									<Events>
-										<Event name="OnChange">СчетПриИзменении</Event>
-									</Events>
-								</InputField>
 								<InputField name="Контрагент" id="121">
 									<DataPath>Объект.Контрагент</DataPath>
 									<ContextMenu name="КонтрагентКонтекстноеМеню" id="122"/>
@@ -228,12 +219,10 @@
 								</InputField>
 								<InputField name="Договор" id="187">
 									<DataPath>Объект.Договор</DataPath>
-									<Title>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Договор (условия)</v8:content>
-										</v8:item>
-									</Title>
+									<TypeLink>
+										<xr:DataPath>Объект.Счет</xr:DataPath>
+										<xr:LinkItem>2</xr:LinkItem>
+									</TypeLink>
 									<ContextMenu name="ДоговорКонтекстноеМеню" id="188"/>
 									<ExtendedTooltip name="ДоговорExtendedTooltip" id="322"/>
 									<Events>
@@ -246,6 +235,15 @@
 									<ExtendedTooltip name="ПодразделениеКонтрагентаРасширеннаяПодсказка" id="808"/>
 									<Events>
 										<Event name="OnChange">ПодразделениеКонтрагентаПриИзменении</Event>
+									</Events>
+								</InputField>
+								<InputField name="Счет" id="123">
+									<DataPath>Объект.Счет</DataPath>
+									<ListChoiceMode>true</ListChoiceMode>
+									<ContextMenu name="СчетКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="СчетExtendedTooltip" id="309"/>
+									<Events>
+										<Event name="OnChange">СчетПриИзменении</Event>
 									</Events>
 								</InputField>
 								<InputField name="ПодразделениеВн" id="643">

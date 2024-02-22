@@ -300,7 +300,7 @@
 						<xr:Link>
 							<xr:Name>Отбор.Предприятие</xr:Name>
 							<xr:DataPath xsi:type="xs:string">Document.Д_ЗаявкаНаФинансирование.Attribute.ЦФО</xr:DataPath>
-							<xr:ValueChange>Clear</xr:ValueChange>
+							<xr:ValueChange>DontChange</xr:ValueChange>
 						</xr:Link>
 					</ChoiceParameterLinks>
 					<ChoiceParameters/>
@@ -2018,7 +2018,14 @@
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks/>
-					<ChoiceParameters/>
+					<ChoiceParameters>
+						<app:item name="Отбор.ВидДоговора">
+							<app:value xsi:type="v8:FixedArray">
+								<v8:Value xsi:type="xr:DesignTimeRef">Enum.ВидыДоговоровКонтрагентов.EnumValue.СПоставщиком</v8:Value>
+								<v8:Value xsi:type="xr:DesignTimeRef">Enum.ВидыДоговоровКонтрагентов.EnumValue.Прочее</v8:Value>
+							</app:value>
+						</app:item>
+					</ChoiceParameters>
 					<QuickChoice>Auto</QuickChoice>
 					<CreateOnInput>Auto</CreateOnInput>
 					<ChoiceForm/>
@@ -2972,6 +2979,7 @@
 					</Synonym>
 					<Comment/>
 					<Type>
+						<v8:Type>cfg:CatalogRef.Проекты</v8:Type>
 						<v8:Type>cfg:CatalogRef.КлючиАналитикиБюджетов</v8:Type>
 					</Type>
 					<PasswordMode>false</PasswordMode>
@@ -3436,6 +3444,7 @@
 							<Comment/>
 							<Type>
 								<v8:Type>cfg:DocumentRef.УЧ_ВыпускПродукции</v8:Type>
+								<v8:Type>cfg:CatalogRef.сабСтрокиГрафиковДоговоров</v8:Type>
 								<v8:Type>cfg:DocumentRef.ПоступлениеИзПереработки</v8:Type>
 								<v8:Type>cfg:DocumentRef.ДокументРасчетовСКонтрагентом</v8:Type>
 								<v8:Type>cfg:DocumentRef.ПоступлениеТоваровУслуг</v8:Type>
@@ -3845,6 +3854,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
+								<v8:Type>cfg:CatalogRef.Проекты</v8:Type>
 								<v8:Type>cfg:CatalogRef.КлючиАналитикиБюджетов</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -4177,6 +4187,7 @@
 							</Synonym>
 							<Comment/>
 							<Type>
+								<v8:Type>cfg:CatalogRef.Проекты</v8:Type>
 								<v8:Type>cfg:CatalogRef.КлючиАналитикиБюджетов</v8:Type>
 							</Type>
 							<PasswordMode>false</PasswordMode>
@@ -4323,6 +4334,32 @@
 					<Representation>Auto</Representation>
 					<ToolTip/>
 					<Picture/>
+					<Shortcut/>
+					<OnMainServerUnavalableBehavior>Auto</OnMainServerUnavalableBehavior>
+				</Properties>
+			</Command>
+			<Command uuid="e13802ce-44fc-4000-988f-23f0bc03e4c7">
+				<Properties>
+					<Name>ЗакрытьЗаявку</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Закрыть</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Group>FormCommandBarImportant</Group>
+					<CommandParameterType>
+						<v8:Type>cfg:DocumentRef.Д_ЗаявкаНаФинансирование</v8:Type>
+					</CommandParameterType>
+					<ParameterUseMode>Single</ParameterUseMode>
+					<ModifiesData>false</ModifiesData>
+					<Representation>PictureAndText</Representation>
+					<ToolTip/>
+					<Picture>
+						<xr:Ref>StdPicture.CheckSyntax</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
 					<Shortcut/>
 					<OnMainServerUnavalableBehavior>Auto</OnMainServerUnavalableBehavior>
 				</Properties>

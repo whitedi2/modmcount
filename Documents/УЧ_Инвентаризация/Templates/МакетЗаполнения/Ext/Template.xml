@@ -198,6 +198,24 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СерияНоменклатуры</dataPath>
+			<field>СерияНоменклатуры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Серия номенклатуры</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	СпрНоменклатура.Ссылка КАК Номенклатура,
@@ -208,7 +226,8 @@
 	СУММА(0) КАК СуммаПрошлаяИнвПодснятие,
 	ЕСТЬNULL(УчетныйОстатки.Субконто2, УчетныйОстатки1.Субконто2) КАК Склад,
 	СУММА(ЕСТЬNULL(УчетныйОстатки1.КоличествоОстаток, 0)) КАК КоличествоБУ,
-	СУММА(ЕСТЬNULL(УчетныйОстатки1.СуммаОстаток, 0)) КАК СуммаБУ
+	СУММА(ЕСТЬNULL(УчетныйОстатки1.СуммаОстаток, 0)) КАК СуммаБУ,
+	УчетныйОстатки.Субконто3 КАК СерияНоменклатуры
 ПОМЕСТИТЬ ВТ_Остатки
 ИЗ
 	Справочник.Номенклатура КАК СпрНоменклатура
@@ -227,7 +246,8 @@
 				Счет В ИЕРАРХИИ (&amp;СчетаУчетаБУ),
 				,
 				(&amp;Склад = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка)
-					ИЛИ Субконто2 = &amp;Склад ИЛИ Субконто2 ЕСТЬ NULL)
+					ИЛИ Субконто2 = &amp;Склад
+					ИЛИ Субконто2 ЕСТЬ NULL)
 					И Организация = &amp;Организация
 					И (&amp;НеОтбиратьПоНоменклатуре
 						ИЛИ Субконто1 В (&amp;СписокНоменклатур))) КАК УчетныйОстатки1
@@ -240,7 +260,7 @@
 			ИНАЧЕ СпрНоменклатура.Ссылка В ИЕРАРХИИ (&amp;ГруппаНоменклатуры)
 		КОНЕЦ
 	И (НЕ УчетныйОстатки.Субконто1 ЕСТЬ NULL
-				ИЛИ НЕ УчетныйОстатки1.Субконто1 ЕСТЬ NULL
+			ИЛИ НЕ УчетныйОстатки1.Субконто1 ЕСТЬ NULL
 			ИЛИ &amp;ВыводитьТоварСНулевымОстатком)
 	И (&amp;НеОтбиратьПоНоменклатуре
 			ИЛИ СпрНоменклатура.Ссылка В (&amp;СписокНоменклатур))
@@ -248,7 +268,8 @@
 СГРУППИРОВАТЬ ПО
 	СпрНоменклатура.ВидНоменклатуры,
 	СпрНоменклатура.Ссылка,
-	ЕСТЬNULL(УчетныйОстатки.Субконто2, УчетныйОстатки1.Субконто2)
+	ЕСТЬNULL(УчетныйОстатки.Субконто2, УчетныйОстатки1.Субконто2),
+	УчетныйОстатки.Субконто3
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -262,7 +283,8 @@
 	ЕСТЬNULL(ЦеныНоменклатурыСрезПоследних.Цена, 0) КАК ЦенаЗакупочная,
 	ВремТЧ.Склад КАК Склад,
 	ВремТЧ.КоличествоБУ КАК КоличествоБУ,
-	ВремТЧ.СуммаБУ КАК СуммаБУ
+	ВремТЧ.СуммаБУ КАК СуммаБУ,
+	ВремТЧ.СерияНоменклатуры КАК СерияНоменклатуры
 ИЗ
 	ВТ_Остатки КАК ВремТЧ
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НоменклатураПоставщика.СрезПоследних(
@@ -526,6 +548,9 @@
 					<dcsset:field>Номенклатура</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СерияНоменклатуры</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Количество</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -567,22 +592,7 @@
 			<dcsset:dataParameters>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>Склад</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>СкладПодснятий</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Организация</dcscor:parameter>
-					<dcscor:value xsi:nil="true"/>
-				</dcscor:item>
-				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>СчетаУчетаБУ</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 			</dcsset:dataParameters>

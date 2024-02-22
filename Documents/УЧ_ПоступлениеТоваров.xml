@@ -347,7 +347,7 @@
 					<MinValue xsi:nil="true"/>
 					<MaxValue xsi:nil="true"/>
 					<FillFromFillingValue>false</FillFromFillingValue>
-					<FillValue xsi:nil="true"/>
+					<FillValue xsi:type="xr:DesignTimeRef">Catalog.Контрагенты.EmptyRef</FillValue>
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks/>
@@ -355,10 +355,7 @@
 					<QuickChoice>Auto</QuickChoice>
 					<CreateOnInput>Auto</CreateOnInput>
 					<ChoiceForm/>
-					<LinkByType>
-						<xr:DataPath>Document.УЧ_ПоступлениеТоваров.Attribute.СчетКонтрагента</xr:DataPath>
-						<xr:LinkItem>1</xr:LinkItem>
-					</LinkByType>
+					<LinkByType/>
 					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 					<Indexing>DontIndex</Indexing>
 					<FullTextSearch>Use</FullTextSearch>
@@ -409,10 +406,7 @@
 					<QuickChoice>Auto</QuickChoice>
 					<CreateOnInput>Auto</CreateOnInput>
 					<ChoiceForm/>
-					<LinkByType>
-						<xr:DataPath>Document.УЧ_ПоступлениеТоваров.Attribute.СчетКонтрагента</xr:DataPath>
-						<xr:LinkItem>2</xr:LinkItem>
-					</LinkByType>
+					<LinkByType/>
 					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
 					<Indexing>DontIndex</Indexing>
 					<FullTextSearch>Use</FullTextSearch>
@@ -487,13 +481,13 @@
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks>
 						<xr:Link>
-							<xr:Name>Отбор.Предприятие</xr:Name>
-							<xr:DataPath xsi:type="xs:string">Document.УЧ_ПоступлениеТоваров.Attribute.Предприятие</xr:DataPath>
+							<xr:Name>Отбор.Владелец</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Document.УЧ_ПоступлениеТоваров.Attribute.Контрагент</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 						<xr:Link>
-							<xr:Name>Отбор.Владелец</xr:Name>
-							<xr:DataPath xsi:type="xs:string">Document.УЧ_ПоступлениеТоваров.Attribute.ПредприятиеПоставщик</xr:DataPath>
+							<xr:Name>Отбор.Предприятие</xr:Name>
+							<xr:DataPath xsi:type="xs:string">Document.УЧ_ПоступлениеТоваров.Attribute.Предприятие</xr:DataPath>
 							<xr:ValueChange>Clear</xr:ValueChange>
 						</xr:Link>
 					</ChoiceParameterLinks>
@@ -1839,6 +1833,49 @@
 					<MaxValue xsi:nil="true"/>
 					<FillFromFillingValue>false</FillFromFillingValue>
 					<FillValue xsi:type="xs:decimal">1</FillValue>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+					<DataHistory>Use</DataHistory>
+				</Properties>
+			</Attribute>
+			<Attribute uuid="10419c49-5236-46c2-a34c-07e6755d1fc5">
+				<Properties>
+					<Name>СтатьиЗатратСтрока</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статьи затрат</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>300</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:type="xs:string"/>
 					<FillChecking>DontCheck</FillChecking>
 					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 					<ChoiceParameterLinks/>
@@ -5671,16 +5708,37 @@
 					<OnMainServerUnavalableBehavior>Auto</OnMainServerUnavalableBehavior>
 				</Properties>
 			</Command>
-			<Command uuid="e3da7a32-8735-42cf-8ee6-acb0253e7734">
+			<Command uuid="9b8fd395-0f63-4575-b58b-a4856ef75236">
 				<Properties>
-					<Name>НачисленияМеждуПредприятиями</Name>
+					<Name>ПоступленияТМЦ</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Поступления с предприятий  (упр)</v8:content>
+							<v8:content>Поступления ТМЦ (упр)</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment>КомандаСписок__ВидОперации__Поступление</Comment>
+					<Comment>КомандаСписок__ВидыПоступлений__Поступление</Comment>
+					<Group>NavigationPanelOrdinary</Group>
+					<CommandParameterType/>
+					<ParameterUseMode>Single</ParameterUseMode>
+					<ModifiesData>false</ModifiesData>
+					<Representation>Auto</Representation>
+					<ToolTip/>
+					<Picture/>
+					<Shortcut/>
+					<OnMainServerUnavalableBehavior>Auto</OnMainServerUnavalableBehavior>
+				</Properties>
+			</Command>
+			<Command uuid="8ca3ac34-1dc9-4f75-bbbd-4e47d662573f">
+				<Properties>
+					<Name>ПоступленияУслуг</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поступления услуг (упр)</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>КомандаСписок__ВидыПоступлений__ПоступлениеУслуг</Comment>
 					<Group>NavigationPanelOrdinary</Group>
 					<CommandParameterType/>
 					<ParameterUseMode>Single</ParameterUseMode>
@@ -5713,6 +5771,27 @@
 					<OnMainServerUnavalableBehavior>Auto</OnMainServerUnavalableBehavior>
 				</Properties>
 			</Command>
+			<Command uuid="e3da7a32-8735-42cf-8ee6-acb0253e7734">
+				<Properties>
+					<Name>НачисленияМеждуПредприятиями</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поступления с предприятий  (упр)</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>КомандаСписок__ВидОперации__Поступление</Comment>
+					<Group>NavigationPanelOrdinary</Group>
+					<CommandParameterType/>
+					<ParameterUseMode>Single</ParameterUseMode>
+					<ModifiesData>false</ModifiesData>
+					<Representation>Auto</Representation>
+					<ToolTip/>
+					<Picture/>
+					<Shortcut/>
+					<OnMainServerUnavalableBehavior>Auto</OnMainServerUnavalableBehavior>
+				</Properties>
+			</Command>
 			<Command uuid="0a8fd0a0-dac0-469c-b2fa-b4af0ea6d6c9">
 				<Properties>
 					<Name>ПечатьНакладная</Name>
@@ -5722,7 +5801,7 @@
 							<v8:content>Приходная накладная</v8:content>
 						</v8:item>
 					</Synonym>
-					<Comment/>
+					<Comment>для хран</Comment>
 					<Group>CommandGroup.Печать</Group>
 					<CommandParameterType>
 						<v8:Type>cfg:DocumentRef.УЧ_ПоступлениеТоваров</v8:Type>
