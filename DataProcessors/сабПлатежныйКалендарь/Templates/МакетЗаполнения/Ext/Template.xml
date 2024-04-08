@@ -436,6 +436,7 @@
 	              	И сабГрафикПлатежей.ОснованиеПометкаУдаления = ЛОЖЬ
 	              	И НЕ сабГрафикПлатежей.ТочкаМаршрута = ЗНАЧЕНИЕ(Перечисление.Согласование1ТочкиМаршрута.Действие1)
 	              	И (сабГрафикПлатежей.Сценарий = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПустаяСсылка)
+	              			ИЛИ сабГрафикПлатежей.Сценарий = &amp;СценарийФакт
 	              			ИЛИ &amp;ПоказыватьГрафикПоБюджету)
 	              ;
 	              
@@ -532,6 +533,7 @@
 	              	И сабГрафикПлатежей.ОснованиеПометкаУдаления = ЛОЖЬ
 	              	И НЕ сабГрафикПлатежей.ТочкаМаршрута = ЗНАЧЕНИЕ(Перечисление.Согласование1ТочкиМаршрута.Действие1)
 	              	И (сабГрафикПлатежей.Сценарий = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПустаяСсылка)
+	              			ИЛИ сабГрафикПлатежей.Сценарий = &amp;СценарийФакт
 	              			ИЛИ &amp;ПоказыватьГрафикПоБюджету)
 	              ;
 	              
@@ -559,7 +561,7 @@
 	              				КОНЕЦ
 	              				,
 	              			,
-	              			НЕ &amp;ПоОбъектам = "Объекты" И Предприятия В ИЕРАРХИИ(&amp;ОтборПредприятия)) КАК УчетныйОстатки
+	              			НЕ &amp;ПоОбъектам = "Объекты" И Предприятия В ИЕРАРХИИ(&amp;ОтборПредприятия) И СценарийПлана = &amp;СценарийФакт) КАК УчетныйОстатки
 	              		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Б_ПлановыеКурсыВалют.СрезПоследних(
 	              				,
 	              				Валюта2 = &amp;ЭквивалентнаяВалюта
@@ -1170,6 +1172,21 @@
 		<availableAsField>false</availableAsField>
 	</parameter>
 	<parameter>
+		<name>СценарийФакт</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарий факт</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
 		<name>ПоказыватьГрафикПоБюджету</name>
 		<title xsi:type="v8:LocalStringType">
 			<v8:item>
@@ -1284,9 +1301,6 @@
 					<dcsset:field>ПлатежиПоРеестрам</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
-					<dcsset:field>Порядок</dcsset:field>
-				</dcsset:item>
-				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Предприятие</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
@@ -1294,6 +1308,9 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СтатьяДДС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Порядок</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СтатьяДДСКод</dcsset:field>

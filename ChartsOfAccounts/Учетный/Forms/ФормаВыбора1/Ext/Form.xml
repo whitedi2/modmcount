@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
 	<ChildItems>
 		<Table name="Список" id="1">
 			<Representation>List</Representation>
@@ -60,22 +63,22 @@
 			</SearchControlAddition>
 			<ChildItems>
 				<LabelField name="Код" id="4">
-					<DataPath>Список.Code</DataPath>
+					<DataPath>Список.Код</DataPath>
 					<ContextMenu name="КодКонтекстноеМеню" id="5"/>
 					<ExtendedTooltip name="КодРасширеннаяПодсказка" id="34"/>
 				</LabelField>
 				<LabelField name="Наименование" id="6">
-					<DataPath>Список.Description</DataPath>
+					<DataPath>Список.Наименование</DataPath>
 					<ContextMenu name="НаименованиеКонтекстноеМеню" id="7"/>
 					<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="35"/>
 				</LabelField>
 				<LabelField name="Вид" id="8">
-					<DataPath>Список.Type</DataPath>
+					<DataPath>Список.Вид</DataPath>
 					<ContextMenu name="ВидКонтекстноеМеню" id="9"/>
 					<ExtendedTooltip name="ВидРасширеннаяПодсказка" id="36"/>
 				</LabelField>
 				<CheckBoxField name="Забалансовый" id="10">
-					<DataPath>Список.OffBalance</DataPath>
+					<DataPath>Список.Забалансовый</DataPath>
 					<Title>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
@@ -131,6 +134,31 @@
 					<ContextMenu name="Субконто3КонтекстноеМеню" id="19"/>
 					<ExtendedTooltip name="Субконто3РасширеннаяПодсказка" id="43"/>
 				</LabelField>
+				<InputField name="ВидСубконто1" id="44">
+					<DataPath>Список.ВидСубконто1</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ВидСубконто1КонтекстноеМеню" id="45"/>
+					<ExtendedTooltip name="ВидСубконто1РасширеннаяПодсказка" id="46"/>
+				</InputField>
+				<LabelField name="ВидСубконто2" id="47">
+					<DataPath>Список.ВидСубконто2</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ВидСубконто2КонтекстноеМеню" id="48"/>
+					<ExtendedTooltip name="ВидСубконто2РасширеннаяПодсказка" id="49"/>
+				</LabelField>
+				<LabelField name="ВидСубконто3" id="50">
+					<DataPath>Список.ВидСубконто3</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ВидСубконто3КонтекстноеМеню" id="51"/>
+					<ExtendedTooltip name="ВидСубконто3РасширеннаяПодсказка" id="52"/>
+				</LabelField>
 			</ChildItems>
 		</Table>
 	</ChildItems>
@@ -144,26 +172,30 @@
 				<ManualQuery>true</ManualQuery>
 				<DynamicDataRead>true</DynamicDataRead>
 				<QueryText>ВЫБРАТЬ
-	ПланСчетовУчетный.Ссылка,
-	ПланСчетовУчетный.ПометкаУдаления,
-	ПланСчетовУчетный.Предопределенный,
-	ПланСчетовУчетный.Родитель,
-	ПланСчетовУчетный.Код,
-	ПланСчетовУчетный.Наименование,
-	ПланСчетовУчетный.Вид,
-	ПланСчетовУчетный.Забалансовый,
-	ПланСчетовУчетный.Количественный,
-	ПланСчетовУчетный.Крахмал,
+	ПланСчетовУчетный.Ссылка КАК Ссылка,
+	ПланСчетовУчетный.ПометкаУдаления КАК ПометкаУдаления,
+	ПланСчетовУчетный.Предопределенный КАК Предопределенный,
+	ПланСчетовУчетный.Родитель КАК Родитель,
+	ПланСчетовУчетный.Код КАК Код,
+	ПланСчетовУчетный.Наименование КАК Наименование,
+	ПланСчетовУчетный.Вид КАК Вид,
+	ПланСчетовУчетный.Забалансовый КАК Забалансовый,
+	ПланСчетовУчетный.Количественный КАК Количественный,
+	ПланСчетовУчетный.Крахмал КАК Крахмал,
 	Субконто1.Субконто КАК Субконто1,
 	Субконто2.Субконто КАК Субконто2,
 	Субконто3.Субконто КАК Субконто3,
-	ПланСчетовУчетный.УчетПоПодразделениям,
-	ПланСчетовУчетный.Валютный
+	ПланСчетовУчетный.УчетПоПодразделениям КАК УчетПоПодразделениям,
+	ПланСчетовУчетный.Валютный КАК Валютный,
+	Субконто1.ВидСубконто КАК ВидСубконто1,
+	Субконто2.ВидСубконто КАК ВидСубконто2,
+	Субконто3.ВидСубконто КАК ВидСубконто3
 ИЗ
 	ПланСчетов.Учетный КАК ПланСчетовУчетный
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			УчетныйВидыСубконто.Ссылка КАК Ссылка,
-			УчетныйВидыСубконто.ВидСубконто.Наименование КАК Субконто
+			УчетныйВидыСубконто.ВидСубконто.Наименование КАК Субконто,
+			УчетныйВидыСубконто.ВидСубконто КАК ВидСубконто
 		ИЗ
 			ПланСчетов.Учетный.ВидыСубконто КАК УчетныйВидыСубконто
 		ГДЕ
@@ -171,7 +203,8 @@
 		ПО ПланСчетовУчетный.Ссылка = Субконто1.Ссылка
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			УчетныйВидыСубконто.Ссылка КАК Ссылка,
-			УчетныйВидыСубконто.ВидСубконто.Наименование КАК Субконто
+			УчетныйВидыСубконто.ВидСубконто.Наименование КАК Субконто,
+			УчетныйВидыСубконто.ВидСубконто КАК ВидСубконто
 		ИЗ
 			ПланСчетов.Учетный.ВидыСубконто КАК УчетныйВидыСубконто
 		ГДЕ
@@ -179,7 +212,8 @@
 		ПО ПланСчетовУчетный.Ссылка = Субконто2.Ссылка
 		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
 			УчетныйВидыСубконто.Ссылка КАК Ссылка,
-			УчетныйВидыСубконто.ВидСубконто.Наименование КАК Субконто
+			УчетныйВидыСубконто.ВидСубконто.Наименование КАК Субконто,
+			УчетныйВидыСубконто.ВидСубконто КАК ВидСубконто
 		ИЗ
 			ПланСчетов.Учетный.ВидыСубконто КАК УчетныйВидыСубконто
 		ГДЕ
@@ -188,7 +222,6 @@
 				<MainTable>ChartOfAccounts.Учетный</MainTable>
 				<ListSettings>
 					<dcsset:filter>
-						<dcsset:viewMode>Normal</dcsset:viewMode>
 						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
 					</dcsset:filter>
 					<dcsset:order>

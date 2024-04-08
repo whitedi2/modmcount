@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer" callType="After">УУ_ПриСозданииНаСервереПосле</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаКодНаименование" id="100">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа код наименование</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаКодНаименованиеExtendedTooltip" id="102"/>
+			<ChildItems>
+				<InputField name="Наименование" id="3">
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="103"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Родитель" id="146">
+			<ContextMenu name="РодительКонтекстноеМеню" id="147"/>
+			<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="148"/>
+		</InputField>
+		<UsualGroup name="ГруппаПереключателей" id="149">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет затрат организации</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаПереключателейExtendedTooltip" id="150"/>
+			<ChildItems>
+				<RadioButtonField name="ОсновнаяСистемаНалогообложения" id="151">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет затрат организации</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Top</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По деятельности с основной системой налогообложения (общая или упрощенная)</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ОсновнаяСистемаНалогообложенияКонтекстноеМеню" id="152"/>
+					<ExtendedTooltip name="ОсновнаяСистемаНалогообложенияExtendedTooltip" id="153">
+						<Title formatted="false">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Основная система налогообложения указывается в настройках налогов и отчетов.</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</RadioButtonField>
+				<RadioButtonField name="ОсобыйПорядокНалогообложения" id="154">
+					<TitleLocation>None</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По отдельным видам деятельности с особым порядком налогообложения</v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсобыйПорядокНалогообложения</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="ОсобыйПорядокНалогообложенияКонтекстноеМеню" id="155"/>
+					<ExtendedTooltip name="ОсобыйПорядокНалогообложенияExtendedTooltip" id="156">
+						<Title formatted="false">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Затраты по деятельности, порядок налогообложения которой не совпадает с основным. 
+В частности, по деятельности, переведенной на уплату ЕНВД или патентную систему налогообложения.</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</RadioButtonField>
+				<RadioButtonField name="РазныеВидыДеятельности" id="157">
+					<TitleLocation>None</TitleLocation>
+					<ToolTipRepresentation>Button</ToolTipRepresentation>
+					<RadioButtonType>Auto</RadioButtonType>
+					<ChoiceList>
+						<xr:Item>
+							<xr:Presentation/>
+							<xr:CheckState>0</xr:CheckState>
+							<xr:Value xsi:type="FormChoiceListDesTimeValue">
+								<Presentation>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>По разным видам деятельности </v8:content>
+									</v8:item>
+								</Presentation>
+								<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.РаспределяемыеЗатраты</Value>
+							</xr:Value>
+						</xr:Item>
+					</ChoiceList>
+					<ContextMenu name="РазныеВидыДеятельностиКонтекстноеМеню" id="158"/>
+					<ExtendedTooltip name="РазныеВидыДеятельностиExtendedTooltip" id="159">
+						<Title formatted="false">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Затраты, которые невозможно отнести к определенному виду деятельности.
+Распределяются пропорционально полученным доходам по видам деятельности.</v8:content>
+							</v8:item>
+						</Title>
+					</ExtendedTooltip>
+				</RadioButtonField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="СчетаУчета" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Счета учета</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>NormalSeparation</Representation>
+			<United>false</United>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="СчетаУчетаExtendedTooltip" id="105"/>
+			<ChildItems>
+				<UsualGroup name="ГруппаОсновнаяСистемаНалогообложения" id="84">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа основная система налогообложения</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ExtendedTooltip name="ГруппаОсновнаяСистемаНалогообложенияExtendedTooltip" id="106"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСчетИСубконто" id="27">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Основная система налогообложения</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаСчетИСубконтоExtendedTooltip" id="107"/>
+							<ChildItems>
+								<InputField name="Счет" id="6">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Счет</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ЗапретитьИспользоватьВПроводках">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xs:boolean">false</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<DropListWidth>40</DropListWidth>
+									<ContextMenu name="СчетКонтекстноеМеню" id="7"/>
+									<ExtendedTooltip name="СчетExtendedTooltip" id="114"/>
+								</InputField>
+								<InputField name="Субконто1" id="10">
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TypeLink>
+										<xr:DataPath>2</xr:DataPath>
+										<xr:LinkItem>1</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="Субконто1КонтекстноеМеню" id="11"/>
+									<ExtendedTooltip name="Субконто1ExtendedTooltip" id="115"/>
+								</InputField>
+								<InputField name="Субконто2" id="12">
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TypeLink>
+										<xr:DataPath>2</xr:DataPath>
+										<xr:LinkItem>2</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="Субконто2КонтекстноеМеню" id="13"/>
+									<ExtendedTooltip name="Субконто2ExtendedTooltip" id="116"/>
+								</InputField>
+								<InputField name="Субконто3" id="14">
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TypeLink>
+										<xr:DataPath>2</xr:DataPath>
+										<xr:LinkItem>3</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="Субконто3КонтекстноеМеню" id="15"/>
+									<ExtendedTooltip name="Субконто3ExtendedTooltip" id="117"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаНалоговыйУчетУСН" id="53">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа налоговый учет УСН</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаНалоговыйУчетУСНExtendedTooltip" id="118"/>
+							<ChildItems>
+								<InputField name="ОтражениеВУСН" id="16">
+									<ListChoiceMode>true</ListChoiceMode>
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceList>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Принимаются</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ОтражениеВУСН.EnumValue.Принимаются</Value>
+											</xr:Value>
+										</xr:Item>
+										<xr:Item>
+											<xr:Presentation/>
+											<xr:CheckState>0</xr:CheckState>
+											<xr:Value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Не принимаются</v8:content>
+													</v8:item>
+												</Presentation>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ОтражениеВУСН.EnumValue.НеПринимаются</Value>
+											</xr:Value>
+										</xr:Item>
+									</ChoiceList>
+									<ContextMenu name="ОтражениеВУСНКонтекстноеМеню" id="17"/>
+									<ExtendedTooltip name="ОтражениеВУСНExtendedTooltip" id="122"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="ГруппаОсобыйПорядокНалогообложения" id="101">
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>NormalSeparation</Representation>
+					<ShowTitle>false</ShowTitle>
+					<ThroughAlign>Use</ThroughAlign>
+					<ExtendedTooltip name="ГруппаОсобыйПорядокНалогообложенияРасширеннаяПодсказка" id="123"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСчетИСубконтоЕНВД" id="37">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Статья затрат по деятельности с особым порядком налогообложения</v8:content>
+								</v8:item>
+							</Title>
+							<HorizontalStretch>true</HorizontalStretch>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ExtendedTooltip name="ГруппаСчетИСубконтоЕНВДExtendedTooltip" id="124"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСтраницаСчетИСубконтоЕНВД" id="86">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа страница счет и субконто ЕНВД</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Horizontal</Group>
+									<Behavior>Usual</Behavior>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСтраницаСчетИСубконтоЕНВДExtendedTooltip" id="125"/>
+									<ChildItems>
+										<InputField name="ВидЗатратЕНВД" id="92">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Статья затрат</v8:content>
+												</v8:item>
+											</Title>
+											<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+											<ChooseType>false</ChooseType>
+											<ChoiceParameters>
+												<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+													<app:value xsi:type="FormChoiceListDesTimeValue">
+														<Presentation/>
+														<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсобыйПорядокНалогообложения</Value>
+													</app:value>
+												</app:item>
+											</ChoiceParameters>
+											<ContextMenu name="ВидЗатратЕНВДКонтекстноеМеню" id="93"/>
+											<ExtendedTooltip name="ВидЗатратЕНВДExtendedTooltip" id="129"/>
+										</InputField>
+									</ChildItems>
+								</UsualGroup>
+								<LabelField name="НадписьСчетУчетаПоЕНВД" id="88">
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<ContextMenu name="НадписьСчетУчетаПоЕНВДКонтекстноеМеню" id="89"/>
+									<ExtendedTooltip name="НадписьСчетУчетаПоЕНВДExtendedTooltip" id="130"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</UsualGroup>
+				<UsualGroup name="НалоговыйУчетСтраховыхВзносов" id="58">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Налоговый учет страховых взносов (по налогу на прибыль)</v8:content>
+						</v8:item>
+					</Title>
+					<Group>Vertical</Group>
+					<Behavior>Usual</Behavior>
+					<Representation>None</Representation>
+					<ExtendedTooltip name="НалоговыйУчетСтраховыхВзносовExtendedTooltip" id="131"/>
+					<ChildItems>
+						<UsualGroup name="ГруппаСтраницаСчетИСубконтоНУ" id="83">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа страница счет и субконто НУ</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСтраницаСчетИСубконтоНУExtendedTooltip" id="132"/>
+							<ChildItems>
+								<InputField name="СчетНУ" id="70">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Счет</v8:content>
+										</v8:item>
+									</Title>
+									<HorizontalStretch>false</HorizontalStretch>
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ContextMenu name="СчетНУКонтекстноеМеню" id="71"/>
+									<ExtendedTooltip name="СчетНУExtendedTooltip" id="139"/>
+								</InputField>
+								<InputField name="СубконтоНУ1" id="72">
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TypeLink>
+										<xr:DataPath>9</xr:DataPath>
+										<xr:LinkItem>1</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="СубконтоНУ1КонтекстноеМеню" id="73"/>
+									<ExtendedTooltip name="СубконтоНУ1ExtendedTooltip" id="140"/>
+								</InputField>
+								<InputField name="СубконтоНУ2" id="74">
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TypeLink>
+										<xr:DataPath>9</xr:DataPath>
+										<xr:LinkItem>2</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="СубконтоНУ2КонтекстноеМеню" id="75"/>
+									<ExtendedTooltip name="СубконтоНУ2ExtendedTooltip" id="141"/>
+								</InputField>
+								<InputField name="СубконтоНУ3" id="76">
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<ChoiceParameters>
+										<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+											<app:value xsi:type="FormChoiceListDesTimeValue">
+												<Presentation/>
+												<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+											</app:value>
+										</app:item>
+									</ChoiceParameters>
+									<TypeLink>
+										<xr:DataPath>9</xr:DataPath>
+										<xr:LinkItem>3</xr:LinkItem>
+									</TypeLink>
+									<ContextMenu name="СубконтоНУ3КонтекстноеМеню" id="77"/>
+									<ExtendedTooltip name="СубконтоНУ3ExtendedTooltip" id="142"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+						<LabelField name="НадписьСчетУчетаРасходовПоСтраховымВзносамНУ" id="78">
+							<TitleLocation>None</TitleLocation>
+							<AutoMaxWidth>false</AutoMaxWidth>
+							<TextColor>style:ПоясняющийТекст</TextColor>
+							<ContextMenu name="НадписьСчетУчетаРасходовПоСтраховымВзносамНУКонтекстноеМеню" id="79"/>
+							<ExtendedTooltip name="НадписьСчетУчетаРасходовПоСтраховымВзносамНУExtendedTooltip" id="143"/>
+						</LabelField>
+					</ChildItems>
+				</UsualGroup>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаДополнительныеРеквизиты" id="144">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дополнительные реквизиты</v8:content>
+				</v8:item>
+			</Title>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="145"/>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes/>
+	<BaseForm version="2.16">
+		<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+		<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+		<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+		<ChildItems>
+			<UsualGroup name="ГруппаКодНаименование" id="100">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа код наименование</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Horizontal</Group>
+				<Behavior>Usual</Behavior>
+				<Representation>None</Representation>
+				<ShowTitle>false</ShowTitle>
+				<ExtendedTooltip name="ГруппаКодНаименованиеExtendedTooltip" id="102"/>
+				<ChildItems>
+					<InputField name="Наименование" id="3">
+						<EditMode>EnterOnInput</EditMode>
+						<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
+						<ExtendedTooltip name="НаименованиеExtendedTooltip" id="103"/>
+					</InputField>
+				</ChildItems>
+			</UsualGroup>
+			<InputField name="Родитель" id="146">
+				<ContextMenu name="РодительКонтекстноеМеню" id="147"/>
+				<ExtendedTooltip name="РодительРасширеннаяПодсказка" id="148"/>
+			</InputField>
+			<UsualGroup name="ГруппаПереключателей" id="149">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет затрат организации</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Vertical</Group>
+				<Behavior>Usual</Behavior>
+				<ShowTitle>false</ShowTitle>
+				<ExtendedTooltip name="ГруппаПереключателейExtendedTooltip" id="150"/>
+				<ChildItems>
+					<RadioButtonField name="ОсновнаяСистемаНалогообложения" id="151">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Учет затрат организации</v8:content>
+							</v8:item>
+						</Title>
+						<TitleLocation>Top</TitleLocation>
+						<ToolTipRepresentation>Button</ToolTipRepresentation>
+						<RadioButtonType>Auto</RadioButtonType>
+						<ChoiceList>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По деятельности с основной системой налогообложения (общая или упрощенная)</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+								</xr:Value>
+							</xr:Item>
+						</ChoiceList>
+						<ContextMenu name="ОсновнаяСистемаНалогообложенияКонтекстноеМеню" id="152"/>
+						<ExtendedTooltip name="ОсновнаяСистемаНалогообложенияExtendedTooltip" id="153">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Основная система налогообложения указывается в настройках налогов и отчетов.</v8:content>
+								</v8:item>
+							</Title>
+						</ExtendedTooltip>
+					</RadioButtonField>
+					<RadioButtonField name="ОсобыйПорядокНалогообложения" id="154">
+						<TitleLocation>None</TitleLocation>
+						<ToolTipRepresentation>Button</ToolTipRepresentation>
+						<RadioButtonType>Auto</RadioButtonType>
+						<ChoiceList>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По отдельным видам деятельности с особым порядком налогообложения</v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсобыйПорядокНалогообложения</Value>
+								</xr:Value>
+							</xr:Item>
+						</ChoiceList>
+						<ContextMenu name="ОсобыйПорядокНалогообложенияКонтекстноеМеню" id="155"/>
+						<ExtendedTooltip name="ОсобыйПорядокНалогообложенияExtendedTooltip" id="156">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Затраты по деятельности, порядок налогообложения которой не совпадает с основным. 
+В частности, по деятельности, переведенной на уплату ЕНВД или патентную систему налогообложения.</v8:content>
+								</v8:item>
+							</Title>
+						</ExtendedTooltip>
+					</RadioButtonField>
+					<RadioButtonField name="РазныеВидыДеятельности" id="157">
+						<TitleLocation>None</TitleLocation>
+						<ToolTipRepresentation>Button</ToolTipRepresentation>
+						<RadioButtonType>Auto</RadioButtonType>
+						<ChoiceList>
+							<xr:Item>
+								<xr:Presentation/>
+								<xr:CheckState>0</xr:CheckState>
+								<xr:Value xsi:type="FormChoiceListDesTimeValue">
+									<Presentation>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>По разным видам деятельности </v8:content>
+										</v8:item>
+									</Presentation>
+									<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.РаспределяемыеЗатраты</Value>
+								</xr:Value>
+							</xr:Item>
+						</ChoiceList>
+						<ContextMenu name="РазныеВидыДеятельностиКонтекстноеМеню" id="158"/>
+						<ExtendedTooltip name="РазныеВидыДеятельностиExtendedTooltip" id="159">
+							<Title formatted="false">
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Затраты, которые невозможно отнести к определенному виду деятельности.
+Распределяются пропорционально полученным доходам по видам деятельности.</v8:content>
+								</v8:item>
+							</Title>
+						</ExtendedTooltip>
+					</RadioButtonField>
+				</ChildItems>
+			</UsualGroup>
+			<UsualGroup name="СчетаУчета" id="8">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счета учета</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Vertical</Group>
+				<Behavior>Usual</Behavior>
+				<Representation>NormalSeparation</Representation>
+				<United>false</United>
+				<ShowTitle>false</ShowTitle>
+				<ExtendedTooltip name="СчетаУчетаExtendedTooltip" id="105"/>
+				<ChildItems>
+					<UsualGroup name="ГруппаОсновнаяСистемаНалогообложения" id="84">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа основная система налогообложения</v8:content>
+							</v8:item>
+						</Title>
+						<Group>Vertical</Group>
+						<Behavior>Usual</Behavior>
+						<Representation>None</Representation>
+						<ShowTitle>false</ShowTitle>
+						<ExtendedTooltip name="ГруппаОсновнаяСистемаНалогообложенияExtendedTooltip" id="106"/>
+						<ChildItems>
+							<UsualGroup name="ГруппаСчетИСубконто" id="27">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Основная система налогообложения</v8:content>
+									</v8:item>
+								</Title>
+								<HorizontalStretch>true</HorizontalStretch>
+								<Group>Vertical</Group>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ExtendedTooltip name="ГруппаСчетИСубконтоExtendedTooltip" id="107"/>
+								<ChildItems>
+									<InputField name="Счет" id="6">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Счет</v8:content>
+											</v8:item>
+										</Title>
+										<HorizontalStretch>false</HorizontalStretch>
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<AutoMarkIncomplete>true</AutoMarkIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ЗапретитьИспользоватьВПроводках">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xs:boolean">false</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<DropListWidth>40</DropListWidth>
+										<ContextMenu name="СчетКонтекстноеМеню" id="7"/>
+										<ExtendedTooltip name="СчетExtendedTooltip" id="114"/>
+									</InputField>
+									<InputField name="Субконто1" id="10">
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<TypeLink>
+											<xr:DataPath>2</xr:DataPath>
+											<xr:LinkItem>1</xr:LinkItem>
+										</TypeLink>
+										<ContextMenu name="Субконто1КонтекстноеМеню" id="11"/>
+										<ExtendedTooltip name="Субконто1ExtendedTooltip" id="115"/>
+									</InputField>
+									<InputField name="Субконто2" id="12">
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<TypeLink>
+											<xr:DataPath>2</xr:DataPath>
+											<xr:LinkItem>2</xr:LinkItem>
+										</TypeLink>
+										<ContextMenu name="Субконто2КонтекстноеМеню" id="13"/>
+										<ExtendedTooltip name="Субконто2ExtendedTooltip" id="116"/>
+									</InputField>
+									<InputField name="Субконто3" id="14">
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<TypeLink>
+											<xr:DataPath>2</xr:DataPath>
+											<xr:LinkItem>3</xr:LinkItem>
+										</TypeLink>
+										<ContextMenu name="Субконто3КонтекстноеМеню" id="15"/>
+										<ExtendedTooltip name="Субконто3ExtendedTooltip" id="117"/>
+									</InputField>
+								</ChildItems>
+							</UsualGroup>
+							<UsualGroup name="ГруппаНалоговыйУчетУСН" id="53">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа налоговый учет УСН</v8:content>
+									</v8:item>
+								</Title>
+								<Group>Horizontal</Group>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ShowTitle>false</ShowTitle>
+								<ExtendedTooltip name="ГруппаНалоговыйУчетУСНExtendedTooltip" id="118"/>
+								<ChildItems>
+									<InputField name="ОтражениеВУСН" id="16">
+										<ListChoiceMode>true</ListChoiceMode>
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceList>
+											<xr:Item>
+												<xr:Presentation/>
+												<xr:CheckState>0</xr:CheckState>
+												<xr:Value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Принимаются</v8:content>
+														</v8:item>
+													</Presentation>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ОтражениеВУСН.EnumValue.Принимаются</Value>
+												</xr:Value>
+											</xr:Item>
+											<xr:Item>
+												<xr:Presentation/>
+												<xr:CheckState>0</xr:CheckState>
+												<xr:Value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Не принимаются</v8:content>
+														</v8:item>
+													</Presentation>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ОтражениеВУСН.EnumValue.НеПринимаются</Value>
+												</xr:Value>
+											</xr:Item>
+										</ChoiceList>
+										<ContextMenu name="ОтражениеВУСНКонтекстноеМеню" id="17"/>
+										<ExtendedTooltip name="ОтражениеВУСНExtendedTooltip" id="122"/>
+									</InputField>
+								</ChildItems>
+							</UsualGroup>
+						</ChildItems>
+					</UsualGroup>
+					<UsualGroup name="ГруппаОсобыйПорядокНалогообложения" id="101">
+						<Group>Vertical</Group>
+						<Behavior>Usual</Behavior>
+						<Representation>NormalSeparation</Representation>
+						<ShowTitle>false</ShowTitle>
+						<ThroughAlign>Use</ThroughAlign>
+						<ExtendedTooltip name="ГруппаОсобыйПорядокНалогообложенияРасширеннаяПодсказка" id="123"/>
+						<ChildItems>
+							<UsualGroup name="ГруппаСчетИСубконтоЕНВД" id="37">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Статья затрат по деятельности с особым порядком налогообложения</v8:content>
+									</v8:item>
+								</Title>
+								<HorizontalStretch>true</HorizontalStretch>
+								<Group>Vertical</Group>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ExtendedTooltip name="ГруппаСчетИСубконтоЕНВДExtendedTooltip" id="124"/>
+								<ChildItems>
+									<UsualGroup name="ГруппаСтраницаСчетИСубконтоЕНВД" id="86">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа страница счет и субконто ЕНВД</v8:content>
+											</v8:item>
+										</Title>
+										<Group>Horizontal</Group>
+										<Behavior>Usual</Behavior>
+										<Representation>None</Representation>
+										<ShowTitle>false</ShowTitle>
+										<ExtendedTooltip name="ГруппаСтраницаСчетИСубконтоЕНВДExtendedTooltip" id="125"/>
+										<ChildItems>
+											<InputField name="ВидЗатратЕНВД" id="92">
+												<Title>
+													<v8:item>
+														<v8:lang>ru</v8:lang>
+														<v8:content>Статья затрат</v8:content>
+													</v8:item>
+												</Title>
+												<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+												<ChooseType>false</ChooseType>
+												<ChoiceParameters>
+													<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+														<app:value xsi:type="FormChoiceListDesTimeValue">
+															<Presentation/>
+															<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсобыйПорядокНалогообложения</Value>
+														</app:value>
+													</app:item>
+												</ChoiceParameters>
+												<ContextMenu name="ВидЗатратЕНВДКонтекстноеМеню" id="93"/>
+												<ExtendedTooltip name="ВидЗатратЕНВДExtendedTooltip" id="129"/>
+											</InputField>
+										</ChildItems>
+									</UsualGroup>
+									<LabelField name="НадписьСчетУчетаПоЕНВД" id="88">
+										<TitleLocation>None</TitleLocation>
+										<AutoMaxWidth>false</AutoMaxWidth>
+										<TextColor>style:ПоясняющийТекст</TextColor>
+										<ContextMenu name="НадписьСчетУчетаПоЕНВДКонтекстноеМеню" id="89"/>
+										<ExtendedTooltip name="НадписьСчетУчетаПоЕНВДExtendedTooltip" id="130"/>
+									</LabelField>
+								</ChildItems>
+							</UsualGroup>
+						</ChildItems>
+					</UsualGroup>
+					<UsualGroup name="НалоговыйУчетСтраховыхВзносов" id="58">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Налоговый учет страховых взносов (по налогу на прибыль)</v8:content>
+							</v8:item>
+						</Title>
+						<Group>Vertical</Group>
+						<Behavior>Usual</Behavior>
+						<Representation>None</Representation>
+						<ExtendedTooltip name="НалоговыйУчетСтраховыхВзносовExtendedTooltip" id="131"/>
+						<ChildItems>
+							<UsualGroup name="ГруппаСтраницаСчетИСубконтоНУ" id="83">
+								<Title>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Группа страница счет и субконто НУ</v8:content>
+									</v8:item>
+								</Title>
+								<Group>Vertical</Group>
+								<Behavior>Usual</Behavior>
+								<Representation>None</Representation>
+								<ShowTitle>false</ShowTitle>
+								<ExtendedTooltip name="ГруппаСтраницаСчетИСубконтоНУExtendedTooltip" id="132"/>
+								<ChildItems>
+									<InputField name="СчетНУ" id="70">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Счет</v8:content>
+											</v8:item>
+										</Title>
+										<HorizontalStretch>false</HorizontalStretch>
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ContextMenu name="СчетНУКонтекстноеМеню" id="71"/>
+										<ExtendedTooltip name="СчетНУExtendedTooltip" id="139"/>
+									</InputField>
+									<InputField name="СубконтоНУ1" id="72">
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<TypeLink>
+											<xr:DataPath>9</xr:DataPath>
+											<xr:LinkItem>1</xr:LinkItem>
+										</TypeLink>
+										<ContextMenu name="СубконтоНУ1КонтекстноеМеню" id="73"/>
+										<ExtendedTooltip name="СубконтоНУ1ExtendedTooltip" id="140"/>
+									</InputField>
+									<InputField name="СубконтоНУ2" id="74">
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<TypeLink>
+											<xr:DataPath>9</xr:DataPath>
+											<xr:LinkItem>2</xr:LinkItem>
+										</TypeLink>
+										<ContextMenu name="СубконтоНУ2КонтекстноеМеню" id="75"/>
+										<ExtendedTooltip name="СубконтоНУ2ExtendedTooltip" id="141"/>
+									</InputField>
+									<InputField name="СубконтоНУ3" id="76">
+										<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+										<ChoiceParameters>
+											<app:item name="Отбор.ВидДеятельностиДляНалоговогоУчетаЗатрат">
+												<app:value xsi:type="FormChoiceListDesTimeValue">
+													<Presentation/>
+													<Value xsi:type="xr:DesignTimeRef">Enum.ВидыДеятельностиДляНалоговогоУчетаЗатрат.EnumValue.ОсновнаяСистемаНалогообложения</Value>
+												</app:value>
+											</app:item>
+										</ChoiceParameters>
+										<TypeLink>
+											<xr:DataPath>9</xr:DataPath>
+											<xr:LinkItem>3</xr:LinkItem>
+										</TypeLink>
+										<ContextMenu name="СубконтоНУ3КонтекстноеМеню" id="77"/>
+										<ExtendedTooltip name="СубконтоНУ3ExtendedTooltip" id="142"/>
+									</InputField>
+								</ChildItems>
+							</UsualGroup>
+							<LabelField name="НадписьСчетУчетаРасходовПоСтраховымВзносамНУ" id="78">
+								<TitleLocation>None</TitleLocation>
+								<AutoMaxWidth>false</AutoMaxWidth>
+								<TextColor>style:ПоясняющийТекст</TextColor>
+								<ContextMenu name="НадписьСчетУчетаРасходовПоСтраховымВзносамНУКонтекстноеМеню" id="79"/>
+								<ExtendedTooltip name="НадписьСчетУчетаРасходовПоСтраховымВзносамНУExtendedTooltip" id="143"/>
+							</LabelField>
+						</ChildItems>
+					</UsualGroup>
+				</ChildItems>
+			</UsualGroup>
+			<UsualGroup name="ГруппаДополнительныеРеквизиты" id="144">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Группа дополнительные реквизиты</v8:content>
+					</v8:item>
+				</Title>
+				<Group>Vertical</Group>
+				<Behavior>Usual</Behavior>
+				<ShowTitle>false</ShowTitle>
+				<ExtendedTooltip name="ГруппаДополнительныеРеквизитыExtendedTooltip" id="145"/>
+			</UsualGroup>
+		</ChildItems>
+		<Attributes/>
+	</BaseForm>
+</Form>

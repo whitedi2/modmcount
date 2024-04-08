@@ -1,0 +1,782 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Popup name="ПодменюОтчеты" id="77">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отчеты</v8:content>
+					</v8:item>
+				</Title>
+				<ToolTip>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подменю отчеты</v8:content>
+					</v8:item>
+				</ToolTip>
+				<ExtendedTooltip name="ПодменюОтчетыРасширеннаяПодсказка" id="78"/>
+				<ChildItems>
+					<Button name="ФормаОтчетПоИзменениямВЗакрытомПериоде" id="81">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОтчетПоИзменениямВЗакрытомПериоде</CommandName>
+						<ExtendedTooltip name="ФормаОтчетПоИзменениямВЗакрытомПериодеРасширеннаяПодсказка" id="82"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ОбщаяДатаЗапрета" id="46">
+			<DataPath>ОбщаяДатаЗапрета</DataPath>
+			<TitleFont ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<BackColor>#FFE7B3</BackColor>
+			<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			<ContextMenu name="ОбщаяДатаЗапретаКонтекстноеМеню" id="47"/>
+			<ExtendedTooltip name="ОбщаяДатаЗапретаРасширеннаяПодсказка" id="48"/>
+			<Events>
+				<Event name="OnChange">ОбщаяДатаЗапретаПриИзменении</Event>
+			</Events>
+		</InputField>
+		<UsualGroup name="ГруппаОсновная" id="49">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа основная</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Vertical</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ChildItemsWidth>LeftNarrow</ChildItemsWidth>
+			<ExtendedTooltip name="ГруппаОсновнаяРасширеннаяПодсказка" id="50"/>
+			<ChildItems>
+				<Table name="Пользователи" id="1">
+					<Representation>List</Representation>
+					<Visible>false</Visible>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПользователиДатЗапрета</DataPath>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>CancelSearch</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>Find</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>SelectAll</ExcludedCommand>
+						<ExcludedCommand>SortListAsc</ExcludedCommand>
+						<ExcludedCommand>SortListDesc</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<RowFilter xsi:nil="true"/>
+					<ContextMenu name="ПользователиКонтекстноеМеню" id="2"/>
+					<AutoCommandBar name="ПользователиКоманднаяПанель" id="3">
+						<ChildItems>
+							<Button name="ПользователиДобавить" id="37">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.ДобавитьПользователя</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="ПользователиДобавитьРасширеннаяПодсказка" id="38"/>
+							</Button>
+							<Button name="ПользователиИзменить" id="25">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.Пользователи.StandardCommand.Change</CommandName>
+								<ExtendedTooltip name="ПользователиИзменитьРасширеннаяПодсказка" id="26"/>
+							</Button>
+							<Button name="ПользователиУдалить" id="27">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.Пользователи.StandardCommand.Delete</CommandName>
+								<ExtendedTooltip name="ПользователиУдалитьРасширеннаяПодсказка" id="28"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПользователиРасширеннаяПодсказка" id="4"/>
+					<SearchStringAddition name="ПользователиСтрокаПоиска" id="59">
+						<AdditionSource>
+							<Item>Пользователи</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиСтрокаПоискаКонтекстноеМеню" id="60"/>
+						<ExtendedTooltip name="ПользователиСтрокаПоискаРасширеннаяПодсказка" id="61"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПользователиСостояниеПросмотра" id="62">
+						<AdditionSource>
+							<Item>Пользователи</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиСостояниеПросмотраКонтекстноеМеню" id="63"/>
+						<ExtendedTooltip name="ПользователиСостояниеПросмотраРасширеннаяПодсказка" id="64"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПользователиУправлениеПоиском" id="65">
+						<AdditionSource>
+							<Item>Пользователи</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиУправлениеПоискомКонтекстноеМеню" id="66"/>
+						<ExtendedTooltip name="ПользователиУправлениеПоискомРасширеннаяПодсказка" id="67"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeDeleteRow">ПользователиПередУдалением</Event>
+						<Event name="OnActivateRow">ПользователиПриАктивизацииСтроки</Event>
+						<Event name="BeforeRowChange">ПользователиПередНачаломИзменения</Event>
+						<Event name="AfterDeleteRow">ПользователиПослеУдаления</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ПользователиПользователь" id="5">
+							<DataPath>ПользователиДатЗапрета.Пользователь</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиПользовательКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="ПользователиПользовательРасширеннаяПодсказка" id="7"/>
+							<Events>
+								<Event name="OnChange">ПользователиПользовательПриИзменении</Event>
+								<Event name="ChoiceProcessing">ПользователиПользовательОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ПользователиКомментарий" id="8">
+							<DataPath>ПользователиДатЗапрета.Комментарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиКомментарийКонтекстноеМеню" id="9"/>
+							<ExtendedTooltip name="ПользователиКомментарийРасширеннаяПодсказка" id="10"/>
+							<Events>
+								<Event name="OnChange">ПользователиКомментарийПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<Table name="ПользователиДерево" id="83">
+					<Representation>Tree</Representation>
+					<ReadOnly>true</ReadOnly>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ПользователиДерево</DataPath>
+					<ContextMenu name="ПользователиДеревоКонтекстноеМеню" id="84"/>
+					<AutoCommandBar name="ПользователиДеревоКоманднаяПанель" id="85">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ПользователиДеревоРасширеннаяПодсказка" id="86"/>
+					<SearchStringAddition name="ПользователиДеревоСтрокаПоиска" id="87">
+						<AdditionSource>
+							<Item>ПользователиДерево</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиДеревоСтрокаПоискаКонтекстноеМеню" id="88"/>
+						<ExtendedTooltip name="ПользователиДеревоСтрокаПоискаРасширеннаяПодсказка" id="89"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ПользователиДеревоСостояниеПросмотра" id="90">
+						<AdditionSource>
+							<Item>ПользователиДерево</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиДеревоСостояниеПросмотраКонтекстноеМеню" id="91"/>
+						<ExtendedTooltip name="ПользователиДеревоСостояниеПросмотраРасширеннаяПодсказка" id="92"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ПользователиДеревоУправлениеПоиском" id="93">
+						<AdditionSource>
+							<Item>ПользователиДерево</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ПользователиДеревоУправлениеПоискомКонтекстноеМеню" id="94"/>
+						<ExtendedTooltip name="ПользователиДеревоУправлениеПоискомРасширеннаяПодсказка" id="95"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="BeforeDeleteRow">ПользователиПередУдалением</Event>
+						<Event name="OnActivateRow">ПользователиПриАктивизацииСтроки</Event>
+						<Event name="BeforeRowChange">ПользователиПередНачаломИзменения</Event>
+						<Event name="AfterDeleteRow">ПользователиПослеУдаления</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ПользователиДеревоПользователь" id="96">
+							<DataPath>ПользователиДерево.Пользователь</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиДеревоПользовательКонтекстноеМеню" id="97"/>
+							<ExtendedTooltip name="ПользователиДеревоПользовательРасширеннаяПодсказка" id="98"/>
+						</InputField>
+						<InputField name="ПользователиДеревоКомментарий" id="99">
+							<DataPath>ПользователиДерево.Комментарий</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиДеревоКомментарийКонтекстноеМеню" id="100"/>
+							<ExtendedTooltip name="ПользователиДеревоКомментарийРасширеннаяПодсказка" id="101"/>
+						</InputField>
+						<InputField name="ПользователиДеревоПредставление" id="102">
+							<DataPath>ПользователиДерево.Представление</DataPath>
+							<Visible>false</Visible>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиДеревоПредставлениеКонтекстноеМеню" id="103"/>
+							<ExtendedTooltip name="ПользователиДеревоПредставлениеРасширеннаяПодсказка" id="104"/>
+						</InputField>
+						<InputField name="ПользователиДеревоДатаЗапрета" id="105">
+							<DataPath>ПользователиДерево.ДатаЗапрета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ПользователиДеревоДатаЗапретаКонтекстноеМеню" id="106"/>
+							<ExtendedTooltip name="ПользователиДеревоДатаЗапретаРасширеннаяПодсказка" id="107"/>
+						</InputField>
+					</ChildItems>
+				</Table>
+				<LabelDecoration name="ДекорацияПользователь" id="43">
+					<TextColor>style:ButtonTextColor</TextColor>
+					<Font ref="sys:DefaultGUIFont" height="9" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Даты запрета по пользователю</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияПользовательКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДекорацияПользовательРасширеннаяПодсказка" id="45"/>
+				</LabelDecoration>
+				<Table name="ДатыЗапретаДерево" id="11">
+					<Representation>Tree</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<AutoInsertNewRow>true</AutoInsertNewRow>
+					<EnableStartDrag>true</EnableStartDrag>
+					<EnableDrag>true</EnableDrag>
+					<FileDragMode>AsFile</FileDragMode>
+					<DataPath>ДатыЗапретаДерево</DataPath>
+					<CommandSet>
+						<ExcludedCommand>Add</ExcludedCommand>
+						<ExcludedCommand>Copy</ExcludedCommand>
+						<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+						<ExcludedCommand>EndEdit</ExcludedCommand>
+						<ExcludedCommand>HierarchicalList</ExcludedCommand>
+						<ExcludedCommand>List</ExcludedCommand>
+						<ExcludedCommand>MoveDown</ExcludedCommand>
+						<ExcludedCommand>MoveUp</ExcludedCommand>
+						<ExcludedCommand>OutputList</ExcludedCommand>
+						<ExcludedCommand>SelectAll</ExcludedCommand>
+						<ExcludedCommand>SortListAsc</ExcludedCommand>
+						<ExcludedCommand>SortListDesc</ExcludedCommand>
+						<ExcludedCommand>Tree</ExcludedCommand>
+					</CommandSet>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<ContextMenu name="ДатыЗапретаДеревоКонтекстноеМеню" id="12"/>
+					<AutoCommandBar name="ДатыЗапретаДеревоКоманднаяПанель" id="13">
+						<ChildItems>
+							<Button name="ДатыЗапретаДеревоДобавитьНаправление" id="39">
+								<Type>CommandBarButton</Type>
+								<Visible>false</Visible>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.ДобавитьНаправление</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="ДатыЗапретаДеревоДобавитьНаправлениеРасширеннаяПодсказка" id="40"/>
+							</Button>
+							<Button name="ДатыЗапретаДеревоДобавитьПредприятие" id="41">
+								<Type>CommandBarButton</Type>
+								<Representation>PictureAndText</Representation>
+								<CommandName>Form.Command.ДобавитьПредприятие</CommandName>
+								<Picture>
+									<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+									<xr:LoadTransparent>true</xr:LoadTransparent>
+								</Picture>
+								<ExtendedTooltip name="ДатыЗапретаДеревоДобавитьПредприятиеРасширеннаяПодсказка" id="42"/>
+							</Button>
+							<Button name="ДатыЗапретаДеревоИзменить" id="33">
+								<Type>CommandBarButton</Type>
+								<CommandName>Form.Item.ДатыЗапретаДерево.StandardCommand.Change</CommandName>
+								<ExtendedTooltip name="ДатыЗапретаДеревоИзменитьРасширеннаяПодсказка" id="34"/>
+							</Button>
+						</ChildItems>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ДатыЗапретаДеревоРасширеннаяПодсказка" id="14"/>
+					<SearchStringAddition name="ДатыЗапретаДеревоСтрокаПоиска" id="68">
+						<AdditionSource>
+							<Item>ДатыЗапретаДерево</Item>
+							<Type>SearchStringRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДатыЗапретаДеревоСтрокаПоискаКонтекстноеМеню" id="69"/>
+						<ExtendedTooltip name="ДатыЗапретаДеревоСтрокаПоискаРасширеннаяПодсказка" id="70"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДатыЗапретаДеревоСостояниеПросмотра" id="71">
+						<AdditionSource>
+							<Item>ДатыЗапретаДерево</Item>
+							<Type>ViewStatusRepresentation</Type>
+						</AdditionSource>
+						<ContextMenu name="ДатыЗапретаДеревоСостояниеПросмотраКонтекстноеМеню" id="72"/>
+						<ExtendedTooltip name="ДатыЗапретаДеревоСостояниеПросмотраРасширеннаяПодсказка" id="73"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДатыЗапретаДеревоУправлениеПоиском" id="74">
+						<AdditionSource>
+							<Item>ДатыЗапретаДерево</Item>
+							<Type>SearchControl</Type>
+						</AdditionSource>
+						<ContextMenu name="ДатыЗапретаДеревоУправлениеПоискомКонтекстноеМеню" id="75"/>
+						<ExtendedTooltip name="ДатыЗапретаДеревоУправлениеПоискомРасширеннаяПодсказка" id="76"/>
+					</SearchControlAddition>
+					<ChildItems>
+						<InputField name="ДатыЗапретаДеревоОбъект" id="15">
+							<DataPath>ДатыЗапретаДерево.Объект</DataPath>
+							<ReadOnly>true</ReadOnly>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатыЗапретаДеревоОбъектКонтекстноеМеню" id="16"/>
+							<ExtendedTooltip name="ДатыЗапретаДеревоОбъектРасширеннаяПодсказка" id="17"/>
+						</InputField>
+						<InputField name="ДатыЗапретаДеревоДатаЗапрета" id="18">
+							<DataPath>ДатыЗапретаДерево.ДатаЗапрета</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДатыЗапретаДеревоДатаЗапретаКонтекстноеМеню" id="19"/>
+							<ExtendedTooltip name="ДатыЗапретаДеревоДатаЗапретаРасширеннаяПодсказка" id="20"/>
+							<Events>
+								<Event name="OnChange">ДатыЗапретаДеревоДатаЗапретаПриИзменении</Event>
+							</Events>
+						</InputField>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="51">
+			<Group>Horizontal</Group>
+			<Behavior>Usual</Behavior>
+			<Representation>StrongSeparation</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="52"/>
+			<ChildItems>
+				<PictureDecoration name="ДекорацияКартинкаИнфо" id="53">
+					<Width>2</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<MaxWidth>2</MaxWidth>
+					<Height>2</Height>
+					<AutoMaxHeight>false</AutoMaxHeight>
+					<MaxHeight>2</MaxHeight>
+					<HorizontalStretch>false</HorizontalStretch>
+					<VerticalStretch>false</VerticalStretch>
+					<Title formatted="false">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Декорация картинка инфо</v8:content>
+						</v8:item>
+					</Title>
+					<Picture>
+						<xr:Ref>StdPicture.Information</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<FileDragMode>AsFile</FileDragMode>
+					<ContextMenu name="ДекорацияКартинкаИнфоКонтекстноеМеню" id="54"/>
+					<ExtendedTooltip name="ДекорацияКартинкаИнфоРасширеннаяПодсказка" id="55"/>
+				</PictureDecoration>
+				<LabelDecoration name="ДекорацияНадписьИнфо" id="56">
+					<Width>58</Width>
+					<Height>7</Height>
+					<HorizontalStretch>true</HorizontalStretch>
+					<VerticalStretch>true</VerticalStretch>
+					<Title formatted="true">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Даты запрета устанавливаются по пользователям и на предприятия.
+
+Приоритет действия даты запрета по пользователям (по убыванию): Конкретный пользователь - Группа пользователей - &lt;&lt;По всем пользователям&gt;&gt;
+
+Приоритет действия даты запрета по предприятиям/направлениям (по убыванию): Предприятие - &lt;&lt;По всем объектам&gt;&gt;</v8:content>
+						</v8:item>
+					</Title>
+					<ContextMenu name="ДекорацияНадписьИнфоКонтекстноеМеню" id="57"/>
+					<ExtendedTooltip name="ДекорацияНадписьИнфоРасширеннаяПодсказка" id="58"/>
+				</LabelDecoration>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПользователиДатЗапрета" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи дат запрета</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пользователь" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователь</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыНазначенияДатЗапрета</v8:Type>
+						<v8:Type>cfg:CatalogRef.ГруппыПользователей</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Комментарий" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>64</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ДатыЗапретаДерево" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Даты запрета дерево</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Объект" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Объект</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыНазначенияДатЗапрета</v8:Type>
+						<v8:Type>cfg:CatalogRef.Предприятия</v8:Type>
+						<v8:Type>cfg:CatalogRef.НаправленияДеятельности</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаЗапрета" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата запрета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>64</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОбщаяДатаЗапрета" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая дата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПользователиДерево" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователи дерево</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Пользователь" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пользователь</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыНазначенияДатЗапрета</v8:Type>
+						<v8:Type>cfg:CatalogRef.ГруппыПользователей</v8:Type>
+						<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Комментарий" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Представление" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>64</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ДатаЗапрета" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата запрета</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЗакрытьФормуБезПодтверждения" id="5">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>Пользователи</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПользователиДатЗапрета.Пользователь</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемПользователям</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДатыЗапретаДерево</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДатыЗапретаДерево.Объект</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемОбъектам</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДатыЗапретаДеревоДатаЗапрета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПользователиДатЗапрета.Пользователь</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемПользователям</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДатыЗапретаДерево.Объект</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемОбъектам</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FFE7B3</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ПользователиДерево</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПользователиДерево.Пользователь</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемПользователям</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДатыЗапретаДеревоДатаЗапрета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ПользователиДерево.Пользователь</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемПользователям</dcsset:right>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДатыЗапретаДерево.Объект</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыНазначенияДатЗапрета.ПоВсемОбъектам</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ЦветФона</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FFE7B3</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="ДобавитьПользователя" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить пользователя</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьПользователя</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьНаправление" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Направление</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить направление</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьНаправление</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ДобавитьПредприятие" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предприятие</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Добавить предприятие</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ДобавитьПредприятие</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+		<Command name="ОтчетПоИзменениямВЗакрытомПериоде" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет по изменениям в закрытом периоде</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчет по изменениям в закрытом периоде</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтчетПоИзменениямВЗакрытомПериоде</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
+		</Command>
+	</Commands>
+</Form>

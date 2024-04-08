@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<ScalingMode>Normal</ScalingMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -147,6 +147,7 @@
 									<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="583"/>
 									<ChildItems>
 										<InputField name="Код" id="1">
+											<DataPath>Объект.Code</DataPath>
 											<UserVisible>
 												<xr:Common>false</xr:Common>
 											</UserVisible>
@@ -169,6 +170,7 @@
 											<ExtendedTooltip name="ГруппаВидНоменклатурыРасширеннаяПодсказка" id="227"/>
 											<ChildItems>
 												<InputField name="ВидНоменклатуры" id="218">
+													<DataPath>Объект.ВидНоменклатуры</DataPath>
 													<ContextMenu name="ВидНоменклатурыКонтекстноеМеню" id="219"/>
 													<ExtendedTooltip name="ВидНоменклатурыРасширеннаяПодсказка" id="220"/>
 												</InputField>
@@ -188,6 +190,7 @@
 											<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="130"/>
 											<ChildItems>
 												<InputField name="Наименование" id="3">
+													<DataPath>Объект.Description</DataPath>
 													<EditMode>EnterOnInput</EditMode>
 													<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
 													<ExtendedTooltip name="НаименованиеExtendedTooltip" id="131"/>
@@ -195,6 +198,7 @@
 											</ChildItems>
 										</UsualGroup>
 										<InputField name="НаименованиеПолное" id="211">
+											<DataPath>Объект.НаименованиеПолное</DataPath>
 											<TitleLocation>Left</TitleLocation>
 											<Height>2</Height>
 											<VerticalStretch>false</VerticalStretch>
@@ -566,6 +570,7 @@
 							<ExtendedTooltip name="ГруппаПериодичностьРасширеннаяПодсказка" id="232"/>
 							<ChildItems>
 								<InputField name="ПериодичностьУслуги" id="228">
+									<DataPath>1000003/0:cedd68ca-bcbd-404e-aece-f95365afeebe</DataPath>
 									<ListChoiceMode>true</ListChoiceMode>
 									<ChoiceList>
 										<xr:Item>
@@ -627,11 +632,13 @@
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="Артикул" id="116">
+							<DataPath>Объект.Артикул</DataPath>
 							<HorizontalStretch>false</HorizontalStretch>
 							<ContextMenu name="АртикулКонтекстноеМеню" id="117"/>
 							<ExtendedTooltip name="АртикулExtendedTooltip" id="138"/>
 						</InputField>
 						<InputField name="Родитель" id="5">
+							<DataPath>Объект.Parent</DataPath>
 							<SkipOnInput>true</SkipOnInput>
 							<EditMode>EnterOnInput</EditMode>
 							<CreateButton>false</CreateButton>
@@ -652,6 +659,7 @@
 							<ExtendedTooltip name="ГруппаЕдиницаРасширеннаяПодсказка" id="139"/>
 							<ChildItems>
 								<InputField name="ЕдиницаИзмерения" id="9">
+									<DataPath>Объект.ЕдиницаИзмерения</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<HorizontalStretch>false</HorizontalStretch>
 									<AutoMarkIncomplete>false</AutoMarkIncomplete>
@@ -659,6 +667,7 @@
 									<ExtendedTooltip name="ЕдиницаИзмеренияExtendedTooltip" id="140"/>
 								</InputField>
 								<LabelField name="ЕдиницаИзмеренияНаименование" id="112">
+									<DataPath>1000003/0:e8609668-8def-45d3-bdd4-a00c276b8347/0:923947b8-859b-4912-b157-6c9a825c0df5</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<Width>20</Width>
 									<HorizontalStretch>false</HorizontalStretch>
@@ -694,6 +703,7 @@
 							<ExtendedTooltip name="ГруппаСтавкаНДСРасширеннаяПодсказка" id="271"/>
 							<ChildItems>
 								<InputField name="СтавкаНДС" id="11">
+									<DataPath>1000003/0:46587083-de9b-4b5c-878b-c6d0d0de70da</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -733,6 +743,7 @@
 									<ExtendedTooltip name="ИсторияСтавкиНДСРасширеннаяПодсказка" id="336"/>
 								</LabelDecoration>
 								<InputField name="КодРаздел7ДекларацииНДС" id="272">
+									<DataPath>1000003/0:e9048ed9-aff1-4a8f-8df8-6117c76a33e0</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -755,6 +766,7 @@
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="Операции0" id="586">
+							<DataPath>1000003/0:51d17d48-1ddb-439d-9faa-715424515a3c</DataPath>
 							<TitleLocation>Left</TitleLocation>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
 							<ContextMenu name="Операции0КонтекстноеМеню" id="589"/>
@@ -822,6 +834,7 @@
 							</ChildItems>
 						</UsualGroup>
 						<InputField name="НоменклатурнаяГруппа" id="17">
+							<DataPath>1000003/0:41becc99-e2e4-4e51-aab6-0e36a4e31117</DataPath>
 							<EditMode>EnterOnInput</EditMode>
 							<ContextMenu name="НоменклатурнаяГруппаКонтекстноеМеню" id="18"/>
 							<ExtendedTooltip name="НоменклатурнаяГруппаExtendedTooltip" id="144"/>
@@ -846,6 +859,7 @@
 							<ExtendedTooltip name="ГруппаВЕТИСРасширеннаяПодсказка" id="316"/>
 							<ChildItems>
 								<CheckBoxField name="ПодконтрольнаяПродукцияВЕТИС" id="317">
+									<DataPath>1000003/0:cf6b52af-f6de-4df9-833e-18f59c7912c4</DataPath>
 									<ToolTipRepresentation>Button</ToolTipRepresentation>
 									<CheckBoxType>Auto</CheckBoxType>
 									<ContextMenu name="ПодконтрольнаяПродукцияВЕТИСКонтекстноеМеню" id="318"/>
@@ -862,6 +876,7 @@
 							</ChildItems>
 						</UsualGroup>
 						<CheckBoxField name="ПродукцияМаркируемаяДляГИСМ" id="223">
+							<DataPath>1000003/0:02846867-bcc7-4b6c-9e27-4c3b9970c407</DataPath>
 							<Visible>false</Visible>
 							<ToolTipRepresentation>Button</ToolTipRepresentation>
 							<CheckBoxType>Auto</CheckBoxType>
@@ -877,6 +892,7 @@
 							</ExtendedTooltip>
 						</CheckBoxField>
 						<CheckBoxField name="ТабачнаяПродукция" id="320">
+							<DataPath>1000003/0:214cfe27-ac21-477e-8b76-1955ef739778</DataPath>
 							<Visible>false</Visible>
 							<Title>
 								<v8:item>
@@ -897,10 +913,12 @@
 							</ExtendedTooltip>
 						</CheckBoxField>
 						<InputField name="Производитель" id="118">
+							<DataPath>1000003/0:ee98cecd-ed83-450b-827b-bc69af465f14</DataPath>
 							<ContextMenu name="ПроизводительКонтекстноеМеню" id="119"/>
 							<ExtendedTooltip name="ПроизводительExtendedTooltip" id="137"/>
 						</InputField>
 						<InputField name="Комментарий" id="13">
+							<DataPath>1000003/0:ce58fc54-58e2-4b4d-90c9-4802fce5d213</DataPath>
 							<TitleLocation>Left</TitleLocation>
 							<EditMode>EnterOnInput</EditMode>
 							<ContextMenu name="КомментарийКонтекстноеМеню" id="14"/>
@@ -927,6 +945,7 @@
 							<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="371"/>
 							<ChildItems>
 								<InputField name="Описание" id="372">
+									<DataPath>1000003/0:41547516-aca9-486b-aa7a-c45b242c296f</DataPath>
 									<TitleLocation>None</TitleLocation>
 									<Width>54</Width>
 									<MultiLine>true</MultiLine>
@@ -957,6 +976,7 @@
 							<ExtendedTooltip name="ГруппаПроизводствоРасширеннаяПодсказка" id="149"/>
 							<ChildItems>
 								<InputField name="СтатьяЗатрат" id="23">
+									<DataPath>1000003/0:86233ebe-19fb-45d1-bab2-06e493c56e1c</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 									<ChoiceParameters>
@@ -1089,6 +1109,7 @@
 							<ExtendedTooltip name="ГруппаАлкогольнаяПродукцияРасширеннаяПодсказка" id="217"/>
 							<ChildItems>
 								<InputField name="Импортер" id="120">
+									<DataPath>1000003/0:7f24b442-24e3-4fde-abac-71cacaa7c7ac</DataPath>
 									<ContextMenu name="ИмпортерКонтекстноеМеню" id="121"/>
 									<ExtendedTooltip name="ИмпортерExtendedTooltip" id="146"/>
 								</InputField>
@@ -1116,6 +1137,7 @@
 							<ExtendedTooltip name="ГруппаИмпортныйТоварРасширеннаяПодсказка" id="215"/>
 							<ChildItems>
 								<InputField name="СтранаПроисхождения" id="19">
+									<DataPath>1000003/0:b966d74e-ba06-4446-b942-8e745090502e</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -1127,6 +1149,7 @@
 									<ExtendedTooltip name="СтранаПроисхожденияExtendedTooltip" id="147"/>
 								</InputField>
 								<InputField name="НомерГТД" id="21">
+									<DataPath>1000003/0:9725cf94-23a8-4183-9a07-916f59b88349</DataPath>
 									<EditMode>EnterOnInput</EditMode>
 									<ContextMenu name="НомерГТДКонтекстноеМеню" id="22"/>
 									<ExtendedTooltip name="НомерГТДExtendedTooltip" id="148"/>
@@ -1137,15 +1160,9 @@
 							<Title>
 								<v8:item>
 									<v8:lang>ru</v8:lang>
-									<v8:content>Электронные сертификаты НСПК</v8:content>
+									<v8:content>Электронные сертификаты на социально значимые товары (491-ФЗ)</v8:content>
 								</v8:item>
 							</Title>
-							<ToolTip>
-								<v8:item>
-									<v8:lang>ru</v8:lang>
-									<v8:content>Информация для учета импортных товаров по номерам ГТД</v8:content>
-								</v8:item>
-							</ToolTip>
 							<Group>Vertical</Group>
 							<Behavior>Collapsible</Behavior>
 							<Collapsed>true</Collapsed>
@@ -1155,6 +1172,7 @@
 							<ExtendedTooltip name="ГруппаЭлектронныеСертификатыРасширеннаяПодсказка" id="512"/>
 							<ChildItems>
 								<InputField name="КодТРУ" id="513">
+									<DataPath>1000003/0:8e2b4260-b8e7-4e85-ae67-ecc6b1de3662</DataPath>
 									<Title>
 										<v8:item>
 											<v8:lang>ru</v8:lang>
@@ -1174,7 +1192,7 @@
 											<v8:item>
 												<v8:lang>ru</v8:lang>
 												<v8:content>Код из &lt;link https://esnsi.gosuslugi.ru/classifiers/5541/data&gt;перечня отдельных видов товаров, работ, услуг&lt;/&gt;, приобретаемых с использованием сертификата.
-Заполните этот код, если товар может быть оплачен &lt;link https://buh.ru/articles/documents/143163/&gt;электронным сертификатом НСПК&lt;/&gt;</v8:content>
+Заполните этот код, если товар может быть оплачен &lt;link https://buh.ru/articles/documents/143163/&gt;сертификатом на социально значимые товары&lt;/&gt;</v8:content>
 											</v8:item>
 										</Title>
 									</ExtendedTooltip>
@@ -1222,6 +1240,7 @@
 									<ExtendedTooltip name="ОКВЭДРасширеннаяПодсказка" id="276"/>
 									<ChildItems>
 										<InputField name="ОКВЭДКод" id="277">
+											<DataPath>1000003/0:4cbfecd0-ca9f-4c5d-9d06-7c7b8afd9cd8</DataPath>
 											<Width>16</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1250,6 +1269,7 @@
 									<ExtendedTooltip name="ОКВЭД2РасширеннаяПодсказка" id="284"/>
 									<ChildItems>
 										<InputField name="ОКВЭД2Код" id="285">
+											<DataPath>1000003/0:cc80e947-49dd-48d7-b576-4efdad88af9c</DataPath>
 											<Width>16</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1284,6 +1304,7 @@
 									<ExtendedTooltip name="ТНВЭДРасширеннаяПодсказка" id="292"/>
 									<ChildItems>
 										<InputField name="ТНВЭДКод" id="293">
+											<DataPath>1000003/0:f73e6211-228d-40d4-a520-c09668233c9c</DataPath>
 											<Width>16</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1318,6 +1339,7 @@
 									<ExtendedTooltip name="ОКПРасширеннаяПодсказка" id="300"/>
 									<ChildItems>
 										<InputField name="ОКПКод" id="301">
+											<DataPath>1000003/0:1233b819-b668-487b-80b2-dbab663bf829</DataPath>
 											<Width>16</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1346,6 +1368,7 @@
 									<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="308"/>
 									<ChildItems>
 										<InputField name="ОКПД2Код" id="309">
+											<DataPath>1000003/0:df9dfa7f-cd82-49af-bed2-893a6ed92d86</DataPath>
 											<Width>16</Width>
 											<HorizontalStretch>false</HorizontalStretch>
 											<ChoiceButton>true</ChoiceButton>
@@ -1379,6 +1402,7 @@
 									<ExtendedTooltip name="КодВидаНоменклатурнойКлассификацииРасширеннаяПодсказка" id="327"/>
 									<ChildItems>
 										<InputField name="НоменклатурнойКлассификацииККТКод" id="328">
+											<DataPath>1000003/0:d03ae02d-338f-49f5-85f0-05146531f119</DataPath>
 											<Title>
 												<v8:item>
 													<v8:lang>ru</v8:lang>
@@ -1412,6 +1436,7 @@
 									<ExtendedTooltip name="ВесТовараРасширеннаяПодсказка" id="341"/>
 									<ChildItems>
 										<InputField name="ВесИзСертификата" id="342">
+											<DataPath>1000003/0:8cd29a53-2d98-4cb5-ae24-80bd9250cce5</DataPath>
 											<ContextMenu name="ВесИзСертификатаКонтекстноеМеню" id="343"/>
 											<ExtendedTooltip name="ВесИзСертификатаРасширеннаяПодсказка" id="344"/>
 										</InputField>
@@ -1838,6 +1863,13 @@
 				</Column>
 			</Columns>
 		</Attribute>
+		<Attribute name="Объект" id="1000003">
+			<Type>
+				<v8:Type>cfg:CatalogObject.Номенклатура</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="ДобавитьИзображение" id="1000000">
@@ -1928,8 +1960,22 @@
 			<Action callType="After">УУ_ПросмотретьИзображениеПосле</Action>
 		</Command>
 	</Commands>
+	<CommandInterface>
+		<NavigationPanel>
+			<Item>
+				<Command>0:264997e8-1ce0-4dea-b014-9f1ba476ab64</Command>
+				<Type>Auto</Type>
+				<CommandGroup>FormNavigationPanelGoTo</CommandGroup>
+				<DefaultVisible>false</DefaultVisible>
+				<Visible>
+					<xr:Common>false</xr:Common>
+				</Visible>
+			</Item>
+		</NavigationPanel>
+	</CommandInterface>
 	<BaseForm version="2.16">
 		<ScalingMode>Normal</ScalingMode>
+		<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 		<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 			<ChildItems>
 				<Button name="ФормаПоказатьКонтекстныеНовости" id="221">
@@ -2071,6 +2117,7 @@
 								<ExtendedTooltip name="ГруппаВидНоменклатурыРасширеннаяПодсказка" id="227"/>
 								<ChildItems>
 									<InputField name="ВидНоменклатуры" id="218">
+										<DataPath>Объект.ВидНоменклатуры</DataPath>
 										<ContextMenu name="ВидНоменклатурыКонтекстноеМеню" id="219"/>
 										<ExtendedTooltip name="ВидНоменклатурыРасширеннаяПодсказка" id="220"/>
 									</InputField>
@@ -2090,11 +2137,13 @@
 								<ExtendedTooltip name="ГруппаНаименованиеКодExtendedTooltip" id="130"/>
 								<ChildItems>
 									<InputField name="Наименование" id="3">
+										<DataPath>Объект.Description</DataPath>
 										<EditMode>EnterOnInput</EditMode>
 										<ContextMenu name="НаименованиеКонтекстноеМеню" id="4"/>
 										<ExtendedTooltip name="НаименованиеExtendedTooltip" id="131"/>
 									</InputField>
 									<InputField name="Код" id="1">
+										<DataPath>Объект.Code</DataPath>
 										<UserVisible>
 											<xr:Common>false</xr:Common>
 										</UserVisible>
@@ -2106,6 +2155,7 @@
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="НаименованиеПолное" id="211">
+								<DataPath>Объект.НаименованиеПолное</DataPath>
 								<TitleLocation>Left</TitleLocation>
 								<Height>2</Height>
 								<VerticalStretch>false</VerticalStretch>
@@ -2207,6 +2257,7 @@
 								<ExtendedTooltip name="ГруппаПериодичностьРасширеннаяПодсказка" id="232"/>
 								<ChildItems>
 									<InputField name="ПериодичностьУслуги" id="228">
+										<DataPath>1000003/0:cedd68ca-bcbd-404e-aece-f95365afeebe</DataPath>
 										<ListChoiceMode>true</ListChoiceMode>
 										<ChoiceList>
 											<xr:Item>
@@ -2268,11 +2319,13 @@
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="Артикул" id="116">
+								<DataPath>Объект.Артикул</DataPath>
 								<HorizontalStretch>false</HorizontalStretch>
 								<ContextMenu name="АртикулКонтекстноеМеню" id="117"/>
 								<ExtendedTooltip name="АртикулExtendedTooltip" id="138"/>
 							</InputField>
 							<InputField name="Родитель" id="5">
+								<DataPath>Объект.Parent</DataPath>
 								<SkipOnInput>true</SkipOnInput>
 								<EditMode>EnterOnInput</EditMode>
 								<CreateButton>false</CreateButton>
@@ -2293,6 +2346,7 @@
 								<ExtendedTooltip name="ГруппаЕдиницаРасширеннаяПодсказка" id="139"/>
 								<ChildItems>
 									<InputField name="ЕдиницаИзмерения" id="9">
+										<DataPath>Объект.ЕдиницаИзмерения</DataPath>
 										<EditMode>EnterOnInput</EditMode>
 										<HorizontalStretch>false</HorizontalStretch>
 										<AutoMarkIncomplete>false</AutoMarkIncomplete>
@@ -2300,6 +2354,7 @@
 										<ExtendedTooltip name="ЕдиницаИзмеренияExtendedTooltip" id="140"/>
 									</InputField>
 									<LabelField name="ЕдиницаИзмеренияНаименование" id="112">
+										<DataPath>1000003/0:e8609668-8def-45d3-bdd4-a00c276b8347/0:923947b8-859b-4912-b157-6c9a825c0df5</DataPath>
 										<TitleLocation>None</TitleLocation>
 										<Width>20</Width>
 										<HorizontalStretch>false</HorizontalStretch>
@@ -2335,6 +2390,7 @@
 								<ExtendedTooltip name="ГруппаСтавкаНДСРасширеннаяПодсказка" id="271"/>
 								<ChildItems>
 									<InputField name="СтавкаНДС" id="11">
+										<DataPath>1000003/0:46587083-de9b-4b5c-878b-c6d0d0de70da</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -2374,6 +2430,7 @@
 										<ExtendedTooltip name="ИсторияСтавкиНДСРасширеннаяПодсказка" id="336"/>
 									</LabelDecoration>
 									<InputField name="КодРаздел7ДекларацииНДС" id="272">
+										<DataPath>1000003/0:e9048ed9-aff1-4a8f-8df8-6117c76a33e0</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -2396,6 +2453,7 @@
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="Операции0" id="521">
+								<DataPath>1000003/0:51d17d48-1ddb-439d-9faa-715424515a3c</DataPath>
 								<TitleLocation>Left</TitleLocation>
 								<ToolTipRepresentation>Button</ToolTipRepresentation>
 								<ContextMenu name="Операции0КонтекстноеМеню" id="522"/>
@@ -2455,6 +2513,7 @@
 								</ChildItems>
 							</UsualGroup>
 							<InputField name="НоменклатурнаяГруппа" id="17">
+								<DataPath>1000003/0:41becc99-e2e4-4e51-aab6-0e36a4e31117</DataPath>
 								<EditMode>EnterOnInput</EditMode>
 								<ContextMenu name="НоменклатурнаяГруппаКонтекстноеМеню" id="18"/>
 								<ExtendedTooltip name="НоменклатурнаяГруппаExtendedTooltip" id="144"/>
@@ -2479,6 +2538,7 @@
 								<ExtendedTooltip name="ГруппаВЕТИСРасширеннаяПодсказка" id="316"/>
 								<ChildItems>
 									<CheckBoxField name="ПодконтрольнаяПродукцияВЕТИС" id="317">
+										<DataPath>1000003/0:cf6b52af-f6de-4df9-833e-18f59c7912c4</DataPath>
 										<ToolTipRepresentation>Button</ToolTipRepresentation>
 										<CheckBoxType>Auto</CheckBoxType>
 										<ContextMenu name="ПодконтрольнаяПродукцияВЕТИСКонтекстноеМеню" id="318"/>
@@ -2495,6 +2555,7 @@
 								</ChildItems>
 							</UsualGroup>
 							<CheckBoxField name="ПродукцияМаркируемаяДляГИСМ" id="223">
+								<DataPath>1000003/0:02846867-bcc7-4b6c-9e27-4c3b9970c407</DataPath>
 								<Visible>false</Visible>
 								<ToolTipRepresentation>Button</ToolTipRepresentation>
 								<CheckBoxType>Auto</CheckBoxType>
@@ -2510,6 +2571,7 @@
 								</ExtendedTooltip>
 							</CheckBoxField>
 							<CheckBoxField name="ТабачнаяПродукция" id="320">
+								<DataPath>1000003/0:214cfe27-ac21-477e-8b76-1955ef739778</DataPath>
 								<Visible>false</Visible>
 								<Title>
 									<v8:item>
@@ -2530,10 +2592,12 @@
 								</ExtendedTooltip>
 							</CheckBoxField>
 							<InputField name="Производитель" id="118">
+								<DataPath>1000003/0:ee98cecd-ed83-450b-827b-bc69af465f14</DataPath>
 								<ContextMenu name="ПроизводительКонтекстноеМеню" id="119"/>
 								<ExtendedTooltip name="ПроизводительExtendedTooltip" id="137"/>
 							</InputField>
 							<InputField name="Комментарий" id="13">
+								<DataPath>1000003/0:ce58fc54-58e2-4b4d-90c9-4802fce5d213</DataPath>
 								<TitleLocation>Left</TitleLocation>
 								<EditMode>EnterOnInput</EditMode>
 								<ContextMenu name="КомментарийКонтекстноеМеню" id="14"/>
@@ -2560,6 +2624,7 @@
 								<ExtendedTooltip name="ГруппаОписаниеРасширеннаяПодсказка" id="371"/>
 								<ChildItems>
 									<InputField name="Описание" id="372">
+										<DataPath>1000003/0:41547516-aca9-486b-aa7a-c45b242c296f</DataPath>
 										<TitleLocation>None</TitleLocation>
 										<Width>54</Width>
 										<MultiLine>true</MultiLine>
@@ -2590,6 +2655,7 @@
 								<ExtendedTooltip name="ГруппаПроизводствоРасширеннаяПодсказка" id="149"/>
 								<ChildItems>
 									<InputField name="СтатьяЗатрат" id="23">
+										<DataPath>1000003/0:86233ebe-19fb-45d1-bab2-06e493c56e1c</DataPath>
 										<EditMode>EnterOnInput</EditMode>
 										<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
 										<ChoiceParameters>
@@ -2722,6 +2788,7 @@
 								<ExtendedTooltip name="ГруппаАлкогольнаяПродукцияРасширеннаяПодсказка" id="217"/>
 								<ChildItems>
 									<InputField name="Импортер" id="120">
+										<DataPath>1000003/0:7f24b442-24e3-4fde-abac-71cacaa7c7ac</DataPath>
 										<ContextMenu name="ИмпортерКонтекстноеМеню" id="121"/>
 										<ExtendedTooltip name="ИмпортерExtendedTooltip" id="146"/>
 									</InputField>
@@ -2749,6 +2816,7 @@
 								<ExtendedTooltip name="ГруппаИмпортныйТоварРасширеннаяПодсказка" id="215"/>
 								<ChildItems>
 									<InputField name="СтранаПроисхождения" id="19">
+										<DataPath>1000003/0:b966d74e-ba06-4446-b942-8e745090502e</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -2760,6 +2828,7 @@
 										<ExtendedTooltip name="СтранаПроисхожденияExtendedTooltip" id="147"/>
 									</InputField>
 									<InputField name="НомерГТД" id="21">
+										<DataPath>1000003/0:9725cf94-23a8-4183-9a07-916f59b88349</DataPath>
 										<EditMode>EnterOnInput</EditMode>
 										<ContextMenu name="НомерГТДКонтекстноеМеню" id="22"/>
 										<ExtendedTooltip name="НомерГТДExtendedTooltip" id="148"/>
@@ -2770,15 +2839,9 @@
 								<Title>
 									<v8:item>
 										<v8:lang>ru</v8:lang>
-										<v8:content>Электронные сертификаты НСПК</v8:content>
+										<v8:content>Электронные сертификаты на социально значимые товары (491-ФЗ)</v8:content>
 									</v8:item>
 								</Title>
-								<ToolTip>
-									<v8:item>
-										<v8:lang>ru</v8:lang>
-										<v8:content>Информация для учета импортных товаров по номерам ГТД</v8:content>
-									</v8:item>
-								</ToolTip>
 								<Group>Vertical</Group>
 								<Behavior>Collapsible</Behavior>
 								<Collapsed>true</Collapsed>
@@ -2788,6 +2851,7 @@
 								<ExtendedTooltip name="ГруппаЭлектронныеСертификатыРасширеннаяПодсказка" id="512"/>
 								<ChildItems>
 									<InputField name="КодТРУ" id="513">
+										<DataPath>1000003/0:8e2b4260-b8e7-4e85-ae67-ecc6b1de3662</DataPath>
 										<Title>
 											<v8:item>
 												<v8:lang>ru</v8:lang>
@@ -2807,7 +2871,7 @@
 												<v8:item>
 													<v8:lang>ru</v8:lang>
 													<v8:content>Код из &lt;link https://esnsi.gosuslugi.ru/classifiers/5541/data&gt;перечня отдельных видов товаров, работ, услуг&lt;/&gt;, приобретаемых с использованием сертификата.
-Заполните этот код, если товар может быть оплачен &lt;link https://buh.ru/articles/documents/143163/&gt;электронным сертификатом НСПК&lt;/&gt;</v8:content>
+Заполните этот код, если товар может быть оплачен &lt;link https://buh.ru/articles/documents/143163/&gt;сертификатом на социально значимые товары&lt;/&gt;</v8:content>
 												</v8:item>
 											</Title>
 										</ExtendedTooltip>
@@ -2855,6 +2919,7 @@
 										<ExtendedTooltip name="ОКВЭДРасширеннаяПодсказка" id="276"/>
 										<ChildItems>
 											<InputField name="ОКВЭДКод" id="277">
+												<DataPath>1000003/0:4cbfecd0-ca9f-4c5d-9d06-7c7b8afd9cd8</DataPath>
 												<Width>16</Width>
 												<HorizontalStretch>false</HorizontalStretch>
 												<ChoiceButton>true</ChoiceButton>
@@ -2883,6 +2948,7 @@
 										<ExtendedTooltip name="ОКВЭД2РасширеннаяПодсказка" id="284"/>
 										<ChildItems>
 											<InputField name="ОКВЭД2Код" id="285">
+												<DataPath>1000003/0:cc80e947-49dd-48d7-b576-4efdad88af9c</DataPath>
 												<Width>16</Width>
 												<HorizontalStretch>false</HorizontalStretch>
 												<ChoiceButton>true</ChoiceButton>
@@ -2917,6 +2983,7 @@
 										<ExtendedTooltip name="ТНВЭДРасширеннаяПодсказка" id="292"/>
 										<ChildItems>
 											<InputField name="ТНВЭДКод" id="293">
+												<DataPath>1000003/0:f73e6211-228d-40d4-a520-c09668233c9c</DataPath>
 												<Width>16</Width>
 												<HorizontalStretch>false</HorizontalStretch>
 												<ChoiceButton>true</ChoiceButton>
@@ -2951,6 +3018,7 @@
 										<ExtendedTooltip name="ОКПРасширеннаяПодсказка" id="300"/>
 										<ChildItems>
 											<InputField name="ОКПКод" id="301">
+												<DataPath>1000003/0:1233b819-b668-487b-80b2-dbab663bf829</DataPath>
 												<Width>16</Width>
 												<HorizontalStretch>false</HorizontalStretch>
 												<ChoiceButton>true</ChoiceButton>
@@ -2979,6 +3047,7 @@
 										<ExtendedTooltip name="ОКПД2РасширеннаяПодсказка" id="308"/>
 										<ChildItems>
 											<InputField name="ОКПД2Код" id="309">
+												<DataPath>1000003/0:df9dfa7f-cd82-49af-bed2-893a6ed92d86</DataPath>
 												<Width>16</Width>
 												<HorizontalStretch>false</HorizontalStretch>
 												<ChoiceButton>true</ChoiceButton>
@@ -3012,6 +3081,7 @@
 										<ExtendedTooltip name="КодВидаНоменклатурнойКлассификацииРасширеннаяПодсказка" id="327"/>
 										<ChildItems>
 											<InputField name="НоменклатурнойКлассификацииККТКод" id="328">
+												<DataPath>1000003/0:d03ae02d-338f-49f5-85f0-05146531f119</DataPath>
 												<Title>
 													<v8:item>
 														<v8:lang>ru</v8:lang>
@@ -3045,6 +3115,7 @@
 										<ExtendedTooltip name="ВесТовараРасширеннаяПодсказка" id="341"/>
 										<ChildItems>
 											<InputField name="ВесИзСертификата" id="342">
+												<DataPath>1000003/0:8cd29a53-2d98-4cb5-ae24-80bd9250cce5</DataPath>
 												<ContextMenu name="ВесИзСертификатаКонтекстноеМеню" id="343"/>
 												<ExtendedTooltip name="ВесИзСертификатаРасширеннаяПодсказка" id="344"/>
 											</InputField>
@@ -3433,6 +3504,14 @@
 				</ChildItems>
 			</UsualGroup>
 		</ChildItems>
-		<Attributes/>
+		<Attributes>
+			<Attribute name="Объект" id="1000003">
+				<Type>
+					<v8:Type>cfg:CatalogObject.Номенклатура</v8:Type>
+				</Type>
+				<MainAttribute>true</MainAttribute>
+				<SavedData>true</SavedData>
+			</Attribute>
+		</Attributes>
 	</BaseForm>
 </Form>

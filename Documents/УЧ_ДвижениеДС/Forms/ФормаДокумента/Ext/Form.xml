@@ -1,10 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>PostAndClose</ExcludedCommand>
+	</CommandSet>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
-	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ПровестиИЗакрыть" id="770">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ПровестиИЗакрыть</CommandName>
+				<ExtendedTooltip name="ПровестиИЗакрытьРасширеннаяПодсказка" id="771"/>
+			</Button>
+			<ButtonGroup name="ФормаГруппа1" id="772">
+				<CommandSource>Form</CommandSource>
+				<ExtendedTooltip name="ФормаГруппа1РасширеннаяПодсказка" id="773"/>
+			</ButtonGroup>
+		</ChildItems>
+	</AutoCommandBar>
 	<Events>
 		<Event name="AfterWrite">ПослеЗаписи</Event>
 		<Event name="AfterWriteAtServer">ПослеЗаписиНаСервере</Event>
@@ -815,6 +832,9 @@
 			</ChoiceParameterLinks>
 			<ContextMenu name="ОбратноеВНХДвижениеКонтекстноеМеню" id="760"/>
 			<ExtendedTooltip name="ОбратноеВНХДвижениеРасширеннаяПодсказка" id="761"/>
+			<Events>
+				<Event name="StartChoice">ОбратноеВНХДвижениеНачалоВыбора</Event>
+			</Events>
 		</InputField>
 		<UsualGroup name="Группа27" id="712">
 			<Group>AlwaysHorizontal</Group>
@@ -1587,6 +1607,15 @@
 											<ContextMenu name="ПроводкиКоличествоКонтекстноеМеню" id="144"/>
 											<ExtendedTooltip name="ПроводкиКоличествоРасширеннаяПодсказка" id="497"/>
 										</InputField>
+										<InputField name="ПроводкиКорСчетУслуг1" id="689">
+											<DataPath>Объект.Проводки.КорСчетУслуг</DataPath>
+											<EditMode>EnterOnInput</EditMode>
+											<ContextMenu name="ПроводкиКорСчетУслуг1КонтекстноеМеню" id="690"/>
+											<ExtendedTooltip name="ПроводкиКорСчетУслуг1РасширеннаяПодсказка" id="691"/>
+											<Events>
+												<Event name="OnChange">ПроводкиКорСчетУслуг1ПриИзменении</Event>
+											</Events>
+										</InputField>
 										<ColumnGroup name="ПроводкиГруппа8" id="701">
 											<ExtendedTooltip name="ПроводкиГруппа8РасширеннаяПодсказка" id="702"/>
 											<ChildItems>
@@ -1621,18 +1650,10 @@
 												</InputField>
 											</ChildItems>
 										</ColumnGroup>
-										<InputField name="ПроводкиКорСчетУслуг1" id="689">
-											<DataPath>Объект.Проводки.КорСчетУслуг</DataPath>
-											<EditMode>EnterOnInput</EditMode>
-											<ContextMenu name="ПроводкиКорСчетУслуг1КонтекстноеМеню" id="690"/>
-											<ExtendedTooltip name="ПроводкиКорСчетУслуг1РасширеннаяПодсказка" id="691"/>
-											<Events>
-												<Event name="OnChange">ПроводкиКорСчетУслуг1ПриИзменении</Event>
-											</Events>
-										</InputField>
 										<InputField name="ПроводкиСуммаУслуг1" id="686">
 											<DataPath>Объект.Проводки.СуммаУслуг</DataPath>
 											<EditMode>EnterOnInput</EditMode>
+											<FooterDataPath>Объект.Проводки.TotalСуммаУслуг</FooterDataPath>
 											<ContextMenu name="ПроводкиСуммаУслуг1КонтекстноеМеню" id="687"/>
 											<ExtendedTooltip name="ПроводкиСуммаУслуг1РасширеннаяПодсказка" id="688"/>
 										</InputField>
@@ -2328,6 +2349,28 @@
 				<v8:Type>xs:boolean</v8:Type>
 			</Type>
 		</Attribute>
+		<Attribute name="ЗакрытьДокумент" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоВНХ" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это ВНХ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
 		<ConditionalAppearance>
 			<dcsset:item>
 				<dcsset:use>false</dcsset:use>
@@ -2649,6 +2692,21 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ЗагрузитьИзРеестра</Action>
+		</Command>
+		<Command name="ПровестиИЗакрыть" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести и закрыть</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провести и закрыть</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПровестиИЗакрыть</Action>
 		</Command>
 	</Commands>
 	<CommandInterface>

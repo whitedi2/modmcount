@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>Write</ExcludedCommand>
+	</CommandSet>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
 	<RepostOnWrite>true</RepostOnWrite>
@@ -807,6 +810,80 @@
 									<Height>2</Height>
 									<ContextMenu name="ЗаданиеСкладуКонтекстноеМеню" id="469"/>
 									<ExtendedTooltip name="ЗаданиеСкладуРасширеннаяПодсказка" id="470"/>
+								</InputField>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="ГруппаТранзитныйГруз" id="496">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транзитный груз</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа транзитный груз</v8:content>
+						</v8:item>
+					</ToolTip>
+					<TitleDataPath>Объект.ДатаТранзитногоПоступления</TitleDataPath>
+					<ExtendedTooltip name="ГруппаТранзитныйГрузРасширеннаяПодсказка" id="497"/>
+					<ChildItems>
+						<CheckBoxField name="ТранзитныйГруз" id="498">
+							<DataPath>Объект.ТранзитныйГруз</DataPath>
+							<TitleLocation>Right</TitleLocation>
+							<CheckBoxType>Auto</CheckBoxType>
+							<ContextMenu name="ТранзитныйГрузКонтекстноеМеню" id="499"/>
+							<ExtendedTooltip name="ТранзитныйГрузРасширеннаяПодсказка" id="500"/>
+							<Events>
+								<Event name="OnChange">ТранзитныйГрузПриИзменении</Event>
+							</Events>
+						</CheckBoxField>
+						<UsualGroup name="ГруппаПараметровТранзитногоГруза" id="513">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметров транзитного груза</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа параметров транзитного груза</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПараметровТранзитногоГрузаРасширеннаяПодсказка" id="514"/>
+							<ChildItems>
+								<InputField name="ДатаТранзитногоПоступления" id="510">
+									<DataPath>Объект.ДатаТранзитногоПоступления</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ДатаТранзитногоПоступленияКонтекстноеМеню" id="511"/>
+									<ExtendedTooltip name="ДатаТранзитногоПоступленияРасширеннаяПодсказка" id="512"/>
+								</InputField>
+								<InputField name="ТранзитныйСклад" id="507">
+									<DataPath>Объект.ТранзитныйСклад</DataPath>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ТранзитныйСкладКонтекстноеМеню" id="508"/>
+									<ExtendedTooltip name="ТранзитныйСкладРасширеннаяПодсказка" id="509"/>
+								</InputField>
+								<InputField name="КоличествоПаллет" id="501">
+									<DataPath>Объект.КоличествоПаллет</DataPath>
+									<Visible>false</Visible>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="КоличествоПаллетКонтекстноеМеню" id="502"/>
+									<ExtendedTooltip name="КоличествоПаллетРасширеннаяПодсказка" id="503"/>
+								</InputField>
+								<InputField name="ВесПаллет" id="504">
+									<DataPath>Объект.ВесПаллет</DataPath>
+									<Visible>false</Visible>
+									<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+									<ContextMenu name="ВесПаллетКонтекстноеМеню" id="505"/>
+									<ExtendedTooltip name="ВесПаллетРасширеннаяПодсказка" id="506"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>

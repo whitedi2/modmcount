@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
 		<ChildItems>
@@ -29,6 +29,27 @@
 							</v8:item>
 						</Title>
 						<ExtendedTooltip name="ФормаКнопкаВыгрузитьВШедексРасширеннаяПодсказка" id="86"/>
+					</Button>
+				</ChildItems>
+			</Popup>
+			<Popup name="ФормаГруппа2" id="92">
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Установить статус</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаГруппа2РасширеннаяПодсказка" id="93"/>
+				<ChildItems>
+					<Button name="ФормаСтатусНеСогласовано" id="94">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СтатусВРаботе</CommandName>
+						<ExtendedTooltip name="ФормаСтатусНеСогласованоРасширеннаяПодсказка" id="95"/>
+					</Button>
+					<Button name="ФормаСтатусСогласовано" id="96">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СтатусВыполнен</CommandName>
+						<ExtendedTooltip name="ФормаСтатусСогласованоРасширеннаяПодсказка" id="97"/>
 					</Button>
 				</ChildItems>
 			</Popup>
@@ -104,6 +125,9 @@
 				<ContextMenu name="СписокУправлениеПоискомКонтекстноеМеню" id="30"/>
 				<ExtendedTooltip name="СписокУправлениеПоискомРасширеннаяПодсказка" id="31"/>
 			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+			</Events>
 			<ChildItems>
 				<LabelField name="Дата" id="4">
 					<DataPath>Список.Дата</DataPath>
@@ -119,6 +143,7 @@
 				</LabelField>
 				<InputField name="Выполнен" id="60">
 					<DataPath>Список.Статус</DataPath>
+					<CellHyperlink>true</CellHyperlink>
 					<ContextMenu name="ВыполненКонтекстноеМеню" id="61"/>
 					<ExtendedTooltip name="ВыполненРасширеннаяПодсказка" id="62"/>
 				</InputField>
@@ -132,6 +157,12 @@
 					<ContextMenu name="МаршрутДоставкиКонтекстноеМеню" id="76"/>
 					<ExtendedTooltip name="МаршрутДоставкиРасширеннаяПодсказка" id="77"/>
 				</LabelField>
+				<CheckBoxField name="КроссДокинг" id="98">
+					<DataPath>Список.КроссДокинг</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="КроссДокингКонтекстноеМеню" id="99"/>
+					<ExtendedTooltip name="КроссДокингРасширеннаяПодсказка" id="100"/>
+				</CheckBoxField>
 				<LabelField name="Доставщик" id="57">
 					<DataPath>Список.Доставщик</DataPath>
 					<ContextMenu name="ДоставщикКонтекстноеМеню" id="58"/>
@@ -314,7 +345,8 @@
 	сабМаршрутныйЛист.ДокументыПриняты КАК ДокументыПриняты,
 	сабМаршрутныйЛист.МаршрутДоставки КАК МаршрутДоставки,
 	сабМаршрутныйЛист.Статус КАК Статус,
-	сабМаршрутныйЛист.КоличествоАдресов КАК КоличествоАдресов
+	сабМаршрутныйЛист.КоличествоАдресов КАК КоличествоАдресов,
+	сабМаршрутныйЛист.КроссДокинг КАК КроссДокинг
 ИЗ
 	Документ.сабМаршрутныйЛист КАК сабМаршрутныйЛист
 ГДЕ
@@ -402,6 +434,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ИзменитьВыделенные</Action>
+		</Command>
+		<Command name="СтатусВРаботе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В работе</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус в работе</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СтатусСогласовано</Action>
+		</Command>
+		<Command name="СтатусВыполнен" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполнен</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус в работе</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СтатусСогласовано</Action>
 		</Command>
 	</Commands>
 </Form>

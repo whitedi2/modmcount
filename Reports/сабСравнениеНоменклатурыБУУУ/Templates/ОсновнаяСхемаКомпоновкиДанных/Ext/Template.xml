@@ -216,20 +216,6 @@
 			<field>Валюта</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>РегистраторУУ</dataPath>
-			<field>РегистраторУУ</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Регистратор УУ</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:periodNumber>1</dcscom:periodNumber>
-				<dcscom:periodType>Main</dcscom:periodType>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаОборотДтБУ</dataPath>
 			<field>СуммаОборотДтБУ</field>
 			<title xsi:type="v8:LocalStringType">
@@ -348,20 +334,6 @@
 					<v8:content>Сумма начальный остаток кт БУ</v8:content>
 				</v8:item>
 			</title>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>РегистраторБУ</dataPath>
-			<field>РегистраторБУ</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Регистратор БУ</v8:content>
-				</v8:item>
-			</title>
-			<role>
-				<dcscom:periodNumber>1</dcscom:periodNumber>
-				<dcscom:periodType>Main</dcscom:periodType>
-			</role>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Номенклатура</dataPath>
@@ -606,20 +578,6 @@
 				<field>Валюта</field>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>РегистраторУУ</dataPath>
-				<field>РегистраторУУ</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Регистратор УУ</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:periodNumber>1</dcscom:periodNumber>
-					<dcscom:periodType>Main</dcscom:periodType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>СуммаОборотДтБУ</dataPath>
 				<field>СуммаОборотДтБУ</field>
 				<title xsi:type="v8:LocalStringType">
@@ -812,7 +770,6 @@
 	ЕСТЬNULL(УчетныйОстаткиИОбороты.СуммаОборотКт, 0) КАК СуммаОборотКтУУ,
 	ЕСТЬNULL(УчетныйОстаткиИОбороты.СуммаКонечныйОстатокДт, 0) КАК СуммаКонечныйОстатокДтУУ,
 	ЕСТЬNULL(УчетныйОстаткиИОбороты.СуммаКонечныйОстатокКт, 0) КАК СуммаКонечныйОстатокКтУУ,
-	УчетныйОстаткиИОбороты.Регистратор КАК РегистраторУУ,
 	0 КАК КоличествоНачальныйОстатокДтБУ,
 	0 КАК КоличествоНачальныйОстатокКтБУ,
 	0 КАК КоличествоОборотДтБУ,
@@ -829,7 +786,7 @@
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
 			,
 			,
-			Регистратор,
+			,
 			,
 			Счет.Количественный = ИСТИНА
 				И (Счет.Родитель.Код = "10"
@@ -1053,20 +1010,6 @@
 				</title>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>РегистраторБУ</dataPath>
-				<field>РегистраторБУ</field>
-				<title xsi:type="v8:LocalStringType">
-					<v8:item>
-						<v8:lang>ru</v8:lang>
-						<v8:content>Регистратор БУ</v8:content>
-					</v8:item>
-				</title>
-				<role>
-					<dcscom:periodNumber>1</dcscom:periodNumber>
-					<dcscom:periodType>Main</dcscom:periodType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>СуммаКонечныйОстатокКтУУ</dataPath>
 				<field>СуммаКонечныйОстатокКтУУ</field>
 				<title xsi:type="v8:LocalStringType">
@@ -1231,7 +1174,6 @@
 	ЕСТЬNULL(УчетныйОстаткиИОбороты.СуммаКонечныйОстатокКт, 0) КАК СуммаКонечныйОстатокКтБУ,
 	УчетныйОстаткиИОбороты.Субконто1 КАК Номенклатура,
 	УчетныйОстаткиИОбороты.Субконто2 КАК Склад,
-	УчетныйОстаткиИОбороты.Регистратор КАК РегистраторБУ,
 	0 КАК КоличествоНачальныйОстатокДтУУ,
 	0 КАК КоличествоНачальныйОстатокКтУУ,
 	0 КАК КоличествоОборотДтУУ,
@@ -1248,7 +1190,7 @@
 	РегистрБухгалтерии.Учетный.ОстаткиИОбороты(
 			,
 			,
-			Регистратор,
+			,
 			,
 			Счет.Количественный = ИСТИНА
 				И (Счет.Родитель.Код = "10"

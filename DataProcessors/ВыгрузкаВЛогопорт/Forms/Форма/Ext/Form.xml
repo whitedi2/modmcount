@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаВыгрузитьФайлы" id="4">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.ВыгрузитьФайлы</CommandName>
+				<ExtendedTooltip name="ФормаВыгрузитьФайлыРасширеннаяПодсказка" id="5"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="ПутьКФайлу" id="1">
+			<DataPath>ПутьКФайлу</DataPath>
+			<ChoiceButton>true</ChoiceButton>
+			<ContextMenu name="ПутьКФайлуКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПутьКФайлуРасширеннаяПодсказка" id="3"/>
+			<Events>
+				<Event name="StartChoice">ПутьКФайлуНачалоВыбора</Event>
+			</Events>
+		</InputField>
+		<InputField name="Заказ" id="9">
+			<DataPath>Заказ</DataPath>
+			<Visible>false</Visible>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ЗаказКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ЗаказРасширеннаяПодсказка" id="11"/>
+		</InputField>
+		<InputField name="ЗаказКлиента" id="12">
+			<DataPath>ЗаказКлиента</DataPath>
+			<Visible>false</Visible>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ЗаказКлиентаКонтекстноеМеню" id="13"/>
+			<ExtendedTooltip name="ЗаказКлиентаРасширеннаяПодсказка" id="14"/>
+		</InputField>
+		<Table name="ЗаказыКлиентов" id="24">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ЗаказыКлиентов</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗаказыКлиентовКонтекстноеМеню" id="25"/>
+			<AutoCommandBar name="ЗаказыКлиентовКоманднаяПанель" id="26"/>
+			<ExtendedTooltip name="ЗаказыКлиентовРасширеннаяПодсказка" id="27"/>
+			<SearchStringAddition name="ЗаказыКлиентовСтрокаПоиска" id="28">
+				<AdditionSource>
+					<Item>ЗаказыКлиентов</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаказыКлиентовСтрокаПоискаКонтекстноеМеню" id="29"/>
+				<ExtendedTooltip name="ЗаказыКлиентовСтрокаПоискаРасширеннаяПодсказка" id="30"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаказыКлиентовСостояниеПросмотра" id="31">
+				<AdditionSource>
+					<Item>ЗаказыКлиентов</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаказыКлиентовСостояниеПросмотраКонтекстноеМеню" id="32"/>
+				<ExtendedTooltip name="ЗаказыКлиентовСостояниеПросмотраРасширеннаяПодсказка" id="33"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаказыКлиентовУправлениеПоиском" id="34">
+				<AdditionSource>
+					<Item>ЗаказыКлиентов</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаказыКлиентовУправлениеПоискомКонтекстноеМеню" id="35"/>
+				<ExtendedTooltip name="ЗаказыКлиентовУправлениеПоискомРасширеннаяПодсказка" id="36"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ЗаказыКлиентовЗаказКлиента" id="37">
+					<DataPath>ЗаказыКлиентов.ЗаказКлиента</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаказыКлиентовЗаказКлиентаКонтекстноеМеню" id="38"/>
+					<ExtendedTooltip name="ЗаказыКлиентовЗаказКлиентаРасширеннаяПодсказка" id="39"/>
+				</InputField>
+				<InputField name="ЗаказыКлиентовДата" id="43">
+					<DataPath>ЗаказыКлиентов.Дата</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаказыКлиентовДатаКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ЗаказыКлиентовДатаРасширеннаяПодсказка" id="45"/>
+				</InputField>
+				<CheckBoxField name="ЗаказыКлиентовТранзитныйГруз" id="40">
+					<DataPath>ЗаказыКлиентов.ТранзитныйГруз</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗаказыКлиентовТранзитныйГрузКонтекстноеМеню" id="41"/>
+					<ExtendedTooltip name="ЗаказыКлиентовТранзитныйГрузРасширеннаяПодсказка" id="42"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<Table name="ЗаказыПоставщикам" id="46">
+			<Representation>List</Representation>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ЗаказыПоставщикам</DataPath>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ЗаказыПоставщикамКонтекстноеМеню" id="47"/>
+			<AutoCommandBar name="ЗаказыПоставщикамКоманднаяПанель" id="48"/>
+			<ExtendedTooltip name="ЗаказыПоставщикамРасширеннаяПодсказка" id="49"/>
+			<SearchStringAddition name="ЗаказыПоставщикамСтрокаПоиска" id="50">
+				<AdditionSource>
+					<Item>ЗаказыПоставщикам</Item>
+					<Type>SearchStringRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаказыПоставщикамСтрокаПоискаКонтекстноеМеню" id="51"/>
+				<ExtendedTooltip name="ЗаказыПоставщикамСтрокаПоискаРасширеннаяПодсказка" id="52"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ЗаказыПоставщикамСостояниеПросмотра" id="53">
+				<AdditionSource>
+					<Item>ЗаказыПоставщикам</Item>
+					<Type>ViewStatusRepresentation</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаказыПоставщикамСостояниеПросмотраКонтекстноеМеню" id="54"/>
+				<ExtendedTooltip name="ЗаказыПоставщикамСостояниеПросмотраРасширеннаяПодсказка" id="55"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ЗаказыПоставщикамУправлениеПоиском" id="56">
+				<AdditionSource>
+					<Item>ЗаказыПоставщикам</Item>
+					<Type>SearchControl</Type>
+				</AdditionSource>
+				<ContextMenu name="ЗаказыПоставщикамУправлениеПоискомКонтекстноеМеню" id="57"/>
+				<ExtendedTooltip name="ЗаказыПоставщикамУправлениеПоискомРасширеннаяПодсказка" id="58"/>
+			</SearchControlAddition>
+			<ChildItems>
+				<InputField name="ЗаказыПоставщикамЗаказПоставщику" id="59">
+					<DataPath>ЗаказыПоставщикам.ЗаказПоставщику</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаказыПоставщикамЗаказПоставщикуКонтекстноеМеню" id="60"/>
+					<ExtendedTooltip name="ЗаказыПоставщикамЗаказПоставщикуРасширеннаяПодсказка" id="61"/>
+				</InputField>
+				<InputField name="ЗаказыПоставщикамДата" id="65">
+					<DataPath>ЗаказыПоставщикам.Дата</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<ContextMenu name="ЗаказыПоставщикамДатаКонтекстноеМеню" id="66"/>
+					<ExtendedTooltip name="ЗаказыПоставщикамДатаРасширеннаяПодсказка" id="67"/>
+				</InputField>
+				<CheckBoxField name="ЗаказыПоставщикамТранзитныйГруз" id="62">
+					<DataPath>ЗаказыПоставщикам.ТранзитныйГруз</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ЗаказыПоставщикамТранзитныйГрузКонтекстноеМеню" id="63"/>
+					<ExtendedTooltip name="ЗаказыПоставщикамТранзитныйГрузРасширеннаяПодсказка" id="64"/>
+				</CheckBoxField>
+			</ChildItems>
+		</Table>
+		<CheckBoxField name="КроссДокинг" id="15">
+			<DataPath>КроссДокинг</DataPath>
+			<Visible>false</Visible>
+			<CheckBoxType>Auto</CheckBoxType>
+			<ContextMenu name="КроссДокингКонтекстноеМеню" id="16"/>
+			<ExtendedTooltip name="КроссДокингРасширеннаяПодсказка" id="17"/>
+			<Events>
+				<Event name="OnChange">КроссДокингПриИзменении</Event>
+			</Events>
+		</CheckBoxField>
+		<InputField name="КоличествоПаллет" id="18">
+			<DataPath>КоличествоПаллет</DataPath>
+			<Visible>false</Visible>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КоличествоПаллетКонтекстноеМеню" id="19"/>
+			<ExtendedTooltip name="КоличествоПаллетРасширеннаяПодсказка" id="20"/>
+		</InputField>
+		<InputField name="КоэффициентБрутто" id="21">
+			<DataPath>КоэффициентБрутто</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="КоэффициентБруттоКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="КоэффициентБруттоРасширеннаяПодсказка" id="23"/>
+		</InputField>
+		<LabelField name="Сообщения" id="6">
+			<DataPath>Сообщения</DataPath>
+			<ContextMenu name="СообщенияКонтекстноеМеню" id="7"/>
+			<ExtendedTooltip name="СообщенияРасширеннаяПодсказка" id="8"/>
+		</LabelField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ВыгрузкаВЛогопорт</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ПутьКФайлу" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Путь к файлам</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<Save>
+				<Field>ПутьКФайлу</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Заказ" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ поставщику</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
+			</Type>
+			<Save>
+				<Field>Заказ</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="Сообщения" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаказКлиента" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ клиента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DocumentRef.ЗаказКлиента</v8:Type>
+			</Type>
+			<Save>
+				<Field>ЗаказКлиента</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="КроссДокинг" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кросс докинг</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<Save>
+				<Field>КроссДокинг</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="КоличествоПаллет" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество паллет</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+			<Save>
+				<Field>КоличествоПаллет</Field>
+			</Save>
+		</Attribute>
+		<Attribute name="КоэффициентБрутто" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коэффициент брутто</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>12</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗаказыКлиентов" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказы клиентов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ЗаказКлиента" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ клиента</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.сабМаршрутныйЛист</v8:Type>
+						<v8:Type>cfg:DocumentRef.ЗаказКлиента</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранзитныйГруз" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транзитный груз</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Дата" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ЗаказыПоставщикам" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказы поставщикам</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ЗаказПоставщику" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Заказ поставщику</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:DocumentRef.сабМаршрутныйЛист</v8:Type>
+						<v8:Type>cfg:DocumentRef.ЗаказПоставщику</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ТранзитныйГруз" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Транзитный груз</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Дата" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>Date</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ВыгрузитьФайлы" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выгрузить файлы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ВыгрузитьФайлы</Action>
+		</Command>
+	</Commands>
+</Form>

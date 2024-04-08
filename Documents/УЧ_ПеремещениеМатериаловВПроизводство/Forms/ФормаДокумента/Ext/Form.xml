@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoTime>CurrentOrLast</AutoTime>
 	<UsePostingMode>Auto</UsePostingMode>
@@ -129,6 +129,20 @@
 										<Event name="OnChange">ПредприятиеПриИзменении</Event>
 									</Events>
 								</InputField>
+								<InputField name="Организация" id="144">
+									<DataPath>Объект.Организация</DataPath>
+									<InputHint>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Без оформления БУ документов</v8:content>
+										</v8:item>
+									</InputHint>
+									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="146"/>
+									<Events>
+										<Event name="OnChange">ОрганизацияПриИзменении</Event>
+									</Events>
+								</InputField>
 								<InputField name="Подразделение20" id="84">
 									<DataPath>Объект.Подразделение</DataPath>
 									<ChoiceParameterLinks>
@@ -160,17 +174,6 @@
 									</InputHint>
 									<ContextMenu name="СкладКонтекстноеМеню" id="99"/>
 									<ExtendedTooltip name="СкладРасширеннаяПодсказка" id="100"/>
-								</InputField>
-								<InputField name="Организация" id="144">
-									<DataPath>Объект.Организация</DataPath>
-									<InputHint>
-										<v8:item>
-											<v8:lang>ru</v8:lang>
-											<v8:content>Без оформления БУ документов</v8:content>
-										</v8:item>
-									</InputHint>
-									<ContextMenu name="ОрганизацияКонтекстноеМеню" id="145"/>
-									<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="146"/>
 								</InputField>
 							</ChildItems>
 						</UsualGroup>
@@ -281,6 +284,11 @@
 										<Visible>false</Visible>
 										<CommandName>Form.Command.ПодборТовары</CommandName>
 										<ExtendedTooltip name="ТабличнаяЧастьПодборТоварыРасширеннаяПодсказка" id="105"/>
+									</Button>
+									<Button name="ТабличнаяЧастьПодобратьНоменклатуруПоШК" id="173">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.ПодобратьНоменклатуруПоШК</CommandName>
+										<ExtendedTooltip name="ТабличнаяЧастьПодобратьНоменклатуруПоШКРасширеннаяПодсказка" id="174"/>
 									</Button>
 									<Button name="ТабличнаяЧастьПересчитатьКоличество" id="34">
 										<Type>CommandBarButton</Type>
@@ -435,6 +443,7 @@
 											</Events>
 										</InputField>
 										<InputField name="ТабличнаяЧастьКоличествоКрахмал" id="24">
+											<DataPath>1/0:45be1971-43f1-4a56-92d0-cff2cb3d7b38/0:efed4a11-0b9b-4fb8-8d8f-6c2aabd402bc</DataPath>
 											<EditMode>EnterOnInput</EditMode>
 											<ContextMenu name="ТабличнаяЧастьКоличествоКрахмалКонтекстноеМеню" id="25"/>
 											<ExtendedTooltip name="ТабличнаяЧастьКоличествоКрахмалРасширеннаяПодсказка" id="79"/>
@@ -560,20 +569,23 @@
 			</ChildItems>
 		</Pages>
 		<UsualGroup name="Группа8" id="133">
+			<Group>Vertical</Group>
 			<Behavior>Usual</Behavior>
 			<ShowTitle>false</ShowTitle>
 			<ExtendedTooltip name="Группа8РасширеннаяПодсказка" id="134"/>
 			<ChildItems>
+				<LabelField name="ДокументОснование" id="43">
+					<DataPath>Объект.ДокументОснование</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<HorizontalStretch>true</HorizontalStretch>
+					<Hiperlink>true</Hiperlink>
+					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="44"/>
+					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="82"/>
+				</LabelField>
 				<InputField name="Комментарий" id="29">
 					<DataPath>Объект.Комментарий</DataPath>
 					<ContextMenu name="КомментарийКонтекстноеМеню" id="30"/>
 					<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="81"/>
-				</InputField>
-				<InputField name="ДокументОснование" id="43">
-					<DataPath>Объект.ДокументОснование</DataPath>
-					<ReadOnly>true</ReadOnly>
-					<ContextMenu name="ДокументОснованиеКонтекстноеМеню" id="44"/>
-					<ExtendedTooltip name="ДокументОснованиеРасширеннаяПодсказка" id="82"/>
 				</InputField>
 			</ChildItems>
 		</UsualGroup>
@@ -965,6 +977,26 @@
 			</Picture>
 			<Action>Подобрать</Action>
 			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ПодобратьНоменклатуруПоШК" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать номенклатуру по ШК</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать номенклатуру по ШК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>CommonPicture.НовыйПоШтрихкоду</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПодобратьНоменклатуруПоШК</Action>
+			<CurrentRowUse>DontUse</CurrentRowUse>
 		</Command>
 	</Commands>
 </Form>

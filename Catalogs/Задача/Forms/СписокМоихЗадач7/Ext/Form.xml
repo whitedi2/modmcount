@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<AutoTitle>false</AutoTitle>
 	<VerticalScroll>useIfNecessary</VerticalScroll>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
@@ -986,7 +986,6 @@
 														</v8:item>
 													</ToolTip>
 													<Group>Vertical</Group>
-													<Behavior>Collapsible</Behavior>
 													<CollapsedRepresentationTitle>
 														<v8:item>
 															<v8:lang>ru</v8:lang>
@@ -995,6 +994,7 @@
 													</CollapsedRepresentationTitle>
 													<ControlRepresentation>Picture</ControlRepresentation>
 													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
 													<ExtendedTooltip name="УниверсальнаяФормаЗадачиРасширеннаяПодсказка" id="1353"/>
 													<ChildItems>
 														<UsualGroup name="Группа27" id="1466">
@@ -1428,6 +1428,22 @@
 																		</LabelField>
 																	</ChildItems>
 																</UsualGroup>
+																<Button name="ОбщаяКомандасабСправкаИПоддержка" id="1515">
+																	<Type>Hyperlink</Type>
+																	<GroupHorizontalAlign>Right</GroupHorizontalAlign>
+																	<CommandName>CommonCommand.сабСправкаИПоддержка</CommandName>
+																	<Picture>
+																		<xr:Ref>CommonPicture.сабМодульУправленка</xr:Ref>
+																		<xr:LoadTransparent>true</xr:LoadTransparent>
+																	</Picture>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Поддержка</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ExtendedTooltip name="ОбщаяКомандасабСправкаИПоддержкаРасширеннаяПодсказка" id="1516"/>
+																</Button>
 															</ChildItems>
 														</UsualGroup>
 													</ChildItems>
@@ -1821,13 +1837,26 @@
 														</ColumnGroup>
 													</ChildItems>
 												</ColumnGroup>
+												<LabelField name="ТекЗадачиНомерДокумента" id="1016">
+													<DataPath>ТекЗадачи.НомерДокумента</DataPath>
+													<ReadOnly>true</ReadOnly>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Номер</v8:content>
+														</v8:item>
+													</Title>
+													<EditMode>EnterOnInput</EditMode>
+													<Width>11</Width>
+													<ContextMenu name="ТекЗадачиНомерДокументаКонтекстноеМеню" id="1017"/>
+													<ExtendedTooltip name="ТекЗадачиНомерДокументаРасширеннаяПодсказка" id="1018"/>
+												</LabelField>
 												<ColumnGroup name="ТекЗадачиГруппа4" id="1019">
 													<Group>Horizontal</Group>
 													<ExtendedTooltip name="ТекЗадачиГруппа4РасширеннаяПодсказка" id="1020"/>
 													<ChildItems>
 														<LabelField name="ТекЗадачиСуммаДокумента" id="266">
 															<DataPath>ТекЗадачи.СуммаДокумента</DataPath>
-															<Visible>false</Visible>
 															<ReadOnly>true</ReadOnly>
 															<Title>
 																<v8:item>
@@ -1836,8 +1865,7 @@
 																</v8:item>
 															</Title>
 															<EditMode>EnterOnInput</EditMode>
-															<ShowInHeader>false</ShowInHeader>
-															<Width>12</Width>
+															<Width>10</Width>
 															<ContextMenu name="ТекЗадачиСуммаДокументаКонтекстноеМеню" id="267"/>
 															<ExtendedTooltip name="ТекЗадачиСуммаДокументаExtendedTooltip" id="382"/>
 														</LabelField>
@@ -1885,20 +1913,6 @@
 														</LabelField>
 													</ChildItems>
 												</ColumnGroup>
-												<LabelField name="ТекЗадачиНомерДокумента" id="1016">
-													<DataPath>ТекЗадачи.НомерДокумента</DataPath>
-													<ReadOnly>true</ReadOnly>
-													<Title>
-														<v8:item>
-															<v8:lang>ru</v8:lang>
-															<v8:content>Номер</v8:content>
-														</v8:item>
-													</Title>
-													<EditMode>EnterOnInput</EditMode>
-													<Width>11</Width>
-													<ContextMenu name="ТекЗадачиНомерДокументаКонтекстноеМеню" id="1017"/>
-													<ExtendedTooltip name="ТекЗадачиНомерДокументаРасширеннаяПодсказка" id="1018"/>
-												</LabelField>
 												<LabelField name="ТекЗадачиИнициатор" id="260">
 													<DataPath>ТекЗадачи.Инициатор</DataPath>
 													<ReadOnly>true</ReadOnly>
@@ -2096,7 +2110,7 @@
 											<EnableStartDrag>true</EnableStartDrag>
 											<FileDragMode>AsFile</FileDragMode>
 											<DataPath>СписокВыполненные</DataPath>
-											<RowPictureDataPath>СписокВыполненные.DefaultPicture</RowPictureDataPath>
+											<RowPictureDataPath>~СписокВыполненные.DefaultPicture</RowPictureDataPath>
 											<BorderColor>style:FormBackColor</BorderColor>
 											<SearchStringLocation>None</SearchStringLocation>
 											<ViewStatusLocation>None</ViewStatusLocation>
@@ -2945,7 +2959,7 @@
 						<v8:Type>xs:decimal</v8:Type>
 						<v8:NumberQualifiers>
 							<v8:Digits>12</v8:Digits>
-							<v8:FractionDigits>0</v8:FractionDigits>
+							<v8:FractionDigits>2</v8:FractionDigits>
 							<v8:AllowedSign>Any</v8:AllowedSign>
 						</v8:NumberQualifiers>
 					</Type>

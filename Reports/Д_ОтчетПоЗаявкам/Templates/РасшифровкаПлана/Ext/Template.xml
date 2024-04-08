@@ -39,10 +39,6 @@
 			<field>Субконто3</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Заявитель</dataPath>
-			<field>Заявитель</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>План1</dataPath>
 			<field>План1</field>
 			<title xsi:type="v8:LocalStringType">
@@ -118,18 +114,6 @@
 			<field>Содержание</field>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>АвторЗаписи</dataPath>
-			<field>АвторЗаписи</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>ПодразделениеЗаявителя</dataPath>
-			<field>ПодразделениеЗаявителя</field>
-			<role>
-				<dcscom:dimension>true</dcscom:dimension>
-				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
-			</role>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Документ</dataPath>
 			<field>Документ</field>
 			<role>
@@ -151,63 +135,69 @@
 				</v8:item>
 			</title>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВалютаКор</dataPath>
+			<field>ВалютаКор</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
-		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+		<query>ВЫБРАТЬ
 	-ВЫБОР
-		КОГДА БюджетныйОбороты.СценарийПлана = &amp;СценарийГод
-				ИЛИ БюджетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийГод)
-					И БюджетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
-			ТОГДА ЕСТЬNULL(БюджетныйОбороты.СуммаОборот, 0)
+		КОГДА УчетныйОбороты.СценарийПлана = &amp;СценарийГод
+				ИЛИ УчетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийГод)
+					И УчетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
+			ТОГДА ЕСТЬNULL(УчетныйОбороты.СуммаОборот, 0)
 		ИНАЧЕ 0
 	КОНЕЦ КАК План1,
 	-ВЫБОР
-		КОГДА БюджетныйОбороты.СценарийПлана = &amp;СценарийКвартал
-				ИЛИ БюджетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийКвартал)
-					И БюджетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
-			ТОГДА ЕСТЬNULL(БюджетныйОбороты.СуммаОборот, 0)
+		КОГДА УчетныйОбороты.СценарийПлана = &amp;СценарийКвартал
+				ИЛИ УчетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийКвартал)
+					И УчетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
+			ТОГДА ЕСТЬNULL(УчетныйОбороты.СуммаОборот, 0)
 		ИНАЧЕ 0
 	КОНЕЦ КАК План2,
 	-ВЫБОР
-		КОГДА БюджетныйОбороты.СценарийПлана = &amp;СценарийМесяц
-				ИЛИ БюджетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийМесяц)
-					И БюджетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
-			ТОГДА ЕСТЬNULL(БюджетныйОбороты.СуммаОборот, 0)
+		КОГДА УчетныйОбороты.СценарийПлана = &amp;СценарийМесяц
+				ИЛИ УчетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийМесяц)
+					И УчетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
+			ТОГДА ЕСТЬNULL(УчетныйОбороты.СуммаОборот, 0)
 		ИНАЧЕ 0
 	КОНЕЦ КАК План3,
 	-ВЫБОР
-		КОГДА БюджетныйОбороты.СценарийПлана = &amp;СценарийАктуальный
-				ИЛИ БюджетныйОбороты.СценарийПлана = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПланПоСЗ)
-				ИЛИ БюджетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийАктуальный)
-					И БюджетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
-			ТОГДА ЕСТЬNULL(БюджетныйОбороты.СуммаОборот, 0)
+		КОГДА УчетныйОбороты.СценарийПлана = &amp;СценарийАктуальный
+				ИЛИ УчетныйОбороты.СценарийПлана = &amp;СценарийПланПоСЗ
+				ИЛИ УчетныйОбороты.СценарийПлана.Родитель В (&amp;СценарийАктуальный)
+					И УчетныйОбороты.СценарийПлана.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)
+			ТОГДА ЕСТЬNULL(УчетныйОбороты.СуммаОборот, 0)
 		ИНАЧЕ 0
 	КОНЕЦ КАК План4,
-	БюджетныйОбороты.Субконто1 КАК Статья,
-	БюджетныйОбороты.Подразделение КАК Подразделение,
-	БюджетныйОбороты.Предприятия КАК Предприятия,
-	Бюджетный.Содержание,
-	Бюджетный.Регистратор КАК Документ,
+	УчетныйОбороты.Субконто1 КАК Статья,
+	УчетныйОбороты.Подразделение КАК Подразделение,
+	УчетныйОбороты.Предприятия КАК Предприятия,
+	Учетный.Содержание КАК Содержание,
+	Учетный.Регистратор КАК Документ,
 	ВЫБОР
-		КОГДА ТИПЗНАЧЕНИЯ(БюджетныйОбороты.КорСубконто2) = ТИП(Справочник.ОбъектыСтроительства)
-				ИЛИ ТИПЗНАЧЕНИЯ(БюджетныйОбороты.КорСубконто2) = ТИП(Справочник.ПредставительскиеРасходы)
-			ТОГДА БюджетныйОбороты.КорСубконто2
+		КОГДА ТИПЗНАЧЕНИЯ(УчетныйОбороты.КорСубконто2) = ТИП(Справочник.ОбъектыСтроительства)
+				ИЛИ ТИПЗНАЧЕНИЯ(УчетныйОбороты.КорСубконто2) = ТИП(Справочник.ПредставительскиеРасходы)
+			ТОГДА УчетныйОбороты.КорСубконто2
 		ИНАЧЕ НЕОПРЕДЕЛЕНО
 	КОНЕЦ КАК ИнвПроект,
-	0 КАК ПланНаСогласовании,
-	БюджетныйОбороты.ПодразделениеЗаявителя
+	0 КАК ПланНаСогласовании
 ИЗ
-	РегистрБухгалтерии.Бюджетный.Обороты(
+	РегистрБухгалтерии.Учетный.Обороты(
 			,
 			,
 			Запись,
-			Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.Касса))
-				ИЛИ Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.РасчетныйСчет))
-				ИЛИ Счет В (ЗНАЧЕНИЕ(ПланСчетов.Управленческий.КазнаОсн)),
+			Счет.Родитель.Код = "50"
+				ИЛИ Счет.Родитель.Код = "51",
 			,
 			(СценарийПлана = &amp;СценарийГод
 				ИЛИ СценарийПлана = &amp;СценарийКвартал
 				ИЛИ СценарийПлана = &amp;СценарийМесяц
-				ИЛИ СценарийПлана = ЗНАЧЕНИЕ(Справочник.СценарииПланирования.ПланПоСЗ)
+				ИЛИ СценарийПлана = &amp;СценарийПланПоСЗ
 				ИЛИ СценарийПлана = &amp;СценарийАктуальный
 				ИЛИ СценарийПлана В
 					(ВЫБРАТЬ
@@ -221,25 +211,18 @@
 							ИЛИ СценарииПланирования.Родитель = &amp;СценарийАктуальный)
 						И СценарииПланирования.ВлкючатьВПлан = ИСТИНА
 						И СценарииПланирования.ВидБюджета = ЗНАЧЕНИЕ(Перечисление.Д_ВидыБюджета.ВариантБюджета)))
-				И Субконто1 В ИЕРАРХИИ (&amp;Статья)
-				И (Предприятия В (&amp;Предприятия)
-					ИЛИ Заявитель В (&amp;Предприятия))
+				И ВЫРАЗИТЬ(Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств) В ИЕРАРХИИ (&amp;Статья)
+				И Предприятия В (&amp;Предприятия)
 				И ВЫБОР
 					КОГДА &amp;ИнвПроект = НЕОПРЕДЕЛЕНО
 						ТОГДА ИСТИНА
 					ИНАЧЕ КорСубконто2 В (&amp;ИнвПроект)
 				КОНЕЦ,
 			,
-			) КАК БюджетныйОбороты
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Бюджетный КАК Бюджетный
-			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Б_ПараметрыБюджета КАК Б_ПараметрыБюджета
-			ПО Бюджетный.Предприятия = Б_ПараметрыБюджета.Предприятие
-				И Бюджетный.СценарийПлана = Б_ПараметрыБюджета.Сценарий
-		ПО БюджетныйОбороты.Регистратор = Бюджетный.Регистратор
-			И БюджетныйОбороты.НомерСтроки = Бюджетный.НомерСтроки
-ГДЕ
-	(БюджетныйОбороты.Подразделение В ИЕРАРХИИ (&amp;Подразделение)
-			ИЛИ БюджетныйОбороты.ПодразделениеЗаявителя В ИЕРАРХИИ (&amp;Подразделение))
+			) КАК УчетныйОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Учетный КАК Учетный
+		ПО УчетныйОбороты.Регистратор = Учетный.Регистратор
+			И УчетныйОбороты.НомерСтроки = Учетный.НомерСтроки
 
 ОБЪЕДИНИТЬ ВСЕ
 
@@ -259,10 +242,9 @@
 			ТОГДА НЕОПРЕДЕЛЕНО
 		ИНАЧЕ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ИнвПроект
 	КОНЕЦ,
-	Д_ЗаявкаНаКорректировкуБюджетаСЗ.СуммаБДДС,
-	NULL
+	Д_ЗаявкаНаКорректировкуБюджетаСЗ.СуммаБДДС
 ИЗ
-	БизнесПроцесс.Согласование2 КАК Согласование2
+	Справочник.Согласование2 КАК Согласование2
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.Д_ЗаявкаНаКорректировкуБюджета.СЗ КАК Д_ЗаявкаНаКорректировкуБюджетаСЗ
 		ПО Согласование2.Заявка = Д_ЗаявкаНаКорректировкуБюджетаСЗ.Ссылка
 ГДЕ
@@ -272,37 +254,11 @@
 	И Д_ЗаявкаНаКорректировкуБюджетаСЗ.СтатьяБДДС В ИЕРАРХИИ(&amp;Статья)
 	И Д_ЗаявкаНаКорректировкуБюджетаСЗ.ЦФО В(&amp;Предприятия)
 	И ВЫБОР
-			КОГДА &amp;Подразделение = "Основное"
-					ИЛИ &amp;Подразделение = НЕОПРЕДЕЛЕНО
-				ТОГДА ИСТИНА
-			ИНАЧЕ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ВидДеятельности В ИЕРАРХИИ (&amp;Подразделение)
-		КОНЕЦ
-	И ВЫБОР
 			КОГДА &amp;ИнвПроект = НЕОПРЕДЕЛЕНО
 				ТОГДА ИСТИНА
 			ИНАЧЕ Д_ЗаявкаНаКорректировкуБюджетаСЗ.ИнвПроект В (&amp;ИнвПроект)
 		КОНЕЦ</query>
 	</dataSet>
-	<totalField>
-		<dataPath>План1</dataPath>
-		<expression>Сумма(План1)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>План2</dataPath>
-		<expression>Сумма(План2)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>План3</dataPath>
-		<expression>Сумма(План3)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>План4</dataPath>
-		<expression>Сумма(План4)</expression>
-	</totalField>
-	<totalField>
-		<dataPath>ПланНаСогласовании</dataPath>
-		<expression>Сумма(ПланНаСогласовании)</expression>
-	</totalField>
 	<parameter>
 		<name>Период</name>
 		<title xsi:type="v8:LocalStringType">
@@ -330,20 +286,7 @@
 			</v8:item>
 		</title>
 		<valueType>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Сотрудники</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ВнутренниеДоговоры</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
-			<v8:Type>xs:string</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Учредители</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ЦенныеБумаги</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Предприятия</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Контрагенты</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
-			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Д_СтатьиОборотки</v8:Type>
-			<v8:StringQualifiers>
-				<v8:Length>10</v8:Length>
-				<v8:AllowedLength>Variable</v8:AllowedLength>
-			</v8:StringQualifiers>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
 		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>false</useRestriction>
@@ -372,11 +315,6 @@
 		</title>
 		<valueType>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СтруктураПредприятия</v8:Type>
-			<v8:Type>xs:string</v8:Type>
-			<v8:StringQualifiers>
-				<v8:Length>8</v8:Length>
-				<v8:AllowedLength>Variable</v8:AllowedLength>
-			</v8:StringQualifiers>
 		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>false</useRestriction>
@@ -427,6 +365,9 @@
 				<v8:content>Сценарий актуальный</v8:content>
 			</v8:item>
 		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<expression>БюджетныйНаСервере.ПолучитьАктуальныйСценарий(&amp;Период.ДатаОкончания, Ложь)</expression>
@@ -440,6 +381,9 @@
 				<v8:content>Сценарий год</v8:content>
 			</v8:item>
 		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<expression>БюджетныйНаСервере.ПолучитьСценарийГод(&amp;Период.ДатаНачала)</expression>
@@ -453,6 +397,9 @@
 				<v8:content>Сценарий квартал</v8:content>
 			</v8:item>
 		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<expression>БюджетныйНаСервере.ПолучитьСценарийКвартал(&amp;Период.ДатаНачала)</expression>
@@ -466,6 +413,9 @@
 				<v8:content>Сценарий месяц</v8:content>
 			</v8:item>
 		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>true</useRestriction>
 		<expression>БюджетныйНаСервере.ПолучитьСценарийМесяц(&amp;Период.ДатаНачала)</expression>
@@ -481,9 +431,26 @@
 		</title>
 		<valueType>
 			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ПредставительскиеРасходы</v8:Type>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ОбъектыСтроительства</v8:Type>
 		</valueType>
 		<value xsi:nil="true"/>
 		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>СценарийПланПоСЗ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сценарий план по СЗ</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.СценарииПланирования</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<expression>Справочники.СценарииПланирования.ПланПоСЗ()</expression>
+		<availableAsField>false</availableAsField>
 	</parameter>
 	<settingsVariant>
 		<dcsset:name>Основной</dcsset:name>
@@ -545,6 +512,26 @@
 					<dcscor:parameter>Подразделение</dcscor:parameter>
 					<dcscor:value xsi:nil="true"/>
 					<dcsset:userSettingID>d33bd330-4893-4383-bbfd-46743569d7a2</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СценарийАктуальный</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СценарийГод</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СценарийКвартал</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>СценарийМесяц</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
 				</dcscor:item>
 				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
 					<dcscor:parameter>ИнвПроект</dcscor:parameter>

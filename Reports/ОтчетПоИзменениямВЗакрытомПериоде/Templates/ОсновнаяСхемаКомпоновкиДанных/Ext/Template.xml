@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГлобальнаяДатаЗапрета</dataPath>
+			<field>ГлобальнаяДатаЗапрета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Глобальная дата запрета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаУстановкиЗапрета</dataPath>
+			<field>ДатаУстановкиЗапрета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата установки запрета</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаИзменения</dataPath>
+			<field>ДатаИзменения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата изменения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Пользователь</dataPath>
+			<field>Пользователь</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаДокумента</dataPath>
+			<field>ДатаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	сабДатыЗапретаИзменения.Период КАК ДатаУстановки,
+	сабДатыЗапретаИзменения.ДатаЗапрета КАК ГлобальнаяДатаЗапрета
+ПОМЕСТИТЬ ВТ_ГлобальныеДатыЗапрета
+ИЗ
+	РегистрСведений.сабДатыЗапретаИзменения КАК сабДатыЗапретаИзменения
+ГДЕ
+	сабДатыЗапретаИзменения.Объект = ЗНАЧЕНИЕ(Перечисление.ВидыНазначенияДатЗапрета.ПоВсемОбъектам)
+	И сабДатыЗапретаИзменения.Пользователь = ЗНАЧЕНИЕ(Перечисление.ВидыНазначенияДатЗапрета.ПоВсемПользователям)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ИзмененияРеквизитовОбъектовИБ.Период КАК ДатаИзменения,
+	ИзмененияРеквизитовОбъектовИБ.Объект КАК Объект,
+	ИзмененияРеквизитовОбъектовИБ.Пользователь КАК Пользователь,
+	МИНИМУМ(ВТ_ГлобальныеДатыЗапрета.ДатаУстановки) КАК ДатаУстановки,
+	ИзмененияРеквизитовОбъектовИБ.Объект.Дата КАК ДатаДокумента
+ПОМЕСТИТЬ ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета
+ИЗ
+	РегистрСведений.ИзмененияРеквизитовОбъектовИБ КАК ИзмененияРеквизитовОбъектовИБ
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ГлобальныеДатыЗапрета КАК ВТ_ГлобальныеДатыЗапрета
+		ПО ИзмененияРеквизитовОбъектовИБ.Период &gt;= ВТ_ГлобальныеДатыЗапрета.ДатаУстановки
+
+СГРУППИРОВАТЬ ПО
+	ИзмененияРеквизитовОбъектовИБ.Период,
+	ИзмененияРеквизитовОбъектовИБ.Объект,
+	ИзмененияРеквизитовОбъектовИБ.Пользователь,
+	ИзмененияРеквизитовОбъектовИБ.Объект.Дата
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.Объект КАК Объект,
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.ДатаУстановки КАК ДатаУстановкиЗапрета,
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.ДатаИзменения КАК ДатаИзменения,
+	ВТ_ГлобальныеДатыЗапрета.ГлобальнаяДатаЗапрета КАК ГлобальнаяДатаЗапрета,
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.Пользователь КАК Пользователь,
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.ДатаДокумента КАК ДатаДокумента
+ИЗ
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета КАК ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ГлобальныеДатыЗапрета КАК ВТ_ГлобальныеДатыЗапрета
+		ПО ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.ДатаУстановки = ВТ_ГлобальныеДатыЗапрета.ДатаУстановки
+ГДЕ
+	ВТ_ИзмененияОбъектовИДатыУстановкиЗапрета.ДатаДокумента &lt;= КОНЕЦПЕРИОДА(ВТ_ГлобальныеДатыЗапрета.ГлобальнаяДатаЗапрета, ДЕНЬ)</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">FromBeginningOfThisYear</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+		<denyIncompleteValues>true</denyIncompleteValues>
+	</parameter>
+	<parameter>
+		<name>Дата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableValue>
+			<value xsi:type="xs:dateTime">2014-05-01T00:00:00</value>
+		</availableValue>
+		<inputParameters>
+			<dcscor:item>
+				<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ДЛФ=D</dcscor:value>
+			</dcscor:item>
+		</inputParameters>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Пользователь</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>2bfc0549-e8e4-42c5-b7ab-7050642d0728</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Пользователь</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Объект</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ДатаИзменения</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ГлобальнаяДатаЗапрета</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

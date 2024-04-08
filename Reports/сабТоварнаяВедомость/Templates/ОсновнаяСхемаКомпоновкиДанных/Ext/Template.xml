@@ -253,10 +253,6 @@
 			</attributeUseRestriction>
 		</field>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Цена</dataPath>
-			<field>Цена</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>СуммаНачальныйОстаток</dataPath>
 			<field>СуммаНачальныйОстаток</field>
 			<role>
@@ -342,6 +338,50 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОборотКтВес</dataPath>
+			<field>КоличествоОборотКтВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество оборот кт вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоКонечныйОстатокВес</dataPath>
+			<field>КоличествоКонечныйОстатокВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество конечный остаток вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНачальныйОстатокВес</dataPath>
+			<field>КоличествоНачальныйОстатокВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество начальный остаток вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОборотДтВес</dataPath>
+			<field>КоличествоОборотДтВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество оборот дт вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОстаткиИОбороты.Счет КАК Счет,
@@ -349,12 +389,24 @@
 	УчетныйОстаткиИОбороты.Субконто2 КАК Склад,
 	УчетныйОстаткиИОбороты.Предприятия КАК Предприятия,
 	УчетныйОстаткиИОбороты.Подразделение КАК Подразделение,
-	УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток КАК КоличествоНачальныйОстаток,
-	УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток КАК КоличествоКонечныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток, 0)
+		ИНАЧЕ ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК КоличествоНачальныйОстатокВес,
+	ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток, 0) КАК КоличествоНачальныйОстаток,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток, 0)
+		ИНАЧЕ ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК КоличествоКонечныйОстатокВес,
+	ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток, 0) КАК КоличествоКонечныйОстаток,
 	УчетныйОстаткиИОбороты.Подразделение.Родитель КАК ГруппаПодразделений,
 	ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Код КАК КодНоменклатуры,
 	ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).ЕдиницаИзмерения КАК ЕдИзмНоменклатуры,
+	0 КАК КоличествоОборотДтВес,
 	0 КАК КоличествоОборотДт,
+	0 КАК КоличествоОборотКтВес,
 	0 КАК КоличествоОборотКт,
 	0 КАК СуммаОборотКт,
 	0 КАК СуммаОборотДт,
@@ -394,11 +446,23 @@
 	УчетныйОбороты.Подразделение,
 	0,
 	0,
+	0,
+	0,
 	УчетныйОбороты.Подразделение.Родитель,
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Код,
 	ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).ЕдиницаИзмерения,
-	УчетныйОбороты.КоличествоОборотДт,
-	УчетныйОбороты.КоличествоОборотКт,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(УчетныйОбороты.КоличествоОборотДт, 0)
+		ИНАЧЕ ЕСТЬNULL(УчетныйОбороты.КоличествоОборотДт, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ,
+	ЕСТЬNULL(УчетныйОбороты.КоличествоОборотДт, 0),
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(УчетныйОбороты.КоличествоОборотКт, 0)
+		ИНАЧЕ ЕСТЬNULL(УчетныйОбороты.КоличествоОборотКт, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ,
+	ЕСТЬNULL(УчетныйОбороты.КоличествоОборотКт, 0),
 	УчетныйОбороты.СуммаОборотКт,
 	УчетныйОбороты.СуммаОборотДт,
 	НоменклатураПоставщикаСрезПоследних.Контрагент,
@@ -1143,6 +1207,146 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПрочиеДвиженияВес</dataPath>
+			<field>ПрочиеДвиженияВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочие движения вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоОборотВес</dataPath>
+			<field>КоличествоОборотВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество оборот вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВозвратыВес</dataPath>
+			<field>ВозвратыВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Возвраты вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПриходВес</dataPath>
+			<field>ПриходВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасходВес</dataPath>
+			<field>РасходВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоступленияВес</dataPath>
+			<field>ПоступленияВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступления вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РеализацииВес</dataPath>
+			<field>РеализацииВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Реализации вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВнутренниеПеремещенияВес</dataPath>
+			<field>ВнутренниеПеремещенияВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Внутренние перемещения вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПереводВИнгредиентыВес</dataPath>
+			<field>ПереводВИнгредиентыВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевод в ингредиенты вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СписанияВес</dataPath>
+			<field>СписанияВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списания вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПереводНоменклатурыВес</dataPath>
+			<field>ПереводНоменклатурыВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перевод номенклатуры вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеремещенияМеждуОПВес</dataPath>
+			<field>ПеремещенияМеждуОПВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Перемещения между ОПВес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВыпускВес</dataPath>
+			<field>ВыпускВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выпуск вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВПроизводствоВес</dataPath>
+			<field>ВПроизводствоВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>В производство вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОбороты.КоличествоОборот КАК КоличествоОборот,
@@ -1321,6 +1525,7 @@
 	ТИПЗНАЧЕНИЯ(УчетныйОбороты.Регистратор) КАК ВидДокумента,
 	УчетныйОбороты.Период КАК Период,
 	УчетныйОбороты.Субконто3 КАК МОЛ
+ПОМЕСТИТЬ ВТ_Данные
 ИЗ
 	РегистрБухгалтерии.Учетный.Обороты(
 			,
@@ -1333,7 +1538,121 @@
 			Предприятия В (&amp;ДоступныеПредприятия)
 				И СценарийПлана = &amp;Сценарий,
 			,
-			) КАК УчетныйОбороты</query>
+			) КАК УчетныйОбороты
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.КоличествоОборот, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.КоличествоОборот, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК КоличествоОборотВес,
+	ЕСТЬNULL(ВТ_Данные.КоличествоОборот, 0) КАК КоличествоОборот,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Приход, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Приход, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ПриходВес,
+	ЕСТЬNULL(ВТ_Данные.Приход, 0) КАК Приход,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Расход, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Расход, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК РасходВес,
+	ЕСТЬNULL(ВТ_Данные.Расход, 0) КАК Расход,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Поступления, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Поступления, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ПоступленияВес,
+	ЕСТЬNULL(ВТ_Данные.Поступления, 0) КАК Поступления,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Реализации, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Реализации, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК РеализацииВес,
+	ЕСТЬNULL(ВТ_Данные.Реализации, 0) КАК Реализации,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.ВнутренниеПеремещения, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.ВнутренниеПеремещения, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ВнутренниеПеремещенияВес,
+	ЕСТЬNULL(ВТ_Данные.ВнутренниеПеремещения, 0) КАК ВнутренниеПеремещения,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.ПереводВИнгредиенты, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.ПереводВИнгредиенты, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ПереводВИнгредиентыВес,
+	ЕСТЬNULL(ВТ_Данные.ПереводВИнгредиенты, 0) КАК ПереводВИнгредиенты,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Списания, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Списания, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК СписанияВес,
+	ЕСТЬNULL(ВТ_Данные.Списания, 0) КАК Списания,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.ПрочиеДвижения, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.ПрочиеДвижения, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ПрочиеДвиженияВес,
+	ЕСТЬNULL(ВТ_Данные.ПрочиеДвижения, 0) КАК ПрочиеДвижения,
+	ВТ_Данные.Счет КАК Счет,
+	ВТ_Данные.Номенклатура КАК Номенклатура,
+	ВТ_Данные.Склад КАК Склад,
+	ВТ_Данные.Подразделение КАК Подразделение,
+	ВТ_Данные.Предприятия КАК Предприятия,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Возвраты, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Возвраты, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ВозвратыВес,
+	ЕСТЬNULL(ВТ_Данные.Возвраты, 0) КАК Возвраты,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.ПереводНоменклатуры, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.ПереводНоменклатуры, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ПереводНоменклатурыВес,
+	ЕСТЬNULL(ВТ_Данные.ПереводНоменклатуры, 0) КАК ПереводНоменклатуры,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.ПеремещенияМеждуОП, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.ПеремещенияМеждуОП, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ПеремещенияМеждуОПВес,
+	ЕСТЬNULL(ВТ_Данные.ПеремещенияМеждуОП, 0) КАК ПеремещенияМеждуОП,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.Выпуск, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.Выпуск, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ВыпускВес,
+	ЕСТЬNULL(ВТ_Данные.Выпуск, 0) КАК Выпуск,
+	ВТ_Данные.СуммаОборот КАК СуммаОборот,
+	ВТ_Данные.СуммаПриход КАК СуммаПриход,
+	ВТ_Данные.СуммаРасход КАК СуммаРасход,
+	ВТ_Данные.СуммаПоступления КАК СуммаПоступления,
+	ВТ_Данные.СуммаРеализации КАК СуммаРеализации,
+	ВТ_Данные.СуммаВнутренниеПеремещения КАК СуммаВнутренниеПеремещения,
+	ВТ_Данные.СуммаПереводВИнгредиенты КАК СуммаПереводВИнгредиенты,
+	ВТ_Данные.СуммаСписания КАК СуммаСписания,
+	ВТ_Данные.СуммаПрочиеДвижения КАК СуммаПрочиеДвижения,
+	ВТ_Данные.СуммаВозвраты КАК СуммаВозвраты,
+	ВТ_Данные.СуммаПереводНоменклатуры КАК СуммаПереводНоменклатуры,
+	ВТ_Данные.СуммаПеремещенияМеждуОП КАК СуммаПеремещенияМеждуОП,
+	ВТ_Данные.СуммаВыпуск КАК СуммаВыпуск,
+	ВТ_Данные.Регистратор КАК Регистратор,
+	ВТ_Данные.Серия КАК Серия,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(ВТ_Данные.ВПроизводство, 0)
+		ИНАЧЕ ЕСТЬNULL(ВТ_Данные.ВПроизводство, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(ВТ_Данные.Номенклатура КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК ВПроизводствоВес,
+	ЕСТЬNULL(ВТ_Данные.ВПроизводство, 0) КАК ВПроизводство,
+	ВТ_Данные.СуммаВПроизводство КАК СуммаВПроизводство,
+	ВТ_Данные.ВидДокумента КАК ВидДокумента,
+	ВТ_Данные.Период КАК Период,
+	ВТ_Данные.МОЛ КАК МОЛ
+ИЗ
+	ВТ_Данные КАК ВТ_Данные</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных3</name>
@@ -1620,6 +1939,26 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоКонечныйОстатокРегВес</dataPath>
+			<field>КоличествоКонечныйОстатокРегВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество конечный остаток рег вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНачальныйОстатокРегВес</dataPath>
+			<field>КоличествоНачальныйОстатокРегВес</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество начальный остаток рег вес</v8:content>
+				</v8:item>
+			</title>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
 		<query>ВЫБРАТЬ
 	УчетныйОстаткиИОбороты.Счет КАК Счет,
@@ -1627,8 +1966,18 @@
 	УчетныйОстаткиИОбороты.Субконто2 КАК Склад,
 	УчетныйОстаткиИОбороты.Предприятия КАК Предприятия,
 	УчетныйОстаткиИОбороты.Подразделение КАК Подразделение,
-	УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток КАК КоличествоНачальныйОстатокРег,
-	УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток КАК КоличествоКонечныйОстатокРег,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток, 0)
+		ИНАЧЕ ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК КоличествоНачальныйОстатокРегВес,
+	ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоНачальныйОстаток, 0) КАК КоличествоНачальныйОстатокРег,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0) = 0
+			ТОГДА ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток, 0)
+		ИНАЧЕ ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток, 0) * ЕСТЬNULL(ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Вес, 0)
+	КОНЕЦ КАК КоличествоКонечныйОстатокРегВес,
+	ЕСТЬNULL(УчетныйОстаткиИОбороты.КоличествоКонечныйОстаток, 0) КАК КоличествоКонечныйОстатокРег,
 	УчетныйОстаткиИОбороты.Подразделение.Родитель КАК ГруппаПодразделений,
 	ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).Код КАК КодНоменклатуры,
 	ВЫРАЗИТЬ(УчетныйОстаткиИОбороты.Субконто1 КАК Справочник.Номенклатура).ЕдиницаИзмерения КАК ЕдИзмНоменклатуры,
@@ -1777,6 +2126,27 @@
 					<v8:item>
 						<v8:lang>ru</v8:lang>
 						<v8:content>ЧДЦ=2</v8:content>
+					</v8:item>
+				</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ПрочиеДвиженияВес</dataPath>
+		<expression>ПрочиеДвиженияВес - ПоступленияВес - ВозвратыВес - РеализацииВес - ВнутренниеПеремещенияВес - ПереводВИнгредиентыВес - СписанияВес -ПеремещенияМеждуОПВес - ПереводНоменклатурыВес - ВыпускВес - ВПроизводствоВес</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Прочие движения вес</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>ЧДЦ=3</v8:content>
 					</v8:item>
 				</dcscor:value>
 			</dcscor:item>
@@ -1946,6 +2316,88 @@
 		<dataPath>СуммаВПроизводство</dataPath>
 		<expression>Сумма(СуммаВПроизводство)</expression>
 	</totalField>
+	<totalField>
+		<dataPath>ВнутренниеПеремещенияВес</dataPath>
+		<expression>Сумма(ВнутренниеПеремещенияВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВозвратыВес</dataPath>
+		<expression>Сумма(ВозвратыВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВыпускВес</dataPath>
+		<expression>Сумма(ВыпускВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОборотВес</dataPath>
+		<expression>Сумма(КоличествоОборотВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОборотДтВес</dataPath>
+		<expression>Сумма(КоличествоОборотДтВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоОборотКтВес</dataPath>
+		<expression>Сумма(КоличествоОборотКтВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПереводВИнгредиентыВес</dataPath>
+		<expression>Сумма(ПереводВИнгредиентыВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПереводНоменклатурыВес</dataPath>
+		<expression>Сумма(ПереводНоменклатурыВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПеремещенияМеждуОПВес</dataPath>
+		<expression>Сумма(ПеремещенияМеждуОПВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПоступленияВес</dataPath>
+		<expression>Сумма(ПоступленияВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПриходВес</dataPath>
+		<expression>Сумма(ПриходВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПрочиеДвиженияВес</dataPath>
+		<expression>Сумма(ПрочиеДвиженияВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасходВес</dataPath>
+		<expression>Сумма(РасходВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РеализацииВес</dataPath>
+		<expression>Сумма(РеализацииВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СписанияВес</dataPath>
+		<expression>Сумма(СписанияВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоКонечныйОстатокВес</dataPath>
+		<expression>ЕСТЬNULL(ВычислитьВыражение("Сумма(КоличествоНачальныйОстатокВес)", "Серия" , "Группировка" , "Текущая", "Текущая"), ВычислитьВыражение("Сумма(КоличествоНачальныйОстатокВес)", "Номенклатура" , "Группировка", "Текущая", "Текущая")) + ВычислитьВыражение("Сумма(КоличествоОборотВес)",  , , "Первая", "Текущая")</expression>
+		<group>Регистратор</group>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНачальныйОстатокВес</dataPath>
+		<expression>ЕСТЬNULL(ВычислитьВыражение("Сумма(КоличествоНачальныйОстатокВес)", "Серия" , "Группировка" , "Текущая", "Текущая"), ВычислитьВыражение("Сумма(КоличествоНачальныйОстатокВес)", "Номенклатура" , "Группировка", "Текущая", "Текущая")) + ВычислитьВыражение("Сумма(КоличествоОборотВес)",  , , "Первая", "Предыдущая")</expression>
+		<group>Регистратор</group>
+	</totalField>
+	<totalField>
+		<dataPath>ВПроизводствоВес</dataPath>
+		<expression>Сумма(ВПроизводствоВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНачальныйОстатокВес</dataPath>
+		<expression>Сумма(КоличествоНачальныйОстатокВес)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоКонечныйОстатокВес</dataPath>
+		<expression>Сумма(КоличествоКонечныйОстатокВес)</expression>
+	</totalField>
 	<parameter>
 		<name>НачалоПериода</name>
 		<title xsi:type="v8:LocalStringType">
@@ -2063,16 +2515,31 @@
 					<dcsset:field>КоличествоНачальныйОстаток</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоНачальныйОстатокВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Поступления</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПоступленияВес</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Реализации</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РеализацииВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Возвраты</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВозвратыВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ВнутренниеПеремещения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВнутренниеПеремещенияВес</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
@@ -2080,26 +2547,53 @@
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПеремещенияМеждуОПВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ПереводВИнгредиенты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПереводВИнгредиентыВес</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:use>false</dcsset:use>
 					<dcsset:field>ПереводНоменклатуры</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>ПереводНоменклатурыВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Выпуск</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВыпускВес</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ВПроизводство</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВПроизводствоВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>Списания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СписанияВес</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>ПрочиеДвижения</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПрочиеДвиженияВес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>КоличествоКонечныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоКонечныйОстатокВес</dcsset:field>
 				</dcsset:item>
 				<dcsset:item xsi:type="dcsset:SelectedItemField">
 					<dcsset:field>СуммаНачальныйОстаток</dcsset:field>

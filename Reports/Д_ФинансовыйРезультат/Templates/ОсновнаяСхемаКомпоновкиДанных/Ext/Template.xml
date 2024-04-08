@@ -285,11 +285,14 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Контрагент</v8:content>
+					<v8:content>Доп. аналитика (Субкотно3)</v8:content>
 				</v8:item>
 			</title>
 			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Проекты</v8:Type>
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КлючиАналитикиБюджетов</v8:Type>
 			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -329,6 +332,16 @@
 				<v8:item>
 					<v8:lang>ru</v8:lang>
 					<v8:content>Сортировка порядок</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяЗатратДляФильтра</dataPath>
+			<field>СтатьяЗатратДляФильтра</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья затрат для фильтра</v8:content>
 				</v8:item>
 			</title>
 		</field>
@@ -527,7 +540,7 @@
 		КОГДА УчетныйОбороты.Счет.Код = "90.02"
 			ТОГДА УчетныйОбороты.Субконто2
 		КОГДА УчетныйОбороты.Счет.Код = "90.01"
-			ТОГДА "Выручка"
+			ТОГДА УчетныйОбороты.Субконто2
 		ИНАЧЕ NULL
 	КОНЕЦ,
 	ВЫБОР
@@ -887,7 +900,8 @@
 	Данные.ПодразделениеКор КАК ПодразделениеКор,
 	Данные.Субконто3 КАК Субконто3,
 	Данные.Регистратор КАК Регистратор,
-	1 КАК СортировкаПорядок
+	1 КАК СортировкаПорядок,
+	NULL КАК СтатьяЗатратДляФильтра
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -916,7 +930,8 @@
 	Данные.ПодразделениеКор,
 	Данные.Субконто3,
 	Данные.Регистратор,
-	1
+	1,
+	NULL
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -945,7 +960,8 @@
 	Данные.ПодразделениеКор,
 	Данные.Субконто3,
 	Данные.Регистратор,
-	1
+	1,
+	NULL
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -974,7 +990,8 @@
 	Данные.ПодразделениеКор,
 	Данные.Субконто3,
 	Данные.Регистратор,
-	1
+	1,
+	NULL
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1002,7 +1019,8 @@
 	Данные.ПодразделениеКор,
 	Данные.Субконто3,
 	Данные.Регистратор,
-	1
+	1,
+	NULL
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1030,7 +1048,8 @@
 	Данные.ПодразделениеКор,
 	Данные.Субконто3,
 	Данные.Регистратор,
-	2
+	2,
+	NULL
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1060,7 +1079,8 @@
 	Данные.ПодразделениеКор,
 	NULL,
 	Данные.Регистратор,
-	3
+	3,
+	NULL
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1089,7 +1109,8 @@
 	Данные.ПодразделениеКор,
 	NULL,
 	Данные.Регистратор,
-	3
+	3,
+	Данные.КоммерческаяСтатья
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1118,7 +1139,8 @@
 	Данные.ПодразделениеКор,
 	NULL,
 	Данные.Регистратор,
-	1
+	1,
+	Данные.КоммерческаяСтатья
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1147,7 +1169,8 @@
 	Данные.ПодразделениеКор,
 	NULL,
 	Данные.Регистратор,
-	4
+	4,
+	Данные.КоммерческаяСтатья
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1177,7 +1200,8 @@
 	Данные.ПодразделениеКор,
 	NULL,
 	Данные.Регистратор,
-	1
+	1,
+	Данные.КоммерческаяСтатья
 ИЗ
 	Данные КАК Данные
 ГДЕ
@@ -1208,13 +1232,15 @@
 	Данные.ПодразделениеКор,
 	NULL,
 	Данные.Регистратор,
-	4
+	4,
+	Данные.КоммерческаяСтатья
 ИЗ
 	Данные КАК Данные
 ГДЕ
 	Данные.Счет.Код = "90.03"
-	И ВЫРАЗИТЬ(Данные.КоммерческаяСтатья КАК Справочник.СтатьиЗатрат).Наименование = "НДС"
-	И &amp;ОтражатьИзменениеЧА = ИСТИНА</query>
+	И (ВЫРАЗИТЬ(Данные.КоммерческаяСтатья КАК Справочник.СтатьиЗатрат).Наименование = "НДС" ИЛИ Данные.КоммерческаяСтатья = Данные.Предприятия.УчетнаяПолитика.СтатьяНДС)
+	И &amp;ОтражатьИзменениеЧА = ИСТИНА
+	И НЕ Данные.Номенклатура = ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка)</query>
 	</dataSet>
 	<dataSet xsi:type="DataSetQuery">
 		<name>НаборДанных2</name>
@@ -1436,7 +1462,7 @@
 			<title xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Контрагент</v8:content>
+					<v8:content>Доп. аналитика (Субкотно3)</v8:content>
 				</v8:item>
 			</title>
 			<role>
@@ -1444,7 +1470,10 @@
 				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
 			</role>
 			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Проекты</v8:Type>
 				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КлючиАналитикиБюджетов</v8:Type>
 			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
@@ -5077,23 +5106,6 @@
 		</parameter>
 	</template>
 	<template>
-		<name>Макет16</name>
-		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
-			<dcsat:item xsi:type="dcsat:TableRow">
-				<dcsat:tableCell>
-					<dcsat:item xsi:type="dcsat:Field">
-						<dcsat:value xsi:type="dcscor:Parameter">Подразделение</dcsat:value>
-					</dcsat:item>
-				</dcsat:tableCell>
-			</dcsat:item>
-		</template>
-		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
-			<dcsat:name>Подразделение</dcsat:name>
-			<dcsat:expression>"Подразделение: " + Выбор Когда Представление(Подразделение) = "" Тогда "&lt;...&gt;" Иначе Представление(Подразделение)  Конец
-</dcsat:expression>
-		</parameter>
-	</template>
-	<template>
 		<name>Макет18</name>
 		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
 			<dcsat:item xsi:type="dcsat:TableRow">
@@ -6822,10 +6834,6 @@
 		<template>Макет15</template>
 	</fieldTemplate>
 	<fieldTemplate>
-		<field>Подразделение</field>
-		<template>Макет16</template>
-	</fieldTemplate>
-	<fieldTemplate>
 		<field>Номенклатура.Покупатель</field>
 		<template>Макет18</template>
 	</fieldTemplate>
@@ -8380,9 +8388,14 @@
 						</dcsset:groupItems>
 						<dcsset:filter>
 							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:use>false</dcsset:use>
 								<dcsset:left xsi:type="dcscor:Field">Порядок</dcsset:left>
 								<dcsset:comparisonType>Equal</dcsset:comparisonType>
 								<dcsset:right xsi:type="xs:string">Реализация</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+								<dcsset:comparisonType>Filled</dcsset:comparisonType>
 							</dcsset:item>
 						</dcsset:filter>
 						<dcsset:order>
@@ -8521,6 +8534,10 @@
 								<dcsset:left xsi:type="dcscor:Field">Порядок</dcsset:left>
 								<dcsset:comparisonType>Equal</dcsset:comparisonType>
 								<dcsset:right xsi:type="xs:string">Постоянные расходы (косвенные)</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">Номенклатура</dcsset:left>
+								<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
 							</dcsset:item>
 						</dcsset:filter>
 						<dcsset:order>

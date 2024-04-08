@@ -44,7 +44,7 @@
 			<ConfigurationExtensionPurpose>AddOn</ConfigurationExtensionPurpose>
 			<KeepMappingToExtendedConfigurationObjectsByIDs>true</KeepMappingToExtendedConfigurationObjectsByIDs>
 			<NamePrefix>УУ_</NamePrefix>
-			<ConfigurationExtensionCompatibilityMode>Version8_3_17</ConfigurationExtensionCompatibilityMode>
+			<ConfigurationExtensionCompatibilityMode>Version8_3_21</ConfigurationExtensionCompatibilityMode>
 			<DefaultRunMode>ManagedApplication</DefaultRunMode>
 			<UsePurposes>
 				<v8:Value xsi:type="app:ApplicationUsePurpose">PlatformApplication</v8:Value>
@@ -54,7 +54,7 @@
 				<xr:Item xsi:type="xr:MDObjectRef">Role.УУ_ОсновнаяРоль</xr:Item>
 			</DefaultRoles>
 			<Vendor>САБ ООО</Vendor>
-			<Version>2.5.5</Version>
+			<Version>2.5.8</Version>
 			<DefaultLanguage>Language.Русский</DefaultLanguage>
 			<BriefInformation>
 				<v8:item>
@@ -84,6 +84,7 @@
 			<Subsystem>Покупки</Subsystem>
 			<Subsystem>Склад</Subsystem>
 			<Subsystem>БанкИКасса</Subsystem>
+			<Subsystem>сабКадровыйУчет</Subsystem>
 			<StyleItem>ЦветБаннераБежевый</StyleItem>
 			<StyleItem>ЦветФонаБлоковИнформационнойПанели</StyleItem>
 			<StyleItem>ДосьеВторостепеннаяНадписьЦвет</StyleItem>
@@ -113,6 +114,11 @@
 			<StyleItem>ШрифтЗаголовкаРазделаМонитораРуководителя</StyleItem>
 			<StyleItem>ЦветФонаНекорректногоКонтрагента</StyleItem>
 			<StyleItem>РамкаСеткиТаблицы</StyleItem>
+			<StyleItem>КритичноеСобытиеНадежностьБанковЦветФона</StyleItem>
+			<StyleItem>ЦветТекстаОтложенаПриПроверкеГосИС</StyleItem>
+			<StyleItem>ЦветТекстаТребуетВниманияГосИС</StyleItem>
+			<StyleItem>ЦветТекстаПроблемаГосИС</StyleItem>
+			<StyleItem>ВысокийПриоритетДокумента</StyleItem>
 			<Style>УУ_СтильУправленка</Style>
 			<CommonPicture>СостоянияДокумента</CommonPicture>
 			<CommonPicture>ЗаполнитьФорму</CommonPicture>
@@ -167,6 +173,15 @@
 			<CommonPicture>УУ_ОформлениеФлажокКрест</CommonPicture>
 			<CommonPicture>ВидыОпераций</CommonPicture>
 			<CommonPicture>сабМодульУправленка</CommonPicture>
+			<CommonPicture>НеЧислиласьОбнаруженаПриПроверкеГосИС</CommonPicture>
+			<CommonPicture>СуммаГосИС</CommonPicture>
+			<CommonPicture>СтатусыПроверкиНаличияГосИС</CommonPicture>
+			<CommonPicture>ПроверкаНаличияНеВыполняласьГосИС</CommonPicture>
+			<CommonPicture>УспешнаяПроверкаНаличияГосИС</CommonPicture>
+			<CommonPicture>НеудачнаяПроверкаНаличияГосИС</CommonPicture>
+			<CommonPicture>ОтложенаПриПроверкеНаличияГосИС</CommonPicture>
+			<CommonPicture>ЖурналПроводок</CommonPicture>
+			<CommonPicture>сабЛогоСАБ</CommonPicture>
 			<SessionParameter>ДопПараметры</SessionParameter>
 			<SessionParameter>ДоступныеИсточники</SessionParameter>
 			<SessionParameter>ДоступныеНаправления</SessionParameter>
@@ -226,6 +241,7 @@
 			<Role>допОтключитьКонтрольОстатков</Role>
 			<Role>УУ_ЧтениеБезПросмотра</Role>
 			<Role>ПросмотрСвязанныеДокументы</Role>
+			<Role>сабФинансистРасширенный</Role>
 			<CommonTemplate>МакетКрасивый</CommonTemplate>
 			<CommonTemplate>РезультатыСогласования</CommonTemplate>
 			<CommonTemplate>МакетБДДС</CommonTemplate>
@@ -294,7 +310,6 @@
 			<CommonModule>РаботаСФайламиСлужебныйКлиент</CommonModule>
 			<CommonModule>УправлениеДоступом</CommonModule>
 			<CommonModule>РаботаСПоследовательностямиСобытия</CommonModule>
-			<CommonModule>УправлениеПечатьюБП</CommonModule>
 			<CommonModule>ДополнительныеОтчетыИОбработки</CommonModule>
 			<CommonModule>РегламентныеЗаданияРасширения</CommonModule>
 			<CommonModule>ПодключаемыеКоманды</CommonModule>
@@ -308,6 +323,7 @@
 			<CommonModule>ЭлектронноеВзаимодействиеПереопределяемый</CommonModule>
 			<CommonModule>СтруктураПодчиненностиСлужебный</CommonModule>
 			<CommonModule>МенеджерОборудованияМаркировкаКлиентСервер</CommonModule>
+			<CommonModule>ДополнительныеОтчетыИОбработкиПереопределяемый</CommonModule>
 			<ExchangePlan>СинхронизацияДанныхЧерезУниверсальныйФормат</ExchangePlan>
 			<SettingsStorage>ХранилищеВариантовОтчетов</SettingsStorage>
 			<FunctionalOption>сабПодсистемаКазначейство</FunctionalOption>
@@ -317,6 +333,9 @@
 			<FunctionalOption>сабОперативныйРежимРаботы</FunctionalOption>
 			<FunctionalOption>сабОбменСЛогистическимиПрограммами</FunctionalOption>
 			<FunctionalOption>сабКонтрольПоСрокамГодности</FunctionalOption>
+			<FunctionalOption>сабБронированиеТоваровВЗаказах</FunctionalOption>
+			<FunctionalOption>сабИспользоватьПодразделенияКонтрагента</FunctionalOption>
+			<FunctionalOption>сабПодсистемаУправленческийУчет</FunctionalOption>
 			<DefinedType>сабОбъектыБизнесПроцессов</DefinedType>
 			<DefinedType>сабЗаявкиБизнесПроцессов</DefinedType>
 			<DefinedType>ИсполнительЗадач</DefinedType>
@@ -334,6 +353,9 @@
 			<CommonCommand>УУ_ОтправитьПоЭлектроннойПочте</CommonCommand>
 			<CommonCommand>ОценкаПроизводительностиФормаСпискаПоступлениеТоваровУслуг</CommonCommand>
 			<CommonCommand>ОценкаПроизводительностиФормаСпискаСчетНаОплатуПоставщика</CommonCommand>
+			<CommonCommand>УстановитьОсновнуюОрганизацию</CommonCommand>
+			<CommonCommand>саб_ДокументыНоменклатурыКоманда</CommonCommand>
+			<CommonCommand>сабСправкаИПоддержка</CommonCommand>
 			<CommandGroup>Взаимодействия</CommandGroup>
 			<CommandGroup>КоммерческиеОтчеты</CommandGroup>
 			<CommandGroup>ОтчетыБюджетные</CommandGroup>
@@ -362,6 +384,9 @@
 			<Constant>ИспользоватьТабличныеФормыБанковскихДокументов</Constant>
 			<Constant>сабОбменСЛогистическимиПрограммами</Constant>
 			<Constant>сабКонтрольПоСрокамГодности</Constant>
+			<Constant>сабБронированиеТоваровВЗаказах</Constant>
+			<Constant>сабИспользоватьПодразделенияКонтрагента</Constant>
+			<Constant>сабПодсистемаУправленческийУчет</Constant>
 			<CommonForm>ФормаКонстант</CommonForm>
 			<CommonForm>СтруктураПодчиненныхДокументов</CommonForm>
 			<CommonForm>ФормаПроверкиОбъектовБД</CommonForm>
@@ -385,9 +410,9 @@
 			<CommonForm>СабНастройкаПечатиКомплекта</CommonForm>
 			<CommonForm>СвязанныеДокументы</CommonForm>
 			<CommonForm>СохранениеПечатнойФормы</CommonForm>
+			<CommonForm>ЗагрузкаКодовМаркировкиИС</CommonForm>
 			<Catalog>Банки</Catalog>
 			<Catalog>БанковскиеСчета</Catalog>
-			<Catalog>Валюты</Catalog>
 			<Catalog>ВидыДокументовФизическихЛиц</Catalog>
 			<Catalog>ВидыКонтактнойИнформации</Catalog>
 			<Catalog>ВидыНалоговИПлатежейВБюджет</Catalog>
@@ -397,7 +422,6 @@
 			<Catalog>ГрафикиДоставки</Catalog>
 			<Catalog>ГруппыПользователей</Catalog>
 			<Catalog>Д_ВидыВнутреннихДокументов</Catalog>
-			<Catalog>Д_Должности</Catalog>
 			<Catalog>Д_МаршрутыЗаявки</Catalog>
 			<Catalog>Д_СтатьиОборотки</Catalog>
 			<Catalog>Д_ТипыПрикрепляемыхДокументов</Catalog>
@@ -491,6 +515,13 @@
 			<Catalog>ОбъектыВыполненияРабот</Catalog>
 			<Catalog>Должности</Catalog>
 			<Catalog>сабСтрокиГрафиковДоговоров</Catalog>
+			<Catalog>сабКатегорииКлиентов</Catalog>
+			<Catalog>ВариантыОтчетов</Catalog>
+			<Catalog>ДополнительныеОтчетыИОбработки</Catalog>
+			<Catalog>ИдентификаторыОбъектовМетаданных</Catalog>
+			<Catalog>ИдентификаторыОбъектовРасширений</Catalog>
+			<Catalog>Валюты</Catalog>
+			<Catalog>СпособыОтраженияЗарплатыВБухУчете</Catalog>
 			<Document>ПлатежноеПоручение</Document>
 			<Document>БП_Оповещение</Document>
 			<Document>БП_Поручение</Document>
@@ -637,6 +668,10 @@
 			<Document>АктОРасхожденияхПолученный</Document>
 			<Document>КоммерческоеПредложение</Document>
 			<Document>ЗаявлениеОВвозеТоваров</Document>
+			<Document>АктОбОказанииПроизводственныхУслуг</Document>
+			<Document>СведенияОбУдержанномНДФЛ</Document>
+			<Document>ПодготовкаКПередачеОС</Document>
+			<Document>ВосстановлениеНДСПоОбъектамНедвижимости</Document>
 			<DocumentJournal>ЖурналОпераций</DocumentJournal>
 			<DocumentJournal>Деньги</DocumentJournal>
 			<Enum>Б_ВидыДеятельностиПредприятия</Enum>
@@ -798,6 +833,13 @@
 			<Enum>СтатусОплатыСчета</Enum>
 			<Enum>УдалитьЮрФизЛицо</Enum>
 			<Enum>ВидыГосударственныхОрганов</Enum>
+			<Enum>ТипыОплат</Enum>
+			<Enum>СтатусыПроверкиНаличияПродукцииИС</Enum>
+			<Enum>ВидыОперацийНачисленияЗП</Enum>
+			<Enum>КаналыСбытаКонтрагентов</Enum>
+			<Enum>ВидыОперацийПоЗарплате</Enum>
+			<Enum>ВидыНазначенияДатЗапрета</Enum>
+			<Enum>сабВариантыРаспределенияЗатратЗакрытия</Enum>
 			<Report>БП_ЗаданияПодчиненным</Report>
 			<Report>ГД_Источники_Рег_Учетный</Report>
 			<Report>ГД_ПланФактПоЦФО</Report>
@@ -845,6 +887,14 @@
 			<Report>сабОтчетПоРезервам</Report>
 			<Report>сабИзмененияВВыпусках</Report>
 			<Report>ОстаткиДенежныхСредств</Report>
+			<Report>сабСреднедневнойРасход</Report>
+			<Report>ОтчетПоСырьевойПотребностиПроизводства</Report>
+			<Report>сабРасшифровкаПлана</Report>
+			<Report>ОтчетПоДоговорам</Report>
+			<Report>ОтчетПоИзменениямВЗакрытомПериоде</Report>
+			<Report>сабОперационныеРасходы</Report>
+			<Report>ОтчетПоБронированиюТоваров</Report>
+			<Report>КадровыеДвиженияСотрудников</Report>
 			<DataProcessor>УЧ_Полный</DataProcessor>
 			<DataProcessor>GDriveМенеджер</DataProcessor>
 			<DataProcessor>АвтоФормированиеЗаказовПоПотребностям</DataProcessor>
@@ -870,6 +920,11 @@
 			<DataProcessor>ВыгрузкаВШедекс</DataProcessor>
 			<DataProcessor>РегламентныеИФоновыеЗадания</DataProcessor>
 			<DataProcessor>ОбменСРиглой</DataProcessor>
+			<DataProcessor>сабСборЗаказов</DataProcessor>
+			<DataProcessor>ВыгрузкаВЛогопорт</DataProcessor>
+			<DataProcessor>сабВыгрузка_Neon_Настройки</DataProcessor>
+			<DataProcessor>Выгрузка_Союзпищепром_Настройки</DataProcessor>
+			<DataProcessor>сабСправкаИПоддержка</DataProcessor>
 			<InformationRegister>PushПользователиID</InformationRegister>
 			<InformationRegister>АвтосохранениеДанных</InformationRegister>
 			<InformationRegister>АдресныеСокращения</InformationRegister>
@@ -919,7 +974,6 @@
 			<InformationRegister>ОбъектыДляРегистрацииИзмененийИБ</InformationRegister>
 			<InformationRegister>ОрганизацииПодразделений</InformationRegister>
 			<InformationRegister>ОсновныеДолжностиПредприятия</InformationRegister>
-			<InformationRegister>ОстаткиПродукцииВЕТИС</InformationRegister>
 			<InformationRegister>Ответственные</InformationRegister>
 			<InformationRegister>ОтветственныеЗаПроверкуСправочников</InformationRegister>
 			<InformationRegister>ОтслеживаниеЗаявок</InformationRegister>
@@ -976,8 +1030,17 @@
 			<InformationRegister>УчетнаяПолитика</InformationRegister>
 			<InformationRegister>сабСтатусыЗаявокНаОплату</InformationRegister>
 			<InformationRegister>СтатусыДокументов</InformationRegister>
+			<InformationRegister>сабМаршрутыДоставки</InformationRegister>
+			<InformationRegister>БронированиеТоваров</InformationRegister>
+			<InformationRegister>ОтветственныеЛица</InformationRegister>
+			<InformationRegister>ДатыЗапретаИзменения</InformationRegister>
+			<InformationRegister>сабДатыЗапретаИзменения</InformationRegister>
+			<InformationRegister>ДанныеПроизводственногоКалендаря</InformationRegister>
+			<AccumulationRegister>НачисленияСотрудникам</AccumulationRegister>
 			<ChartOfCharacteristicTypes>ВидыСубконто</ChartOfCharacteristicTypes>
 			<ChartOfCharacteristicTypes>ВидыСубконтоХозрасчетные</ChartOfCharacteristicTypes>
+			<ChartOfCharacteristicTypes>РазделыДатЗапретаИзменения</ChartOfCharacteristicTypes>
+			<ChartOfCharacteristicTypes>сабРазделыДатЗапретаИзменения</ChartOfCharacteristicTypes>
 			<ChartOfAccounts>Учетный</ChartOfAccounts>
 			<ChartOfAccounts>Хозрасчетный</ChartOfAccounts>
 			<AccountingRegister>Учетный</AccountingRegister>

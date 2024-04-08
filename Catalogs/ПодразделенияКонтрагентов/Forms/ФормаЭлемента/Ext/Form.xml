@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcssch="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.16">
 	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
 	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
 	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
@@ -83,6 +83,55 @@
 				</Button>
 			</ChildItems>
 		</UsualGroup>
+		<UsualGroup name="Группа3" id="161">
+			<Width>43</Width>
+			<Group>AlwaysHorizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа3РасширеннаяПодсказка" id="162"/>
+			<ChildItems>
+				<InputField name="Регион" id="155">
+					<DataPath>Объект.Регион</DataPath>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="РегионКонтекстноеМеню" id="156"/>
+					<ExtendedTooltip name="РегионРасширеннаяПодсказка" id="157"/>
+					<Events>
+						<Event name="StartChoice">РегионНачалоВыбора</Event>
+					</Events>
+				</InputField>
+				<InputField name="НаселенныйПункт" id="158">
+					<DataPath>Объект.НаселенныйПункт</DataPath>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Город</v8:content>
+						</v8:item>
+					</Title>
+					<TitleLocation>Left</TitleLocation>
+					<ChoiceButton>false</ChoiceButton>
+					<ClearButton>true</ClearButton>
+					<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+					<TextEdit>false</TextEdit>
+					<ContextMenu name="НаселенныйПунктКонтекстноеМеню" id="159"/>
+					<ExtendedTooltip name="НаселенныйПунктРасширеннаяПодсказка" id="160"/>
+				</InputField>
+				<Button name="ПодобратьГородРегион" id="163">
+					<Type>Hyperlink</Type>
+					<CommandName>Form.Command.ПодобратьГородРегион</CommandName>
+					<ExtendedTooltip name="ПодобратьГородРегионРасширеннаяПодсказка" id="164"/>
+				</Button>
+				<Button name="ЗаполнитьГородРегион" id="165">
+					<Type>Hyperlink</Type>
+					<Width>7</Width>
+					<AutoMaxWidth>false</AutoMaxWidth>
+					<CommandName>Form.Command.ЗаполнитьГородРегион</CommandName>
+					<ExtendedTooltip name="ЗаполнитьГородРегионРасширеннаяПодсказка" id="166"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
 		<UsualGroup name="КоординатыКоманда" id="52">
 			<Title>
 				<v8:item>
@@ -146,6 +195,12 @@
 			<EditMode>EnterOnInput</EditMode>
 			<ContextMenu name="ОтветственныйКонтекстноеМеню" id="14"/>
 			<ExtendedTooltip name="ОтветственныйРасширеннаяПодсказка" id="15"/>
+		</InputField>
+		<InputField name="Закупщик" id="152">
+			<DataPath>Объект.Закупщик</DataPath>
+			<ExtendedEditMultipleValues>true</ExtendedEditMultipleValues>
+			<ContextMenu name="ЗакупщикКонтекстноеМеню" id="153"/>
+			<ExtendedTooltip name="ЗакупщикРасширеннаяПодсказка" id="154"/>
 		</InputField>
 		<UsualGroup name="Группа8" id="16">
 			<Behavior>Usual</Behavior>
@@ -667,6 +722,36 @@
 				</v8:item>
 			</ToolTip>
 			<Action>ПоказатьНаКартеКоординаты</Action>
+		</Command>
+		<Command name="ПодобратьГородРегион" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подобрать город регион</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПодобратьГородРегион</Action>
+		</Command>
+		<Command name="ЗаполнитьГородРегион" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить по адресу</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заполнить город регион</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗаполнитьГородРегион</Action>
 		</Command>
 	</Commands>
 </Form>
